@@ -25,7 +25,7 @@ Ghulame Mutjaba
 - I added a trello bot to discord (previously discussed that we would use Trello over Taiga since Taiga is not free.
 
 Sipho Sikakane
-- I did look at Travis CI and it seems like it's also a good way to manage continuous integration
+- I did look at Travis CI and it seems like it's also a good way to manage continuous integration.
 
 Ioanni Balassis
 -We also wanted to discuss what is a good time to have all future meetings.
