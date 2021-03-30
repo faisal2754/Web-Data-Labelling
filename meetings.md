@@ -9,20 +9,29 @@ Faisal Saleem
 
 **Everyone agrees**
 
-Faisal Saleem.
--I'm not familiar with workflows but I think that is a method of continuous integration, but not sure so I think we should research.
+Faisal Saleem
+- I'm not familiar with workflows but I think that is a method of continuous integration, but not sure so I think we should research.
 
-Langiwe Mwale.
--There's a lot of things we need to keep track of so I think we should open up a Trello Board.
+Langiwe Mwale
+- There's a lot of things we need to keep track of so I think we should open up a Trello Board.
 
-Aharon Cohen.
--Did we discuss in the last meeting what exactly we were going to use so we could get started
+Aharon Cohen
+- Did we discuss in the last meeting what exactly we were going to use so we could get started.
 
-Ioanni Balassis.
--No we just said that we were gonna decide on those based off what the client said he wanted to implement first
+Ioanni Balassis
+- No we just said that we were gonna decide on those based off what the client said he wanted to implement first.
 
-Ghulame Mutjaba.
--I added a trello bot to discord (previously discussed that we would use Trello over Taiga since Taiga is not free
+Ghulame Mutjaba
+- I added a trello bot to discord (previously discussed that we would use Trello over Taiga since Taiga is not free.
 
-Sipho Sikakane.
--I did look at Travis CI and it seems like it's also a good
+Sipho Sikakane
+- I did look at Travis CI and it seems like it's also a good way to manage continuous integration
+
+Ioanni Balassis
+-We also wanted to discuss what is a good time to have all future meetings.
+
+**We discussed a future time to be around 16:30 on Tuesdays and left future meetings to tomorrows meetings**
+
+
+
+
