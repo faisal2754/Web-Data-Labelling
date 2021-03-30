@@ -26,9 +26,8 @@ Sipho Sikakane
 - I did look at Travis CI and it seems like it's also a good way to manage continuous integration.
 
 Ioanni Balassis
--We also wanted to discuss what is a good time to have all future meetings.
+- We also wanted to discuss what is a good time to have all future meetings.
 
-Testing this thingvndjvnjdsvdnjvn
 
 **We discussed a future time to be around 16:30 on Tuesdays and left future meetings to tomorrows meetings**
 
