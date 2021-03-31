@@ -1,4 +1,8 @@
-## Meeting 30 March 2021 16:30
+# Meetings
+
+### Daily Scrum: 9:30am
+
+## Daily Scrum Meeting 30 March 2021 16:30
 
 Scrum meeting to discuss what we've learnt in terms of databases and Travis CI
 
@@ -32,6 +36,17 @@ Ioanni Balassis
 **We discussed a future time to be around 16:30 on Tuesdays and left future meetings to tomorrows meetings**
 
 ## Daily Scrum Meeting 31 March 2021 14:00
+
+- Discussed when would be a suitable time for everyone to hold Daily Scrum meetings.
+- Sipho: Possibility of using Google Calendar for linked reminders for daily meetings
+- Faisal: Not sure between TravisCI and CircleCI, everyone doing research
+
+**We all have a basic idea of how our project will be structured. The tools used will be:**
+- Github Workflow (with Kanban-type implementation)
+- Some basic form of automation (once base of project is set up)
+- TravisCI/CircleCI
+- Coveralls
+
 
 
 
