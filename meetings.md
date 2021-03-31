@@ -41,7 +41,7 @@ Ioanni Balassis
 - Sipho: Possibility of using Google Calendar for linked reminders for daily meetings
 - Faisal: Not sure between TravisCI and CircleCI, everyone doing research
 
-**We all have a basic idea of how our project will be structured. The tools used will be:**
+**We all have an initial idea of how our project will be structured. The tools used will be:**
 - Github Workflow (with Kanban-type implementation)
 - Some basic form of automation (once base of project is set up)
 - TravisCI/CircleCI
