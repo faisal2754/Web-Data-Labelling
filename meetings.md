@@ -47,6 +47,21 @@ Ioanni Balassis
 - TravisCI/CircleCI
 - Coveralls
 
+## Meeting with Mr Jiahao Huo 1 April 2021 14:00
 
-
-
+**Mr Jiahao Huo Answering our Questions**
+- Web app intially and then transition to a mobile app later on
+- No examples that we can compare it to but as long as the user has good experience
+- Label Images preferably for now and then later on can add videos and Text etc.
+- Predefined options on what labellers want and option for other (Preferable)
+- Sign up, Login and Registration and front Page, navigation to jobs (create and view jobs), Shell of what can come in future
+- Mainly about Frontend functionality
+- Not necessary to separate the accounts from each other, interchangably
+- Free most of the week for meeting so just message for meeting
+- Thinking about rewards, people can get credits and based on the task there can be a total funding
+- Task needs to be finished for rewards can be accepted
+- All labelling is done on the platform, show pictures and choice areas, clients must set the predefined labels
+- Quality Assurance needs to be a factor (Rating System potentially), Reputation = More Rewards
+- Preprocessing by trialing people before they start the job
+- Assign Maximum payments on the job descriptions, check that the job has to be done before payments are given
+- People with a better reputation get a small extra multiplier for credits
