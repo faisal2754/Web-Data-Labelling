@@ -65,3 +65,14 @@ Ioanni Balassis
 - Preprocessing by trialing people before they start the job
 - Assign Maximum payments on the job descriptions, check that the job has to be done before payments are given
 - People with a better reputation get a small extra multiplier for credits
+
+## Daily Scrum Meeting 2 April 2021 9:00
+
+**Tristan couldn't make it due to Wifi being down**
+
+### Discussion
+- Concerns on templating and whether or not its going to be the way forward or not
+- Talks about React and whether or not it will let us design a nice front-end
+- Jono found some nice looking UI for React so seems to be viable
+- Backend (Faisal, Sipho, Ghulame, Tristan) is learning on how to connect Travis CI to coveralls to the repo as well as linking firebase and Next.js
+- Jono gonna try get the frontend UI by Sunday
