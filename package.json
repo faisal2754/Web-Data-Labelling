@@ -4,7 +4,8 @@
   "description": "Someone update this thing.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint **/*.js --fix",
+    "lint-fix": "prettier-eslint **/*.js --write"
   },
   "repository": {
     "type": "git",
