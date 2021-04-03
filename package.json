@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/faisal2754/SDP-Data-Labelling/issues"
   },
-  "homepage": "https://github.com/faisal2754/SDP-Data-Labelling#readme"
+  "homepage": "https://github.com/faisal2754/SDP-Data-Labelling#readme",
+  "devDependencies": {
+    "eslint": "^7.23.0"
+  }
 }
