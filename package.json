@@ -8,11 +8,16 @@
     "lint-fix": "prettier-eslint **/*.js --write",
     "prepare": "husky install"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm test"
+    }
+  },
   "lint-staged": {
     "*.js": [
       "npm run lint-fix",
-      "git add",
-      "eslint --cache --fix"
+      "git add"
     ],
     "*.{js,css,md}": "prettier --write"
   },
