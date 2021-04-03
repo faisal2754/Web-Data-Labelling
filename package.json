@@ -5,18 +5,16 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint **/*.js --fix",
-    "lint-fix": "prettier-eslint **/*.js --write"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "lint-fix": "prettier-eslint **/*.js --write",
+    "prepare": "husky install"
   },
   "lint-staged": {
     "*.js": [
       "npm run lint-fix",
-      "git add"
-    ]
+      "git add",
+      "eslint --cache --fix"
+    ],
+    "*.{js,css,md}": "prettier --write"
   },
   "repository": {
     "type": "git",
