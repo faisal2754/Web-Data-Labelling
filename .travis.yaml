@@ -6,15 +6,5 @@ language:
 node_js:
   - node
 
-script:
-  - echo 'Build starts!!'
-  - echo 'Installing Deps!'
-  - npm ci -D
-  - echo 'Testing!'
-  - npm run test
-
-install:
-  - npm ci
-
 notifications:
   email: true
