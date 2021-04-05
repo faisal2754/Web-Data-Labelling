@@ -1,0 +1,17 @@
+sudo: false
+
+language:
+  - node_js
+
+node_js:
+  - node
+
+script:
+  - echo 'Build starts!!'
+  - echo 'Installing Deps!'
+  - npm ci
+  - echo 'Testing!'
+  - npm run test
+
+notifications:
+  email: true
