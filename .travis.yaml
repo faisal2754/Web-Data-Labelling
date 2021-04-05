@@ -1,6 +1,8 @@
 sudo: false
 
-language: node_js
+language:
+  - node_js
+  - "lts/*"
 
 script:
   - echo 'Build starts!!'
