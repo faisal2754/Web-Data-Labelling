@@ -6,7 +6,11 @@
   "scripts": {
     "lint": "eslint **/*.js --fix",
     "lint-fix": "prettier-eslint **/*.js --write",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:coveralls": "jest --coverage && coveralls < coverage/lcov.info"
   },
   "husky": {
     "hooks": {
@@ -33,6 +37,7 @@
   },
   "homepage": "https://github.com/faisal2754/SDP-Data-Labelling#readme",
   "devDependencies": {
+    "coveralls": "^3.1.0",
     "eslint": "^7.23.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
