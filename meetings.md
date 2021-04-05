@@ -76,3 +76,16 @@ Ioanni Balassis
 - Jono found some nice looking UI for React so seems to be viable
 - Backend (Faisal, Sipho, Ghulame, Tristan) is learning on how to connect Travis CI to coveralls to the repo as well as linking firebase and Next.js
 - Jono gonna try get the frontend UI by Sunday
+
+## Daily Scrum Meeting 5th April 2021 9:30
+- Faisal checked backend open source software alternatives to Firebase. Brought up issues of cloud functions that firebases utilizes. Going to try implement travisci and coveralls
+- Sipho looked into implementing travisCI into projects. Are we going to set up project build on github pages ? Faisal said yes 
+- Tristan said we going to do everything as our separate groups and only split after once everyone is comfortable with the work
+- Langiwe looked into react and using with bootstrap and bulma frameworks. Will look into designing UIs with react
+- Faisal and sipho said you can design good UIs with React 
+- Ioanni mentioned SASS being a framework to look into
+- group had a discussion about commiting to a framework
+- sipho mentioned looking into marketplace designs
+- Possibility of doing both meetings with jiahao and tarshen at the same time
+- Jono will push his progress his made with react
+- Sipho and faisal will look into travis 
