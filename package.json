@@ -7,10 +7,10 @@
     "lint": "eslint **/*.js --fix",
     "lint-fix": "prettier-eslint **/*.js --write",
     "prepare": "husky install",
-    "test": "npx jest",
+    "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "test:coveralls": "npx jest --coverage && coveralls < coverage/lcov.info"
+    "test:coveralls": "jest --coverage && coveralls < coverage/lcov.info"
   },
   "husky": {
     "hooks": {
