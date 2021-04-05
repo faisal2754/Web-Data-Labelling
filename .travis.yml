@@ -14,4 +14,4 @@ script:
   - npm run test:coveralls
 
 notifications:
-  email: true
+  email: false
