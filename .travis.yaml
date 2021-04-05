@@ -2,12 +2,14 @@ sudo: false
 
 language:
   - node_js
-  - "lts/*"
+
+node_js:
+  - node
 
 script:
   - echo 'Build starts!!'
   - echo 'Installing Deps!'
-  - npm ci
+  - npm ci -D
   - echo 'Testing!'
   - npm run test
 
