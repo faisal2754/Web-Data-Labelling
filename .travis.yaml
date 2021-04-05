@@ -3,6 +3,10 @@ sudo: false
 language: node_js
 
 script:
+  - echo 'Build starts!!'
+  - echo 'Installing Deps!'
+  - npm ci
+  - echo 'Testing!'
   - npm run test
 
 install:
