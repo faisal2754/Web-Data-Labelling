@@ -13,5 +13,7 @@ script:
   - echo 'Testing!'
   - npm run test:coveralls
 
+coveralls: true
+
 notifications:
   email: false
