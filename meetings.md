@@ -92,37 +92,37 @@ Ioanni Balassis
 
 ## Daily Scrum Meeting 6th April 2021 9:30
 
-Aharon Cohen:
+Aharon Cohen (Frontend):
 - Tasks for the day: Front-end meet to install and go through different react kits to decide which is best 
 - Impediments: Possible payment required to use these kits, time availability
 
-Langiwe Mwale:
+Langiwe Mwale (Frontend):
 
 - Task for the Day: Front end testing of different Frameworks for UI design
 - Impediments: The difficulty of adding new components to the UI
 
-Ioanni Balassis:
+Ioanni Balassis (Frontend):
 - Tasks for the day:  Front-end, test different react kits together in order to choose a single one for the rest of the project
 - Impediments:Possibility of payments needed for these kits. 
 
-Jonathan Nunes:
+Jonathan Nunes (Frontend):
 - Tasks for the day: Front-end meet to install and go through different react kits to decide which is best.
 - Impediments: Possible payment required to use these kits
 
-Faisal Saleem: 
+Faisal Saleem (Backend): 
 - Tasks for the day: Implementing Coveralls on to the Github build, Database Alternatives
 - Impediments:  Lack of Time, Tutoring
 
-Ghulame Mujtaba Arbi: 
+Ghulame Mujtaba Arbi (Backend): 
 - Tasks for the day: Coveralls, Travis CI.
 - Impediments: Need sleep
 
-Tristan Bester:
+Tristan Bester (Backend):
 
 - Tasks for the day: Setup Coveralls and ensure both TravisCI and Coveralls work. Research database alternatives.
 - Impediments: Time.
 
-Sipho Sikakane.(Scrum master)
+Sipho Sikakane.(Scrum master/Backend)
 
 - Tasks for the day: Implementing Coveralls on to the Github build, Database Alternatives
 - Impediments:  Lack of Time, Tutoring
