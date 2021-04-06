@@ -82,10 +82,48 @@ Ioanni Balassis
 - Sipho looked into implementing travisCI into projects. Are we going to set up project build on github pages ? Faisal said yes 
 - Tristan said we going to do everything as our separate groups and only split after once everyone is comfortable with the work
 - Langiwe looked into react and using with bootstrap and bulma frameworks. Will look into designing UIs with react
-- Faisal and sipho said you can design good UIs with React 
+- Faisal and Sipho said you can design good UIs with React 
 - Ioanni mentioned SASS being a framework to look into
 - group had a discussion about commiting to a framework
 - sipho mentioned looking into marketplace designs
 - Possibility of doing both meetings with jiahao and tarshen at the same time
 - Jono will push his progress his made with react
 - Sipho and faisal will look into travis 
+
+## Daily Scrum Meeting 6th April 2021 9:30
+
+Aharon Cohen:
+- Tasks for the day: Front-end meet to install and go through different react kits to decide which is best 
+- Impediments: Possible payment required to use these kits, time availability
+
+Langiwe Mwale:
+
+- Task for the Day: Front end testing of different Frameworks for UI design
+- Impediments: The difficulty of adding new components to the UI
+
+Ioanni Balassis:
+- Tasks for the day:  Front-end, test different react kits together in order to choose a single one for the rest of the project
+- Impediments:Possibility of payments needed for these kits. 
+
+Jonathan Nunes:
+- Tasks for the day: Front-end meet to install and go through different react kits to decide which is best.
+- Impediments: Possible payment required to use these kits
+
+Faisal Saleem: 
+- Tasks for the day: Implementing Coveralls on to the Github build, Database Alternatives
+- Impediments:  Lack of Time, Tutoring
+
+Ghulame Mujtaba Arbi: 
+- Tasks for the day: Coveralls, Travis CI.
+- Impediments: Need sleep
+
+Tristan Bester:
+
+- Tasks for the day: Setup Coveralls and ensure both TravisCI and Coveralls work. Research database alternatives.
+- Impediments: Time.
+
+Sipho Sikakane.(Scrum master)
+
+- Tasks for the day: Implementing Coveralls on to the Github build, Database Alternatives
+- Impediments:  Lack of Time, Tutoring
+
