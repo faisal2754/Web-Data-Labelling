@@ -11,7 +11,7 @@ script:
   - echo 'Installing Deps!'
   - npm ci
   - echo 'Testing!'
-  - npm run test
+  - npm run test:coveralls
 
 notifications:
   email: false
