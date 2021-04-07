@@ -13,5 +13,8 @@ script:
   - echo 'Testing!'
   - npm run test:coveralls
 
+after_script:
+  - COVERALLS_REPO_TOKEN=tiwzMgpOeg9d3piiQYRN4uohsRMUx99wd npm run test:coveralls
+
 notifications:
   email: false
