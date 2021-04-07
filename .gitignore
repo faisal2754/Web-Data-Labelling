@@ -32,5 +32,3 @@
 *.app
 
 node_modules
-
-coverage
