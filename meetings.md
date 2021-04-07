@@ -127,3 +127,38 @@ Sipho Sikakane.(Scrum master/Backend)
 - Tasks for the day: Implementing Coveralls on to the Github build, Database Alternatives
 - Impediments:  Lack of Time, Tutoring
 
+## Daily Scrum Meeting 7th April 2021 9:30
+
+Aharon Cohen (Frontend):
+- Tasks for the day: Front-end meet to install and go through different react kits to decide which is best 
+- Impediments: Possible payment required to use these kits, time availability
+
+Langiwe Mwale (Frontend):
+
+- Task for the Day: Front end testing of different Frameworks for UI design
+- Impediments: The difficulty of adding new components to the UI
+
+Ioanni Balassis (Frontend):
+- Tasks for the day:  Front-end, test different react kits together in order to choose a single one for the rest of the project
+- Impediments:Possibility of payments needed for these kits. 
+
+Jonathan Nunes (Frontend):
+- Tasks for the day: Front-end meet to install and go through different react kits to decide which is best.
+- Impediments: Possible payment required to use these kits
+
+Faisal Saleem (Backend): 
+- Tasks for the day: Implementing CodeCov/Coveralls on to the Github build, Database Alternatives
+- Impediments:  Lack of Time, Tutoring
+
+Ghulame Mujtaba Arbi (Backend): 
+- Tasks for the day: Coveralls/CodeCov, Travis CI.
+- Impediments: Need sleep
+
+Tristan Bester (Backend):
+- Tasks for the day: Setup and research MongoDB and CovCode/Coveralls.
+- Impediments: Time.
+
+Sipho Sikakane.(Scrum master/Backend)
+
+- Tasks for the day: Setting up MongoDB and CodeCov
+- Impediments: Scheduling times for setting up everything
