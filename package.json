@@ -9,7 +9,7 @@
     "prepare": "husky install",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage --config ./jest.config.json",
+    "test:coverage": "jest --coverage",
     "test:coveralls": "coveralls < coverage/lcov.info"
   },
   "husky": {
