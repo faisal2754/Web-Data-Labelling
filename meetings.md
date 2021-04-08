@@ -162,3 +162,44 @@ Sipho Sikakane.(Scrum master/Backend)
 
 - Tasks for the day: Setting up MongoDB and CodeCov
 - Impediments: Scheduling times for setting up everything
+
+## Daily Scrum Meeting 8th April 2021 9:30
+
+Aharon Cohen (Frontend):
+- Tasks for the day: Front-end meet to install and go through different react kits to decide which is best 
+- Impediments: Possible payment required to use these kits, time availability
+
+Langiwe Mwale (Frontend):
+
+- Task for the Day: Front end testing of different Frameworks for UI design
+- Impediments: The difficulty of adding new components to the UI
+
+Ioanni Balassis (Frontend):
+- Tasks for the day:  Front-end, test different react kits together in order to choose a single one for the rest of the project
+- Impediments:Possibility of payments needed for these kits. 
+
+Jonathan Nunes (Frontend):
+- Tasks for the day: Design menus, decide which pages to have and how to structure them.
+- Impediments: Time, conflicting university work.
+
+Faisal Saleem (Backend): 
+- Tasks for the day: Implement Authentication with MongoDB.
+- Impediments:  Lack of Time, Tutoring
+
+Ghulame Mujtaba Arbi (Backend): 
+- Tasks for the day: Implement Authentication with MongoDB.
+- Impediments: Need sleep
+
+Tristan Bester (Backend):
+- Tasks for the day: Implement Authentication with MongoDB.
+- Impediments: Time.
+
+Sipho Sikakane.(Scrum master/Backend)
+
+- Tasks for the day: Authenticate MongoDB.
+- Impediments: Loads of work on top of lectures
+
+Ioanni Balassis:
+- Tasks for the day: spend time on design structure of the pages
+- Impediments: lack of time due to other subjects labs due
+
