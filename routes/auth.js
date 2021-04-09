@@ -3,9 +3,9 @@ const User = require('../model/User')
 // const Joi = require('joi')
 
 // const schema = Joi.object({
-//     email: Joi.string().email().required(),
-//     password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{6,30}$')),
-//     repeat_password: Joi.ref('password'),
+//   email: Joi.string().email().required(),
+//   password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{6,30}$')),
+//   repeat_password: Joi.ref('password'),
 // })
 
 router.post('/register', async (req, res) => {
