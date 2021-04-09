@@ -46,7 +46,6 @@
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-promise": "^4.3.1",
     "eslint-plugin-react": "^7.23.1",
-    "express": "^4.17.1",
     "husky": "^6.0.0",
     "jest": "^26.6.3",
     "lint-staged": "^10.5.4",
@@ -54,5 +53,8 @@
     "prettier": "^2.2.1",
     "prettier-eslint": "^12.0.0",
     "prettier-eslint-cli": "^5.0.1"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
   }
 }
