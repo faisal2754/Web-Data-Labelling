@@ -1,16 +1,16 @@
-import express, { json } from 'express'
-import { connect } from 'mongoose'
-import { config } from 'dotenv'
+const express = require('express')
+const app = express()
+const mongoose = require('mongoose')
+const dotenv = require('dotenv')
+
+dotenv.config()
 
 // Import routes
-import authRoute from './routes/auth'
-const app = express()
-
-config()
+const authRoute = require('./routes/auth')
 
 // Connect to DB
 try {
-  connect(
+  mongoose.connect(
     process.env.DB_CONNECT,
     { useUnifiedTopology: true, useNewUrlParser: true },
     () => console.log('connected to db!')
@@ -20,7 +20,7 @@ try {
 }
 
 // Middleware
-app.use(json())
+app.use(express.json())
 
 // Route middleware?
 app.use('/api/user', authRoute)
