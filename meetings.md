@@ -203,3 +203,43 @@ Ioanni Balassis:
 - Tasks for the day: spend time on design structure of the pages
 - Impediments: lack of time due to other subjects labs due
 
+## Daily Scrum Meeting 9th April 2021 9:30
+
+Aharon Cohen (Frontend):
+- Tasks for the day: Implement validation for login and registration. 
+- Impediments: Time, other work
+
+Langiwe Mwale (Frontend):
+
+- Task for the Day: Front end testing of different Frameworks for UI design
+- Impediments: The difficulty of adding new components to the UI
+
+Ioanni Balassis (Frontend):
+- Tasks for the day:  Front-end, test different react kits together in order to choose a single one for the rest of the project
+- Impediments:Possibility of payments needed for these kits. 
+
+Jonathan Nunes (Frontend):
+- Tasks for the day: Design and replace logo in header and footer. Remove social links in footer. Replace App Store images (Coming soon images). Login and Register Validation.
+- Impediments: Time, conflicting university work.
+
+Faisal Saleem (Backend): 
+- Tasks for the day: Add test cases for MongoDB and ensure testing and building is functioning correctly.
+- Impediments:  Time
+
+Ghulame Mujtaba Arbi (Backend): 
+- Tasks for the day: Add test cases for MongoDB and ensure testing and building is functioning correctly.
+- Impediments: Need sleep
+
+Tristan Bester (Backend):
+- Tasks for the day: Add test cases for MongoDB and ensure testing and building is functioning correctly.
+- Impediments: Time.
+
+Sipho Sikakane.(Scrum master/Backend)
+
+- Tasks for the day: Add test cases for MongoDB and ensure testing and building is functioning correctly.
+- Impediments: Loads of work on top of lectures
+
+Ioanni Balassis:
+- Tasks for the day: Validation
+- Impediments: lack of time due to other subjects labs due
+
