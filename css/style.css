@@ -662,6 +662,12 @@ ul.pagination .active a {
   background-repeat: no-repeat;
 }
 
+.bg-ml-footer {
+  background: url(../images/footer-landing.gif);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .navigation {
   padding: 20px 0;
 }
