@@ -1,28 +1,26 @@
-const router = require('express').Router()
-const User = require('../model/User')
-// const Joi = require('joi')
+const router = require("express").Router();
+const User = require("../models/User");
 
-// const schema = Joi.object({
-//   email: Joi.string().email().required(),
-//   password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{6,30}$')),
-//   repeat_password: Joi.ref('password'),
-// })
-
-router.post('/register', async (req, res) => {
-  // const { error, value } = schema.validate(req.body)
-  // res.send(error)
+router.post("/register", async (req, res) => {
   const user = new User({
     email: req.body.email,
     password: req.body.password,
-  })
+  });
   try {
-    const savedUser = await user.save()
-    res.send(savedUser)
+    const savedUser = await user.save();
+    res.send(savedUser);
   } catch (error) {
-    res.status(400).send(error)
+    res.status(400).send(error);
   }
-})
+});
 
-// router.post('/login');
+router.post("/login", async (req, res) => {
+  try {
+    const user = await User.findOne({ email: req.body.email });
+    res.send(user);
+  } catch (error) {
+    res.status(400).send(error);
+  }
+});
 
-module.exports = router
+module.exports = router;

@@ -7,10 +7,13 @@
     "lint": "eslint **/*.js --fix",
     "lint-fix": "prettier-eslint **/*.js --write",
     "prepare": "husky install",
-    "test": "jest",
+    "test": "./testing/testEnvSetup.sh && jest --no-cache  --detectOpenHandles --runInBand --forceExit",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "test:coveralls": "coveralls < coverage/lcov.info"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "husky": {
     "hooks": {
@@ -52,7 +55,8 @@
     "mongoose": "^5.12.3",
     "prettier": "^2.2.1",
     "prettier-eslint": "^12.0.0",
-    "prettier-eslint-cli": "^5.0.1"
+    "prettier-eslint-cli": "^5.0.1",
+    "supertest": "^6.1.3"
   },
   "dependencies": {
     "express": "^4.17.1"
