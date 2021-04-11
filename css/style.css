@@ -657,9 +657,10 @@ ul.pagination .active a {
 }
 
 .bg-ml {
-  background: url(../images/circuit3.gif);
+  background: url(../images/purple-animation.gif);
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 .bg-ml-footer {
