@@ -97,7 +97,7 @@ Aharon Cohen (Frontend):
 - Impediments: Possible payment required to use these kits, time availability
 
 Langiwe Mwale (Frontend):
-
+- Tasks completed Yesterday: Looked into react 
 - Task for the Day: Front end testing of different Frameworks for UI design
 - Impediments: The difficulty of adding new components to the UI
 
@@ -134,7 +134,7 @@ Aharon Cohen (Frontend):
 - Impediments: Possible payment required to use these kits, time availability
 
 Langiwe Mwale (Frontend):
-
+- Tasks completed Yesterday: Found various templates
 - Task for the Day: Front end testing of different Frameworks for UI design
 - Impediments: The difficulty of adding new components to the UI
 
@@ -170,7 +170,7 @@ Aharon Cohen (Frontend):
 - Impediments: Possible payment required to use these kits, time availability
 
 Langiwe Mwale (Frontend):
-
+- Tasks completed Yesterday: looked into different react frameworks for websites
 - Task for the Day: Front end testing of different Frameworks for UI design
 - Impediments: The difficulty of adding new components to the UI
 
@@ -210,7 +210,7 @@ Aharon Cohen (Frontend):
 - Impediments: Time, other work
 
 Langiwe Mwale (Frontend):
-
+- Tasks completed Yesterday: Added new branch to repo and removed unnecesary files
 - Task for the Day: Front end testing of different Frameworks for UI design
 - Impediments: The difficulty of adding new components to the UI
 
