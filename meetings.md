@@ -406,8 +406,7 @@ Sipho Sikakane.(Scrum master/Backend)
 - Tasks for the day: 
 - Impediments: Loads of work on top of lectures
 
-##Discussion
-
+## Discussion
 1. Fix product product backlog
 2. Fix sprint backlog
 3. Add fake sprint tasks
