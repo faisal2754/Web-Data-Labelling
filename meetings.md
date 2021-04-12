@@ -364,56 +364,14 @@ Sipho Sikakane.(Scrum master/Backend)
 - Tasks for the day: Add test cases for MongoDB and ensure testing and building is functioning correctly.
 - Impediments: Loads of work on top of lectures
 
-## Daily Scrum Meeting 12th April 2021 9:30
+## Sprint Retrospective/Review 12th April 2021 
 
-Aharon Cohen (Frontend):
-- Tasks completed yesterday: Implement validation for login and registration.
-- Tasks for the day: Edit meetings.md file 
-- Impediments: Time, other work, labs due
-
-Langiwe Mwale (Frontend):
-- Tasks completed Yesterday: Front end testing of different Frameworks for UI design
-- Task for the Day: Edit certain buttons on landing page
-- Impediments: The difficulty of adding new components to the UI
-
-Ioanni Balassis:
-- Tasks completed yesterday: Implement validation for login and registration.
-- Tasks for the day: Edit certain buttons on landing page
-- Impediments: lack of time due to other subjects labs due 
-
-Jonathan Nunes (Frontend):
-- Tasks completed yesterday: Design and replace logo in header and footer. Remove social links in footer. Replace App Store images (Coming soon images). Validation
-- Tasks for the day: Edit certain buttons on landing page
-- Impediments: Time, conflicting university work.
-
-Faisal Saleem (Backend):
-- Tasks completed yesterday: Add test cases for MongoDB and ensure testing and building is functioning correctly.
-- Tasks for the day: 
-- Impediments:  Time
-
-Ghulame Mujtaba Arbi (Backend): 
-- Tasks completed yesterday: Add test cases for MongoDB and ensure testing and building is functioning correctly..
-- Tasks for the day: 
-- Impediments: Need sleep
-
-Tristan Bester (Backend):
-- Tasks completed yesterday: Add test cases for MongoDB and ensure testing and building is functioning correctly
-- Tasks for the day: 
-- Impediments: Time.
-
-Sipho Sikakane.(Scrum master/Backend)
-- Tasks completed yesterday: Add test cases for MongoDB and ensure testing and building is functioning correctly.
-- Tasks for the day: 
-- Impediments: Loads of work on top of lectures
 
 ## Discussion
 1. Fix product product backlog
 2. Fix sprint backlog
-3. Add fake sprint tasks
-4. Add user stories (wherever they go)
-5. Make up product backlog priority
-6. PBI should have who, what and why
-7. To sprint backlog add current PBI’s, also must have sprint tasks representing how things must be done these tasks are distributed between not started in progress and done.
+3. PBI should have who, what and why
+4. To sprint backlog add current PBI’s, also must have sprint tasks representing how things must be done these tasks are distributed between not started in progress and done.
 
 ## Daily Scrum Meeting 13th April 2021 9:30
 
