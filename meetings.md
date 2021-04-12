@@ -372,5 +372,10 @@ Sipho Sikakane.(Scrum master/Backend)
 
 ## Sprint Retrospective/Review 12th April 2021 
 
+- Make sure we assign the correct tasks to the right columns.
+- For each sprint, only do the tasks that we've added to sprint backlog for that sprint. 
+  Leave other tasks in product backlog.
+- Any extra stuff we do will be added to product polish.
+
 ## Daily Scrum Meeting 13th April 2021 9:30
 
