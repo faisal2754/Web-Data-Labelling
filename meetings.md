@@ -406,5 +406,15 @@ Sipho Sikakane.(Scrum master/Backend)
 - Tasks for the day: 
 - Impediments: Loads of work on top of lectures
 
+##Discussion
+
+Fix product product backlog
+Fix sprint backlog
+Add fake sprint tasks
+Add user stories (wherever they go)
+Make up product backlog priority
+PBI should have who, what and why
+To sprint backlog add current PBI’s, also must have sprint tasks representing how things must be done these tasks are distributed between not started in progress and done.
+
 ## Daily Scrum Meeting 13th April 2021 9:30
 
