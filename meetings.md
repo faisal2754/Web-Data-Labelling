@@ -408,13 +408,13 @@ Sipho Sikakane.(Scrum master/Backend)
 
 ##Discussion
 
-Fix product product backlog
-Fix sprint backlog
-Add fake sprint tasks
-Add user stories (wherever they go)
-Make up product backlog priority
-PBI should have who, what and why
-To sprint backlog add current PBI’s, also must have sprint tasks representing how things must be done these tasks are distributed between not started in progress and done.
+1. Fix product product backlog
+2. Fix sprint backlog
+3. Add fake sprint tasks
+4. Add user stories (wherever they go)
+5. Make up product backlog priority
+6. PBI should have who, what and why
+7. To sprint backlog add current PBI’s, also must have sprint tasks representing how things must be done these tasks are distributed between not started in progress and done.
 
 ## Daily Scrum Meeting 13th April 2021 9:30
 
