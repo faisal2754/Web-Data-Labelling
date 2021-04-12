@@ -364,14 +364,13 @@ Sipho Sikakane.(Scrum master/Backend)
 - Tasks for the day: Add test cases for MongoDB and ensure testing and building is functioning correctly.
 - Impediments: Loads of work on top of lectures
 
-## Sprint Retrospective/Review 12th April 2021 
-
-
 ## Discussion
 1. Fix product product backlog
 2. Fix sprint backlog
 3. PBI should have who, what and why
 4. To sprint backlog add current PBI’s, also must have sprint tasks representing how things must be done these tasks are distributed between not started in progress and done.
+
+## Sprint Retrospective/Review 12th April 2021 
 
 ## Daily Scrum Meeting 13th April 2021 9:30
 
