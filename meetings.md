@@ -401,7 +401,11 @@ General PBIs:
 - Allow people to sign up and login (cater for duplication, unique IDs, authentication etc.)
   - Acceptance testing for this 
 - Connect database to frontend
-- If more time, allow people to upload images and browse jobs 
+Frontend: 
+- Create 'create a job' page 
+- Create instructional pages eg. How to submit
+- Create credit variable 
+- If more time, allow people to upload images and browse jobs
 
 ## Daily Scrum Meeting 14th April 2021 9:30
 
