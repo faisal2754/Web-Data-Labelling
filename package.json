@@ -10,7 +10,7 @@
     "test": "./testing/testEnvSetup.sh && jest --no-cache  --detectOpenHandles --runInBand --forceExit",
     "test:watch": "jest --watch",
     "test:coverage": "./testing/testEnvSetup.sh && jest --coverage --no-cache  --detectOpenHandles --runInBand --forceExit",
-    "test:coveralls": "./testing/testEnvSetup.sh && jest --coverage --no-cache  --detectOpenHandles --runInBand --forceExit && coveralls < coverage/lcov.info"
+    "test:coveralls": "coveralls < coverage/lcov.info"
   },
   "jest": {
     "testEnvironment": "node"

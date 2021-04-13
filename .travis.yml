@@ -11,6 +11,9 @@ script:
   - echo 'Installing Deps'
   - npm ci
   - echo 'Testing'
+  - npm run test
+
+after_script:
   - COVERALLS_REPO_TOKEN=js9yvl2QxVZORisjh07UQPTWoBgRZ3qQ6 npm run test:coveralls
 
 notifications:
