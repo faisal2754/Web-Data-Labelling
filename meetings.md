@@ -377,5 +377,31 @@ Sipho Sikakane.(Scrum master/Backend)
   Leave other tasks in product backlog.
 - Any extra stuff we do will be added to product polish.
 
-## Daily Scrum Meeting 13th April 2021 9:30
+## Sprint Planning Meet 2/Review with Mr Jiahao - 13 April 4-5pm
+
+General PBIs:
+
+- Connect database to frontend 
+- Allow people to sign up and login (cater for duplication, unique IDs, authentication etc.)
+- Figure out how to upload images to the db 
+- Check whether all the images are there (saved) once uploaded as a test function 
+  eg. Have arrow key to go through images to test
+- Put up different types of labels so people can see what they're looking for 
+- 'Other'option if not in the listed labels that you want 
+- Once all functionality for images work, we can then worry about labeling other things 
+  eg. audio
+- Ability for each person to potentially reference their own image folder
+- If more time, allow people to upload images and browse things 
+- Backend: Potentially store links on Google Drive for all the images
+- Credits divided into how many times someone can label an image
+- Assignment of credits onto person - when they get a job, subtract from that
+
+## Main priorities for this sprint:
+
+- Allow people to sign up and login (cater for duplication, unique IDs, authentication etc.)
+  - Acceptance testing for this 
+- Connect database to frontend
+- If more time, allow people to upload images and browse jobs 
+
+## Daily Scrum Meeting 14th April 2021 9:30
 
