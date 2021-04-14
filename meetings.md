@@ -409,3 +409,43 @@ Frontend:
 
 ## Daily Scrum Meeting 14th April 2021 9:30
 
+Aharon Cohen (Frontend):
+- Tasks completed yesterday: Met with Mr Jiao to plan next Sprint 
+- Tasks for the day: Create 'create a job' page & meet to discuss Github issues
+- Impediments: Time, other work due
+
+Langiwe Mwale (Frontend):
+- Tasks completed Yesterday: fixed file structure of index page and 
+- Task for the Day: Start up a skeleton for a preview of the pictures you upload
+- Impediments: Adding a new page with the same frame as the previous pages
+
+Ioanni Balassis:
+- Tasks completed yesterday: Met with Mr Jiao to plan next sprint
+- Tasks for the day: Create create a job’ page and meet to discuss Github issues
+- Impediments: Time constraints due to work being due this week
+
+Jonathan Nunes (Frontend):
+- Tasks completed yesterday: Resized logo in footer
+- Tasks for the day: Setup skeleton for "create a job" page and possibly the instructional pages
+- Impediments: Time, conflicting university work.
+
+Faisal Saleem (Backend):
+- Tasks completed yesterday: Fixed Coveralls to show builds.
+- Tasks for the day: Work on connecting the frontend and backend.
+- Impediments: Time
+
+Ghulame Mujtaba Arbi (Backend/Frontend):
+- Tasks completed yesterday: 
+- Tasks for the day: Work on connecting the frontend and backend.
+- Impediments: Time
+
+Tristan Bester (Backend):
+- Tasks completed yesterday: Fixed Coveralls to show builds.
+- Tasks for the day: Work on connecting the frontend and backend.
+- Impediments: Time, experience.
+ 
+Sipho Sikakane.(Scrum master/Backend)
+Tasks completed yesterday: Implement Authentication with MongoDB.
+Tasks for the day: Add test cases for MongoDB and ensure testing and building is functioning correctly.
+Impediments: Loads of work on top of lectures
+
