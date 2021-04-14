@@ -445,7 +445,7 @@ Tristan Bester (Backend):
 - Impediments: Time, experience.
  
 Sipho Sikakane.(Scrum master/Backend)
-Tasks completed yesterday: Implement Authentication with MongoDB.
-Tasks for the day: Add test cases for MongoDB and ensure testing and building is functioning correctly.
-Impediments: Loads of work on top of lectures
+- Tasks completed yesterday: Implement Authentication with MongoDB.
+- Tasks for the day: Add test cases for MongoDB and ensure testing and building is functioning correctly.
+- Impediments: Loads of work on top of lectures
 
