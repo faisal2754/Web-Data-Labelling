@@ -449,3 +449,45 @@ Sipho Sikakane.(Scrum master/Backend)
 - Tasks for the day: Add test cases for MongoDB and ensure testing and building is functioning correctly.
 - Impediments: Loads of work on top of lectures
 
+## Daily Scrum Meeting 15th April 2021 9:30
+
+Aharon Cohen (Frontend):
+-Tasks completed yesterday: Learnt about Github Issues and helped edit backlog
+-Tasks for the day: Front end meet to assign backlog items and work on ‘Create Job’ page
+-Impediments: Other subject deadlines due 
+
+Langiwe Mwale (Frontend):
+- Tasks completed Yesterday: i created issues , i added the category page to the repo that we will use to show all the jobs available 
+- Task for the Day: Sort out the how to submit a job page
+- Impediments: A page i was editing didn't want to show up so i have to look into sharing a screen with someone and editing with them
+
+Ioanni Balassis: (Frontend)
+- Tasks completed yesterday: issues meeting completed 
+- Tasks for the day: Front end meet to assign tasks
+- Impediments: Other subjects deadlines
+
+Jonathan Nunes (Frontend):
+- Tasks completed yesterday: Setup skeleton for "create a job" page.
+- Tasks for the day: Meet with the front end team to assign tasks.
+- Impediments: Time, other university work.
+
+Faisal Saleem (Backend):
+- Tasks completed yesterday: Researched new ways of deploying Node apps. Found Heroku as a possible solution
+- Tasks for the day:  Understand how Heroku works and deploy the app successfully 
+- Impediments: Time
+
+Ghulame Mujtaba Arbi (Backend/Frontend):
+- Tasks completed yesterday: Work on connecting the frontend and backend.
+- Tasks for the day: Setup “How it works” pages and continue to work on connecting the backend and frontend.
+- Impediments: Time
+
+Tristan Bester (Backend):
+- Tasks completed yesterday: Tasks completed yesterday: Researched new ways of deploying Node apps. Found Heroku as a possible solution.
+- Tasks for the day: Understand how Heroku works and deploy the app successfully
+- Impediments: Time.
+
+Sipho Sikakane.(Scrum master/Backend)
+- Tasks completed yesterday: Working on connecting the front-end, and deploying our app using node js
+- Tasks for the day: Continue working on login and registration with mongoDB and deployment methods
+- Impediments: Researching methods of registration with HTML and Mongo
+
