@@ -26,6 +26,8 @@ app.use(express.json());
 app.use("/api/user", authRoute);
 */
 
+app.use(express.json());
+
 app.get("/", (req, res) => {
   res.send("I am working!");
 });
