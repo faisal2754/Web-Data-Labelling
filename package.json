@@ -4,6 +4,7 @@
   "description": "Someone update this thing.",
   "main": "index.js",
   "scripts": {
+    "start": "node src/index.js",
     "lint": "eslint **/*.js --fix",
     "lint-fix": "prettier-eslint **/*.js --write",
     "prepare": "husky install",
