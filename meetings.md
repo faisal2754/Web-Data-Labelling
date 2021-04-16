@@ -494,8 +494,8 @@ Sipho Sikakane.(Scrum master/Backend)
 ## Daily Scrum Meeting 16th April 2021 9:30
 
 Aharon Cohen (Frontend):
-- Tasks completed yesterday: Learnt about Github Issues and helped edit backlog
-- Tasks for the day: Front end meet to assign backlog items and work on ‘Create Job’ page
+- Tasks completed yesterday: Worked on the "create a job" page and added various elements to it.
+- Tasks for the day: Continue working on “create a job” page.
 - Impediments: Other subject deadlines due 
 
 Langiwe Mwale (Frontend):
