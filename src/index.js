@@ -7,7 +7,7 @@ const path = require("path");
 //dotenv.config();
 
 // Import routes
-//const authRoute = require("../routes/auth");
+const authRoute = require("../routes/auth");
 
 // Connect to DB
 /*try {
@@ -19,14 +19,15 @@ const path = require("path");
 } catch (error) {
   console.log(error);
 }
+*/
 
 // Middleware
 app.use(express.json());
 
 // Route middleware?
-app.use("/api/user", authRoute);
-*/
-app.use(express.json());
+app.use("", authRoute);
+
+//app.use(express.json());
 
 /*
 app.get("/", (req, res) => {
