@@ -491,3 +491,46 @@ Sipho Sikakane.(Scrum master/Backend)
 - Tasks for the day: Continue working on login and registration with mongoDB and deployment methods
 - Impediments: Researching methods of registration with HTML and Mongo
 
+## Daily Scrum Meeting 16th April 2021 9:30
+
+Aharon Cohen (Frontend):
+- Tasks completed yesterday: Learnt about Github Issues and helped edit backlog
+- Tasks for the day: Front end meet to assign backlog items and work on ‘Create Job’ page
+- Impediments: Other subject deadlines due 
+
+Langiwe Mwale (Frontend):
+- Tasks completed Yesterday: Looked into solving issue with page not viewing 
+- Task for the Day: Work on how to submit a job page
+- Impediments: Can't view 1 page in the site 
+
+Ioanni Balassis: (Frontend):
+- Tasks completed yesterday: started with post pages
+- Tasks for the day: continue with post pages
+- Impediments: Time, uni work
+
+Jonathan Nunes (Frontend):
+- Tasks completed yesterday: Worked on the "create a job" page and added various elements to it.
+- Tasks for the day: Continue working on “create a job” page.
+- Impediments: Time, other university work.
+
+Faisal Saleem (Backend):
+- Tasks completed yesterday: Understood how Heroku works
+- Tasks for the day:  Deploy a simple Node app to Heroku
+- Impediments: Time
+
+Ghulame Mujtaba Arbi (Backend/Frontend):
+- Tasks completed yesterday: Work on connecting the frontend and backend.
+- Tasks for the day: Setup “How it works” pages and continue to work on connecting the backend and frontend.
+- Impediments: Time
+
+Tristan Bester (Backend):
+- Tasks completed yesterday: Worked on Heroku.
+- Tasks for the day: Understand how Heroku works and deploy the app successfully
+- Impediments: Time.
+
+Sipho Sikakane.(Scrum master/Backend)
+- Tasks completed yesterday: Attempting to deploy the app to Heroku so we can run it
+- Tasks for the day: Continue to work on adding the app to Heroku and fixing deployment
+- Impediments: Multiple lectures piling up
+
+
