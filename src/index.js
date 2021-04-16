@@ -25,11 +25,15 @@ app.use(express.json());
 // Route middleware?
 app.use("/api/user", authRoute);
 */
-
 app.use(express.json());
 
+/*
 app.get("/", (req, res) => {
   res.send("I am working!");
+});*/
+
+app.get("/", function (req, res) {
+  res.sendFile(path.join(__dirname + "/src/index.html"));
 });
 
 const port = process.env.PORT || "5000";
