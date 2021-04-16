@@ -29,6 +29,8 @@ app.use(express.json());
 // Route middleware?
 app.use("", authRoute);
 
+
+app.use(express.static(__dirname));
 //app.use(express.json());
 
 /*
