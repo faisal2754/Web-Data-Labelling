@@ -30,7 +30,7 @@ app.use(express.json());
 app.use("", authRoute);
 
 
-app.use(express.static(__dirname + "/"));
+app.use(express.static("/app/"));
 //app.use(express.json());
 
 /*
