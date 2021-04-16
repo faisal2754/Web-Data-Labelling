@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const User = require("../models/User");
 
-router.post("/test", async (req, res) => {
+router.get("/test", async (req, res) => {
   res.send("I am post");
 });
 
