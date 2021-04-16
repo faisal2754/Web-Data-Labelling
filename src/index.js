@@ -29,8 +29,8 @@ app.use("/api/user", authRoute);
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  console.log("I am working");
   res.send("I am working!");
 });
 
-app.listen(8080, () => console.log("Server running"));
+const port = process.env.PORT || "5000";
+app.listen(port, () => console.log(`Server started on Port ${port}`));
