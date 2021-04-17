@@ -4,9 +4,9 @@ const path = require("path");
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 const mongoose = require("mongoose");
-const dotenv = require("dotenv");
+//const dotenv = require("dotenv");
 
-dotenv.config();
+//dotenv.config();
 
 // Import routes
 const authRoute = require("../routes/auth");
@@ -42,6 +42,4 @@ app.get("/", function (req, res) {
 });
 
 const port = process.env.PORT || "5000";
-app
-  .listen(port, () => console.log(`Server started on Port ${port}`))
-  .setTimeout(10000);
+app.listen(port, () => console.log(`Server started on Port ${port}`));
