@@ -1,26 +1,28 @@
 const router = require("express").Router();
 const User = require("../models/User");
 
-router.get("/test", async (req, res) => {
-  res.send("I am post");
-});
-
 router.post("/register", async (req, res) => {
+  const email = req.body.register_email;
+  const password = req.body.register_password;
   const user = new User({
-    email: req.body.email,
-    password: req.body.password,
+    email: email,
+    password: password,
   });
+
   try {
     const savedUser = await user.save();
     res.send(savedUser);
   } catch (error) {
-    res.status(400).send(error);
+    res.send(error);
   }
 });
 
 router.post("/login", async (req, res) => {
   try {
-    const user = await User.findOne({ email: req.body.email });
+    const email = req.body.login_email;
+    const password = req.body.login_password;
+    const user = await User.findOne({ email: req.body.login_email });
+
     res.send(user);
   } catch (error) {
     res.status(400).send(error);

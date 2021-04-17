@@ -22,8 +22,8 @@ it("Should insert a new user into the database", async (done) => {
   request(app)
     .post("/register")
     .send({
-      email: "Test@Test.com",
-      password: "password",
+      register_email: "Test@Test.com",
+      register_password: "password",
     })
     .then(async function (res) {
       const user = await User.findOne({ email: "Test@Test.com" });
