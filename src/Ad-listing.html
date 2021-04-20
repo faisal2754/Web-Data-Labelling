@@ -10,22 +10,22 @@
   <title>Create a Job</title>
 
   <!-- FAVICON -->
-  <link href="../images/favicon.png" rel="shortcut icon">
+  <link href="images/favicon.png" rel="shortcut icon">
   <!-- PLUGINS CSS STYLE -->
   <!-- <link href="plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet"> -->
   <!-- Bootstrap -->
-  <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap-slider.css">
+  <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap-slider.css">
   <!-- Font Awesome -->
-  <link href="../plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <!-- Owl Carousel -->
-  <link href="../plugins/slick-carousel/slick/slick.css" rel="stylesheet">
-  <link href="../plugins/slick-carousel/slick/slick-theme.css" rel="stylesheet">
+  <link href="plugins/slick-carousel/slick/slick.css" rel="stylesheet">
+  <link href="plugins/slick-carousel/slick/slick-theme.css" rel="stylesheet">
   <!-- Fancy Box -->
-  <link href="../plugins/fancybox/jquery.fancybox.pack.css" rel="stylesheet">
-  <link href="../plugins/jquery-nice-select/css/nice-select.css" rel="stylesheet">
+  <link href="plugins/fancybox/jquery.fancybox.pack.css" rel="stylesheet">
+  <link href="plugins/jquery-nice-select/css/nice-select.css" rel="stylesheet">
   <!-- CUSTOM CSS -->
-  <link href="../css/style.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
 
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -46,7 +46,7 @@
         <div class="col-md-12">
           <nav class="navbar navbar-expand-lg navbar-light navigation">
             <a class="navbar-brand" href="index.html">
-              <img src="../images/label-logo.png" alt="label.ml">
+              <img src="images/label-logo.png" alt="label.ml">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
               aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -163,7 +163,34 @@
               <h6 class="font-weight-bold pt-4 pb-1">Description:</h6>
               <textarea name="" id="" class="border p-3 w-100" rows="7"
                 placeholder="Write details about your job"></textarea>
+              <h6 class="font-weight-bold pt-4 pb-1">Add the labels you would like to be used:</h6>
+              <ul id="list"></ul>
+              <input type="text" id="candidate" />
+              <button type="button" class="btn btn-secondary" style="border: cornflowerblue;" onclick="addItem()">
+                Add label</button>
+              <button type="button" class="btn btn-secondary" onclick="removeItem()">
+                Remove label</button>
 
+              <script>
+                function addItem() {
+                  var a = document.getElementById("list");
+                  var candidate = document.getElementById("candidate");
+                  var li = document.createElement("li");
+                  li.setAttribute('id', candidate.value);
+                  li.appendChild(document.createTextNode(candidate.value));
+                  a.appendChild(li);
+                }
+
+                // Creating a function to remove item from list
+                function removeItem() {
+
+                  // Declaring a varible to get select element
+                  var a = document.getElementById("list");
+                  var candidate = document.getElementById("candidate");
+                  var item = document.getElementById(candidate.value);
+                  a.removeChild(item);
+                }
+              </script>
 
 
 
@@ -424,13 +451,7 @@
           </div>
         </div>
         <div class="col-sm-6 col-12">
-          <!-- Social Icons -->
-          <ul class="social-media-icons text-right">
-            <li><a class="fa fa-facebook" href="https://www.facebook.com/themefisher" target="_blank"></a></li>
-            <li><a class="fa fa-twitter" href="https://www.twitter.com/themefisher" target="_blank"></a></li>
-            <li><a class="fa fa-pinterest-p" href="https://www.pinterest.com/themefisher" target="_blank"></a></li>
-            <li><a class="fa fa-vimeo" href=""></a></li>
-          </ul>
+
         </div>
       </div>
     </div>
