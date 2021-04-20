@@ -164,7 +164,9 @@
               <textarea name="" id="" class="border p-3 w-100" rows="7"
                 placeholder="Write details about your job"></textarea>
               <h6 class="font-weight-bold pt-4 pb-1">Add the labels you would like to be used:</h6>
-              <ul id="list"></ul>
+              <!-- this ul need the list group tag to 
+              have the bootstrap functionallity -->
+              <ul class="list-group" id="list"></ul>
               <input type="text" id="candidate" />
               <button type="button" class="btn btn-secondary" style="border: cornflowerblue;" onclick="addItem()">
                 Add label</button>
@@ -177,6 +179,9 @@
                   var candidate = document.getElementById("candidate");
                   var li = document.createElement("li");
                   li.setAttribute('id', candidate.value);
+                  //by setting the class name we can create dynamic bootstrap 
+                  // elements
+                  li.className = "list-group-item"
                   li.appendChild(document.createTextNode(candidate.value));
                   a.appendChild(li);
                 }
