@@ -533,4 +533,47 @@ Sipho Sikakane.(Scrum master/Backend)
 - Tasks for the day: Continue to work on adding the app to Heroku and fixing deployment
 - Impediments: Multiple lectures piling up
 
+## Daily Scrum Meeting 20th April 2021 9:30
+
+Aharon Cohen (Frontend):
+- Tasks completed yesterday: Tried to fix issue with ‘create job’ page on Chrome
+- Tasks for the day: Continue working on issue
+- Impediments: Other subject deadlines due 
+
+Langiwe Mwale (Frontend):
+- Tasks completed Yesterday: looked into solving issue of chrome not viewing 1 specific page
+- Task for the Day: fix chrome issue
+- Impediments: Can't view 1 page in the site , time
+
+Ioanni Balassis: (Frontend)
+- Tasks completed yesterday: continued with fix post page
+- Tasks for the day: fix post page
+- Impediments: all tasks due on tuesday 
+
+Jonathan Nunes (Frontend):
+- Tasks completed yesterday: Tried fixing create job page scroll error
+- Tasks for the day: Try fix post page, create registered home page
+- Impediments: Other university work.
+
+Faisal Saleem (Backend):
+- Tasks completed yesterday: Looked at how we can manage sessions with JWT
+- Tasks for the day: Cover all aspects of the rubric and make sure it’s working
+- Impediments: Test week and Tutorials
+
+Ghulame Mujtaba Arbi (Backend/Frontend):
+- Tasks completed yesterday: Looked at how we can manage sessions with JWT
+- Tasks for the day: Cover all aspects of the rubric and make sure it’s working
+- Impediments: Test week and Tutorials
+
+Tristan Bester (Backend):
+- Tasks completed yesterday: Looked at how we can manage sessions with JWT
+- Tasks for the day: Cover all aspects of the rubric and make sure it’s working
+- Impediments: Test week and Tutorials
+
+Sipho Sikakane.(Scrum master/Backend)
+- Tasks completed yesterday: Looked at how we can manage sessions with JWT
+- Tasks for the day: Cover all aspects of the rubric and make sure it’s working
+- Impediments: Test week and Tutorials
+
+
 
