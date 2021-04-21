@@ -7,7 +7,7 @@ const app = express();
 var x = path.join(__dirname, "public")
 const port = process.env.PORT || 3000
 
-app.set("view engine","ejs");
+app.set("view engine", "ejs");
 app.use(express.static(x));
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -25,44 +25,47 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 //Following section contians all the routes to the different pages and renders them
 
-app.get("/login", (req,res) =>{
+app.get("/login", (req, res) => {
   res.render("login");
 })
 
-app.get("/register", (req,res) =>{
+app.get("/register", (req, res) => {
   res.render("register");
 })
 
-app.get("/contact-us", (req,res) =>{
+app.get("/contact-us", (req, res) => {
   res.render("contact-us");
 });
 
-app.get("/about-us", (req,res) => {
+app.get("/about-us", (req, res) => {
   res.render("about-us");
 })
 
-app.get("/terms-conditions", (req,res) =>{
+app.get("/terms-conditions", (req, res) => {
   res.render("terms-conditions");
 })
 
-app.get("/category",(req,res) =>{
-  res.render("category");
+app.get("/availableJobs", (req, res) => {
+  res.render("availableJobs");
 })
 
-app.get("/ad-listing", (req,res) =>{
+app.get("/ad-listing", (req, res) => {
   res.render("ad-listing");
 })
 
-app.get("/dashboard", (req,res) =>{
+app.get("/dashboard", (req, res) => {
   res.render("dashboard");
 })
+app.get("/howtopage", (req, res) => {
+  res.render("howtopage");
+})
 
-app.get("/user-profile", (req,res) =>{
+app.get("/user-profile", (req, res) => {
   res.render("user-profile")
 })
 
 app.get("/", (req, res) => {
-    res.render("index"); // index refers to index.ejs
+  res.render("index"); // index refers to index.ejs
 });
 
 app.listen(port, () => {

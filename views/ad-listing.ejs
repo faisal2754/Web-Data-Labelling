@@ -1,5 +1,5 @@
 <%- include('header') %>
-<section class="ad-post bg-gray py-5">
+  <section class="ad-post bg-gray py-5">
     <div class="container">
       <form action="#">
         <!-- Post Your ad start -->
@@ -25,119 +25,41 @@
               <h6 class="font-weight-bold pt-4 pb-1">Description:</h6>
               <textarea name="" id="" class="border p-3 w-100" rows="7"
                 placeholder="Write details about your job"></textarea>
+              <h6 class="font-weight-bold pt-4 pb-1">Add the labels you would like to be used:</h6>
+              <!-- this ul need the list group tag to 
+              have the bootstrap functionallity -->
+              <ul class="list-group" id="list"></ul>
+              <input type="text" id="candidate" />
+              <button type="button" class="btn btn-secondary" style="border: cornflowerblue;" onclick="addItem()">
+                Add label</button>
+              <button type="button" class="btn btn-secondary" onclick="removeItem()">
+                Remove label</button>
+
+              <script>
+                function addItem() {
+                  var a = document.getElementById("list");
+                  var candidate = document.getElementById("candidate");
+                  var li = document.createElement("li");
+                  li.setAttribute('id', candidate.value);
+                  //by setting the class name we can create dynamic bootstrap 
+                  // elements
+                  li.className = "list-group-item"
+                  li.appendChild(document.createTextNode(candidate.value));
+                  a.appendChild(li);
+                }
+
+                // Creating a function to remove item from list
+                function removeItem() {
+
+                  // Declaring a varible to get select element
+                  var a = document.getElementById("list");
+                  var candidate = document.getElementById("candidate");
+                  var item = document.getElementById(candidate.value);
+                  a.removeChild(item);
+                }
+              </script>
 
 
-              <div class="up-c-collapse" id="cardCollapse-questions" aria-labelledby="cardCollapseButton-questions"
-                style="--animation-duration:0.35s;">
-                <div class="mt-20">
-                  <div>
-                    <div class="mb-10"><strong><span>
-                          Add your own labels:
-                        </span></strong></div> <button type="button"
-                      class="up-btn up-btn-default up-btn-sm up-btn-block-sm m-0">
-                      <div class="up-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14"
-                          aria-hidden="true" role="img">
-                          <polygon points="6 0 6 6 0 6 0 8 6 8 6 14 8 14 8 8 14 8 14 6 8 6 8 0"></polygon>
-                        </svg></div> <span>Write your own question</span>
-                    </button>
-                    <!---->
-                    <div class="mt-20">
-                      <div class="mb-10"><strong> Your questions </strong></div>
-                      <div class="my-10">
-                        <div data-v-7bea07a4="">
-                          <!---->
-                          <div data-v-7bea07a4="" class="d-flex align-items-center">
-                            <fieldset data-v-7bea07a4="">
-                              Dogs
-                            </fieldset>
-                            <!----> <button data-v-7bea07a4="" type="button"
-                              class="up-btn up-btn-default up-btn-circle up-btn-sm ml-10">
-                              <div data-v-7bea07a4="" class="up-icon"><svg xmlns="http://www.w3.org/2000/svg"
-                                  viewBox="0 0 14 14" aria-hidden="true" role="img">
-                                  <path
-                                    d="M0 11.044V14h2.956l8.555-8.633L8.556 2.41 0 11.044zm13.767-7.933a.752.752 0 000-1.089L11.977.233a.752.752 0 00-1.088 0l-1.4 1.4 2.955 2.956 1.323-1.478z">
-                                  </path>
-                                </svg></div>
-                            </button>
-                          </div>
-                        </div>
-                        <!---->
-                      </div>
-                    </div>
-                    <div class="mt-20">
-                      <div class="mb-10"><strong> Suggested </strong></div>
-                      <fieldset>
-                        <div class="up-checkbox"><label class="up-checkbox-label"><input type="checkbox"
-                              value="[object Object]">
-                            <span class="up-checkbox-replacement-helper">
-                              <div class="check up-icon xs"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14"
-                                  aria-hidden="true" role="img">
-                                  <polygon points="11.505 1 14 2.634 5.798 14 0 9.641 1.874 7.377 5.135 9.827">
-                                  </polygon>
-                                </svg></div>
-                              <div class="indeterminate up-icon xs"><svg xmlns="http://www.w3.org/2000/svg"
-                                  viewBox="0 0 14 14" aria-hidden="true" role="img">
-                                  <rect y="5.5" width="14" height="3"></rect>
-                                </svg></div>
-                            </span> <span>Describe your recent experience with similar projects</span></label></div>
-                        <div class="up-checkbox"><label class="up-checkbox-label"><input type="checkbox"
-                              value="[object Object]">
-                            <span class="up-checkbox-replacement-helper">
-                              <div class="check up-icon xs"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14"
-                                  aria-hidden="true" role="img">
-                                  <polygon points="11.505 1 14 2.634 5.798 14 0 9.641 1.874 7.377 5.135 9.827">
-                                  </polygon>
-                                </svg></div>
-                              <div class="indeterminate up-icon xs"><svg xmlns="http://www.w3.org/2000/svg"
-                                  viewBox="0 0 14 14" aria-hidden="true" role="img">
-                                  <rect y="5.5" width="14" height="3"></rect>
-                                </svg></div>
-                            </span> <span>Please list any certifications related to this project</span></label></div>
-                        <div class="up-checkbox"><label class="up-checkbox-label"><input type="checkbox"
-                              value="[object Object]">
-                            <span class="up-checkbox-replacement-helper">
-                              <div class="check up-icon xs"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14"
-                                  aria-hidden="true" role="img">
-                                  <polygon points="11.505 1 14 2.634 5.798 14 0 9.641 1.874 7.377 5.135 9.827">
-                                  </polygon>
-                                </svg></div>
-                              <div class="indeterminate up-icon xs"><svg xmlns="http://www.w3.org/2000/svg"
-                                  viewBox="0 0 14 14" aria-hidden="true" role="img">
-                                  <rect y="5.5" width="14" height="3"></rect>
-                                </svg></div>
-                            </span> <span>What office applications are you most familiar with?</span></label></div>
-                        <div class="up-checkbox"><label class="up-checkbox-label"><input type="checkbox"
-                              value="[object Object]">
-                            <span class="up-checkbox-replacement-helper">
-                              <div class="check up-icon xs"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14"
-                                  aria-hidden="true" role="img">
-                                  <polygon points="11.505 1 14 2.634 5.798 14 0 9.641 1.874 7.377 5.135 9.827">
-                                  </polygon>
-                                </svg></div>
-                              <div class="indeterminate up-icon xs"><svg xmlns="http://www.w3.org/2000/svg"
-                                  viewBox="0 0 14 14" aria-hidden="true" role="img">
-                                  <rect y="5.5" width="14" height="3"></rect>
-                                </svg></div>
-                            </span> <span>How do you handle sensitive information or records?</span></label></div>
-                        <div class="up-checkbox"><label class="up-checkbox-label"><input type="checkbox"
-                              value="[object Object]">
-                            <span class="up-checkbox-replacement-helper">
-                              <div class="check up-icon xs"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14"
-                                  aria-hidden="true" role="img">
-                                  <polygon points="11.505 1 14 2.634 5.798 14 0 9.641 1.874 7.377 5.135 9.827">
-                                  </polygon>
-                                </svg></div>
-                              <div class="indeterminate up-icon xs"><svg xmlns="http://www.w3.org/2000/svg"
-                                  viewBox="0 0 14 14" aria-hidden="true" role="img">
-                                  <rect y="5.5" width="14" height="3"></rect>
-                                </svg></div>
-                            </span> <span>How do you ensure accuracy while typing?</span></label></div>
-                        <!---->
-                      </fieldset>
-                    </div>
-                  </div>
-                </div>
-              </div>
 
             </div>
 
@@ -237,12 +159,10 @@
         <!--<fieldset class="border bg-white p-4 my-5 ad-feature bg-gray">
                 <div class="row">
                     <div class="col-lg-12">
-
                         <h3 class="pb-3">Make Your Ad Featured
                             <span class="float-right"><a class="text-right font-weight-normal text-success" href="#">What
                                     is featured ad ?</a></span>
                         </h3>
-
                     </div>
                     <div class="col-lg-6 my-3">
                         <span class="mb-3 d-block">Premium Ad Options:</span>
@@ -296,4 +216,4 @@
       </form>
     </div>
   </section>
-<%- include('footer') %> 
+<%- include('footer') %>
