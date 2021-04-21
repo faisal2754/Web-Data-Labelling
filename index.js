@@ -2,6 +2,13 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const { default: axios } = require("axios");
+const authRoute = require("./routes/auth")
+const flash = require('express-flash')
+const session = require('express-session');
+const passport = require("passport");
+// if(process.env.NODE_ENV !== 'production'){
+//   require('dotenv').config()
+// }
 
 const app = express();
 var x = path.join(__dirname, "public")
@@ -9,7 +16,33 @@ const port = process.env.PORT || 3000
 
 app.set("view engine", "ejs");
 app.use(express.static(x));
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false}))
+//app.use(bodyParser.urlencoded({ extended: false }));
+app.use("", authRoute)
+app.use(flash())
+app.use(session({
+    secret: 'bruh',
+    resave: false,
+    saveUninitialized: false
+}))
+app.use(passport.initialize())
+app.use(passport.session()  )
+
+app.get("/", (req, res) => {
+    res.render("index"); // index refers to index.ejs
+});
+
+app.listen(port, () => {
+  console.log("server started on port 3000");
+});
+
+
+
+
+
+
+
+
 
 // app.post("/login", (req, res) =>{
 //     const {name, password} = req.body;
@@ -19,11 +52,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //             username: name,
 //         });
 //     } else {
-//         res.render("failure");
+//         res.render("register");
 //     }
 // })
 
-//Following section contians all the routes to the different pages and renders them
+// //Following section contians all the routes to the different pages and renders them
 
 app.get("/login", (req, res) => {
   res.render("login");
@@ -68,6 +101,3 @@ app.get("/", (req, res) => {
   res.render("index"); // index refers to index.ejs
 });
 
-app.listen(port, () => {
-  console.log("server started on port 3000");
-});
