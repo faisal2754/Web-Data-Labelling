@@ -575,5 +575,90 @@ Sipho Sikakane.(Scrum master/Backend)
 - Tasks for the day: Cover all aspects of the rubric and make sure it’s working
 - Impediments: Test week and Tutorials
 
+## Daily Scrum Meeting 21st April 2021 9:30
+
+Aharon Cohen (Frontend):
+- Tasks completed yesterday: Converted pages to EJS
+- Tasks for the day: Change label functionality for create job page
+- Impediments: Other subject deadlines due 
+
+Langiwe Mwale (Frontend):
+- Tasks completed Yesterday: added a better label layout for job adding page
+- Task for the Day: convert job pages to ejs , set up anonymous message tracker for group discussions
+- Impediments: learning how to convert properly 
+
+Ioanni Balassis: (Frontend)
+- Tasks completed yesterday: Changed EJS links 
+- Tasks for the day: Make registered home page and update links properly
+- Impediments: Catching up old lectures
+
+Jonathan Nunes (Frontend):
+- Tasks completed yesterday: Added “Add and Remove labels” functionality to Create Jobs page.
+- Tasks for the day: Research and learn more about bootstrap and EJS
+- Impediments: Other university work.
+
+Faisal Saleem (Backend):
+- Tasks completed yesterday: Worked on session management with JWT.
+- Tasks for the day: Continue work on JWT session management.
+- Impediments: Test week and Tutorials
+
+Ghulame Mujtaba Arbi (Backend/Frontend):
+- Tasks completed yesterday: Worked on session management with JWT.
+- Tasks for the day: Continue work on JWT session management.
+- Impediments: Test week and Tutorials
+
+Tristan Bester (Backend):
+- Tasks completed yesterday: Worked on session management with JWT.
+- Tasks for the day: Continue work on JWT session management.
+- Impediments: Time.
+
+Sipho Sikakane.(Scrum master/Backend)
+- Tasks completed yesterday: Worked on Login functionality
+- Tasks for the day: Fix errors caused by passing tokens in EJS
+- Impediments: Assignments and Tests
+
+## Daily Scrum Meeting 22nd April 2021 9:30
+
+Aharon Cohen (Frontend):
+- Tasks completed yesterday: Converted pages to EJS and changed label functionality for create job page
+- Tasks for the day: Fix footer and header for registered home page
+- Impediments: Check with the backend to see if they have authentication working before proceeding.  
+
+Langiwe Mwale (Frontend):
+- Tasks completed Yesterday: Added multiple pages and converted to ejs 
+- Task for the Day: add a how it works page
+- Impediments: page still not showing on chrome
+
+Ioanni Balassis: (Frontend)
+- Tasks completed yesterday: Changed EJS links and registered header and footer
+- Tasks for the day:Research and learn more about bootstrap and EJS, setup registered branches framework
+- Impediments: Catching up old lectures
+
+Jonathan Nunes (Frontend):
+- Tasks completed yesterday: Created registered header and footer and added validation to create jobs page
+- Tasks for the day: Setup initial registered home page skeleton
+- Impediments: Other university work.
+
+Faisal Saleem (Backend):
+- Tasks completed yesterday: Worked on session management with JWT.
+- Tasks for the day: Continue work on JWT session management.
+- Impediments: Test week and Tutorials
+
+Ghulame Mujtaba Arbi (Backend/Frontend):
+- Tasks completed yesterday: Worked on session management with JWT.
+- Tasks for the day: Continue work on JWT session management.
+- Impediments: Test week and Tutorials
+
+Tristan Bester (Backend):
+- Tasks completed yesterday: Worked on session management with JWT and express sessions.
+- Tasks for the day: Continue work on JWT session management and express sessions.
+- Impediments: Time.
+
+Sipho Sikakane.(Scrum master/Backend)
+- Tasks completed yesterday: Worked on Login functionality
+- Tasks for the day: Fix errors caused by passing tokens in EJS
+- Impediments: Assignments and Tests
+
+
 
 
