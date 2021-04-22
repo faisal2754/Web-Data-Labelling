@@ -452,12 +452,12 @@ button {
 
 .btn-secondary {
   background: #fff;
-  color: #000;
+  color: rgb(112, 72, 255);
   border-color: #fff;
 }
 
 .btn-secondary:hover {
-  background: #5672f9;
+  background: #ffffff;
   color: #fff;
   border-color: #fff;
 }
