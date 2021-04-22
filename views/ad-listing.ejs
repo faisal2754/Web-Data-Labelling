@@ -1,4 +1,4 @@
-<%- include('header') %>
+<%- include('header(registered)') %>
   <section class="ad-post bg-gray py-5">
     <div class="container">
       <form action="#">
@@ -29,12 +29,13 @@
               <!-- this ul need the list group tag to 
               have the bootstrap functionallity -->
               <ul class="list-group" id="list"></ul>
-              <input type="text" id="candidate" />
+              <input type="text" id="candidate"/>
               <button type="button" class="btn btn-secondary" onclick="addItem()">
                 Add label</button>
               <button type="button" class="btn btn-secondary" onclick="removeItem()">
                 Remove label</button>
-
+              
+                
               <script>
                 function addItem() {
                   var a = document.getElementById("list");
@@ -45,7 +46,12 @@
                   // elements
                   li.className = "list-group-item"
                   li.appendChild(document.createTextNode(candidate.value));
+                  if(candidate.value != ""){
                   a.appendChild(li);
+                  }
+                  else{
+                    alert("Label field cannot be blank");
+                  }
                 }
 
                 // Creating a function to remove item from list
@@ -60,9 +66,7 @@
               </script>
 
 
-
             </div>
-
             <div class="col-lg-6">
               <h6 class="font-weight-bold pt-4 pb-1">Select Data Labelling Category:</h6>
               <select name="" id="inputGroupSelect" class="w-100">
