@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Index page</title>
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- FAVICON -->
+  <link href="/images/favicon.png" rel="shortcut icon">
+  <!-- PLUGINS CSS STYLE -->
+  <!-- <link href="../plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet"> -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap-slider.css">
+  <!-- Font Awesome -->
+  <link href="/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <!-- Owl Carousel -->
+  <link href="/plugins/slick-carousel/slick/slick.css" rel="stylesheet">
+  <link href="/plugins/slick-carousel/slick/slick-theme.css" rel="stylesheet">
+  <!-- Fancy Box -->
+  <link href="/plugins/fancybox/jquery.fancybox.pack.css" rel="stylesheet">
+  <link href="/plugins/jquery-nice-select/css/nice-select.css" rel="stylesheet">
+  <!-- CUSTOM CSS -->
+</head>
+
+<body>
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <nav class="navbar navbar-expand-lg navbar-light navigation">
+            <a class="navbar-brand" href="/">
+              <img src="/images/label-logo.png" alt="label.ml">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto main-nav ">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item dropdown dropdown-slide">
+                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Create
+                    Work<span><i class="fa fa-angle-down"></i></span>
+                  </a>
+
+                  <!-- Dropdown list -->
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/howtopage">How to submit jobs</a>
+                    <a class="dropdown-item" href="/ad-listing">Post a Data Labelling Job</a>
+                    <!-- <a class="dropdown-item" href="dashboard.html">Dashboard</a>
+                    <a class="dropdown-item" href="dashboard-my-ads.html">Dashboard My Ads</a>
+                    <a class="dropdown-item" href="dashboard-favourite-ads.html">Dashboard Favourite Ads</a>
+                    <a class="dropdown-item" href="dashboard-archived-ads.html">Dashboard Archived Ads</a>
+                    <a class="dropdown-item" href="dashboard-pending-ads.html">Dashboard Pending Ads</a> -->
+                  </div>
+                </li>
+                <li class="nav-item dropdown dropdown-slide">
+                  <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    Find Work <span><i class="fa fa-angle-down"></i></span>
+                  </a>
+                  <!-- Dropdown list -->
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">How it works</a>
+                    <a class="dropdown-item" href="/availableJobs">Find a Data Labelling Job</a>
+
+                    <!-- <a class="dropdown-item" href="about-us.html">About Us</a>
+                    <a class="dropdown-item" href="contact-us.html">Contact Us</a>
+                    <a class="dropdown-item" href="user-profile.html">User Profile</a>
+                    <a class="dropdown-item" href="404.html">404 Page</a>
+                    <a class="dropdown-item" href="package.html">Package</a>
+                    <a class="dropdown-item" href="single.html">Single Page</a>
+                    <a class="dropdown-item" href="store.html">Store Single</a>
+                    <a class="dropdown-item" href="single-blog.html">Single Post</a>
+                    <a class="dropdown-item" href="blog.html">Blog</a> -->
+
+                  </div>
+                </li>
+
+                <li class="nav-item dropdown dropdown-slide">
+                  <a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    Profile <span><i class="fa fa-angle-down"></i></span>
+                  </a>
+                  <!-- Dropdown list -->
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/dashboard">Dashboard</a>
+                    <a class="dropdown-item" href="/user-profile">Edit Profile</a>
+                  </div>
+                </li>
+
+                <li class="nav-item dropdown dropdown-slide">
+                  <a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    About us <span><i class="fa fa-angle-down"></i></span>
+                  </a>
+                  <!-- Dropdown list -->
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/about-us">Our Company & Ethos</a>
+                    <a class="dropdown-item" href="/contact-us">Contact Us</a>
+                  </div>
+                </li>
+              </ul>
+              <ul class="navbar-nav ml-auto mt-10">
+                <li class="nav-item">
+                  <a class="nav-link login-button" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+                </li>
+                
+                <li class="nav-item">
+                  <a class="nav-link text-white add-button" href="/ad-listing"><i class="fa fa-plus-circle"></i> Create Job</a>
+                  <!-- <a class="nav-link text-white add-button" href="ad-listing.html"><i class="fa fa-plus-circle"></i> Add Listing</a> -->
+                </li>
+              </ul>
+            </div>
+          </nav>
+
+        </div>
+
+      </div>
+      <div class="modal" id="logoutModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <div class="modal-header">
+              
+              <h4>Log Out <i class="fa fa-lock"></i></h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+              <p><i class="fa fa-question-circle"></i> Are you sure you want to log-off? <br /></p>
+              <div class="actionsBtns">
+                  <form action="/logout" method="post">
+                      <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                      <input type="submit" class="btn btn-default btn-primary" data-dismiss="modal" value="Logout" />
+                        <button class="btn btn-default" data-dismiss="modal">Cancel</button>
+                  </form>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </section>
