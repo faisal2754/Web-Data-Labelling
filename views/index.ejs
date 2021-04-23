@@ -1,3 +1,13 @@
-<%- include('header.ejs') %>
+<% if (authenticated) { %>
+    <%- include('header(registered).ejs') %>
+<% }else{ %>
+    <%- include('header.ejs') %>
+<% } %>
+
 <%- include('home.ejs') %>
-<%- include('footer(unregistered).ejs') %>
+
+<% if (authenticated) { %>
+    <%- include('footer.ejs') %>
+<% }else{ %>
+    <%- include('footer(unregistered).ejs') %>
+<% } %>

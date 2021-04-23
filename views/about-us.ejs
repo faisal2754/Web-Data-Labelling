@@ -1,4 +1,9 @@
-<%- include('header') %>
+<% if (authenticated) { %>
+    <%- include('header(registered).ejs') %>
+<% }else{ %>
+    <%- include('header.ejs') %>
+<% } %>
+
 
 <section class="page-title">
 	<!-- Container Start -->
@@ -122,4 +127,8 @@
         </div>
     </div>
 </section>
-<%- include('footer')%>
+<% if (authenticated) { %>
+    <%- include('footer.ejs') %>
+<% }else{ %>
+    <%- include('footer(unregistered).ejs') %>
+<% } %>

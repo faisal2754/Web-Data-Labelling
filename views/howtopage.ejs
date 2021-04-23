@@ -1,4 +1,8 @@
-<%- include('header') %>
+<% if (authenticated) { %>
+    <%- include('header(registered).ejs') %>
+<% }else{ %>
+    <%- include('header.ejs') %>
+<% } %>
 
     <div class="bg-light">
         <div class="container py-5">
@@ -46,6 +50,8 @@
         </div>
     </div>
 
-
-
-    <%- include('footer') %>
+<% if (authenticated) { %>
+    <%- include('footer.ejs') %>
+<% }else{ %>
+    <%- include('footer(unregistered).ejs') %>
+<% } %>

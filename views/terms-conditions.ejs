@@ -30,4 +30,8 @@
     </div>
 </section>
 
-<%- include('footer') %> 
+<% if (authenticated) { %>
+    <%- include('footer.ejs') %>
+<% }else{ %>
+    <%- include('footer(unregistered).ejs') %>
+<% } %>
