@@ -1,7 +1,7 @@
 <%- include('header(registered)') %>
   <section class="ad-post bg-gray py-5">
     <div class="container">
-      <form action="#">
+      <form action="/create-job" method="POST">
         <!-- Post Your ad start -->
         <fieldset class="border border-gary p-4 mb-5">
           <div class="row">
@@ -10,7 +10,7 @@
             </div>
             <div class="col-lg-6">
               <h6 class="font-weight-bold pt-4 pb-1">Title Of Job:</h6>
-              <input type="text" class="border w-100 p-2 bg-white text-capitalize" placeholder="Job title go There">
+              <input type="text" class="border w-100 p-2 bg-white text-capitalize" placeholder="" name="title">
               <h6 class="font-weight-bold pt-4 pb-1">Job Type:</h6>
               <div class="row px-3">
                 <div class="col-lg-4 mr-lg-4 my-2 rounded bg-white">
@@ -23,13 +23,13 @@
                 </div>
               </div>
               <h6 class="font-weight-bold pt-4 pb-1">Description:</h6>
-              <textarea name="" id="" class="border p-3 w-100" rows="7"
+              <textarea name="description" id="" class="border p-3 w-100" rows="7"
                 placeholder="Write details about your job"></textarea>
               <h6 class="font-weight-bold pt-4 pb-1">Add the labels you would like to be used:</h6>
               <!-- this ul need the list group tag to 
               have the bootstrap functionallity -->
               <ul class="list-group" id="list"></ul>
-              <input type="text" id="candidate"/>
+              <input type="text" id="candidate" name="labels"/>
               <button type="button" class="btn btn-secondary" onclick="addItem()">
                 Add label</button>
               <button type="button" class="btn btn-secondary" onclick="removeItem()">
@@ -81,7 +81,7 @@
                 <h6 class="font-weight-bold pt-4 pb-1">Job Credits:</h6>
                 <div class="row px-3">
                   <div class="col-lg-4 mr-lg-4 rounded bg-white my-2 ">
-                    <input type="text" name="price" class="border-0 py-2 w-100 price" placeholder="No. of Credits"
+                    <input type="text" name="credits" class="border-0 py-2 w-100 price" placeholder="No. of Credits"
                       id="price">
                   </div>
 

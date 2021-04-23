@@ -18,6 +18,10 @@ const jobSchema = new Schema({
         type: Array,
         require: true
     },
+    images: {
+        type: Array,
+        require: true
+    },
     email: {
         type: String,
         require: true

@@ -2,6 +2,7 @@ const router = require('express').Router()
 const passport = require('passport')
 const initialize = require('../passport-config')
 const User = require('../models/User')
+const Job = require('../models/Job')
 
 initialize(passport, getUserByEmail)
 
@@ -15,15 +16,15 @@ router.get('/secret-page', checkAuthenticated, (req, res) => {
 })
 
 router.get('/', isAuthenticated('index.ejs'), (req, res) => {
-    res.render('index.ejs', {authenticated: true});
+    res.render('index.ejs', { authenticated: true })
 })
 
 function isAuthenticated(routeName) {
-    return function(req, res, next) {
+    return function (req, res, next) {
         if (req.isAuthenticated()) {
             next()
-        }else {
-            res.render(routeName, {authenticated: false});
+        } else {
+            res.render(routeName, { authenticated: false })
         }
     }
 }
@@ -61,6 +62,32 @@ router.post('/register', async (req, res) => {
     }
 })
 
+router.post('/create-job', async (req, res) => {
+    const title = req.body.title
+    const description = req.body.description
+    const labels = req.body.labels
+    const credits = req.body.credits
+    const images = ['fhsdifhsi', 'bfsbfk']
+    const email = 'fjsbdkjfb'
+    const job = new Job({
+        title: title,
+        description: description,
+        credits: credits,
+        labels: labels,
+        images: images,
+        email: email
+    })
+    try {
+        const savedJob = await job.save()
+        console.log(savedJob)
+        //res.redirect('/login')
+        res.send('job created')
+    } catch {
+        //res.redirect('/register')
+        res.send('bruh ???')
+    }
+})
+
 router.get('/login', (req, res) => {
     res.render('login')
 })
@@ -70,19 +97,19 @@ router.get('/register', (req, res) => {
 })
 
 router.get('/about-us', isAuthenticated('about-us'), (req, res) => {
-    res.render('about-us', {authenticated: true})
+    res.render('about-us', { authenticated: true })
 })
 
 router.get('/contact-us', isAuthenticated('contact-us'), (req, res) => {
-    res.render('contact-us', {authenticated: true})
+    res.render('contact-us', { authenticated: true })
 })
 
 router.get('/terms-conditions', isAuthenticated('terms-conditions'), (req, res) => {
-    res.render('terms-conditions', {authenticated: true})
+    res.render('terms-conditions', { authenticated: true })
 })
 
 router.get('/availableJobs', isAuthenticated('availableJobs'), (req, res) => {
-    res.render('availableJobs', {authenticated: true})
+    res.render('availableJobs', { authenticated: true })
 })
 
 router.get('/ad-listing', (req, res) => {
@@ -94,7 +121,7 @@ router.get('/dashboard', (req, res) => {
 })
 
 router.get('/howtopage', isAuthenticated('howtopage'), (req, res) => {
-    res.render('howtopage', {authenticated: true})
+    res.render('howtopage', { authenticated: true })
 })
 
 router.get('/user-profile', (req, res) => {
