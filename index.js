@@ -12,6 +12,7 @@ const session = require('express-session')
 const passport = require('passport')
 const app = express()
 const mongoose = require('mongoose')
+const methodOverride = require('method-override')
 
 var x = path.join(__dirname, 'public')
 const port = process.env.PORT || 3000
@@ -40,6 +41,7 @@ async function connectDB() {
 connectDB()
 
 //middleware
+app.use(methodOverride('_method'))
 app.use(
     session({
         secret: process.env.SESSION_SECRET,
@@ -53,7 +55,6 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 //routes
-
 app.use('', authRoute)
 
 app.listen(port, () => {
