@@ -89,4 +89,9 @@ router.get('/user-profile', (req, res) => {
     res.render('user-profile')
 })
 
+router.delete('/logout', (req, res) => {
+    req.logOut()
+    res.redirect('/')
+})
+
 module.exports = router
