@@ -1,5 +1,5 @@
 <% if (authenticated) { %>
-    <%- include('header(registered).ejs') %>
+    <%- include('header-registered.ejs') %>
 <% }else{ %>
     <%- include('header.ejs') %>
 <% } %>
@@ -578,5 +578,5 @@
 <% if (authenticated) { %>
     <%- include('footer.ejs') %>
 <% }else{ %>
-    <%- include('footer(unregistered).ejs') %>
+    <%- include('footer-unregistered.ejs') %>
 <% } %>

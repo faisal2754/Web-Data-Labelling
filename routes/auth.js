@@ -40,7 +40,7 @@ function checkAuthenticated(req, res, next) {
 router.post(
     '/login',
     passport.authenticate('local', {
-        successRedirect: 'about-us',
+        successRedirect: 'dashboard',
         failureRedirect: 'login',
         failureFlash: true
     })
@@ -109,7 +109,7 @@ router.get('/terms-conditions', isAuthenticated('terms-conditions'), (req, res) 
 })
 
 router.get('/availableJobs', isAuthenticated('availableJobs'), (req, res) => {
-    res.render('availableJobs', { authenticated: true })
+    res.render('available-jobs', { authenticated: true })
 })
 
 router.get('/ad-listing', (req, res) => {
@@ -121,7 +121,7 @@ router.get('/dashboard', (req, res) => {
 })
 
 router.get('/howtopage', isAuthenticated('howtopage'), (req, res) => {
-    res.render('howtopage', { authenticated: true })
+    res.render('how-to-page', { authenticated: true })
 })
 
 router.get('/user-profile', (req, res) => {

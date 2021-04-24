@@ -242,7 +242,7 @@ a:focus, a:hover {
 
 .form-control {
   border-radius: 2px;
-  height: 50px;
+  height: 30px;
   background-color: transparent;
   color: #666;
   box-shadow: none;
@@ -290,7 +290,7 @@ textarea.form-control {
 }
 
 .btn:focus {
-  color: #ddd;
+  color: rgb(255, 255, 255);
 }
 
 .w-100 {
@@ -452,7 +452,7 @@ button {
 
 .btn-secondary {
   background: #fff;
-  color: rgb(112, 72, 255);
+  color: rgb(255, 255, 255);
   border-color: #fff;
 }
 
