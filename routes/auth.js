@@ -108,7 +108,7 @@ router.get('/terms-conditions', isAuthenticated('terms-conditions'), (req, res) 
     res.render('terms-conditions', { authenticated: true })
 })
 
-router.get('/availableJobs', isAuthenticated('availableJobs'), (req, res) => {
+router.get('/available-jobs', isAuthenticated('available-jobs'), (req, res) => {
     res.render('available-jobs', { authenticated: true })
 })
 
