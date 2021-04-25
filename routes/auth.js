@@ -3,8 +3,22 @@ const passport = require('passport')
 const initialize = require('../passport-config')
 const User = require('../models/User')
 const Job = require('../models/Job')
+const multer = require('multer')
 
 initialize(passport, getUserByEmail)
+
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'uploads')
+    },
+    filename: (req, file, cb) => {
+        const {originalname} = file
+        cb(null, originalname)
+    }
+})
+
+const upload = multer({storage: storage})
 
 async function getUserByEmail(email) {
     const user = await User.findOne({ email: email })
@@ -62,21 +76,26 @@ router.post('/register', async (req, res) => {
     }
 })
 
-router.post('/create-job', async (req, res) => {
+router.post('/create-job', checkAuthenticated, upload.array("image"), async (req, res) => {
     const title = req.body.title
     const description = req.body.description
     const labels = req.body.labels
     const credits = req.body.credits
     const images = ['fhsdifhsi', 'bfsbfk']
-    const email = 'fjsbdkjfb'
-    const job = new Job({
+    const emailOwner = await req.user
+
+    console.log(typeof req.body)
+    console.log(typeof req.body.file)
+
+    const job = await new Job({
         title: title,
         description: description,
         credits: credits,
         labels: labels,
         images: images,
-        email: email
+        emailOwner: emailOwner.email
     })
+
     try {
         const savedJob = await job.save()
         console.log(savedJob)
@@ -86,6 +105,7 @@ router.post('/create-job', async (req, res) => {
         //res.redirect('/register')
         res.send('bruh ???')
     }
+    //Start moving images to drive async.
 })
 
 router.get('/login', (req, res) => {
@@ -112,7 +132,7 @@ router.get('/available-jobs', isAuthenticated('available-jobs'), (req, res) => {
     res.render('available-jobs', { authenticated: true })
 })
 
-router.get('/ad-listing', (req, res) => {
+router.get('/ad-listing', checkAuthenticated, (req, res) => {
     res.render('ad-listing')
 })
 

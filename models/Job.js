@@ -22,9 +22,13 @@ const jobSchema = new Schema({
         type: Array,
         require: true
     },
-    email: {
+    emailOwner: {
         type: String,
         require: true
+    },
+    emailLabellers: {
+        type: Array,
+        require: false
     }
 })
 
