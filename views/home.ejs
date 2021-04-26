@@ -10,9 +10,24 @@
             <!-- <br> Data Labelling Martetplace. -->
           </p>
           <div class="short-popular-category-list text-center">
-            <h2>Data Labelling Categories</h2>
+            <!-- <h2>Data Labelling Categories</h2> -->
             <ul class="list-inline">
-              <li class="list-inline-item">
+
+              <li class="list-inline-item"><a class="nav-link text-white d-block mt-2 btn-main3" href="/available-jobs">Find Job</a>
+              </li>
+  
+              <% if(authenticated){ %>
+                <li class="list-inline-item"><a class="nav-link text-white d-block mt-2 btn-main2" href="/create-job">Create Job</a>
+                
+                </li>
+              <% } else{ %>  
+                <li class="list-inline-item"><a class="nav-link text-white d-block mt-2 btn-main2" href="/login">Create Job</a>
+                
+                </li>
+             <% } %>
+              
+
+              <!-- <li class="list-inline-item">
                 <a href="/available-jobs"><i class="fa fa-plus-circle"></i> Numerical Data</a>
               </li>
               <li class="list-inline-item">
@@ -24,9 +39,9 @@
               <li class="list-inline-item">
                 <a href="/available-jobs"><i class="fa fa-plus-circle"></i> Text Data</a>
               </li>
-              <!-- <li class="list-inline-item">
+            <li class="list-inline-item">
               <a href="availableJobs.html"><i class="fa fa-coffee"></i> Cafe</a>
-            </li> -->
+            </li>  -->
             </ul>
           </div>
 
@@ -249,14 +264,12 @@
     <div class="row justify-content-md-center text-center">
       <div class="col-md-8">
         <div class="content-holder">
-          <h2>Start today and join the ML revolution</h2>
+          <h2>What they say</h2>
+          
           <ul class="list-inline mt-30">
-            <li class="list-inline-item"><a class="nav-link text-white btn-main3" href="">Create Job</a>
-              
-            </li>
             
-            <li class="list-inline-item"><a class="nav-link text-white btn-main2" href="/available-jobs">Find Job</a>
-            </li>
+            
+           
           </ul>
         </div>
       </div>

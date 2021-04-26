@@ -133,8 +133,8 @@ router.get('/available-jobs', isAuthenticated('available-jobs'), (req, res) => {
     res.render('available-jobs', { authenticated: true })
 })
 
-router.get('/job-listing', checkAuthenticated, (req, res) => {
-    res.render('job-listing')
+router.get('/create-job', checkAuthenticated, (req, res) => {
+    res.render('create-job')
 })
 
 router.get('/dashboard', (req, res) => {
