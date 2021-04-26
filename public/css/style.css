@@ -447,14 +447,36 @@ button {
 }
 
 .btn-main2, .btn-main2-sm {
-  background: #b566ff;
+  /* background: #b566ff;
   color: #fff;
-  padding: 8px 20px !important;
+  padding: 8px 20px !important; */
+
+  background: #7f08e1;
+  color: #fff;
+  border-radius: 10%;
 }
 
 .btn-main2:hover, .btn-main2-sm:hover {
-  background: #7f08e1;
+  /* background: #7f08e1;
+  color: #fff; */
+
+  background: #b566ff;
   color: #fff;
+  padding: 8px 20px !important;
+  border-radius: 10%;
+}
+
+.btn-main3, .btn-main3-sm {
+  background: #082de1;
+  color: #fff;
+  border-radius: 10%;
+}
+
+.btn-main3:hover, .btn-main3-sm:hover {
+  background: #5672f9;
+  color: #fff;
+  padding: 8px 20px !important;
+  border-radius: 10%;
 }
 
 .btn-main-sm {
