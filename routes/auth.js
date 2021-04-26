@@ -141,7 +141,7 @@ router.get('/dashboard', (req, res) => {
     res.render('dashboard')
 })
 
-router.get('/howtopage', isAuthenticated('howtopage'), (req, res) => {
+router.get('/how-to-page', isAuthenticated('how-to-page'), (req, res) => {
     res.render('how-to-page', { authenticated: true })
 })
 
