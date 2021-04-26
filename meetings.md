@@ -659,6 +659,49 @@ Sipho Sikakane.(Scrum master/Backend)
 - Tasks for the day: Fix errors caused by passing tokens in EJS
 - Impediments: Assignments and Tests
 
+## Daily Scrum Meeting 26nd April 2021 9:30
+
+Aharon Cohen (Frontend):
+- Tasks completed yesterday: Fixed footer and header for registered home page
+- Tasks for the day: Edit ‘add’ and ‘create’ labels.
+- Impediments: Catch up missed work in study break.  
+
+Langiwe Mwale (Frontend):
+- Tasks completed Yesterday: Added page for how to submit jobs
+- Task for the Day: Make better design
+- Impediments: creative block
+
+Ioanni Balassis: (Frontend)
+- Tasks completed yesterday:  Added how to submit page 
+- Tasks for the day: make better design
+- Impediments: Catching up old lectures and study for tests
+
+Jonathan Nunes (Frontend):
+- Tasks completed yesterday: Edited register/unregistered header and footer links. Changed some CSS. Renamed files to have consistent naming conventions.
+- Tasks for the day: Create individual buttons to remove individual labels on the create job page
+- Impediments: Other university work.
+
+Faisal Saleem (Backend):
+- Tasks completed yesterday: Setup authentication and session management.
+- Tasks for the day: Continue work on image storage.
+- Impediments: Test week and Tutorials
+
+Ghulame Mujtaba Arbi (Backend/Frontend):
+- Tasks completed yesterday: Setup authentication and session management.
+- Tasks for the day: Continue work on image storage.
+- Impediments: Test week and Tutorials
+
+Tristan Bester (Backend):
+- Tasks completed yesterday: Setup authentication and session management.
+- Tasks for the day: Continue work on image storage.
+- Impediments: Time.
+
+Sipho Sikakane.(Scrum master/Backend)
+- Tasks completed yesterday: Finished login and registration
+- Tasks for the day: Work on adding images associated with jobs
+- Impediments Deadlines
+
+
 
 
 
