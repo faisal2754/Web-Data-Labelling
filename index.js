@@ -61,7 +61,14 @@ app.use(passport.session())
 app.use('', authRoute)
 
 //dropbox api test
-fs.readFile('red.jpg', function (err, data) {
+fs.readFile('uploads/red.jpg', function (err, data) {
+    const path = '/Upload/red5.jpg'
+    const req = reqBuilder(path)
+    req.write(data)
+    req.end()
+})
+
+function reqBuilder(path) {
     const req = https.request(
         'https://content.dropboxapi.com/2/files/upload',
         {
@@ -69,15 +76,13 @@ fs.readFile('red.jpg', function (err, data) {
             headers: {
                 Authorization: 'Bearer nnAuQQea4hcAAAAAAAAAAbz8rFngIHdnRmUH7jjdB3wNypR-f-PuTeLmtdRqvXdS',
                 'Dropbox-API-Arg': JSON.stringify({
-                    path: '/Upload/red.jpg',
+                    path: path,
                     mode: 'overwrite',
                     autorename: true,
                     mute: false,
                     strict_conflict: false
                 }),
                 'Content-Type': 'application/octet-stream'
-
-                
             }
         },
         (res) => {
@@ -90,9 +95,14 @@ fs.readFile('red.jpg', function (err, data) {
         }
     )
 
-    req.write(data)
-    req.end()
-})
+    return req
+}
+
+// fs.readdir('uploads', (err, files) => {
+//     files.forEach(file => {
+//       console.log(file);
+//     });
+//   });
 
 
 app.listen(port, () => {
