@@ -438,6 +438,7 @@ button {
 .btn-main, .btn-main-sm {
   background: #5672f9;
   color: #fff;
+  padding: 8px 20px !important;
 }
 
 .btn-main:hover, .btn-main-sm:hover {
@@ -716,7 +717,7 @@ ul.pagination .active a {
 }
 
 .add-button {
-  background: #28a745;
+  background: #7f28a7;
   color: #fff;
   padding: 8px 20px !important;
   display: inline-block;
