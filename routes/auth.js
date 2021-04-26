@@ -8,17 +8,18 @@ const multer = require('multer')
 initialize(passport, getUserByEmail)
 
 
+
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, 'uploads')
     },
     filename: (req, file, cb) => {
-        const {originalname} = file
+        const { originalname } = file
         cb(null, originalname)
     }
 })
 
-const upload = multer({storage: storage})
+const upload = multer({ storage: storage })
 
 async function getUserByEmail(email) {
     const user = await User.findOne({ email: email })
@@ -76,7 +77,7 @@ router.post('/register', async (req, res) => {
     }
 })
 
-router.post('/create-job', checkAuthenticated, upload.array("image"), async (req, res) => {
+router.post('/create-job', checkAuthenticated, upload.array('image'), async (req, res) => {
     const title = req.body.title
     const description = req.body.description
     const labels = req.body.labels
@@ -84,8 +85,8 @@ router.post('/create-job', checkAuthenticated, upload.array("image"), async (req
     const images = ['fhsdifhsi', 'bfsbfk']
     const emailOwner = await req.user
 
-    console.log(typeof req.body)
-    console.log(typeof req.body.file)
+    // console.log(typeof req.body)
+    // console.log(typeof req.body.file)
 
     const job = await new Job({
         title: title,
