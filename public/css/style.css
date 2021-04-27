@@ -705,6 +705,13 @@ ul.pagination .active a {
   background-repeat: no-repeat;
 }
 
+.bg-ml-footer2 {
+  background: url(../images/footer-animation.gif);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
 .navigation {
   padding: 20px 0;
 }
