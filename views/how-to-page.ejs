@@ -1,113 +1,126 @@
 <% if (authenticated) { %>
     <%- include('header-registered.ejs') %>
-<% }else{ %>
-    <%- include('header.ejs') %>
-<% } %>
+        <% }else{ %>
+            <%- include('header.ejs') %>
+                <% } %>
 
-<link rel="preload" href="https://www.googletagmanager.com/gtm.js?id=GTM-TD6B6GW" as="script">
-<link rel="preload" href="https://assets.static-upwork.com/vue-libs/vue.2.6.10.min.js" as="script">
-<link rel="preload" href="https://assets.static-upwork.com/vue-libs/vuex.3.1.0.min.js" as="script">
-<link rel="preload" href="https://assets.static-upwork.com/vue-libs/runtime.0.12.1.min.js" as="script">
-<link rel="preload" href="https://assets.static-upwork.com/dev/wf-nav-search/PR-3/1/setup-iife.min.js" as="script">
-<link rel="preload" href="https://www.upwork.com/i/applet.js" as="script">
-<link rel="preload" href="https://assets.static-upwork.com/dev/ui-packages/feature/nojira-tracking-cms-poc/5/@upwork/tracking-cms/index.iife.js" as="script">
+                    <link rel="preload" href="https://www.googletagmanager.com/gtm.js?id=GTM-TD6B6GW" as="script">
+                    <link rel="preload" href="https://assets.static-upwork.com/vue-libs/vue.2.6.10.min.js" as="script">
+                    <link rel="preload" href="https://assets.static-upwork.com/vue-libs/vuex.3.1.0.min.js" as="script">
+                    <link rel="preload" href="https://assets.static-upwork.com/vue-libs/runtime.0.12.1.min.js"
+                        as="script">
+                    <link rel="preload"
+                        href="https://assets.static-upwork.com/dev/wf-nav-search/PR-3/1/setup-iife.min.js" as="script">
+                    <link rel="preload" href="https://www.upwork.com/i/applet.js" as="script">
+                    <link rel="preload"
+                        href="https://assets.static-upwork.com/dev/ui-packages/feature/nojira-tracking-cms-poc/5/@upwork/tracking-cms/index.iife.js"
+                        as="script">
 
-<script src="https://assets.static-upwork.com/vue-libs/vue.2.6.10.min.js" defer></script>
-<script src="https://assets.static-upwork.com/vue-libs/vuex.3.1.0.min.js" defer></script>
-<script src="https://assets.static-upwork.com/vue-libs/runtime.0.12.1.min.js" defer></script>
-<script src="https://assets.static-upwork.com/dev/wf-nav-search/PR-3/1/setup-iife.min.js" defer></script>
-<script src="https://www.upwork.com/i/applet.js" defer></script>
-<script src="https://assets.static-upwork.com/dev/ui-packages/feature/nojira-tracking-cms-poc/5/@upwork/tracking-cms/index.iife.js" defer></script>
+                    <script src="https://assets.static-upwork.com/vue-libs/vue.2.6.10.min.js" defer></script>
+                    <script src="https://assets.static-upwork.com/vue-libs/vuex.3.1.0.min.js" defer></script>
+                    <script src="https://assets.static-upwork.com/vue-libs/runtime.0.12.1.min.js" defer></script>
+                    <script src="https://assets.static-upwork.com/dev/wf-nav-search/PR-3/1/setup-iife.min.js"
+                        defer></script>
+                    <script src="https://www.upwork.com/i/applet.js" defer></script>
+                    <script
+                        src="https://assets.static-upwork.com/dev/ui-packages/feature/nojira-tracking-cms-poc/5/@upwork/tracking-cms/index.iife.js"
+                        defer></script>
 
-    <div class="bg-light">
-        <div class="container py-5">
-            <div class="row h-100 align-items-center py-5">
-                <div class="col-lg-6">
-                    <h1 class="display-4">How to Submit a Job!</h1>
-                    <p class="lead text-muted mb-0">Here is a step by step guide to submitting a job on our Platform!
-                    </p>
+                    <div class="bg-light">
+                        <div class="container py-5">
+                            <div class="row h-100 align-items-center py-5">
+                                <div class="col-lg-6">
+                                    <h1 class="display-4">How to Submit a Job!</h1>
+                                    <p class="lead text-muted mb-0">Here is a step-by-step guide to submitting a job on
+                                        our Platform!
+                                    </p>
 
-                </div>
-                <!-- Placeholder image for screenshots -->
-                <div class="col-lg-6 d-none d-lg-block"><img
-                        src="https://res.cloudinary.com/mhmd/image/upload/v1556834136/illus_kftyh4.png" alt=""
-                        class="img-fluid"></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="bg-white py-5">
-        <div class="container py-5">
-            <div class="row align-items-center mb-5">
-                <div class="col-lg-6 order-2 order-lg-1"><i class="fa fa-address-card fa-2x mb-3 text-primary"></i>
-                    <h2 class="font-weight-light">Step 1: Log in!</h2>
-                    <p class="font-italic text-muted mb-4">In order to use our platform , you need to log in and join
-                        our community! If you havent already , you can create an account <a type="button"
-                            class="text-reset" href="/register">Here</a>
-                    </p>
-                    <!-- <a href="#" class="btn btn-light px-5 rounded-pill shadow-sm">Learn More</a> -->
-                </div>
-                <!-- placeholder image for screenshots -->
-                <div class="col-lg-5 px-5 mx-auto order-1 order-lg-2"><img
-                        src="https://res.cloudinary.com/mhmd/image/upload/v1556834139/img-1_e25nvh.jpg" alt=""
-                        class="img-fluid mb-4 mb-lg-0">
-                </div>
-            </div>
-
-            <div class="row align-items-center">
-                <!-- placeholder image for screenshots -->
-                <div class="col-lg-5 px-5 mx-auto"><img
-                        src="https://res.cloudinary.com/mhmd/image/upload/v1556834136/img-2_vdgqgn.jpg" alt=""
-                        class="img-fluid mb-4 mb-lg-0"></div>
-                <div class="col-lg-6">
-                    <i class="fa fa-leaf fa-2x mb-3 text-primary"></i>
-                    <h2 class="font-weight-light">Step 2: Navigate to the Post a Job Page</h2>
-                    <p class="font-italic text-muted mb-4">Now that you've logged in , You can navigate to the page to
-                        post your Job . Currently we only support Data Labelling jobs that utilize pictures but
-                        plan to expand in future
-                    </p>
-                    <!-- <a href="#" class="btn btn-light px-5 rounded-pill shadow-sm">Learn
-                        More</a> -->
-                </div>
-            </div>
-            <div class="container py-5">
-                <div class="row align-items-center mb-5">
-                    <div class="col-lg-6 order-2 order-lg-1"><i class="fa fa-address-card fa-2x mb-3 text-primary"></i>
-                        <h2 class="font-weight-light">Step 3: Fill in the details and Submit!</h2>
-                        <p class="font-italic text-muted mb-4">Fill in your details in the available fields. Remembering
-                            to add your details in case your client would like to contact you! Our platform will also
-                            allow you to prioritise members with a higher rating.
-                        </p>
-                        <!-- <a href="#" class="btn btn-light px-5 rounded-pill shadow-sm">Learn More</a> -->
+                                </div>
+                                <!-- Placeholder image for screenshots -->
+                                <div class="col-lg-6 d-none d-lg-block"><img
+                                        src="https://res.cloudinary.com/mhmd/image/upload/v1556834136/illus_kftyh4.png"
+                                        alt="" class="img-fluid"></div>
+                            </div>
+                        </div>
                     </div>
-                    <!-- placeholder image for screenshots -->
-                    <div class="col-lg-5 px-5 mx-auto order-1 order-lg-2">
-                        <img src="https://res.cloudinary.com/mhmd/image/upload/v1556834139/img-1_e25nvh.jpg" alt=""
-                            class="img-fluid mb-4 mb-lg-0">
-                    </div>
-                </div>
-            </div>
 
-            <div class="row align-items-center">
-                <!-- placeholder image for screenshots -->
-                <div class="col-lg-5 px-5 mx-auto"><img
-                        src="https://res.cloudinary.com/mhmd/image/upload/v1556834136/img-2_vdgqgn.jpg" alt=""
-                        class="img-fluid mb-4 mb-lg-0"></div>
-                <div class="col-lg-6">
-                    <i class="fa fa-leaf fa-2x mb-3 text-primary"></i>
-                    <h2 class="font-weight-light">Step 4: Sit Back and let the Data be Labelled</h2>
-                    <p class="font-italic text-muted mb-4">You can now sit back and relax while we let one of our top
-                        tier community members do the labeling
+                    <div class="bg-white py-5">
+                        <div class="container py-5">
+                            <div class="row align-items-center mb-5">
+                                <div class="col-lg-6 order-2 order-lg-1"><i
+                                        class="fa fa-address-card fa-2x mb-3 text-primary"></i>
+                                    <h2 class="font-weight-light">Step 1: Log in!</h2>
+                                    <p class="font-italic text-muted mb-4">In order to use our platform, you need to log
+                                        in.
+                                        If you haven't already, you can create an account.<a type="button"
+                                            class="text-reset" href="/register">here</a>
+                                    </p>
+                                    <!-- <a href="#" class="btn btn-light px-5 rounded-pill shadow-sm">Learn More</a> -->
+                                </div>
+                                <!-- placeholder image for screenshots -->
+                                <div class="col-lg-5 px-5 mx-auto order-1 order-lg-2"><img
+                                        src="https://res.cloudinary.com/mhmd/image/upload/v1556834139/img-1_e25nvh.jpg"
+                                        alt="" class="img-fluid mb-4 mb-lg-0">
+                                </div>
+                            </div>
 
-                    </p>
-                    <!-- <a href="#" class="btn btn-light px-5 rounded-pill shadow-sm">Learn
+                            <div class="row align-items-center">
+                                <!-- placeholder image for screenshots -->
+                                <div class="col-lg-5 px-5 mx-auto"><img
+                                        src="https://res.cloudinary.com/mhmd/image/upload/v1556834136/img-2_vdgqgn.jpg"
+                                        alt="" class="img-fluid mb-4 mb-lg-0"></div>
+                                <div class="col-lg-6">
+                                    <i class="fa fa-leaf fa-2x mb-3 text-primary"></i>
+                                    <h2 class="font-weight-light">Step 2: Navigate to the Post a Job Page</h2>
+                                    <p class="font-italic text-muted mb-4">Now that you've logged in, you can navigate
+                                        to the page to
+                                        post your Job . Currently we only support Data Labelling jobs that utilize
+                                        pictures but
+                                        plan to expand in the future.
+                                    </p>
+                                    <!-- <a href="#" class="btn btn-light px-5 rounded-pill shadow-sm">Learn
                         More</a> -->
-                </div>
-            </div>
-        </div>
-        
-<% if (authenticated) { %>
-    <%- include('footer.ejs') %>
-<% }else{ %>
-    <%- include('footer-unregistered.ejs') %>
-<% } %>
+                                </div>
+                            </div>
+                            <div class="container py-5">
+                                <div class="row align-items-center mb-5">
+                                    <div class="col-lg-6 order-2 order-lg-1"><i
+                                            class="fa fa-address-card fa-2x mb-3 text-primary"></i>
+                                        <h2 class="font-weight-light">Step 3: Fill in the details and Submit!</h2>
+                                        <p class="font-italic text-muted mb-4">Fill in your details in the available
+                                            fields. Make sure to keep details as precise as possible for better results.
+                                        </p>
+                                        <!-- <a href="#" class="btn btn-light px-5 rounded-pill shadow-sm">Learn More</a> -->
+                                    </div>
+                                    <!-- placeholder image for screenshots -->
+                                    <div class="col-lg-5 px-5 mx-auto order-1 order-lg-2">
+                                        <img src="https://res.cloudinary.com/mhmd/image/upload/v1556834139/img-1_e25nvh.jpg"
+                                            alt="" class="img-fluid mb-4 mb-lg-0">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row align-items-center">
+                                <!-- placeholder image for screenshots -->
+                                <div class="col-lg-5 px-5 mx-auto"><img
+                                        src="https://res.cloudinary.com/mhmd/image/upload/v1556834136/img-2_vdgqgn.jpg"
+                                        alt="" class="img-fluid mb-4 mb-lg-0"></div>
+                                <div class="col-lg-6">
+                                    <i class="fa fa-leaf fa-2x mb-3 text-primary"></i>
+                                    <h2 class="font-weight-light">Step 4: Sit Back and let the Data be Labelled</h2>
+                                    <p class="font-italic text-muted mb-4">You can now sit back and relax while we let
+                                        one of our top
+                                        tier community members do the labelling.
+
+                                    </p>
+                                    <!-- <a href="#" class="btn btn-light px-5 rounded-pill shadow-sm">Learn
+                        More</a> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <% if (authenticated) { %>
+                            <%- include('footer.ejs') %>
+                                <% }else{ %>
+                                    <%- include('footer-unregistered.ejs') %>
+                                        <% } %>
