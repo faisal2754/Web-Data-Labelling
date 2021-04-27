@@ -206,7 +206,7 @@
             <span> <a class="text-success" href="/terms-conditions">Terms & Conditions</a></span>
           </label> 
         </div> -->
-        <button type="submit" class="btn btn-primary d-block mt-2">Post Your Job</button>
+        <button type="submit" class="btn btn-primary d-block mt-2" data-toggle="modal" data-target="#createJobModal">Post Your Job</button>
       </form>
 
       <!-- <script>
@@ -226,6 +226,42 @@
 
 
     </div>
+
+
+    <div class="modal" id="createJobModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4>Submitting Your Job</h4>
+          </div>
+          <div class="modal-body">
+            <div id="myBar">0%</div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <script>
+              var i = 0;
+          function move() {
+            if (i == 0) {
+              i = 1;
+              var elem = document.getElementById("myBar");
+              var width = 10;
+              var id = setInterval(frame, 10);
+              function frame() {
+                if (width >= 100) {
+                  clearInterval(id);
+                  i = 0;
+                } else {
+                  width++;
+                  elem.style.width = width + "%";
+                  elem.innerHTML = width + "%";
+                }
+              }
+            }
+          }
+  </script>
   </section>
   
 <%- include('footer.ejs') %>

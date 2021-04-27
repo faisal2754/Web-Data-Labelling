@@ -107,7 +107,7 @@ router.post('/create-job', checkAuthenticated, upload.array('image'), async (req
         res.send('bruh ???')
     }
     //Start moving images to drive async.
-})
+}) 
 
 router.get('/login', (req, res) => {
     res.render('login')
