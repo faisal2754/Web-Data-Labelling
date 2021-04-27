@@ -15,48 +15,46 @@
               <textarea name="description" id="" class="border p-3 w-100" rows="7"
                 placeholder="Write details about your job"></textarea>
               <h6 class="font-weight-bold pt-4 pb-1">Add the labels you would like to be used:</h6>
-              <!-- this ul need the list group tag to 
-              have the bootstrap functionallity -->
-              <ul class="list-group" id="list"></ul>
-              <input type="text" id="candidate"/>
-              <button type="button" class="btn btn-secondary" style="color: rgb(255, 255, 255); background-color: forestgreen; border: forestgreen;" onclick="addItem()">
-                Add label</button>
-              <button type="button" class="btn btn-secondary" style="color: rgb(255, 255, 255); background-color:firebrick; border: firebrick;" onclick="removeItem()">
-                Remove label</button>
+              
+                <td>
+                  <ul class="list-group" id="label"></ul>
+                  <input type="text" name="label" id="addLabel"/>
+                  <a type="button" class="btn btn-primary" style="color: white;" value="" onclick="addLabel();">
+                    Add Label</a>
+                </td>
 
-              <script>
-                function addItem() {
-                  var a = document.getElementById("list");
-                  var candidate = document.getElementById("candidate");
-                  var li = document.createElement("li");
-                  li.setAttribute('name', candidate.value)
-                  li.className = "list-group-item"
-                  li.appendChild(document.createTextNode(candidate.value));
-                  
-                  const input = document.createElement("input")
-                  input.setAttribute("name", "labels")
-                  input.setAttribute("type", "hidden")
-                  input.value = candidate.value
-                  li.appendChild(input)
-                  
-                  if(candidate.value != ""){
-                    a.appendChild(li);
-                    candidate.value = ""
-                  }
-                  else{
-                    alert("Label field cannot be blank");
-                  }
-                }
+                <script>
+                  var labelList="";
+                      var i = 0;
+                      function addLabel(){
+                        var labels= document.getElementById("addLabel").value;
+                        if(labels != ""){
+                          labelList += "<li class='list-item'><span name='labelItem' id='labelItem"+ i +"'>" + labels + "</span> " +
+                          "<button class='close' onclick='removeLabel()'>x</button></li>";
+                          i++;
+                          document.getElementById("label").innerHTML = labelList;
+                          document.getElementById("addLabel").value="";				
+                        }
+                      }
+                      
+                      function removeLabel(){
+                        labelList="";
+                        var items = document.querySelectorAll("#label li"),index,tab = [];
+                        for(var j = 0; j < items.length; j++){
+                          tab.push(items[j].innerHTML);
+                        }
+                        for(var j = 0; j < items.length; j++){
+                          items[j].onclick = function(){
+                            
+                            index = tab.indexOf(this.innerHTML);
+                            items[index].parentNode.removeChild(items[index]);
+                            tab.pop(j,1);
+                          };
+                        }
+                        
 
-                // Creating a function to remove item from list
-                function removeItem() {
-                  // Declaring a varible to get select element
-                  var a = document.getElementById("list");
-                  var candidate = document.getElementById("candidate");
-                  var item = document.getElementsByName(candidate.value)[0];
-                  a.removeChild(item);
-                }
-              </script>
+                      }
+                </script>
 
             </div>
             <div class="col-lg-6">
