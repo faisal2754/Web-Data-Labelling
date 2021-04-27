@@ -439,46 +439,50 @@ button {
   background: #5672f9;
   color: #fff;
   padding: 8px 20px !important;
+  border-radius: 5px;
 }
 
 .btn-main:hover, .btn-main-sm:hover {
   background: #082de1;
   color: #fff;
+  border-radius: 5px;
 }
 
 .btn-main2, .btn-main2-sm {
   /* background: #b566ff;
   color: #fff;
   padding: 8px 20px !important; */
-  
+  font-size: large;
   background: #7f08e1;
   color: #fff;
-  border-radius: 10%;
+  border-radius: 5px;
   padding: 8px 20px !important;
 }
 
 .btn-main2:hover, .btn-main2-sm:hover {
   /* background: #7f08e1;
   color: #fff; */
-
+  font-size: large;
   background: #b566ff;
   color: #fff;
   padding: 8px 20px !important;
-  border-radius: 10%;
+  border-radius: 5px;
 }
 
 .btn-main3, .btn-main3-sm {
+  font-size: large;
   background: #082de1;
   color: #fff;
-  border-radius: 10%;
+  border-radius: 5px;
   padding: 8px 20px !important;
 }
 
 .btn-main3:hover, .btn-main3-sm:hover {
+  font-size: large;
   background: #5672f9;
   color: #fff;
   padding: 8px 20px !important;
-  border-radius: 10%;
+  border-radius: 5px;
 }
 
 .btn-main-sm {
@@ -724,6 +728,7 @@ ul.pagination .active a {
   border: 2px solid #dedede;
   margin-right: 8px;
   padding: 6px 20px !important;
+  border-radius: 5px;
 }
 
 @media (max-width: 400px) {
