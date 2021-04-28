@@ -63,16 +63,27 @@ app.use(passport.session())
 app.use('', authRoute)
 
 //dropbox api test
-const upload = (function () {
-    fs.readdir('uploads', function (err, files) {
-        files.forEach((file) => {
+const upload = function () {
+    fs.readdir('uploads', (err, data) => {
+        data.forEach(async (file) => {
             const path = '/Upload/' + file
-            const req = reqBuilder(path)
+            const req = await reqBuilder(path)
             req.write(file)
             req.end()
         })
     })
-})()
+}
+
+const upload2 = function () {
+    fs.readFile('uploads/red.jpg', function (err, data) {
+        const path = '/Upload/red5.jpg'
+        const req = reqBuilder(path)
+        req.write(data)
+        req.end()
+    })
+}
+
+//upload()
 
 function reqBuilder(path) {
     const req = https.request(
