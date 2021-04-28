@@ -745,6 +745,46 @@ Sipho Sikakane.(Scrum master/Backend)
 
 ## Daily Scrum Meeting 28th April 2021 4:00pm
 
+Aharon Cohen (Frontend):
+- Tasks completed yesterday: Various fixes like error message on login, image
+- Tasks for the day: Edit animations and screenshots
+- Impediments: Catch up missed work in study break.  
+
+Langiwe Mwale (Frontend):
+- Tasks completed Yesterday: various fixes such as error message for login in , image preview issues , and navbar display issues
+- Task for the Day: add a custom scrollbar
+- Impediments: Not knowing how to add custom scrollbar
+
+Ioanni Balassis: (Frontend)
+- Tasks completed yesterday:  various fixes like error message on login, image preview issues, navbar adjustment
+- Tasks for the day: fixing chrome page
+- Impediments: Catching up old lectures and study for tests
+
+Jonathan Nunes (Frontend):
+- Tasks completed yesterday: Researched CSS and animation techniques.
+- Tasks for the day: Custom scroll bar. Fix testimonials alignment for small screens.
+- Impediments: Studying for test week.
+
+Faisal Saleem (Backend):
+- Tasks completed yesterday: Worked on Dropbox API.
+- Tasks for the day: Continue work on uploading multiple images using API.
+- Impediments: Test week and Tutorials
+
+Ghulame Mujtaba Arbi (Backend/Frontend):
+- Tasks completed yesterday:  Worked on Dropbox API.
+- Tasks for the day: Continue work on uploading multiple images using API.
+- Impediments: Test week and Tutorials
+
+Tristan Bester (Backend):
+- Tasks completed yesterday: Worked on Dropbox API.
+- Tasks for the day: Continue work on uploading multiple images using API.
+- Impediments: Time.
+
+Sipho Sikakane.(Scrum master/Backend)
+- Tasks completed yesterday: Worked on Dropbox API.
+- Tasks for the day: Continue work on uploading multiple images using API.
+- Impediments: Time
+
 
 
 
