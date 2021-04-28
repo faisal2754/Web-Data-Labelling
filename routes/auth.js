@@ -4,10 +4,10 @@ const initialize = require('../passport-config')
 const User = require('../models/User')
 const Job = require('../models/Job')
 const multer = require('multer')
+//const { upload } = require('../uploader')
+const fs = require('fs')
 
 initialize(passport, getUserByEmail)
-
-
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -19,7 +19,7 @@ const storage = multer.diskStorage({
     }
 })
 
-const upload = multer({ storage: storage })
+const localStorage = multer({ storage: storage })
 
 async function getUserByEmail(email) {
     const user = await User.findOne({ email: email })
@@ -77,37 +77,44 @@ router.post('/register', async (req, res) => {
     }
 })
 
-router.post('/create-job', checkAuthenticated, upload.array('image'), async (req, res) => {
+router.post('/create-job', checkAuthenticated, localStorage.array('image'), async (req, res) => {
     const title = req.body.title
     const description = req.body.description
     const labels = req.body.labels
     const credits = req.body.credits
-    const images = ['fhsdifhsi', 'bfsbfk']
+    //const images = []
     const emailOwner = await req.user
 
-    // console.log(typeof req.body)
-    // console.log(typeof req.body.file)
+    //upload()
 
     const job = await new Job({
         title: title,
         description: description,
         credits: credits,
         labels: labels,
-        images: images,
         emailOwner: emailOwner.email
     })
-
     try {
         const savedJob = await job.save()
-        console.log(savedJob)
+        const path = '/' + emailOwner.email + '/' + savedJob._id + '/'
+        const pathArr = []
+        console.log('right before readdir')
+        fs.readdir('uploads', (err, files) => {
+            files.forEach((file) => {
+                pathArr.push(path + file)
+            })
+            console.log(pathArr)
+        })
+
+        upload(path)
         //res.redirect('/login')
         res.send('job created')
-    } catch {
+    } catch (e) {
         //res.redirect('/register')
-        res.send('bruh ???')
+        res.send('bruh')
     }
     //Start moving images to drive async.
-}) 
+})
 
 router.get('/login', (req, res) => {
     res.render('login')

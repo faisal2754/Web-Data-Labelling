@@ -23,43 +23,76 @@
               <h6 class="font-weight-bold pt-4 pb-1">Add the labels you would like to be used:</h6>
 
               <td>
-                <ul class="list-group" id="label"></ul>
-                <input type="text" name="label" id="addLabel" />
-                <a type="button" class="btn btn-primary" style="color: white;" value="" onclick="addLabel();">
+                <ul class="list-group" id="list"></ul>
+                <input type="text" id="candidate"/>
+                <!-- <input type="text" name="labels" id="addLabel" /> -->
+                <a type="button" class="btn btn-primary" style="color: white" value="" onclick="addLabel()">
                   Add Label</a>
               </td>
 
               <script>
-                var labelList = "";
-                var i = 0;
                 function addLabel() {
-                  var labels = document.getElementById("addLabel").value;
-                  if (labels != "") {
-                    labelList += "<li class='list-item'><span name='labelItem' id='labelItem" + i + "'>" + labels + "</span> " +
-                      "<button class='close' onclick='removeLabel()'>x</button></li>";
-                    i++;
-                    document.getElementById("label").innerHTML = labelList;
-                    document.getElementById("addLabel").value = "";
+                  var a = document.getElementById("list");
+                  var candidate = document.getElementById("candidate");
+                  var li = document.createElement("li");
+                  li.setAttribute('name', candidate.value)
+                  li.className = "list-group-item"
+                  li.appendChild(document.createTextNode(candidate.value));
+                  
+                  const input = document.createElement("input")
+                  input.setAttribute("name", "labels")
+                  input.setAttribute("type", "hidden")
+                  input.value = candidate.value
+                  li.appendChild(input)
+                  
+                  if(candidate.value != ""){
+                    a.appendChild(li);
+                    candidate.value = ""
+                  }
+                  else{
+                    alert("Label field cannot be blank");
                   }
                 }
-
-                function removeLabel() {
-                  labelList = "";
-                  var items = document.querySelectorAll("#label li"), index, tab = [];
-                  for (var j = 0; j < items.length; j++) {
-                    tab.push(items[j].innerHTML);
-                  }
-                  for (var j = 0; j < items.length; j++) {
-                    items[j].onclick = function () {
-
-                      index = tab.indexOf(this.innerHTML);
-                      items[index].parentNode.removeChild(items[index]);
-                      tab.pop(j, 1);
-                    };
-                  }
-
-
+                // Creating a function to remove item from list
+                function removeItem() {
+                  // Declaring a varible to get select element
+                  var a = document.getElementById("list");
+                  var candidate = document.getElementById("candidate");
+                  var item = document.getElementsByName(candidate.value)[0];
+                  a.removeChild(item);
                 }
+
+
+                //var labelList = "";
+                //var i = 0;
+                // function addLabel() {
+                //   var labels = document.getElementById("addLabel").value;
+                //   if (labels != "") {
+                //     labelList += "<li class='list-item'><span name='labelItem' id='labelItem" + i + "'>" + labels + "</span> " +
+                //       "<button class='close' onclick='removeLabel()'>x</button></li>";
+                //     i++;
+                //     document.getElementById("label").innerHTML = labelList;
+                //     document.getElementById("addLabel").value = "";
+                //   }
+                // }
+
+                // function removeLabel() {
+                //   labelList = "";
+                //   var items = document.querySelectorAll("#label li"), index, tab = [];
+                //   for (var j = 0; j < items.length; j++) {
+                //     tab.push(items[j].innerHTML);
+                //   }
+                //   for (var j = 0; j < items.length; j++) {
+                //     items[j].onclick = function () {
+
+                //       index = tab.indexOf(this.innerHTML);
+                //       items[index].parentNode.removeChild(items[index]);
+                //       tab.pop(j, 1);
+                //     };
+                //   }
+
+
+                //}
               </script>
 
             </div>
@@ -103,17 +136,16 @@
               <label for="file-upload">
                 <span class="d-block font-weight-bold text-dark">Drop files anywhere to upload</span>
                 <span class="d-block">or</span>
-                <div class="container">
-                  <input type="file" class="btn form-control-file d-none " id="pro-image" name="pro-image"
-                    style="display: none;" name="image" multiple>
+                <span class="d-block btn bg-primary text-white my-3 select-files">Select files</span>
+                <span class="d-block">Maximum upload file size: 500 KB</span>
+                <input type="file" class="form-control-file d-none" id="file-upload" name="image" multiple>
+                <!-- <div class="container">
+                  <input type="file" class="btn form-control-file d-none " id="pro-image" style="display: none;" name="image" multiple>
                   <a class="btn bg-primary text-white my-3" href="javascript:void(0)"
                     onclick="$('#pro-image').click()">Upload Image</a>
-                  <!-- <span class="d-block btn bg-primary text-white my-3 select-files">Select files</span> -->
                   <span class="d-block">Maximum upload file size: 500 KB</span>
-                  <div class="d-flex flex-wrap preview-images-zone">
-
-                  </div>
-                </div>
+                  <div class="d-flex flex-wrap preview-images-zone"> </div>
+                </div> -->
               </label>
             </div>
           </div>
