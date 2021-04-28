@@ -15,11 +15,13 @@ const mongoose = require('mongoose')
 const methodOverride = require('method-override')
 const https = require('https')
 const fs = require('fs')
+const async = require('async')
 
-
+//port and path
 var x = path.join(__dirname, 'public')
 const port = process.env.PORT || 3000
 
+//use ejs and static files
 app.set('view engine', 'ejs')
 app.use(express.static(x))
 app.use(express.urlencoded({ extended: false }))
@@ -61,12 +63,16 @@ app.use(passport.session())
 app.use('', authRoute)
 
 //dropbox api test
-fs.readFile('uploads/red.jpg', function (err, data) {
-    const path = '/Upload/red5.jpg'
-    const req = reqBuilder(path)
-    req.write(data)
-    req.end()
-})
+const upload = (function () {
+    fs.readdir('uploads', function (err, files) {
+        files.forEach((file) => {
+            const path = '/Upload/' + file
+            const req = reqBuilder(path)
+            req.write(file)
+            req.end()
+        })
+    })
+})()
 
 function reqBuilder(path) {
     const req = https.request(
@@ -98,12 +104,15 @@ function reqBuilder(path) {
     return req
 }
 
-// fs.readdir('uploads', (err, files) => {
-//     files.forEach(file => {
-//       console.log(file);
-//     });
-//   });
+//let imgArr = []
 
+// fs.readdir('uploads', (err, files) => {
+//     files.forEach((file) => {
+//         //console.log(file)
+//         imgArr.push(file)
+//     })
+//     console.log(imgArr)
+// })
 
 app.listen(port, () => {
     console.log('server started on port 3000')
