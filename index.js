@@ -67,7 +67,7 @@ const upload = function () {
     fs.readdir('uploads', (err, data) => {
         data.forEach(async (file) => {
             const path = '/Upload/' + file
-            const req = await reqBuilder(path)
+            const req = reqBuilder(path)
             req.write(file)
             req.end()
         })
