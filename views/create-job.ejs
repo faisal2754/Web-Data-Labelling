@@ -4,7 +4,7 @@
 
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-  <section class="ad-post bg-gray py-5">
+  <section class="ad-post py-5 bg-gray">
     <div class="container">
       <form id="form" action="/create-job" method="POST" enctype="multipart/form-data">
         <!-- Post Your ad start -->
@@ -117,6 +117,11 @@
               </label>
             </div>
           </div>
+          <div class=" text-center">
+
+            <button type="submit" class="btn btn-primary mt-2" data-toggle="modal" data-target="#createJobModal">Post
+              Your Job</button>
+          </div>
     </div>
     </fieldset>
     <!-- Post Your ad end -->
@@ -221,8 +226,7 @@
             <span> <a class="text-success" href="/terms-conditions">Terms & Conditions</a></span>
           </label> 
         </div> -->
-    <button type="submit" class="btn btn-primary d-block mt-2" data-toggle="modal" data-target="#createJobModal">Post
-      Your Job</button>
+
     </form>
 
     <!-- <script>
@@ -270,8 +274,8 @@
       });
 
 
+      var num = 0;
       function readImage() {
-        var num = 0;
         if (window.File && window.FileList && window.FileReader) {
           var files = event.target.files; //FileList object
           var output = $(".preview-images-zone");
@@ -412,9 +416,9 @@
         height: 90px !important;
       }
 
-      .container {
+      /* .container {
         padding-top: 50px;
-      }
+      } */
     </style>
   </section>
   <%- include('footer.ejs') %>
