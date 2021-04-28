@@ -659,7 +659,7 @@ Sipho Sikakane.(Scrum master/Backend)
 - Tasks for the day: Fix errors caused by passing tokens in EJS
 - Impediments: Assignments and Tests
 
-## Daily Scrum Meeting 26nd April 2021 9:30
+## Daily Scrum Meeting 26th April 2021 9:30
 
 Aharon Cohen (Frontend):
 - Tasks completed yesterday: Fixed footer and header for registered home page
@@ -700,6 +700,50 @@ Sipho Sikakane.(Scrum master/Backend)
 - Tasks completed yesterday: Finished login and registration
 - Tasks for the day: Work on adding images associated with jobs
 - Impediments Deadlines
+
+## Daily Scrum Meeting 27th April 2021 4:00pm
+
+Aharon Cohen (Frontend):
+- Tasks completed yesterday: Added how to submit page
+- Tasks for the day: Edit how to submit page and ‘incorrect login’ pop up
+- Impediments: Catch up missed work in study break.  
+
+Langiwe Mwale (Frontend):
+- Tasks completed Yesterday: finished how to submit a job
+- Task for the Day: Merge how to submit job page to main branch
+- Impediments: 
+
+Ioanni Balassis: (Frontend)
+- Tasks completed yesterday: how to submit
+- Tasks for the day: Update design elements
+- Impediments: Catching up old lectures and study for tests
+
+Jonathan Nunes (Frontend):
+- Tasks completed yesterday: Created individual buttons to remove individual labels on the create job page. Added placeholders for testimonials.
+- Tasks for the day: Research animations for front end. Possibly add smooth page transitions.
+- Impediments: Studying for test week.
+
+Faisal Saleem (Backend):
+- Tasks completed yesterday: Setup Dropbox API
+- Tasks for the day: Upload multiple images using API
+- Impediments: Test week and Tutorials
+
+Ghulame Mujtaba Arbi (Backend/Frontend):
+- Tasks completed yesterday: Setup authentication and session management.
+- Tasks for the day: Continue work on image storage.
+- Impediments: Test week and Tutorials
+
+Tristan Bester (Backend):
+- Tasks completed yesterday: Setup Dropbox API
+- Tasks for the day: Upload multiple images using API
+- Impediments: Time.
+
+Sipho Sikakane.(Scrum master/Backend)
+- Tasks completed yesterday: Setup Dropbox API
+- Tasks for the day: Upload multiple images using API
+- Impediments: Time.
+
+## Daily Scrum Meeting 28th April 2021 4:00pm
 
 
 
