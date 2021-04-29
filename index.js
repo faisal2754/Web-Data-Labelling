@@ -42,12 +42,15 @@ const headers = {
     'Content-Type': 'application/octet-stream'
 }
 
-const files = fs.readdirSync('uploads')
+const uploadPath = path.join(__dirname, 'uploads')
+console.log(uploadPath)
+
+const files = fs.readdirSync(__dirname + '/uploads')
 console.log(files)
 
 async function test() {
     for (const file of files) {
-        const file2 = fs.readFileSync('uploads/' + file)
+        const file2 = fs.readFileSync(__dirname + '/uploads/' + file)
         console.log('starting post reqs')
         const response = await axios.post('https://content.dropboxapi.com/2/files/upload', file2, { headers: headers })
         console.log(response.status)
