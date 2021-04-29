@@ -30,6 +30,10 @@ const axios = require('axios')
 //             }
 // })
 
+//port and path
+const staticPath = path.join(__dirname, 'public')
+const port = process.env.PORT || 3000
+
 const headers = {
     Authorization: 'Bearer nnAuQQea4hcAAAAAAAAAAbz8rFngIHdnRmUH7jjdB3wNypR-f-PuTeLmtdRqvXdS',
     'Dropbox-API-Arg': JSON.stringify({
@@ -42,7 +46,7 @@ const headers = {
     'Content-Type': 'application/octet-stream'
 }
 
-const uploadPath = path.join(__dirname, 'uploads/')
+const uploadPath = path.join(staticPath, 'uploads/')
 console.log(uploadPath)
 
 const files = fs.readdirSync(uploadPath)
@@ -58,10 +62,6 @@ async function test() {
 }
 
 test()
-
-//port and path
-const staticPath = path.join(__dirname, 'public')
-const port = process.env.PORT || 3000
 
 //use ejs and static files
 app.set('view engine', 'ejs')
