@@ -14,8 +14,6 @@ const mongoose = require('mongoose')
 const methodOverride = require('method-override')
 const fs = require('fs')
 const axios = require('axios')
-const { head } = require('./routes/auth')
-const sleep = require('sleep')
 
 // const instance = axios.create({
 //     baseURL: 'https://content.dropboxapi.com/2/files/upload',

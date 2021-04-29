@@ -1,7 +1,5 @@
-const https = require('https')
-const fs = require('fs')
-const Job = require('./models/Job')
-const sleep = require('sleep')
+// const fs = require('fs')
+// const Job = require('./models/Job')
 
 // function reqBuilder(path) {
 //     const req = https.request(
@@ -73,4 +71,4 @@ const sleep = require('sleep')
 //     })
 // }
 
-module.exports = { upload }
+//module.exports = { upload }
