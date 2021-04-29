@@ -66,6 +66,7 @@ const port = process.env.PORT || 3000
 //use ejs and static files
 app.set('view engine', 'ejs')
 app.use(express.static(staticPath))
+app.use(express.static(uploadPath))
 app.use(express.urlencoded({ extended: false }))
 //app.use(bodyParser.urlencoded({ extended: false }));
 
