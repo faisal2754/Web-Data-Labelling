@@ -35,6 +35,11 @@
                   var a = document.getElementById("list");
                   var candidate = document.getElementById("candidate");
                   var li = document.createElement("li");
+                  const deleteButton = document.createElement('button')
+                  deleteButton.innerText = 'x'
+                  deleteButton.addEventListener('click', event => a.removeChild(li))
+                  deleteButton.className = "close" 
+
                   li.setAttribute('name', candidate.value)
                   li.className = "list-group-item"
                   li.appendChild(document.createTextNode(candidate.value));
@@ -44,9 +49,11 @@
                   input.setAttribute("type", "hidden")
                   input.value = candidate.value
                   li.appendChild(input)
+                  li.appendChild(deleteButton)
                   
                   if(candidate.value != ""){
                     a.appendChild(li);
+                    
                     candidate.value = ""
                   }
                   else{
@@ -54,13 +61,13 @@
                   }
                 }
                 // Creating a function to remove item from list
-                function removeItem() {
+                //function removeItem() {
                   // Declaring a varible to get select element
-                  var a = document.getElementById("list");
-                  var candidate = document.getElementById("candidate");
-                  var item = document.getElementsByName(candidate.value)[0];
-                  a.removeChild(item);
-                }
+                  //var a = document.getElementById("list");
+                  //var candidate = document.getElementById("candidate");
+                  //var item = document.getElementsByName(candidate.value)[0];
+                  //a.removeChild(item);
+               // }
 
 
                 //var labelList = "";
