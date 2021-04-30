@@ -100,14 +100,14 @@ router.post('/create-job', checkAuthenticated, localStorage.array('image'), asyn
         console.log(savedJob)
         const path = '/' + emailOwner.email + '/' + savedJob._id + '/'
         const pathArr = []
-        fs.readdir('public/uploads', (err, files) => {
-            files.forEach((file) => {
-                pathArr.push(path + file)
-            })
-            console.log(pathArr)
-        })
+        // fs.readdir('public/uploads', (err, files) => {
+        //     files.forEach((file) => {
+        //         pathArr.push(path + file)
+        //     })
+        //     console.log(pathArr)
+        // })
 
-        upload(path)
+        // upload(path)
         //res.redirect('/login')
         res.send('job created')
     } catch (e) {
