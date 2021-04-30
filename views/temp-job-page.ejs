@@ -1,0 +1,41 @@
+<%- include('header-registered') %>
+
+<style>
+    table, th, td {
+      
+      border: 1px solid rgb(131, 3, 182);
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      padding: 5px;
+    }
+
+    .center {
+        margin-top: 7rem;
+        margin-bottom: 7rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+
+<table class="center">
+    <th>Job ID</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Credits</th>
+    <th>Labels</th>
+    <% for(var i=0; i < userJobs.length; i++) { %>
+       <tr>
+         <td><%= userJobs[i]._id %></td>
+         <td><%= userJobs[i].title %></td>
+         <td><%= userJobs[i].description %></td>
+         <td><%= userJobs[i].credits %></td>
+         <td><%= userJobs[i].labels %></td>
+       </tr>
+    <% } %>
+    </table>
+
+
+
+<%- include('footer') %> 

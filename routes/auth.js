@@ -104,17 +104,18 @@ router.post('/create-job', checkAuthenticated, localStorage.array('image'), asyn
             files.forEach((file) => {
                 pathArr.push(path + file)
             })
-            console.log(pathArr)
+            Job.findOneAndUpdate({ _id: savedJob._id }, { $set: { images: pathArr } }, (err, ans) => {
+                if (err) {
+                    console.log(err)
+                }
+            })
         })
 
         upload(path)
-        //res.redirect('/login')
-        res.send('job created')
+        res.redirect('/dashboard')
     } catch (e) {
-        //res.redirect('/register')
-        res.send('bruh')
+        res.redirect('/')
     }
-    //Start moving images to drive async.
 })
 
 router.get('/login', (req, res) => {
@@ -145,7 +146,14 @@ router.get('/create-job', checkAuthenticated, (req, res) => {
     res.render('create-job')
 })
 
-router.get('/dashboard', (req, res) => {
+router.get('/temp-job-page', checkAuthenticated, async (req, res) => {
+    const user = await req.user
+    userEmail = user.email
+    const job = await Job.find({ emailOwner: userEmail })
+    res.render('temp-job-page', { userJobs: job })
+})
+
+router.get('/dashboard', checkAuthenticated, (req, res) => {
     res.render('dashboard')
 })
 
