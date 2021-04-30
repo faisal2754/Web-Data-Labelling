@@ -97,6 +97,7 @@ router.post('/create-job', checkAuthenticated, localStorage.array('image'), asyn
     })
     try {
         const savedJob = await job.save()
+        console.log(savedJob)
         const path = '/' + emailOwner.email + '/' + savedJob._id + '/'
         const pathArr = []
         fs.readdir('public/uploads', (err, files) => {
@@ -105,14 +106,14 @@ router.post('/create-job', checkAuthenticated, localStorage.array('image'), asyn
             })
             console.log(pathArr)
         })
-        const ans = await Job.findOne({
-            _id: '608427e43124aa1ea8108de2'
-        })
-        if (ans) {
-            console.log(ans)
-        } else {
-            console.log('bruh???')
-        }
+        // const ans = await Job.findOne({
+        //     _id: '608427e43124aa1ea8108de2'
+        // })
+        // if (ans) {
+        //     console.log(ans)
+        // } else {
+        //     console.log('bruh???')
+        // }
         upload(path)
         //res.redirect('/login')
         res.send('job created')
