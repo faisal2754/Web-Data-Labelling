@@ -13,20 +13,20 @@ const mongoose = require('mongoose')
 const methodOverride = require('method-override')
 const Job = require('./models/Job')
 
-randomArr = ['bruhhhh', '?????????']
+// randomArr = ['bruhhhh', '?????????']
 
-Job.findOneAndUpdate(
-    { _id: '608427e43124aa1ea8108de2' },
-    { $set: { images: randomArr } },
-    { new: true },
-    (err, ans) => {
-        if (err) {
-            console.log('Something wrong when updating data!')
-        }
+// Job.findOneAndUpdate(
+//     { _id: '608427e43124aa1ea8108de2' },
+//     { $set: { images: randomArr } },
+//     { new: true },
+//     (err, ans) => {
+//         if (err) {
+//             console.log('Something wrong when updating data!')
+//         }
 
-        console.log(ans)
-    }
-)
+//         console.log(ans)
+//     }
+// )
 // const ans = await Job.findOne({
 //     _id: '608427e43124aa1ea8108de2'
 // })
