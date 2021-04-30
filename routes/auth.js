@@ -4,14 +4,15 @@ const initialize = require('../passport-config')
 const User = require('../models/User')
 const Job = require('../models/Job')
 const multer = require('multer')
-//const { upload } = require('../uploader')
+const { upload } = require('../uploader')
 const fs = require('fs')
+const mongoose = require('mongoose')
 
 initialize(passport, getUserByEmail)
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'uploads')
+        cb(null, 'public/uploads')
     },
     filename: (req, file, cb) => {
         const { originalname } = file
@@ -98,14 +99,20 @@ router.post('/create-job', checkAuthenticated, localStorage.array('image'), asyn
         const savedJob = await job.save()
         const path = '/' + emailOwner.email + '/' + savedJob._id + '/'
         const pathArr = []
-        console.log('right before readdir')
-        fs.readdir('uploads', (err, files) => {
+        fs.readdir('public/uploads', (err, files) => {
             files.forEach((file) => {
                 pathArr.push(path + file)
             })
             console.log(pathArr)
         })
-
+        const ans = await Job.findOne({
+            _id: '608427e43124aa1ea8108de2'
+        })
+        if (ans) {
+            console.log(ans)
+        } else {
+            console.log('bruh???')
+        }
         upload(path)
         //res.redirect('/login')
         res.send('job created')

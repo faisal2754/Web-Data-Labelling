@@ -12,61 +12,14 @@ const passport = require('passport')
 const app = express()
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
-const fs = require('fs')
-const axios = require('axios')
-
-// const instance = axios.create({
-//     baseURL: 'https://content.dropboxapi.com/2/files/upload',
-//     headers: {
-//                 Authorization: 'Bearer nnAuQQea4hcAAAAAAAAAAbz8rFngIHdnRmUH7jjdB3wNypR-f-PuTeLmtdRqvXdS',
-//                 'Dropbox-API-Arg': JSON.stringify({
-//                     path: '/Upload/img.jpg',
-//                     mode: 'overwrite',
-//                     autorename: true,
-//                     mute: false,
-//                     strict_conflict: false
-//                 }),
-//                 'Content-Type': 'application/octet-stream'
-//             }
-// })
 
 //port and path
 const staticPath = path.join(__dirname, 'public')
 const port = process.env.PORT || 3000
 
-const headers = {
-    Authorization: 'Bearer nnAuQQea4hcAAAAAAAAAAbz8rFngIHdnRmUH7jjdB3wNypR-f-PuTeLmtdRqvXdS',
-    'Dropbox-API-Arg': JSON.stringify({
-        path: '/Upload/bruh.jpg',
-        mode: 'overwrite',
-        autorename: true,
-        mute: false,
-        strict_conflict: false
-    }),
-    'Content-Type': 'application/octet-stream'
-}
-
-const uploadPath = path.join(staticPath, 'uploads/')
-console.log(uploadPath)
-
-const files = fs.readdirSync(uploadPath)
-console.log(files)
-
-async function test() {
-    for (const file of files) {
-        const file2 = fs.readFileSync(uploadPath + file)
-        console.log('starting post reqs')
-        const response = await axios.post('https://content.dropboxapi.com/2/files/upload', file2, { headers: headers })
-        console.log(response.status)
-    }
-}
-
-test()
-
 //use ejs and static files
 app.set('view engine', 'ejs')
 app.use(express.static(staticPath))
-app.use(express.static(uploadPath))
 app.use(express.urlencoded({ extended: false }))
 //app.use(bodyParser.urlencoded({ extended: false }));
 
