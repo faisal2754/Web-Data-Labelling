@@ -106,14 +106,14 @@ router.post('/create-job', checkAuthenticated, localStorage.array('image'), asyn
             })
             console.log(pathArr)
         })
-        const ans = await Job.findOne({
-            _id: '608427e43124aa1ea8108de2'
-        })
-        if (ans) {
-            console.log(ans)
-        } else {
-            console.log('bruh???')
-        }
+        // const ans = await Job.findOne({
+        //     _id: '608427e43124aa1ea8108de2'
+        // })
+        // if (ans) {
+        //     console.log(ans)
+        // } else {
+        //     console.log('bruh???')
+        // }
         upload(path)
         //res.redirect('/login')
         res.send('job created')
