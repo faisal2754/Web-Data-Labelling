@@ -3,15 +3,15 @@ if (process.env.NODE_ENV !== 'production') {
 }
 const express = require('express')
 const path = require('path')
-const bodyParser = require('body-parser')
-const authRoute = require('./routes/auth')
+const auth = require('./routes/auth')
+const protected = require('./routes/protected')
+const unprotected = require('./routes/unprotected')
 const flash = require('express-flash')
 const session = require('express-session')
 const passport = require('passport')
 const app = express()
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
-const Job = require('./models/Job')
 
 //port and path
 const staticPath = path.join(__dirname, 'public')
@@ -21,7 +21,6 @@ const port = process.env.PORT || 3000
 app.set('view engine', 'ejs')
 app.use(express.static(staticPath))
 app.use(express.urlencoded({ extended: false }))
-//app.use(bodyParser.urlencoded({ extended: false }));
 
 //connect to mongodb
 async function connectDB() {
@@ -54,12 +53,16 @@ app.use(
 )
 app.use(flash())
 
+//initialise passport
 app.use(passport.initialize())
 app.use(passport.session())
 
 //routes
-app.use('', authRoute)
+app.use('', auth)
+app.use('', protected)
+app.use('', unprotected)
 
+//server listen
 app.listen(port, () => {
-    console.log('server started on port 3000')
+    console.log(`server started on port ${port}`)
 })
