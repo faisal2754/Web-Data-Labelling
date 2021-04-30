@@ -1,7 +1,6 @@
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
 }
-
 const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
@@ -12,6 +11,30 @@ const passport = require('passport')
 const app = express()
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
+const Job = require('./models/Job')
+
+randomArr = ['bruhhhh', '?????????']
+
+Job.findOneAndUpdate(
+    { _id: '608427e43124aa1ea8108de2' },
+    { $set: { images: randomArr } },
+    { new: true },
+    (err, ans) => {
+        if (err) {
+            console.log('Something wrong when updating data!')
+        }
+
+        console.log(ans)
+    }
+)
+// const ans = await Job.findOne({
+//     _id: '608427e43124aa1ea8108de2'
+// })
+// if (ans) {
+//     console.log(ans)
+// } else {
+//     console.log('bruh???')
+// }
 
 //port and path
 const staticPath = path.join(__dirname, 'public')
@@ -26,8 +49,10 @@ app.use(express.urlencoded({ extended: false }))
 //connect to mongodb
 async function connectDB() {
     try {
-        await mongoose.connect(process.env.DB_CONNECT, { useUnifiedTopology: true, useNewUrlParser: true }, () =>
-            console.log('connected to db!')
+        await mongoose.connect(
+            process.env.DB_CONNECT,
+            { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false, useCreateIndex: true },
+            () => console.log('connected to db!')
         )
     } catch (error) {
         console.log(error)
