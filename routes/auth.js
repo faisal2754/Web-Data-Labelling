@@ -97,6 +97,7 @@ router.post('/create-job', checkAuthenticated, localStorage.array('image'), asyn
     })
     try {
         const savedJob = await job.save()
+        console.log(savedJob)
         const path = '/' + emailOwner.email + '/' + savedJob._id + '/'
         const pathArr = []
         fs.readdir('public/uploads', (err, files) => {
