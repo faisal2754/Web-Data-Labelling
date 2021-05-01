@@ -3,9 +3,9 @@ if (process.env.NODE_ENV !== 'production') {
 }
 const express = require('express')
 const path = require('path')
-const auth = require('./routes/auth')
-const protected = require('./routes/protected')
-const unprotected = require('./routes/unprotected')
+const authRoute = require('./routes/auth')
+const protectedRoute = require('./routes/protected')
+const unprotectedRoute = require('./routes/unprotected')
 const flash = require('express-flash')
 const session = require('express-session')
 const passport = require('passport')
@@ -27,7 +27,12 @@ async function connectDB() {
     try {
         await mongoose.connect(
             process.env.DB_CONNECT,
-            { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false, useCreateIndex: true },
+            {
+                useUnifiedTopology: true,
+                useNewUrlParser: true,
+                useFindAndModify: false,
+                useCreateIndex: true,
+            },
             () => console.log('connected to db!')
         )
     } catch (error) {
@@ -48,7 +53,7 @@ app.use(
     session({
         secret: process.env.SESSION_SECRET,
         resave: false,
-        saveUninitialized: false
+        saveUninitialized: false,
     })
 )
 app.use(flash())
@@ -58,9 +63,9 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 //routes
-app.use('', auth)
-app.use('', protected)
-app.use('', unprotected)
+app.use('', authRoute)
+app.use('', protectedRoute)
+app.use('', unprotectedRoute)
 
 //server listen
 app.listen(port, () => {

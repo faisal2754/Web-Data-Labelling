@@ -8,7 +8,7 @@ function isAuthenticated(routeName) {
     }
 }
 
-function checkAuthenticated(req, res, next) {
+async function checkAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
         return next()
     } else {
@@ -18,5 +18,5 @@ function checkAuthenticated(req, res, next) {
 
 module.exports = {
     isAuthenticated,
-    checkAuthenticated
+    checkAuthenticated,
 }

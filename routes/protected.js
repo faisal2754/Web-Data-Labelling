@@ -2,7 +2,7 @@ const router = require('express').Router()
 const Job = require('../models/Job')
 const { checkAuthenticated } = require('../middleware/auth.mw')
 
-router.get('/create-job', checkAuthenticated, (req, res) => {
+router.get('/create-job', checkAuthenticated, async (req, res) => {
     res.render('create-job')
 })
 
