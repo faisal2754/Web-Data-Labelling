@@ -25,7 +25,7 @@
     z-index: 101;
     background-color: rgb(29, 0, 56);
     pointer-events: none;
-    transition: 0.5s ease-out;
+    transition: 0.25s ease-out;
 }
 
 .transition-2.is-active{
@@ -41,7 +41,7 @@
     z-index: 101;
     background-color: rgb(29, 0, 56);
     pointer-events: none;
-    transition: 0.5s ease-out;
+    transition: 0.25s ease-out;
 }
 
 .transition-3.is-active{
