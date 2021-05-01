@@ -2,13 +2,17 @@
     "name": "SDP",
     "version": "1.0.0",
     "description": "",
-    "main": "index.js",
+    "main": "server.js",
     "engines": {
         "node": ">=14.x"
     },
     "scripts": {
-        "devStart": "nodemon index.js -e js,json,ejs",
-        "start": "mkdir public/uploads && node index.js"
+        "devStart": "nodemon server.js -e js,json,ejs",
+        "start": "mkdir public/uploads && node server.js",
+        "test": "jest --no-cache  --detectOpenHandles --runInBand --forceExit"
+    },
+    "jest": {
+        "testEnvironment": "node"
     },
     "keywords": [],
     "author": "",
@@ -34,6 +38,7 @@
     },
     "devDependencies": {
         "nodemon": "^2.0.7",
-        "prettier": "^2.2.1"
+        "prettier": "^2.2.1",
+        "supertest": "^6.1.3"
     }
 }

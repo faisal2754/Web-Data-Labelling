@@ -1,0 +1,18 @@
+
+language:
+  - node_js
+
+node_js:
+  - node
+
+cache: npm
+
+script:
+  - echo 'Starting build.'
+  - echo 'Installing Dependencies.'
+  - npm ci
+  - echo 'Running unit tests.'
+  - npm run test
+
+notifications:
+  email: false
