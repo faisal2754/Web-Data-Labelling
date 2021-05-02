@@ -9,7 +9,7 @@
     "scripts": {
         "devStart": "nodemon server.js -e js,json,ejs",
         "start": "mkdir public/uploads && node server.js",
-        "test": "./testing/testEnvSetup.sh && jest --no-cache  --detectOpenHandles --runInBand --forceExit"
+        "test": "bash /testing/testEnvSetup.sh && jest --no-cache  --detectOpenHandles --runInBand --forceExit"
     },
     "jest": {
         "testEnvironment": "node"
