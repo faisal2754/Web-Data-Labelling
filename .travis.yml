@@ -11,7 +11,7 @@ script:
     - echo 'Installing Dependencies.'
     - npm ci
     - echo 'Running unit tests.'
-    - npm run test
+    - npm run test:coverage
 
 after_script:
     - npm run codecov
