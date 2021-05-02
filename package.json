@@ -9,7 +9,7 @@
     "scripts": {
         "devStart": "nodemon server.js -e js,json,ejs",
         "start": "mkdir public/uploads && node server.js",
-        "test": "jest --no-cache  --detectOpenHandles --runInBand --forceExit"
+        "test": "testing/testEnvSetup.sh && jest --no-cache  --detectOpenHandles --runInBand --forceExit"
     },
     "jest": {
         "testEnvironment": "node"
@@ -37,6 +37,7 @@
         "passport-local": "^1.0.0"
     },
     "devDependencies": {
+        "jest": "^26.6.3",
         "nodemon": "^2.0.7",
         "prettier": "^2.2.1",
         "supertest": "^6.1.3"
