@@ -3,7 +3,7 @@ window.onload = () => {
     const anchors = document.querySelectorAll('a');
     setTimeout(() =>{
         transition_el.classList.remove('is-active');
-    }, 500);
+    }, 250);
 
     for(let i = 0; i < anchors.length; i++){
         const anchor = anchors[i];
@@ -15,7 +15,19 @@ window.onload = () => {
 
             setTimeout(()=>{
                 window.location.href = target;
-            }, 500);
+            }, 250);
         });
     }
 }
+
+// window.onbeforeunload = function (e) {
+//     var message = "Your confirmation message goes here.",
+//     e = e || window.event;
+//     // For IE and Firefox
+//     if (e) {
+//       e.returnValue = message;
+//     }
+  
+//     // For Safari
+//     return message;
+//   };

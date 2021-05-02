@@ -25,13 +25,21 @@
     <th>Description</th>
     <th>Credits</th>
     <th>Labels</th>
+    <th>Images</th>
     <% for(var i=0; i < userJobs.length; i++) { %>
        <tr>
+         <% images = userJobs[i].images%>
+         <% const cleanImages = [] %> 
+         <% for(var j=0; j < images.length; j++) { %> 
+            <% cleanImages.push(images[j].substring(images[j].lastIndexOf('/') + 1)) %> 
+          <% } %> 
+         
          <td><%= userJobs[i]._id %></td>
          <td><%= userJobs[i].title %></td>
          <td><%= userJobs[i].description %></td>
          <td><%= userJobs[i].credits %></td>
          <td><%= userJobs[i].labels %></td>
+         <td><%= cleanImages %></td>
        </tr>
     <% } %>
     </table>
