@@ -1,18 +1,20 @@
-
 language:
-  - node_js
+    - node_js
 
 node_js:
-  - node
+    - node
 
 cache: npm
 
 script:
-  - echo 'Starting build.'
-  - echo 'Installing Dependencies.'
-  - npm ci
-  - echo 'Running unit tests.'
-  - npm run test
+    - echo 'Starting build.'
+    - echo 'Installing Dependencies.'
+    - npm ci
+    - echo 'Running unit tests.'
+    - npm run test
+
+after_script:
+    - npm run codecov
 
 notifications:
-  email: false
+    email: false
