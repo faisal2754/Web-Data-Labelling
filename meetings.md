@@ -785,7 +785,7 @@ Sipho Sikakane.(Scrum master/Backend)
 - Tasks for the day: Continue work on uploading multiple images using API.
 - Impediments: Time
 
-## Daily Scrum Meeting 29th April 2021 4:00 (Thursdy)
+## Daily Scrum Meeting 29th April 2021 4:00 (Thursday)
 
 Aharon Cohen (Frontend):
 - Tasks completed yesterday: Various fixes like error message on login, image
