@@ -785,6 +785,47 @@ Sipho Sikakane.(Scrum master/Backend)
 - Tasks for the day: Continue work on uploading multiple images using API.
 - Impediments: Time
 
+## Daily Scrum Meeting 29th April 2021 4:00 (Thursdy)
+
+Aharon Cohen (Frontend):
+- Tasks completed yesterday: Various fixes like error message on login, image
+- Tasks for the day: Edit image preview to only preview a subset instead of every image
+- Impediments: Catch up missed work in study break.  
+
+Langiwe Mwale (Frontend):
+- Tasks completed Yesterday: various minor bug fixes
+- Task for the Day: fix create job form
+- Impediments: 
+
+Ioanni Balassis: (Frontend)
+- Tasks completed yesterday: Various fixes 
+- Tasks for the day: Edit image preview to only preview a subset instead of every image
+- Impediments: Catching up old lectures and study for tests
+
+Jonathan Nunes (Frontend):
+- Tasks completed yesterday: Researched CSS and animation techniques.
+- Tasks for the day: Custom scroll bar. Fix testimonials alignment for small screens.
+- Impediments: Studying for test week.
+
+Faisal Saleem (Backend):
+- Tasks completed yesterday: Worked on Dropbox API.
+- Tasks for the day: Continue work on uploading multiple images using API.
+- Impediments: Test week and Tutorials
+
+Ghulame Mujtaba Arbi (Backend/Frontend):
+- Tasks completed yesterday:  Worked on Dropbox API.
+- Tasks for the day: Continue work on uploading multiple images using API.
+- Impediments: Test week and Tutorials
+
+Tristan Bester (Backend):
+- Tasks completed yesterday: Worked on Dropbox API.
+- Tasks for the day: Continue work on uploading multiple images using API.
+- Impediments: Time.
+
+Sipho Sikakane.(Scrum master/Backend)
+- Tasks completed yesterday: Worked on Dropbox API.
+- Tasks for the day: Continue work on uploading multiple images using API.
+- Impediments: Time.
 
 
 
