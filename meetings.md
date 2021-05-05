@@ -827,6 +827,49 @@ Sipho Sikakane.(Scrum master/Backend)
 - Tasks for the day: Continue work on uploading multiple images using API.
 - Impediments: Time.
 
+## Daily Scrum Meeting 5 May 4:00 
+
+Aharon Cohen (Frontend):
+- Tasks completed yesterday: Various fixes 
+- Tasks for the day: Edit dashboard page to look better
+- Impediments: Other tests and projects.  
+
+Langiwe Mwale (Frontend):
+- Tasks completed Yesterday:bug fixes
+- Task for the Day: clean up and make look good the user dashboard
+- Impediments: tests
+
+Ioanni Balassis: (Frontend)
+- Tasks completed yesterday: Various fixes 
+- Tasks for the day: Make dashboard relevant to current info
+- Impediments: study for tests
+
+Jonathan Nunes (Frontend):
+- Tasks completed yesterday: Researched CSS and animation techniques.
+- Tasks for the day: Look at implementing animated profile cards for about us page.
+- Impediments: Studying for test week.
+
+Faisal Saleem (Backend):
+- Tasks completed yesterday:Worked on downloading images..
+- Tasks for the day: Work on decoding images from oct-stream
+- Impediments: Test week 
+
+Ghulame Mujtaba Arbi (Backend/Frontend):
+- Tasks completed yesterday:  Worked on downloading images.
+- Tasks for the day: Work on decoding octet-stream.
+- Impediments: Test week and Tutorials
+
+Tristan Bester (Backend):
+- Tasks completed yesterday: Worked on downloading images.
+- Tasks for the day: Work on decoding octet-stream.
+- Impediments: Time.
+
+Sipho Sikakane.(Scrum master/Backend)
+- Tasks completed yesterday: Work on loading images
+- Tasks for the day: Sending profile information from database
+- Impediments: Time.
+
+
 
 
 
