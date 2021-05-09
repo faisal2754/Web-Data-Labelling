@@ -16,10 +16,10 @@
             <div class="col-lg-6">
               <h6 class="font-weight-bold pt-4 pb-1">Title Of Job:</h6>
               <input type="text" class="border w-100 p-2 bg-white text-capitalize" placeholder="Write your job title"
-                name="title">
+                name="title" required>
               <h6 class="font-weight-bold pt-4 pb-1">Description:</h6>
               <textarea name="description" id="" class="border p-3 w-100" rows="7"
-                placeholder="Write details about your job"></textarea>
+                placeholder="Write details about your job" required></textarea>
               <h6 class="font-weight-bold pt-4 pb-1">Add the labels you would like to be used:</h6>
 
               <td>
@@ -117,8 +117,8 @@
                 <h6 class="font-weight-bold pt-4 pb-1">Job Credits:</h6>
                 <div class="row px-3">
                   <div class="col-lg-4 mr-lg-4 rounded bg-white my-2 ">
-                    <input type="text" name="credits" class="border-0 py-2 w-100 price" placeholder="No. of Credits"
-                      id="price">
+                    <input type="number" pattern="[0-9]" min="1" max="5000" name="credits" class="border-0 py-2 w-100 price" placeholder="No. of Credits"
+                      id="price" required>
                   </div>
 
                 </div>
@@ -155,7 +155,7 @@
           </div>
           <div class=" text-center">
 
-            <button type="submit" class="btn btn-primary mt-2" data-toggle="modal" data-target="#createJobModal">Post
+            <button type="submit" class="btn btn-primary mt-2" >Post
               Your Job</button>
           </div>
     </div>
@@ -281,20 +281,6 @@
 
 
 
-    </div>
-
-
-    <div class="modal" id="createJobModal" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4>Submitting Your Job</h4>
-          </div>
-          <div class="modal-body">
-            <div id="myBar">0%</div>
-          </div>
-        </div>
-      </div>
     </div>
 
     <script>
