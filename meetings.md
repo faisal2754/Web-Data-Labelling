@@ -869,6 +869,49 @@ Sipho Sikakane.(Scrum master/Backend)
 - Tasks for the day: Sending profile information from database
 - Impediments: Time.
 
+## Daily Scrum Meeting 11th May 2021 
+
+Aharon Cohen (Frontend):
+- Tasks completed yesterday: Various fixes 
+- Tasks for the day: Setup profile dashboard and edit forms (input/alignment/background)
+- Impediments: Other projects.  
+
+Langiwe Mwale (Frontend):
+- Tasks completed Yesterday:bug fixes
+- Task for the Day: work on user dashboard
+- Impediments: tests
+
+Ioanni Balassis: (Frontend)
+- Tasks completed yesterday: Various fixes 
+- Tasks for the day: Improve Dashboard to have functionality 
+- Impediments: study for tests
+
+Jonathan Nunes (Frontend):
+- Tasks completed yesterday: Looked at implementing animated profile cards for about us page.
+- Tasks for the day: Fixed standard look of forms, added animations
+- Impediments: Studying for test week.
+
+Faisal Saleem (Backend):
+- Tasks completed yesterday: Implemented Google Drive API
+- Tasks for the day: Implement multiple file uploads with Google Drive API
+- Impediments: Test week 
+
+Ghulame Mujtaba Arbi (Backend/Frontend):
+- Tasks completed yesterday:  Implemented Google drive.
+- Tasks for the day: Research testing errors that were encountered.
+- Impediments: Time and other projects
+
+Tristan Bester (Backend):
+- Tasks completed yesterday: Implemented Google drive.
+- Tasks for the day: Research testing errors that were encountered.
+- Impediments: Time.
+
+Sipho Sikakane.(Scrum master/Backend)
+- Tasks completed yesterday:  Implemented Google drive.
+- Tasks for the day: Research testing errors that were encountered.
+- Impediments: Other projects
+
+
 
 
 
