@@ -16,24 +16,12 @@ figure {
   margin: 0;
 }
 
-a {
-  transition: all .3s ease-in 0s;
-  color:$black;
-  &:hover {
 
-  }
-}
 
 iframe {
   border: 0;
 }
 
-a:focus, a:hover {
-  text-decoration: none;
-  outline: 0;
-  color: $primary-color;
-
-}
 
 
 

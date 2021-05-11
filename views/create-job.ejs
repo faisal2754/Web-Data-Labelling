@@ -4,11 +4,14 @@
 
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-  <section class="py-5 bg-gray">
-    <div class="container">
+  <section class="py-5">
+    <div class="wrapper fadeInDown">
+      <div class="row justify-content-center">
+        <div class="align-item-center">
+          <div id="formContent2">
       <form id="form" action="/create-job" method="POST" enctype="multipart/form-data">
         <!-- Post Your ad start -->
-        <fieldset class="border border-gary p-4 mb-5">
+        <fieldset class=" border-gary p-4 mb-5">
           <div class="row">
             <div class="col-lg-12">
               <h3>Post Your Job</h3>
@@ -117,7 +120,7 @@
                 <h6 class="font-weight-bold pt-4 pb-1">Job Credits:</h6>
                 <div class="row px-3">
                   <div class="col-lg-4 mr-lg-4 rounded bg-white my-2 ">
-                    <input type="number" pattern="[0-9]" min="1" max="5000" name="credits" class="border-0 py-2 w-100 price" placeholder="No. of Credits"
+                    <input type="number" pattern="[0-9]" min="1" max="5000" name="credits" class="border py-2 w-100 price" placeholder="No. of Credits"
                       id="price" required>
                   </div>
 
@@ -442,5 +445,8 @@
         padding-top: 50px;
       } */
     </style>
+      </div>
+    </div>
+  </div>
   </section>
   <%- include('footer.ejs') %>

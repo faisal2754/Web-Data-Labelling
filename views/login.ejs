@@ -2,11 +2,12 @@
 <!--<script src ="../js/transitions.js"></script>
 <div class="transition transition-2 is-active"></div>  --->
 
-    <section class="login py-5 border-top-1">
-        <div class="container">
+    <section class="login py-5 border-top-1" >
+        <div class="wrapper fadeInDown">
             <div class="row justify-content-center">
-                <div class="col-lg-5 col-md-8 align-item-center">
-                    <div class="border border">
+                <div class="align-item-center">
+                    
+                        <div id="formContent">
                         <h3 class="bg-gray p-4">Login</h3>
                         <form action="/login" method="POST">
                             <fieldset class="p-4">
@@ -20,7 +21,7 @@
                                         in</label>
                                 </div>
                                 <button type="submit" id="btnLogin"
-                                    class="d-block py-3 px-5 bg-primary text-white border-0 rounded font-weight-bold mt-3 popover-test">
+                                    class="py-3 px-5 bg-primary text-white border-0 rounded font-weight-bold mt-3 popover-test">
                                     Log in
                                 </button>
                                 <% if(messages.error) { %>
@@ -28,19 +29,21 @@
                                         Incorrect Password or Email Address!
                                     </div>
                                     <% } %>
+                                    <div id="formFooter">
 
-                                        <a class="mt-3 d-block text-primary" href="#">Forget Password?</a>
-                                        <a class="mt-3 d-inline-block text-primary" href="/register">Dont Have An
+                                        <a class="underlineHover" href="#">Forget Password?</a>
+                                        <a class="underlineHover" href="/register">Dont Have An
                                             Account? Register
                                             Now</a>
+                                        </div>
                             </fieldset>
                         </form>
+                    
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
 
 
     <%- include('footer-unregistered') %>
