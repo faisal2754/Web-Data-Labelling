@@ -66,20 +66,17 @@ router.post('/create-job', checkAuthenticated, localStorage.array('image'), asyn
     try {
         const savedJob = await job.save()
         const path = '/' + emailOwner.email + '/' + savedJob._id + '/'
-        const pathArr = []
+        const imgArr = []
         fs.readdir('public/uploads', (err, files) => {
             files.forEach((file) => {
-                pathArr.push(path + file)
+                imgArr.push(path + file)
             })
-            Job.findOneAndUpdate({ _id: savedJob._id }, { $set: { images: pathArr } }, (err, ans) => {
+            Job.findOneAndUpdate({ _id: savedJob._id }, { $set: { images: imgArr } }, (err, ans) => {
                 if (err) {
                     console.log(err)
                 }
             })
         })
-
-        //uploading to dropbox
-        upload(path)
 
         res.redirect('/dashboard')
     } catch (e) {
