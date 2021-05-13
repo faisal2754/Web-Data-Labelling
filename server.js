@@ -19,8 +19,8 @@ const { google } = require('googleapis')
 
 const gDriveFolderId = '14yJctoyNoX6ivWJre9dXLLgbUVnNRvpZ' //make environment variable
 
-const bruh = fs.readdirSync('images')
-console.log(bruh)
+//const bruh = fs.readdirSync('images')
+//console.log(bruh)
 
 const service = new googleServices()
 
