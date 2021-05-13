@@ -75,7 +75,7 @@ router.post('/create-job', checkAuthenticated, localStorage.array('image'), asyn
             .uploadFiles(localImgArr, imgPath)
             .then((results) => {
                 results.forEach((result) => {
-                    driveImgArr.push(result.data.id)
+                    driveImgArr.push(`https://drive.google.com/uc?id=${result.data.id}`)
                     fs.rm(imgPath + result.data.name, (err) => {
                         if (err) {
                             console.log(err)

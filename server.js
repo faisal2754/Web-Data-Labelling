@@ -19,7 +19,7 @@ const gDriveFolderId = '14yJctoyNoX6ivWJre9dXLLgbUVnNRvpZ' //make environment va
 
 //const service = new googleServices()
 //service.downloadFile('1jxcXbkj3qL15TCbcsyA6DN9cj_uDeQb_')
-//service.getFile('1jxcXbkj3qL15TCbcsyA6DN9cj_uDeQb_')
+//service.getFile('1rOBWa46CG49P0kbd_3SI_ercxicL_ypp')
 
 /* possibly useful google drive api code 
 function listFiles(auth) {
