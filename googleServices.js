@@ -1,7 +1,7 @@
 const fs = require('fs')
 const { google } = require('googleapis')
 
-const googleServices = class googleServices {
+const googleService = class googleService {
     constructor() {
         //getting credentials from credentials.json
         const bufferCreds = fs.readFileSync('credentials.json')
@@ -38,6 +38,20 @@ const googleServices = class googleServices {
                 }
             }
         )
+    }
+
+    deleteFiles(imgUrls) {
+        const promises = []
+        for (let i = 0; i < imgUrls.length; i++) {
+            const imgId = imgUrls[i].substring(imgUrls[i].indexOf('=') + 1)
+            promises.push(
+                new Promise((resolve, reject) => {
+                    this.drive.files.delete({ fileId: imgId })
+                    resolve(200)
+                })
+            )
+        }
+        return Promise.all(promises)
     }
 
     uploadFiles(files, path) {
@@ -78,4 +92,4 @@ const googleServices = class googleServices {
     }
 }
 
-module.exports = googleServices
+module.exports = googleService

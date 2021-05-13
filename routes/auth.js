@@ -7,9 +7,9 @@ const { upload } = require('../uploader')
 const fs = require('fs')
 const { checkAuthenticated } = require('../middleware/auth.mw')
 const localStorage = require('../middleware/storage.mw')
-const googleServices = require('../googleServices')
+const googleService = require('../googleServices')
 
-const service = new googleServices()
+const service = new googleService()
 
 initialize(passport, async (email) => {
     // returning user with logged in email

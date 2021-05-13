@@ -18,6 +18,9 @@ const userSchema = new Schema(
             type: String,
             require: true,
             minLength: 1
+        },
+        myJobs: {
+            type: Array
         }
     },
     {
