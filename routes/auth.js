@@ -22,7 +22,7 @@ router.post('/register', async (req, res) => {
     const user = new User({
         name: name,
         email: email,
-        password: password
+        password: password,
     })
 
     try {
@@ -44,52 +44,61 @@ router.post(
     passport.authenticate('local', {
         successRedirect: 'dashboard',
         failureRedirect: 'login',
-        failureFlash: true
+        failureFlash: true,
     })
 )
 
-router.post('/create-job', checkAuthenticated, localStorage.array('image'), async (req, res) => {
-    const title = req.body.title
-    const description = req.body.description
-    const labels = req.body.labels
-    const credits = req.body.credits
-    const emailOwner = await req.user
+router.post(
+    '/create-job',
+    checkAuthenticated,
+    localStorage.array('image'),
+    async (req, res) => {
+        const title = req.body.title
+        const description = req.body.description
+        const labels = req.body.labels
+        const credits = req.body.credits
+        const emailOwner = await req.user
 
-    const job = await new Job({
-        title: title,
-        description: description,
-        credits: credits,
-        labels: labels,
-        emailOwner: emailOwner.email
-    })
-
-    try {
-        const savedJob = await job.save()
-        const path = '/' + emailOwner.email + '/' + savedJob._id + '/'
-        const pathArr = []
-        fs.readdir('public/uploads', (err, files) => {
-            files.forEach((file) => {
-                pathArr.push(path + file)
-            })
-            Job.findOneAndUpdate({ _id: savedJob._id }, { $set: { images: pathArr } }, (err, ans) => {
-                if (err) {
-                    console.log(err)
-                }
-            })
+        const job = await new Job({
+            title: title,
+            description: description,
+            credits: credits,
+            labels: labels,
+            emailOwner: emailOwner.email,
         })
 
-        //uploading to dropbox
-        upload(path)
+        try {
+            const savedJob = await job.save()
+            const path = '/' + emailOwner.email + '/' + savedJob._id + '/'
+            const pathArr = []
+            fs.readdir('public/uploads', (err, files) => {
+                files.forEach((file) => {
+                    pathArr.push(path + file)
+                })
+                Job.findOneAndUpdate(
+                    { _id: savedJob._id },
+                    { $set: { images: pathArr } },
+                    (err, ans) => {
+                        if (err) {
+                            console.log(err)
+                        }
+                    }
+                )
+            })
 
-        res.redirect('/dashboard')
-    } catch (e) {
-        res.redirect('/')
+            //uploading to dropbox
+            upload(path)
+
+            res.redirect('/dashboard')
+        } catch (e) {
+            res.redirect('/')
+        }
     }
-})
+)
 
 router.delete('/logout', (req, res) => {
     req.logOut()
-    res.redirect('/')
+    res.send('/')
 })
 
 module.exports = router

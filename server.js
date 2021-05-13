@@ -13,6 +13,8 @@ const app = express()
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
 
+const checkAuthenticated = require('./middleware/auth.mw')
+
 const googleServices = require('./googleServices')
 
 const service = new googleServices()
@@ -23,6 +25,7 @@ const service = new googleServices()
 const fs = require('fs')
 const readline = require('readline')
 const { google } = require('googleapis')
+const { check } = require('prettier')
 //Drive API, v3
 //https://www.googleapis.com/auth/drive	See, edit, create, and delete all of your Google Drive files
 //https://www.googleapis.com/auth/drive.file View and manage Google Drive files and folders that you have opened or created with this app
@@ -53,7 +56,11 @@ fs.readFile('credentials.json', (err, content) => {
  */
 function authorize(credentials, callback) {
     const { client_secret, client_id, redirect_uris } = credentials.installed
-    const oAuth2Client = new google.auth.OAuth2(client_id, client_secret, redirect_uris[0])
+    const oAuth2Client = new google.auth.OAuth2(
+        client_id,
+        client_secret,
+        redirect_uris[0]
+    )
 
     // Check if we have previously stored a token.
     fs.readFile(TOKEN_PATH, (err, token) => {
@@ -73,12 +80,12 @@ function authorize(credentials, callback) {
 function getAccessToken(oAuth2Client, callback) {
     const authUrl = oAuth2Client.generateAuthUrl({
         access_type: 'offline',
-        scope: SCOPES
+        scope: SCOPES,
     })
     console.log('Authorize this app by visiting this url:', authUrl)
     const rl = readline.createInterface({
         input: process.stdin,
-        output: process.stdout
+        output: process.stdout,
     })
     rl.question('Enter the code from that page here: ', (code) => {
         rl.close()
@@ -110,7 +117,7 @@ function getList(drive, pageToken) {
             pageSize: 10,
             //q: "name='elvis233424234'",
             pageToken: pageToken ? pageToken : '',
-            fields: 'nextPageToken, files(*)'
+            fields: 'nextPageToken, files(*)',
         },
         (err, res) => {
             if (err) return console.log('The API returned an error: ' + err)
@@ -141,17 +148,17 @@ function processList(files) {
 function uploadFile(auth) {
     const drive = google.drive({ version: 'v3', auth })
     var fileMetadata = {
-        name: 'red.jpg'
+        name: 'red.jpg',
     }
     var media = {
         mimeType: 'image/jpeg',
-        body: fs.createReadStream('red.jpg')
+        body: fs.createReadStream('red.jpg'),
     }
     drive.files.create(
         {
             resource: fileMetadata,
             media: media,
-            fields: 'id'
+            fields: 'id',
         },
         function (err, res) {
             if (err) {
@@ -190,7 +197,7 @@ async function connectDB() {
                 useUnifiedTopology: true,
                 useNewUrlParser: true,
                 useFindAndModify: false,
-                useCreateIndex: true
+                useCreateIndex: true,
             },
             () => console.log('connected to db!')
         )
@@ -212,7 +219,7 @@ app.use(
     session({
         secret: process.env.SESSION_SECRET,
         resave: false,
-        saveUninitialized: false
+        saveUninitialized: false,
     })
 )
 app.use(flash())
@@ -220,6 +227,8 @@ app.use(flash())
 //initialise passport
 app.use(passport.initialize())
 app.use(passport.session())
+
+protectedRoute.use(checkAuthenticated)
 
 //routes
 app.use('', authRoute)
