@@ -7,6 +7,9 @@ const { upload } = require('../uploader')
 const fs = require('fs')
 const { checkAuthenticated } = require('../middleware/auth.mw')
 const localStorage = require('../middleware/storage.mw')
+const googleServices = require('../googleServices')
+
+const service = new googleServices()
 
 initialize(passport, async (email) => {
     // returning user with logged in email
@@ -65,21 +68,33 @@ router.post('/create-job', checkAuthenticated, localStorage.array('image'), asyn
 
     try {
         const savedJob = await job.save()
-        const path = '/' + emailOwner.email + '/' + savedJob._id + '/'
-        const imgArr = []
-        fs.readdir('public/uploads', (err, files) => {
-            files.forEach((file) => {
-                imgArr.push(path + file)
+        const imgPath = 'public/uploads/'
+        const localImgArr = fs.readdirSync(imgPath)
+        const driveImgArr = []
+        service
+            .uploadFiles(localImgArr, imgPath)
+            .then((results) => {
+                results.forEach((result) => {
+                    driveImgArr.push(result.data.id)
+                    fs.rm(imgPath + result.data.name, (err) => {
+                        if (err) {
+                            console.log(err)
+                        }
+                    })
+                })
+                Job.findOneAndUpdate({ _id: savedJob._id }, { $set: { images: driveImgArr } }, (err, ans) => {
+                    if (err) {
+                        console.log(err)
+                    }
+                })
+                console.log('Done uploading all images')
+                res.redirect('/dashboard')
             })
-            Job.findOneAndUpdate({ _id: savedJob._id }, { $set: { images: imgArr } }, (err, ans) => {
-                if (err) {
-                    console.log(err)
-                }
+            .catch((e) => {
+                console.log(e)
             })
-        })
-
-        res.redirect('/dashboard')
     } catch (e) {
+        console.log(e)
         res.redirect('/')
     }
 })

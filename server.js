@@ -12,31 +12,12 @@ const passport = require('passport')
 const app = express()
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
-const googleServices = require('./googleServices')
 const fs = require('fs')
-const readline = require('readline')
-const { google } = require('googleapis')
+const googleServices = require('./googleServices')
 
 const gDriveFolderId = '14yJctoyNoX6ivWJre9dXLLgbUVnNRvpZ' //make environment variable
 
-//const bruh = fs.readdirSync('images')
-//console.log(bruh)
-
-const service = new googleServices()
-
-// service.promiseUpload(bruh, (res, err) => {
-//     console.log(res)
-// })
-
-//service.promiseUpload().then((res) => console.log(res))
-
-// service.uploadFiles(bruh).then((res) => {
-//     console.log(res)
-// })
-
-// service.uploadFiles(bruh, (res, err) => {
-//     console.log('done with all of them')
-// })
+//const service = new googleServices()
 //service.downloadFile('1jxcXbkj3qL15TCbcsyA6DN9cj_uDeQb_')
 //service.getFile('1jxcXbkj3qL15TCbcsyA6DN9cj_uDeQb_')
 
