@@ -125,3 +125,47 @@ Sipho Sikakane.(Scrum master/Backend)
 - Tasks for the day: Fix bug where user has to be logged in to view jobs
 - Impediments: Projects and Quizzes
 
+## Daily Scrum Meeting 14th May (Friday) 2021
+
+
+Aharon Cohen (Frontend):
+- Tasks completed yesterday: Worked on dashboard
+- Tasks for the day: Continue working on dashboard job descriptions
+- Impediments: Other subject’s projects.  
+
+Langiwe Mwale (Frontend):
+- Tasks completed Yesterday: Made thumbnail images for available jobs
+- Task for the Day: Work on profile dashboard, begin implementation of pop up
+- Impediments: Time constraints
+
+Ioanni Balassis: (Frontend)
+- Tasks completed yesterday: Working on dashboard
+- Tasks for the day: Improve Dashboard to have functionality 
+- Impediments: study for tests
+
+Jonathan Nunes (Frontend):
+- Tasks completed yesterday: Removed space underneath how to page. Stylized Contact Us form. Added page titles to every page (Title that appears in the tab). Removed unnecessary elements from login form.
+- Tasks for the day: Edited Dashboard Page
+- Impediments: Studying for test week.
+
+Faisal Saleem (Backend):
+- Tasks completed yesterday: Completed multiple file uploads with Google Drive API
+- Tasks for the day: Send image urls to view jobs page
+- Impediments: Time
+
+Ghulame Mujtaba Arbi (Backend/Frontend):
+- Tasks completed yesterday:  Research testing errors that were encountered.
+- Tasks for the day: Setup the google drive API.
+- Impediments: Time and other projects
+
+Tristan Bester (Backend):
+- Tasks completed yesterday: Fixed errors in testing
+- Tasks for the day: Continue testing.
+- Impediments: Time.
+
+Sipho Sikakane.(Scrum master/Backend)
+- Tasks completed yesterday: Fixed authentication error
+- Tasks for the day: Send username to frontend and return error on duplicate emails 
+- Impediments: Projects and Quizzes
+
+
