@@ -12,6 +12,12 @@
                         <div id="formContent">
                         <h3 class="bg-gray p-4">Login</h3>
                         <form action="/login" method="POST">
+                            <!-- Runned the 'typeof' check because sometime we don't send a status (check unprotected.js for example) -->
+                        <% if(typeof status == 'boolean' && status) { %>
+                            <div class="my-5 alert alert-success" role="alert">
+                                Registered Successfully!
+                            </div>
+                        <% } %>
                             <fieldset class="p-4">
                                 <input type="text" id="email" placeholder="Email" class="border p-3 w-100 my-2"
                                     name="email" required />
@@ -28,7 +34,7 @@
                                     <div class="my-5 alert alert-warning" role="alert">
                                         Incorrect Password or Email Address!
                                     </div>
-                                    <% } %>
+                                <% } %>
                                     <div id="formFooter">
 
                                        <!--- <a class="underlineHover" href="#">Forget Password?</a> -->

@@ -19,6 +19,12 @@
                   required name="password">
                 <input type="password" id="confirmPassword" placeholder="Confirm Password*"
                   class="border p-3 w-100 my-2" required name="password_confirm" oninput="check(this)">
+                  <!-- Runned the 'typeof' check because sometime we don't send an error (check unprotected.js for example) -->
+                  <% if(typeof error == 'boolean' && error) { %>
+                    <div class="my-5 alert alert-warning" role="alert">
+                        Email Address is in use!
+                    </div>
+                  <% } %>
                 <script language='javascript' type='text/javascript'>
                   function check(input) {
                     if (input.value != document.getElementById('password').value) {
@@ -37,6 +43,7 @@
                 <button type="submit" id="btnRegister"
                   class="py-3 px-4 bg-primary text-white border-0 rounded font-weight-bold">Register
                   </button>
+                  
                   <div id="formFooter">
                   <a class="underlineHover" href="/login">Already Have An Account? Login Now</a>
                 </div>
