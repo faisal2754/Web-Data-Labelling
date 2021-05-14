@@ -70,36 +70,43 @@ router.post(
             emailOwner: emailOwner.email,
         })
 
-    try {
-        const savedJob = await job.save()
-        const imgPath = 'public/uploads/'
-        const localImgArr = fs.readdirSync(imgPath)
-        const driveImgArr = []
-        service
-            .uploadFiles(localImgArr, imgPath)
-            .then((results) => {
-                results.forEach((result) => {
-                    driveImgArr.push(`https://drive.google.com/uc?id=${result.data.id}`)
-                    fs.rm(imgPath + result.data.name, (err) => {
-                        if (err) {
-                            console.log(err)
-                        }
+        try {
+            const savedJob = await job.save()
+            const imgPath = 'public/uploads/'
+            const localImgArr = fs.readdirSync(imgPath)
+            const driveImgArr = []
+            service
+                .uploadFiles(localImgArr, imgPath)
+                .then((results) => {
+                    results.forEach((result) => {
+                        driveImgArr.push(
+                            `https://drive.google.com/uc?id=${result.data.id}`
+                        )
+                        fs.rm(imgPath + result.data.name, (err) => {
+                            if (err) {
+                                console.log(err)
+                            }
+                        })
                     })
+                    Job.findOneAndUpdate(
+                        { _id: savedJob._id },
+                        { $set: { images: driveImgArr } },
+                        (err, ans) => {
+                            if (err) {
+                                console.log(err)
+                            }
+                        }
+                    )
+                    console.log('Done uploading all images')
+                    res.redirect('/dashboard')
                 })
-                Job.findOneAndUpdate({ _id: savedJob._id }, { $set: { images: driveImgArr } }, (err, ans) => {
-                    if (err) {
-                        console.log(err)
-                    }
+                .catch((e) => {
+                    console.log(e)
                 })
-                console.log('Done uploading all images')
-                res.redirect('/dashboard')
-            })
-            .catch((e) => {
-                console.log(e)
-            })
-    } catch (e) {
-        console.log(e)
-        res.redirect('/')
+        } catch (e) {
+            console.log(e)
+            res.redirect('/')
+        }
     }
 )
 
