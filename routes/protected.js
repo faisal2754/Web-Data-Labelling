@@ -17,9 +17,10 @@ router.get('/temp-job-page', async (req, res) => {
 
 router.get('/dashboard', async (req, res) => {
     const user = await req.user
+    username = user.name
     userEmail = user.email
     const job = await Job.find({ emailOwner: userEmail })
-    res.render('dashboard', { userJobs: job })
+    res.render('dashboard', { userJobs: job, name: username })
 })
 
 router.get('/secret-page', (req, res) => {
@@ -41,8 +42,10 @@ router.delete('/dashboard', async (req, res) => {
     })
 })
 
-router.get('/user-profile', (req, res) => {
-    res.render('user-profile')
+router.get('/user-profile', async (req, res) => {
+    const user = await req.user
+    username = user.name
+    res.render('user-profile', {name: username})
 })
 
 module.exports = router
