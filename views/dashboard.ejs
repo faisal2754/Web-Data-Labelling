@@ -23,11 +23,8 @@
             <!-- Dashboard Links -->
             <div class="widget user-dashboard-menu">
               <ul>
-                <li class="active"><a href="dashboard-my-ads.html"><i class="fa fa-user"></i> My Jobs</a></li>
-                <li><a href="dashboard-favourite-ads.html"><i class="fa fa-bookmark-o"></i> Favourite Jobs <span>5</span></a></li>
-                <li><a href="dashboard-archived-ads.html"><i class="fa fa-file-archive-o"></i>Archived Jobs <span>12</span></a></li>
-                <li><a href="dashboard-pending-ads.html"><i class="fa fa-bolt"></i> Pending Approval<span>23</span></a></li>
-                <li><a href="#"><i class="fa fa-cog"></i> Logout</a></li>
+                <li class="active"><a href="dashboard-my-ads.html"><i class="fa fa-user"></i> My Jobs<span><%= userJobs.length %></span></a></li>
+                <li><a href="dashboard-favourite-ads.html"><i class="fa fa-bookmark-o"></i> Accepted Jobs <span>0</span></a></li>
                 <li><a href="" data-toggle="modal" data-target="#deleteaccount"><i class="fa fa-power-off"></i>Delete
                     Account</a></li>
               </ul>
@@ -41,19 +38,18 @@
                     <div class="modal-dialog modal-dialog-centered" role="document">
                       <div class="modal-content">
                         <div class="modal-header border-bottom-0">
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
+                            
+                          
                         </div>
                         <div class="modal-body text-center">
                           <img src="images/account/Account1.png" class="img-fluid mb-2" alt="">
                           <h6 class="py-2">Are you sure you want to delete your account?</h6>
-                          <p>Do you really want to delete these records? This process cannot be undone.</p>
-                          <textarea name="message" id="" cols="40" rows="4" class="w-100 rounded"></textarea>
+                          <p>Once you delete your account this process cannot be undone.</p>
                         </div>
                         <div class="modal-footer border-top-0 mb-3 mx-5 justify-content-lg-between justify-content-center">
-                          <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
                           <button type="button" class="btn btn-danger">Delete</button>
+                          <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                          
                         </div>
                       </div>
                     </div>
@@ -70,47 +66,44 @@
             <table class="table table-responsive product-dashboard-table">
               <thead>
                 <tr>
-                  <th>Image</th>
-                  <th>Product Title</th>
+                  <th>Thumbnail</th>
+                  <th>Job Title</th>
                   <th class="text-center">Category</th>
                   <th class="text-center">Action</th>
                 </tr>
               </thead>
               <tbody>
+                <% for( let i=0; i < userJobs.length; i++ ) { %>
                 <tr>
-  
-                  <td class="product-thumb">
-                    <img width="80px" height="auto" src="images/products/products-1.jpg" alt="image description"></td>
-                  <td class="product-details">
-                    <h3 class="title">Numerical Data Job</h3>
-                    <span class="add-id"><strong>Ad ID:</strong> ng3D5hAMHPajQrM</span>
-                    <span><strong>Posted on: </strong><time>March 27, 2021</time> </span>
-                    <span class="status active"><strong>Status</strong>Active</span>
-                    <span class="location"><strong>Location</strong>International</span>
-                  </td>
-                  <td class="product-category"><span class="categories">Data Labelling</span></td>
-                  <td class="action" data-title="Action">
-                    <div class="">
-                      <ul class="list-inline justify-content-center">
-                        <li class="list-inline-item">
-                          <a data-toggle="tooltip" data-placement="top" title="view" class="view" href="category.html">
-                            <i class="fa fa-eye"></i>
-                          </a>
-                        </li>
-                        <li class="list-inline-item">
-                          <a class="edit" data-toggle="tooltip" data-placement="top" title="Edit" href="">
-                            <i class="fa fa-pencil"></i>
-                          </a>
-                        </li>
-                        <li class="list-inline-item">
-                          <a class="delete" data-toggle="tooltip" data-placement="top" title="Delete" href="">
-                            <i class="fa fa-trash"></i>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </td>
-                </tr>
+
+                      <td class="product-thumb">
+                        <img width="80px" height="auto" src="<%= userJobs[i].images[0] %>" alt="image description"></td>
+                      <td class="product-details">
+                        <h3 class="title"> <%= userJobs[i].title %></h3>
+                        <span><strong style="width: 50%;">Posted on: </strong><time><%= new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'long', day: '2-digit'}).format(userJobs[i].createdAt) %></time> </span>
+                        <span><strong style="width: 50%;">Credits: </strong><time><%= userJobs[i].credits %></time> </span>
+                        <span class="status active"><strong style="width: 50%;">Number of Labellers: </strong> 0</span>
+                      </td>
+                      <td class="product-category"><span class="categories">Data Labelling</span></td>
+                      <td class="action" data-title="Action">
+                        <div class="">
+                          <ul class="list-inline justify-content-center">
+                            <li class="list-inline-item">
+                              <a data-toggle="tooltip" data-placement="top" title="view" class="view" href="category.html">
+                                <i class="fa fa-eye"></i>
+                              </a>
+                            </li>
+                            <li class="list-inline-item">
+                              <a class="delete" data-toggle="tooltip" data-placement="top" title="Delete" href="">
+                                <i class="fa fa-trash"></i>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </td>
+                      
+                  </tr>
+                  <% } %>
                 <tr>
   
                  
@@ -118,44 +111,13 @@
   
                  
   
-                  <td class="product-thumb">
-                    <img width="80px" height="auto" src="images/products/products-1.jpg" alt="image description"></td>
-                  <td class="product-details">
-                    <h3 class="title">Numerical Data Job</h3>
-                    <span class="add-id"><strong>Ad ID:</strong> og8D5hP</span>
-                    <span><strong>Posted on: </strong><time>March 30, 2021</time> </span>
-                    <span class="status active"><strong>Status</strong>Active</span>
-                    <span class="location"><strong>Location</strong>International</span>
-                  </td>
-                  <td class="product-category"><span class="categories">Data Labelling</span></td>
-                  <td class="action" data-title="Action">
-                    <div class="">
-                      <ul class="list-inline justify-content-center">
-                        <li class="list-inline-item">
-                          <a data-toggle="tooltip" data-placement="top" title="view" class="view" href="category.html">
-                            <i class="fa fa-eye"></i>
-                          </a>
-                        </li>
-                        <li class="list-inline-item">
-                          <a class="edit" data-toggle="tooltip" data-placement="top" title="Edit" href="">
-                            <i class="fa fa-pencil"></i>
-                          </a>
-                        </li>
-                        <li class="list-inline-item">
-                          <a class="delete" data-toggle="tooltip" data-placement="top" title="Delete" href="">
-                            <i class="fa fa-trash"></i>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </td>
-                </tr>
+            
               </tbody>
             </table>
   
           </div>
   
-          <!-- pagination -->
+          <!-- 
           <div class="pagination justify-content-center">
                       <nav aria-label="Page navigation example">
                           <ul class="pagination">
@@ -177,7 +139,7 @@
                           </ul>
                       </nav>
                   </div>
-          <!-- pagination -->
+           pagination -->
   
         </div>
       </div>
