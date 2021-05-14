@@ -122,7 +122,14 @@ app.use(flash())
 app.use(passport.initialize())
 app.use(passport.session())
 
-protectedRoute.use(checkAuthenticated)
+// protectedRoute.use('', function (req, res, next) {
+//     if (req.isAuthenticated()) {
+//         return next()
+//     } else {
+//         console.log('not authenticated')
+//         res.redirect('/')
+//     }
+// })
 
 //routes
 app.use('', authRoute)
