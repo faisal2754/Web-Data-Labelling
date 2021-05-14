@@ -25,7 +25,7 @@ router.post('/register', async (req, res) => {
     const user = new User({
         name: name,
         email: email,
-        password: password,
+        password: password
     })
 
     try {
@@ -47,72 +47,61 @@ router.post(
     passport.authenticate('local', {
         successRedirect: 'dashboard',
         failureRedirect: 'login',
-        failureFlash: true,
+        failureFlash: true
     })
 )
 
-router.post(
-    '/create-job',
-    checkAuthenticated,
-    localStorage.array('image'),
-    async (req, res) => {
-        const title = req.body.title
-        const description = req.body.description
-        const labels = req.body.labels
-        const credits = req.body.credits
-        const emailOwner = await req.user
+router.post('/create-job', checkAuthenticated, localStorage.array('image'), async (req, res) => {
+    const title = req.body.title
+    const description = req.body.description
+    const labels = req.body.labels
+    const credits = req.body.credits
+    const emailOwner = await req.user
 
-        const job = await new Job({
-            title: title,
-            description: description,
-            credits: credits,
-            labels: labels,
-            emailOwner: emailOwner.email,
-        })
+    const job = await new Job({
+        title: title,
+        description: description,
+        credits: credits,
+        labels: labels,
+        emailOwner: emailOwner.email
+    })
 
-        try {
-            const savedJob = await job.save()
-            const imgPath = 'public/uploads/'
-            const localImgArr = fs.readdirSync(imgPath)
-            const driveImgArr = []
-            service
-                .uploadFiles(localImgArr, imgPath)
-                .then((results) => {
-                    results.forEach((result) => {
-                        driveImgArr.push(
-                            `https://drive.google.com/uc?id=${result.data.id}`
-                        )
-                        fs.rm(imgPath + result.data.name, (err) => {
-                            if (err) {
-                                console.log(err)
-                            }
-                        })
-                    })
-                    Job.findOneAndUpdate(
-                        { _id: savedJob._id },
-                        { $set: { images: driveImgArr } },
-                        (err, ans) => {
-                            if (err) {
-                                console.log(err)
-                            }
+    try {
+        const savedJob = await job.save()
+        const imgPath = 'public/uploads/'
+        const localImgArr = fs.readdirSync(imgPath)
+        const driveImgArr = []
+        service
+            .uploadFiles(localImgArr, imgPath)
+            .then((results) => {
+                results.forEach((result) => {
+                    driveImgArr.push(`https://drive.google.com/uc?id=${result.data.id}`)
+                    fs.rm(imgPath + result.data.name, (err) => {
+                        if (err) {
+                            console.log(err)
                         }
-                    )
-                    console.log('Done uploading all images')
-                    res.redirect('/dashboard')
+                    })
                 })
-                .catch((e) => {
-                    console.log(e)
+                Job.findOneAndUpdate({ _id: savedJob._id }, { $set: { images: driveImgArr } }, (err, ans) => {
+                    if (err) {
+                        console.log(err)
+                    }
                 })
-        } catch (e) {
-            console.log(e)
-            res.redirect('/')
-        }
+                console.log('Done uploading all images')
+                res.redirect('/dashboard')
+            })
+            .catch((e) => {
+                console.log(e)
+            })
+    } catch (e) {
+        console.log(e)
+        res.redirect('/')
     }
-)
+})
 
 router.delete('/logout', (req, res) => {
     req.logOut()
-    res.send('/')
+    res.redirect('/')
 })
 
 module.exports = router

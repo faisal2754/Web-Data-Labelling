@@ -32,18 +32,14 @@ function registerUser(agent) {
             .send({
                 name: 'TestName',
                 email: 'Test@Test.com',
-                password: 'Testing1',
+                password: 'Testing1'
             })
             .end(await onResponse)
 
         async function onResponse(err, res) {
             const user = await User.findOne({ email: 'Test@Test.com' })
 
-            expect(
-                user.name == 'TestName' &&
-                    user.email == 'Test@Test.com' &&
-                    user.password == 'Testing1'
-            ).toBeTruthy()
+            expect(user.name == 'TestName' && user.email == 'Test@Test.com' && user.password == 'Testing1').toBeTruthy()
             return done()
         }
     }
@@ -51,16 +47,11 @@ function registerUser(agent) {
 
 function loginUser(agent) {
     return function (done) {
-        agent
-            .post('http://localhost:3000/login')
-            .send({ email: 'Test@Test.com', password: 'Testing1' })
-            .end(onResponse)
+        agent.post('http://localhost:3000/login').send({ email: 'Test@Test.com', password: 'Testing1' }).end(onResponse)
 
         function onResponse(err, res) {
             expect(res.status == 200).toBeTruthy()
-            expect(
-                res.redirects[0] === 'http://localhost:3000/dashboard'
-            ).toBeTruthy()
+            expect(res.redirects[0] === 'http://localhost:3000/dashboard').toBeTruthy()
             done()
             return done()
         }
@@ -118,7 +109,7 @@ describe('Should allow a logged in user to log out', () => {
     it('logout', (done) => {
         agent.delete('http://localhost:3000/logout').end((err, res) => {
             expect(res.status == 200).toBeTruthy()
-            expect(res.text === '/').toBeTruthy()
+            expect(res.redirects[0] === 'http://localhost:3000/').toBeTruthy()
             done()
         })
     })
@@ -137,9 +128,7 @@ describe('Should not allow an unregistered user to log in', () => {
             .send({ email: 'INVALID', password: 'INVALID' })
             .end((err, res) => {
                 expect(res.status == 200).toBeTruthy()
-                expect(
-                    res.redirects[0] === 'http://localhost:3000/login'
-                ).toBeTruthy()
+                expect(res.redirects[0] === 'http://localhost:3000/login').toBeTruthy()
                 done()
             })
     })
@@ -159,9 +148,7 @@ describe('Should not allow a registered user to log in with an incorrect passwor
             .send({ email: 'Test@Test.com', password: 'INVALID' })
             .end((err, res) => {
                 expect(res.status == 200).toBeTruthy()
-                expect(
-                    res.redirects[0] === 'http://localhost:3000/login'
-                ).toBeTruthy()
+                expect(res.redirects[0] === 'http://localhost:3000/login').toBeTruthy()
                 done()
             })
     })

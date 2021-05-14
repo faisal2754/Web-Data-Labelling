@@ -12,7 +12,6 @@ async function checkAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
         return next()
     } else {
-        console.log('not authenticated')
         res.redirect('/')
     }
 }
@@ -28,5 +27,5 @@ async function checkAuthenticatedTest(req, res, next) {
 module.exports = {
     isAuthenticated,
     checkAuthenticated,
-    checkAuthenticatedTest,
+    checkAuthenticatedTest
 }
