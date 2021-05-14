@@ -1,3 +1,5 @@
+<title>Contact Us</title>
+
 <% if (authenticated) { %>
     <%- include('header-registered.ejs') %>
 <% }else{ %>
@@ -28,13 +30,14 @@
 
 <!-- contact us start-->
 <section class="section" style="padding: 10px;">
-    <div class="container">
-        <div class="row">
+    <div class="wrapper fadeInDown">
+        <div id="formContent" style="max-width: 1500px;">
+        <div class="row" style="padding: 50px;">
             <div class="col-md-6">
                 <div class="contact-us-content p-4">
                     <h5>Contact Us</h5>
                     <h1 class="pt-3">Hello, what's on your mind?</h1>
-                    <p class="pt-3 pb-5">Send us a message and tell us if you have any concerns or questions and we will do our best to help you in the best way we can!</p>
+                    <p class="pt-3 pb-5" style="font-size: 20px;">Send us a message and tell us if you have any concerns or questions and we will do our best to help you in the best way we can!</p>
                 </div>
             </div>
             <div class="col-md-6">
@@ -65,6 +68,7 @@
                     </form>
             </div>
         </div>
+    </div>
     </div>
 </section>
 <!-- contact us end -->

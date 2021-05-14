@@ -1,7 +1,7 @@
 const fs = require('fs')
 const { google } = require('googleapis')
 
-const googleServices = class googleServices {
+const googleService = class googleService {
     constructor() {
         //getting credentials from credentials.json
         const bufferCreds = fs.readFileSync('credentials.json')
@@ -20,28 +20,60 @@ const googleServices = class googleServices {
         this.drive = google.drive({ version: 'v3', auth })
     }
 
-    upload() {
+    createFolder() {
         var fileMetadata = {
-            name: 'red.jpg'
-        }
-        var media = {
-            mimeType: 'image/jpeg',
-            body: fs.createReadStream('red.jpg')
+            name: 'Data-Labelling',
+            mimeType: 'application/vnd.google-apps.folder'
         }
         this.drive.files.create(
             {
                 resource: fileMetadata,
-                media: media,
                 fields: 'id'
             },
-            function (err, res) {
+            function (err, file) {
                 if (err) {
-                    console.log(err)
+                    console.error(err)
                 } else {
-                    console.log('File Id: ', res.data.id)
+                    console.log('Folder Id: ', file.data.id)
                 }
             }
         )
+    }
+
+    deleteFiles(imgUrls) {
+        const promises = []
+        for (let i = 0; i < imgUrls.length; i++) {
+            const imgId = imgUrls[i].substring(imgUrls[i].indexOf('=') + 1)
+            promises.push(
+                new Promise((resolve, reject) => {
+                    this.drive.files.delete({ fileId: imgId })
+                    resolve(200)
+                })
+            )
+        }
+        return Promise.all(promises)
+    }
+
+    uploadFiles(files, path) {
+        const promises = []
+        for (let i = 0; i < files.length; i++) {
+            const fileMetadata = {
+                name: files[i],
+                parents: ['14yJctoyNoX6ivWJre9dXLLgbUVnNRvpZ']
+            }
+            const media = {
+                mimeType: 'image/jpeg',
+                body: fs.createReadStream(path + files[i])
+            }
+            promises.push(
+                this.drive.files.create({
+                    resource: fileMetadata,
+                    media: media,
+                    fields: 'id, name'
+                })
+            )
+        }
+        return Promise.all(promises)
     }
 
     downloadFile(fileId) {
@@ -60,4 +92,4 @@ const googleServices = class googleServices {
     }
 }
 
-module.exports = googleServices
+module.exports = googleService
