@@ -7,6 +7,9 @@ const { upload } = require('../uploader')
 const fs = require('fs')
 const { checkAuthenticated } = require('../middleware/auth.mw')
 const localStorage = require('../middleware/storage.mw')
+const googleService = require('../googleServices')
+
+const service = new googleService()
 
 initialize(passport, async (email) => {
     // returning user with logged in email
@@ -67,32 +70,36 @@ router.post(
             emailOwner: emailOwner.email,
         })
 
-        try {
-            const savedJob = await job.save()
-            const path = '/' + emailOwner.email + '/' + savedJob._id + '/'
-            const pathArr = []
-            fs.readdir('public/uploads', (err, files) => {
-                files.forEach((file) => {
-                    pathArr.push(path + file)
-                })
-                Job.findOneAndUpdate(
-                    { _id: savedJob._id },
-                    { $set: { images: pathArr } },
-                    (err, ans) => {
+    try {
+        const savedJob = await job.save()
+        const imgPath = 'public/uploads/'
+        const localImgArr = fs.readdirSync(imgPath)
+        const driveImgArr = []
+        service
+            .uploadFiles(localImgArr, imgPath)
+            .then((results) => {
+                results.forEach((result) => {
+                    driveImgArr.push(`https://drive.google.com/uc?id=${result.data.id}`)
+                    fs.rm(imgPath + result.data.name, (err) => {
                         if (err) {
                             console.log(err)
                         }
+                    })
+                })
+                Job.findOneAndUpdate({ _id: savedJob._id }, { $set: { images: driveImgArr } }, (err, ans) => {
+                    if (err) {
+                        console.log(err)
                     }
-                )
+                })
+                console.log('Done uploading all images')
+                res.redirect('/dashboard')
             })
-
-            //uploading to dropbox
-            upload(path)
-
-            res.redirect('/dashboard')
-        } catch (e) {
-            res.redirect('/')
-        }
+            .catch((e) => {
+                console.log(e)
+            })
+    } catch (e) {
+        console.log(e)
+        res.redirect('/')
     }
 )
 

@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const { isAuthenticated } = require('../middleware/auth.mw')
+const Job = require('../models/Job')
 
 router.get('/login', (req, res) => {
     res.render('login')
@@ -13,8 +14,10 @@ router.get('/', isAuthenticated('index.ejs'), (req, res) => {
     res.render('index.ejs', { authenticated: true })
 })
 
-router.get('/available-jobs', isAuthenticated('available-jobs'), (req, res) => {
-    res.render('available-jobs', { authenticated: true })
+router.get('/available-jobs', async (req, res) => {
+    const job = await Job.find()
+    const auth = req.isAuthenticated()
+    res.render('available-jobs', { allJobs: job, authenticated: auth })
 })
 
 router.get('/how-to-page', isAuthenticated('how-to-page'), (req, res) => {
