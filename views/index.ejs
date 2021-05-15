@@ -1,5 +1,5 @@
 <% if (authenticated) { %>
-    <%- include('header-registered.ejs') %>
+    <%- include('header-registered.ejs',{Firstname: name}) %>
 <% }else{ %>
     <%- include('header.ejs') %>
 <% } %>

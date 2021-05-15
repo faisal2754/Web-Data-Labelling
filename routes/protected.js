@@ -5,7 +5,9 @@ const googleService = require('../googleServices')
 const service = new googleService()
 
 router.get('/create-job', async (req, res) => {
-    res.render('create-job')
+    const user = await req.user
+    username = user.name
+    res.render('create-job',{name: username})
 })
 
 router.get('/temp-job-page', async (req, res) => {
