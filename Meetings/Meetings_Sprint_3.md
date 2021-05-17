@@ -168,4 +168,42 @@ Sipho Sikakane.(Scrum master/Backend)
 - Tasks for the day: Send username to frontend and return error on duplicate emails 
 - Impediments: Projects and Quizzes
 
+## Daily Scrum Meeting 22nd April 2021 9:30
 
+Aharon Cohen (Frontend):
+- Currently on a religious holiday
+
+Langiwe Mwale (Frontend):
+- Tasks completed Yesterday: Made thumbnail images for available jobs
+- Task for the Day: Make pop up for the view jobs page when you click a job(using a modal)
+- Impediments: Time constraints
+
+Ioanni Balassis: (Frontend)
+- Tasks completed yesterday: Working on dashboard
+- Tasks for the day: Improve Dashboard to have functionality , begin pop up functionality
+- Impediments: Other projects for ML, CGV
+
+Jonathan Nunes (Frontend):
+- Tasks completed yesterday: Edit profile dashboard
+- Tasks for the day: Edit profile page
+- Impediments: Other university work
+
+Faisal Saleem (Backend):
+- Tasks completed yesterday: Send image urls to view jobs page
+- Tasks for the day: Work on testing
+- Impediments: Time
+
+Ghulame Mujtaba Arbi (Backend/Frontend):
+- Tasks completed yesterday: Working on dashboard
+- Tasks for the day: Refine functionalities and design
+- Impediments: Time/quizzes/projects
+
+Tristan Bester (Backend):
+- Tasks completed yesterday: Increased test coverage.
+- Tasks for the day: Continue testing.
+- Impediments: Time.
+
+Sipho Sikakane.(Scrum master/Backend)
+- Tasks completed yesterday: Added Username to all headers
+- Tasks for the day: Finish accept job functionality and start cancel job functionality
+- Impediments: Quizzes and projects
