@@ -19,9 +19,10 @@ router.get('/', isAuthenticated('index.ejs'), async (req, res) => {
 router.get('/available-jobs', async (req, res) => {
     const job = await Job.find()
     const auth = req.isAuthenticated()
+    const user = await req.user
     var username =  ""
     if(auth){
-        username = req.user.name
+        username =  user.name
     }
     res.render('available-jobs', { allJobs: job, authenticated: auth, name: username })
 })
