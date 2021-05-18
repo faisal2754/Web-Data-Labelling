@@ -1,7 +1,7 @@
 <title>Find A Job</title>
 
 <% if (authenticated) { %>
-    <%- include('header-registered.ejs',{Firstname: name}) %> 
+    <%- include('header-registered.ejs',{Firstname: name}) %>
         <% }else{ %>
             <%- include('header.ejs') %>
                 <% } %>
@@ -174,7 +174,7 @@
                                                             <!-- <div class="price">$200</div> -->
                                                             <a href="single.html">
                                                                 <img class="card-img-top img-fluid"
-                                                                    src="<%=allJobs[i].images[0]%>" 
+                                                                    src="<%=allJobs[i].images[0]%>"
                                                                     alt="Card image cap">
                                                             </a>
                                                         </div>
@@ -187,7 +187,7 @@
                                                                 <li class="flex-row list-inline-item">
                                                                     <a href="single.html"><i
                                                                             class="fa fa-folder-open-o"></i>Images
-                                                                             
+
                                                                     </a>
                                                                 </li>
                                                                 <li class="flex-row list-inline-item ">
@@ -205,11 +205,12 @@
                                                                 <%= allJobs[i].description %>
                                                             </p>
 
+                                                            <form action="/acceptJob" method="POST">
+                                                                <input type="hidden" name="jobId"
+                                                                    value="<%= allJobs[i]._id %>" />
+                                                                <button class="btn btn-outline-primary" name="button">Accept Job</button>
+                                                            </form>
                                                         </div>
-                                                        <form action="/acceptJob" method="POST">
-                                                            <input type="hidden" name="jobId" value="<%= allJobs[i]._id %>" />
-                                                            <button name="button">Accept Job</button>
-                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
@@ -240,7 +241,7 @@
                             </div>
                         </div>
                         </div>
-                        
+
                     </section>
                     <script>
                         var day = new Date();
