@@ -207,7 +207,8 @@
 
                                                         </div>
                                                         <form action="/acceptJob" method="POST">
-                                                            <button name="foo" value="send">Accept Job</button>
+                                                            <input type="hidden" name="jobId" value="<%= allJobs[i]._id %>" />
+                                                            <button name="button">Accept Job</button>
                                                         </form>
                                                     </div>
                                                 </div>

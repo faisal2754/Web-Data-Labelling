@@ -111,8 +111,8 @@ router.post(
 router.post('/acceptJob', checkAuthenticated, async (req, res) => {
   const user = await req.user
   const userEmail = user.email
-  const jobId = '609d7e5bdbd2e73c9403afa2'
-  Job.findByIdAndUpdate(
+  const jobId = req.body.jobId
+  const result = await Job.findByIdAndUpdate(
     //Identifies which jobs we are adding to
     jobId,
     {
@@ -122,7 +122,8 @@ router.post('/acceptJob', checkAuthenticated, async (req, res) => {
       },
     }
   )
-  console.log('Added to the Job')
+  // console.log(result)
+  // console.log('Added to the Job')
   res.redirect('/dashboard')
 })
 

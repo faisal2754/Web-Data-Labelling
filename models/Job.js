@@ -26,10 +26,10 @@ const jobSchema = new Schema({
         type: String,
         require: true
     },
-    emailLabellers: {
-        type: Array,
+    emailLabellers: [{
+        type: String,
         require: false
-    }
+    }]
     },
     {
     timestamps: true
