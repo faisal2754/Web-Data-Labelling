@@ -17,16 +17,14 @@
               </div>
               <!-- User Name -->
               <h5 class="text-center"><%= name %> </h5>
-              <p>Joined February 06, 2017</p>
-              <a href="user-profile.html" class="btn btn-main">Edit Profile</a>
+              <p><%= new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'long', day: '2-digit'}).format(dateJoined) %></p>
+              <a href="/user-profile" class="btn btn-primary mt-2">Edit Profile</a>
             </div>
             <!-- Dashboard Links -->
             <div class="widget user-dashboard-menu">
               <ul>
                 <li class="active"><a href="dashboard-my-ads.html"><i class="fa fa-user"></i> My Jobs<span><%= userJobs.length %></span></a></li>
                 <li><a href="dashboard-favourite-ads.html"><i class="fa fa-bookmark-o"></i> Accepted Jobs <span>0</span></a></li>
-                <li><a href="" data-toggle="modal" data-target="#deleteaccount"><i class="fa fa-power-off"></i>Delete
-                    Account</a></li>
               </ul>
             </div>
   

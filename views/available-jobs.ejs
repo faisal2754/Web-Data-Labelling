@@ -172,20 +172,20 @@
                                                     <div class="card">
                                                         <div class="thumb-content">
                                                             <!-- <div class="price">$200</div> -->
-                                                            <a href="single.html">
+                                                            <a href="" data-toggle="modal" data-target="#a<%= allJobs[i]._id %>">
                                                                 <img class="card-img-top img-fluid"
                                                                     src="<%=allJobs[i].images[0]%>" 
                                                                     alt="Card image cap">
                                                             </a>
                                                         </div>
 
-                                                        <div class="card-body">
-                                                            <h4 class="card-title"><a href="single.html"> </a>
+                                                        <div class="card-body" style="height: 250;">
+                                                            <h4 class="card-title"><a href="" data-toggle="modal" data-target="#a<%= allJobs[i]._id %>"> </a>
                                                                 <%= allJobs[i].title %>
                                                             </h4>
                                                             <ul class="list-inline product-meta">
                                                                 <li class="flex-row list-inline-item">
-                                                                    <a href="single.html"><i
+                                                                    <a href="" data-toggle="modal" data-target="#a<%= allJobs[i]._id %>"><i
                                                                             class="fa fa-folder-open-o"></i>Images
                                                                              
                                                                     </a>
@@ -207,16 +207,43 @@
 
                                                         </div>
                                                         <form action="/acceptJob" method="POST">
-                                                            <input type="hidden" name="jobId" value="<%= allJobs[i]._id %>" />
-                                                            <button name="button">Accept Job</button>
+                                                            <input type="hidden" name="jobId" value="a<%= allJobs[i]._id %>" />
+                                                            
                                                         </form>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <!-- Modal -->
+                                                <div class="modal fade" id="a<%= allJobs[i]._id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+                                                aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                    <div class="modal-content">
+                                                    <div class="modal-header border-bottom-0">
+                                                        
+                                                        
+                                                    </div>
+                                                    <div class="modal-body text-center">
+                                                        <h6 class="py-2" style="font-size: 30px;"><%= allJobs[i].title %></h6>
+                                                        <img class="card-img-top img-fluid"
+                                                        src="<%=allJobs[i].images[0]%>" 
+                                                        alt="Card image cap">
+                                                        <h6 class="py-2">Credits: <%= allJobs[i].credits %></h6>
+                                                        <p><%= allJobs[i].description %></p>
+                                                    </div>
+                                                    <div class="modal-footer border-top-0 mb-3 mx-5 justify-content-lg-between justify-content-center">
+                                                        <button type="button" class="btn btn-success">Accept Job</button>
+                                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                                                        
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                                <!-- delete account popup modal end-->
+                                                    <!-- delete-account modal -->
                                             <% } %>
                                     </div>
                                 </div>
-                                <div class="pagination justify-content-center">
+                                <!-- <div class="pagination justify-content-center">
                                     <nav aria-label="Page navigation example">
                                         <ul class="pagination">
                                             <li class="page-item">
@@ -236,7 +263,7 @@
                                             </li>
                                         </ul>
                                     </nav>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         </div>

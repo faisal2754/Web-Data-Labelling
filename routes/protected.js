@@ -21,8 +21,9 @@ router.get('/dashboard', async (req, res) => {
     const user = await req.user
     username = user.name
     userEmail = user.email
+    dateJoined = user.createdAt
     const job = await Job.find({ emailOwner: userEmail })
-    res.render('dashboard', { userJobs: job, name: username })
+    res.render('dashboard', { userJobs: job, name: username, dateJoined})
 })
 
 router.get('/secret-page', (req, res) => {
