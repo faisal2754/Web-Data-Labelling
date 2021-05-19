@@ -231,7 +231,11 @@
                                                         <p><%= allJobs[i].description %></p>
                                                     </div>
                                                     <div class="modal-footer border-top-0 mb-3 mx-5 justify-content-lg-between justify-content-center">
-                                                        <button type="button" class="btn btn-success">Accept Job</button>
+                                                        <!-- <button type="button" class="btn btn-success">Accept Job</button> -->
+                                                        <form action="/acceptJob" method="POST">
+                                                            <input type="hidden" name="jobId" value="<%= allJobs[i]._id %>" />
+                                                            <button class="btn btn-success" name="button">Accept Job</button>
+                                                        </form>
                                                         <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
                                                         
                                                     </div>
