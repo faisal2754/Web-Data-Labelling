@@ -9,15 +9,10 @@ function isAuthenticated(routeName) {
 }
 
 async function checkAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-        return next()
-    } else {
-        res.redirect('/')
-    }
-}
+    const sessionID = Object.keys(req.sessionStore.sessions)[0]
+    const session = JSON.parse(req.sessionStore.sessions[sessionID])
 
-async function checkAuthenticatedTest(req, res, next) {
-    if (req.sessionStore.sessions) {
+    if (req.isAuthenticated() || session.passport) {
         return next()
     } else {
         res.redirect('/')
@@ -27,5 +22,4 @@ async function checkAuthenticatedTest(req, res, next) {
 module.exports = {
     isAuthenticated,
     checkAuthenticated,
-    checkAuthenticatedTest
 }

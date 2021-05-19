@@ -6,8 +6,6 @@ const passport = require('passport')
 const path = require('path')
 const app = express()
 
-const { checkAuthenticatedTest } = require('../middleware/auth.mw')
-
 const authRoute = require('../routes/auth')
 const protectedRoute = require('../routes/protected')
 const unprotectedRoute = require('../routes/unprotected')
@@ -17,7 +15,7 @@ mongoose.connect(mongoDB, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
     useFindAndModify: false,
-    useCreateIndex: true
+    useCreateIndex: true,
 })
 
 //port and path
@@ -35,8 +33,8 @@ app.use(
         resave: false,
         saveUninitialized: false,
         cookie: {
-            secure: false
-        }
+            secure: false,
+        },
     })
 )
 app.use(flash())
@@ -44,8 +42,6 @@ app.use(flash())
 //initialise passport
 app.use(passport.initialize())
 app.use(passport.session())
-
-protectedRoute.all(checkAuthenticatedTest)
 
 app.use('', authRoute)
 app.use('', protectedRoute)

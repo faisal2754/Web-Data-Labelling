@@ -1,36 +1,37 @@
 const router = require('express').Router()
 const Job = require('../models/Job')
 const googleService = require('../googleServices')
+const { checkAuthenticated } = require('../middleware/auth.mw')
 
 const service = new googleService()
 
-router.get('/create-job', async (req, res) => {
+router.get('/create-job', checkAuthenticated, async (req, res) => {
     const user = await req.user
     username = user.name
-    res.render('create-job',{name: username})
+    res.render('create-job', { name: username })
 })
 
-router.get('/temp-job-page', async (req, res) => {
+router.get('/temp-job-page', checkAuthenticated, async (req, res) => {
     const user = await req.user
     userEmail = user.email
     const job = await Job.find({ emailOwner: userEmail })
     res.render('temp-job-page', { userJobs: job })
 })
 
-router.get('/dashboard', async (req, res) => {
+router.get('/dashboard', checkAuthenticated, async (req, res) => {
     const user = await req.user
     username = user.name
     userEmail = user.email
     dateJoined = user.createdAt
     const job = await Job.find({ emailOwner: userEmail })
-    res.render('dashboard', { userJobs: job, name: username, dateJoined})
+    res.render('dashboard', { userJobs: job, name: username, dateJoined })
 })
 
-router.get('/secret-page', (req, res) => {
+router.get('/secret-page', checkAuthenticated, (req, res) => {
     res.send('bruh')
 })
 
-router.delete('/dashboard', async (req, res) => {
+router.delete('/dashboard', checkAuthenticated, async (req, res) => {
     const id = req.body.id
     const job = await Job.findById(id)
     const imgArr = job.images
@@ -45,10 +46,10 @@ router.delete('/dashboard', async (req, res) => {
     })
 })
 
-router.get('/user-profile', async (req, res) => {
+router.get('/user-profile', checkAuthenticated, async (req, res) => {
     const user = await req.user
     username = user.name
-    res.render('user-profile', {name: username})
+    res.render('user-profile', { name: username })
 })
 
 module.exports = router
