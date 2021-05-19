@@ -249,3 +249,44 @@ Sipho Sikakane.(Scrum master/Backend)
 - Impediments: Work
 
 ## Daily Scrum Meeting 20th May (Wednesday) 2021
+
+Aharon Cohen (Frontend):
+- Tasks completed yesterday: Religious Holiday
+- Tasks for the day: Improve pop up functionality, add edit profile functionality 
+- Impediments: Other projects for ML and CGV
+
+Langiwe Mwale (Frontend):
+- Tasks completed Yesterday: Adding the stylised button
+- Task for the Day: Make pop up for the view jobs page when you click a job(using a modal)
+- Impediments: Time constraints
+
+Ioanni Balassis: (Frontend)
+- Tasks completed yesterday: pop up funtionality
+- Tasks for the day: Improve pop up functionality, add edit profile functionality 
+- Impediments: Other projects for ML, CGV
+
+Jonathan Nunes (Frontend):
+- Tasks completed yesterday: Fixed minor issues. Added popup for available jobs and changed edit profile page
+- Tasks for the day: Style profile dashboard, accept jobs, add slider for images
+- Impediments: Other university work
+
+Faisal Saleem (Backend):
+- Tasks completed yesterday: Work on testing
+- Tasks for the day: Continue testing/Start edit profile
+- Impediments: Time
+
+Ghulame Mujtaba Arbi (Backend/Frontend):
+- Tasks completed yesterday: Working on dashboard
+- Tasks for the day: Refine functionalities and design
+- Impediments: Time/quizzes/projects
+
+Tristan Bester (Backend):
+- Tasks completed yesterday: Setup test coverage for routes.
+- Tasks for the day: Continue on testing routes.
+- Impediments: Time.
+
+Sipho Sikakane.(Scrum master/Backend)
+- Tasks completed yesterday: Finished Accept Job functionality
+- Tasks for the day: Allow users to see which jobs they’ve accepted and allow them to delete them 
+- Impediments: Work
+
