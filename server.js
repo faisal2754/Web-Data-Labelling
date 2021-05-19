@@ -16,13 +16,17 @@ const fs = require('fs')
 const googleService = require('./googleServices')
 const { checkAuthenticated } = require('./middleware/auth.mw')
 
+if (!fs.existsSync('public/uploads')) {
+    fs.mkdirSync('public/uploads')
+}
+
 const gDriveFolderId = '14yJctoyNoX6ivWJre9dXLLgbUVnNRvpZ' //make environment variable
 
 const service = new googleService()
 
 const imgUrls = [
     'https://drive.google.com/uc?id=1W52GmYYzA9qDvurEtmtpCtKwz2_FNozR',
-    'https://drive.google.com/uc?id=1N7PnhILqjeSCyBtDuMVAtJly-qo7ud06'
+    'https://drive.google.com/uc?id=1N7PnhILqjeSCyBtDuMVAtJly-qo7ud06',
 ]
 
 // service.deleteFiles(imgUrls).then((res) => {
@@ -92,7 +96,7 @@ async function connectDB() {
                 useUnifiedTopology: true,
                 useNewUrlParser: true,
                 useFindAndModify: false,
-                useCreateIndex: true
+                useCreateIndex: true,
             },
             () => console.log('connected to db!')
         )
@@ -114,7 +118,7 @@ app.use(
     session({
         secret: process.env.SESSION_SECRET,
         resave: false,
-        saveUninitialized: false
+        saveUninitialized: false,
     })
 )
 app.use(flash())
