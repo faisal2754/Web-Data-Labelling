@@ -208,7 +208,7 @@ Sipho Sikakane.(Scrum master/Backend)
 - Tasks for the day: Finish accept job functionality and start cancel job functionality
 - Impediments: Quizzes and projects
 
-## Daily Scrum Meeting 17th May (Monday) 2021
+## Daily Scrum Meeting 18th May (Tuesday) 2021
 
 Aharon Cohen (Frontend):
 - Currently on a religious holiday
@@ -247,3 +247,5 @@ Sipho Sikakane.(Scrum master/Backend)
 - Tasks completed yesterday: Finished Accept Job functionality
 - Tasks for the day: Allow users to see which jobs they’ve accepted and allow them to delete them 
 - Impediments: Work
+
+## Daily Scrum Meeting 20th May (Wednesday) 2021
