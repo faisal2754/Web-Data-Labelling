@@ -28,15 +28,9 @@ router.post('/register', async (req, res) => {
     })
 
     try {
-        const error = user.validateSync()
-        if (error) {
-            throw new Error('Invalid user')
-        }
-
         const savedUser = await user.save()
         res.render('login', { status: true })
     } catch (e) {
-        // console.log(e)
         res.render('register', { error: true })
     }
 })

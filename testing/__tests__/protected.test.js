@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const User = require('../../models/User')
+const Job = require('../../models/Job')
 const app = require('../testServer')
 const superagent = require('superagent')
 const { deleteMany } = require('../../models/User')
@@ -58,117 +59,132 @@ function loginUser(agent) {
     }
 }
 
-describe('Should allow user to register', () => {
-    afterAll(async (done) => {
-        await removeAllCollections()
-        done()
-    })
-
-    let agent = superagent.agent()
-    it('register', registerUser(agent))
-})
-
-describe('Should allow a registered user to login', () => {
-    afterAll(async (done) => {
-        await removeAllCollections()
-        done()
-    })
-
-    let agent = superagent.agent()
-    it('register', registerUser(agent))
-    it('login', loginUser(agent))
-})
-
-describe('Should allow a logged in user to access protected routes', () => {
-    afterAll(async (done) => {
-        await removeAllCollections()
-        done()
-    })
-
-    let agent = superagent.agent()
-    it('register', registerUser(agent))
-    it('login', loginUser(agent))
-    it('access protected', (done) => {
-        agent.get('http://localhost:3000/user-profile').end((err, res) => {
+function accessRoute(agent, route) {
+    return function (done) {
+        agent.get(route).end((err, res) => {
             expect(res.status == 200).toBeTruthy()
-            expect(res.req.path === '/user-profile').toBeTruthy()
+            expect(res.redirects.length == 0).toBeTruthy()
+            done()
+        })
+    }
+}
+
+describe('Logged in user should be able to access create job page', () => {
+    afterAll(async (done) => {
+        await removeAllCollections()
+        done()
+    })
+    let agent = superagent.agent()
+    it('register', registerUser(agent))
+    it('login', loginUser(agent))
+    it('should access home page', accessRoute(agent, 'http://localhost:3000/create-job'))
+})
+
+describe('Logged in user should be able to access dashboard page', () => {
+    afterAll(async (done) => {
+        await removeAllCollections()
+        done()
+    })
+    let agent = superagent.agent()
+    it('register', registerUser(agent))
+    it('login', loginUser(agent))
+    it('should access dashboard page', accessRoute(agent, 'http://localhost:3000/dashboard'))
+})
+
+describe('Logged in user should be able to access accepted job page', () => {
+    afterAll(async (done) => {
+        await removeAllCollections()
+        done()
+    })
+    let agent = superagent.agent()
+    it('register', registerUser(agent))
+    it('login', loginUser(agent))
+    it('should access accepted job page', accessRoute(agent, 'http://localhost:3000/accepted-jobs'))
+})
+
+describe('Logged in user should be able to access the magic secret page', () => {
+    afterAll(async (done) => {
+        await removeAllCollections()
+        done()
+    })
+    let agent = superagent.agent()
+    it('register', registerUser(agent))
+    it('login', loginUser(agent))
+    it('should access magic secret page', accessRoute(agent, 'http://localhost:3000/secret-page'))
+})
+
+describe('Logged in user should be able to access user profile page', () => {
+    afterAll(async (done) => {
+        await removeAllCollections()
+        done()
+    })
+    let agent = superagent.agent()
+    it('register', registerUser(agent))
+    it('login', loginUser(agent))
+    it('should access user profile page', accessRoute(agent, 'http://localhost:3000/user-profile'))
+})
+
+describe('Logged in user should be able to delete their jobs', () => {
+    afterAll(async (done) => {
+        await removeAllCollections()
+        done()
+    })
+    let agent = superagent.agent()
+    it('register', registerUser(agent))
+    it('login', loginUser(agent))
+
+    it('should create a job', async (done) => {
+        const job = new Job({
+            title: 'test title',
+            description: 'test description',
+            credits: 100,
+            labels: ['one', 'two'],
+            images: [],
+            emailOwner: 'Test@Test.com',
+            emailLabellers: ['test@test.com']
+        })
+
+        job.save().then((savedJob) => {
+            expect(savedJob == job).toBeTruthy()
             done()
         })
     })
-})
 
-describe('Should allow a logged in user to log out', () => {
-    afterAll(async (done) => {
-        await removeAllCollections()
-        done()
-    })
+    it('should delete the create job', async (done) => {
+        const job = await Job.findOne({ emailOwner: 'Test@Test.com' })
+        const id = job._id
 
-    let agent = superagent.agent()
-    it('register', registerUser(agent))
-    it('login', loginUser(agent))
-    it('logout', (done) => {
-        agent.delete('http://localhost:3000/logout').end((err, res) => {
-            expect(res.status == 200).toBeTruthy()
-            expect(res.redirects[0] === 'http://localhost:3000/').toBeTruthy()
-            done()
-        })
-    })
-})
-
-describe('Should not allow an unregistered user to log in', () => {
-    afterAll(async (done) => {
-        await removeAllCollections()
-        done()
-    })
-
-    let agent = superagent.agent()
-    it('login failed', (done) => {
         agent
-            .post('http://localhost:3000/login')
-            .send({ email: 'INVALID', password: 'INVALID' })
-            .end((err, res) => {
-                expect(res.status == 200).toBeTruthy()
-                expect(res.redirects[0] === 'http://localhost:3000/login').toBeTruthy()
-                done()
-            })
-    })
-})
-
-describe('Should not allow a registered user to log in with an incorrect password', () => {
-    afterAll(async (done) => {
-        await removeAllCollections()
-        done()
-    })
-
-    let agent = superagent.agent()
-    it('register', registerUser(agent))
-    it('login failed', (done) => {
-        agent
-            .post('http://localhost:3000/login')
-            .send({ email: 'Test@Test.com', password: 'INVALID' })
-            .end((err, res) => {
-                expect(res.status == 200).toBeTruthy()
-                expect(res.redirects[0] === 'http://localhost:3000/login').toBeTruthy()
-                done()
-            })
-    })
-})
-
-describe('Invalid users should not be added to the database', () => {
-    afterAll(async (done) => {
-        await removeAllCollections()
-        done()
-    })
-
-    it('Should not store user', (done) => {
-        superagent
-            .post('http://localhost:3000/register')
+            .post('http://localhost:3000/dashboard')
             .send({
-                email: 1
+                id: id
             })
             .end((err, res) => {
-                console.log(err)
-                console.log(res)
+                expect(res.status == 200).toBeTruthy()
+                expect(res.redirects[0] == 'http://localhost:3000/dashboard').toBeTruthy()
+                done()
+            })
+    })
+})
+
+describe('Should raise exception if job deletion fails', () => {
+    afterAll(async (done) => {
+        await removeAllCollections()
+        done()
+    })
+
+    let agent = superagent.agent()
+    it('register', registerUser(agent))
+    it('login', loginUser(agent))
+    it('should raise alert about failure', async (done) => {
+        agent
+            .post('http://localhost:3000/dashboard')
+            .send({
+                id: ''
+            })
+            .end((err, res) => {
+                expect(res.status == 400).toBeTruthy()
+                expect(res.text == 'Bad Request. Redirecting to /').toBeTruthy()
                 done()
             })
     })

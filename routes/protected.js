@@ -13,13 +13,6 @@ router.get('/create-job', checkAuthenticated, async (req, res) => {
     res.render('create-job', { name: username })
 })
 
-router.get('/temp-job-page', checkAuthenticated, async (req, res) => {
-    const user = await req.user
-    const userEmail = user.email
-    const jobs = await Job.find({ emailOwner: userEmail })
-    res.render('temp-job-page', { userJobs: jobs })
-})
-
 router.get('/dashboard', checkAuthenticated, async (req, res) => {
     const user = await req.user
     const username = user.name
@@ -54,19 +47,18 @@ router.get('/secret-page', checkAuthenticated, (req, res) => {
     res.send('bruh')
 })
 
-router.delete('/dashboard', checkAuthenticated, async (req, res) => {
+router.post('/dashboard', checkAuthenticated, async (req, res) => {
     const id = req.body.id
-    const job = await Job.findById(id)
-    const imgArr = job.images
-    res.send(imgArr)
-    service.deleteFiles(imgArr).then(async (res) => {
-        const deleted = await Job.deleteOne({ _id: id })
-        if (deleted) {
-            res.send('deleted')
-        } else {
-            res.send('bruh')
-        }
-    })
+
+    try {
+        const job = await Job.findById(id)
+        const imgArr = job.images
+
+        await service.deleteFiles(imgArr)
+        res.redirect('/dashboard')
+    } catch {
+        res.redirect(400, '/')
+    }
 })
 
 router.patch('/user-profile', localStorage.single('avatar'), async (req, res) => {
