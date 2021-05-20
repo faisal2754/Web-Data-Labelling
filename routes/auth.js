@@ -10,7 +10,7 @@ const googleService = require('../googleServices')
 
 const service = new googleService()
 
-initialize(passport, async (email) => {
+initialize(passport, async email => {
     // returning user with logged in email
     const user = await User.findOne({ email: email })
     return user
@@ -68,10 +68,10 @@ router.post('/create-job', checkAuthenticated, localStorage.array('image'), asyn
         const driveImgArr = []
         service
             .uploadFiles(localImgArr, imgPath)
-            .then((results) => {
-                results.forEach((result) => {
+            .then(results => {
+                results.forEach(result => {
                     driveImgArr.push(`https://drive.google.com/uc?id=${result.data.id}`)
-                    fs.rm(imgPath + result.data.name, (err) => {
+                    fs.rm(imgPath + result.data.name, err => {
                         if (err) {
                             console.log(err)
                         }
@@ -85,7 +85,7 @@ router.post('/create-job', checkAuthenticated, localStorage.array('image'), asyn
                 console.log('Done uploading all images')
                 res.redirect('/dashboard')
             })
-            .catch((e) => {
+            .catch(e => {
                 console.log(e)
             })
     } catch (e) {

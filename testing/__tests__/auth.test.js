@@ -6,12 +6,12 @@ const { deleteMany } = require('../../models/User')
 
 let appServer
 
-beforeAll((done) => {
+beforeAll(done => {
     appServer = app.listen(3000)
     done()
 })
 
-afterAll((done) => {
+afterAll(done => {
     appServer.close()
     done()
 })
@@ -59,7 +59,7 @@ function loginUser(agent) {
 }
 
 describe('Should allow user to register', () => {
-    afterAll(async (done) => {
+    afterAll(async done => {
         await removeAllCollections()
         done()
     })
@@ -69,7 +69,7 @@ describe('Should allow user to register', () => {
 })
 
 describe('Should allow a registered user to login', () => {
-    afterAll(async (done) => {
+    afterAll(async done => {
         await removeAllCollections()
         done()
     })
@@ -80,7 +80,7 @@ describe('Should allow a registered user to login', () => {
 })
 
 describe('Should allow a logged in user to access protected routes', () => {
-    afterAll(async (done) => {
+    afterAll(async done => {
         await removeAllCollections()
         done()
     })
@@ -88,7 +88,7 @@ describe('Should allow a logged in user to access protected routes', () => {
     let agent = superagent.agent()
     it('register', registerUser(agent))
     it('login', loginUser(agent))
-    it('access protected', (done) => {
+    it('access protected', done => {
         agent.get('http://localhost:3000/user-profile').end((err, res) => {
             expect(res.status == 200).toBeTruthy()
             expect(res.req.path === '/user-profile').toBeTruthy()
@@ -98,7 +98,7 @@ describe('Should allow a logged in user to access protected routes', () => {
 })
 
 describe('Should allow a logged in user to log out', () => {
-    afterAll(async (done) => {
+    afterAll(async done => {
         await removeAllCollections()
         done()
     })
@@ -106,8 +106,9 @@ describe('Should allow a logged in user to log out', () => {
     let agent = superagent.agent()
     it('register', registerUser(agent))
     it('login', loginUser(agent))
-    it('logout', (done) => {
+    it('logout', done => {
         agent.delete('http://localhost:3000/logout').end((err, res) => {
+            console.log(err)
             expect(res.status == 200).toBeTruthy()
             expect(res.redirects[0] === 'http://localhost:3000/').toBeTruthy()
             done()
@@ -116,13 +117,13 @@ describe('Should allow a logged in user to log out', () => {
 })
 
 describe('Should not allow an unregistered user to log in', () => {
-    afterAll(async (done) => {
+    afterAll(async done => {
         await removeAllCollections()
         done()
     })
 
     let agent = superagent.agent()
-    it('login failed', (done) => {
+    it('login failed', done => {
         agent
             .post('http://localhost:3000/login')
             .send({ email: 'INVALID', password: 'INVALID' })
@@ -135,14 +136,14 @@ describe('Should not allow an unregistered user to log in', () => {
 })
 
 describe('Should not allow a registered user to log in with an incorrect password', () => {
-    afterAll(async (done) => {
+    afterAll(async done => {
         await removeAllCollections()
         done()
     })
 
     let agent = superagent.agent()
     it('register', registerUser(agent))
-    it('login failed', (done) => {
+    it('login failed', done => {
         agent
             .post('http://localhost:3000/login')
             .send({ email: 'Test@Test.com', password: 'INVALID' })

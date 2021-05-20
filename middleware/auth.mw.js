@@ -3,7 +3,6 @@ async function checkAuthenticated(req, res, next) {
 
     try {
         sessionID = Object.keys(req.sessionStore.sessions)[0]
-        console.log(sessionID)
         session = JSON.parse(req.sessionStore.sessions[sessionID])
     } catch (e) {
         console.log(e)

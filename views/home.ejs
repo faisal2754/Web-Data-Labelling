@@ -146,7 +146,13 @@
       
       <div class="col-lg-12">
         <div class="trending-ads-slide">
-          <% for( let i = 0; i < 4; i++ ) { %>
+          <% let numJobs %> 
+          <% if (allJobs.length > 4) { %>
+            <% numJobs = 4 %> 
+          <% } else { %>
+            <% numJobs = allJobs.length %>
+          <% } %>
+          <% for( let i = 0; i < numJobs; i++ ) { %>
           <div class="col-sm-12 col-lg-4">
               <!-- product card -->
               <div class="product-item bg-light">

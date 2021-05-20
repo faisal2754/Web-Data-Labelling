@@ -61,7 +61,7 @@ router.delete('/dashboard', checkAuthenticated, async (req, res) => {
     const job = await Job.findById(id)
     const imgArr = job.images
     res.send(imgArr)
-    service.deleteFiles(imgArr).then(async (res) => {
+    service.deleteFiles(imgArr).then(async res => {
         const deleted = await Job.deleteOne({ _id: id })
         if (deleted) {
             res.send('deleted')
@@ -74,37 +74,38 @@ router.delete('/dashboard', checkAuthenticated, async (req, res) => {
 router.patch('/user-profile', localStorage.single('avatar'), async (req, res) => {
     const user = await req.user
     const userID = user._id
+    const dbUser = await User.findOne({ _id: userID })
+
     const name = req.body.name
     const password = req.body.password
-    try {
-        const imgPath = 'public/uploads/'
-        const localImg = String(fs.readdirSync(imgPath))
-        let driveImg
-        service
-            .uploadFile(localImg, imgPath)
-            .then((result) => {
-                driveImgArr.push(`https://drive.google.com/uc?id=${result.data.id}`)
-                fs.rm(imgPath + result.data.name, (err) => {
-                    if (err) {
-                        console.log(err)
-                    }
-                })
-                Job.findOneAndUpdate({ _id: savedJob._id }, { $set: { images: driveImgArr } }, (err, ans) => {
-                    if (err) {
-                        console.log(err)
-                    }
-                })
-                console.log('Done uploading all images')
-                res.redirect('/dashboard')
+
+    const imgPath = 'public/uploads/'
+    const localImg = String(fs.readdirSync(imgPath))
+
+    service
+        .uploadFile(localImg, imgPath)
+        .then(result => {
+            const driveImg = `https://drive.google.com/uc?id=${result.data.id}`
+
+            dbUser.name = name
+
+            fs.rm(imgPath + result.data.name, err => {
+                if (err) {
+                    console.log(err)
+                }
             })
-            .catch((e) => {
-                console.log(e)
+
+            Job.findOneAndUpdate({ _id: savedJob._id }, { $set: { images: driveImgArr } }, (err, ans) => {
+                if (err) {
+                    console.log(err)
+                }
             })
-    } catch (e) {
-        console.log(e)
-        res.redirect('/')
-    }
-    res.send(user)
+            console.log('Done uploading all images')
+            res.redirect('/dashboard')
+        })
+        .catch(e => {
+            console.log(e)
+        })
 })
 
 router.get('/user-profile', checkAuthenticated, async (req, res) => {

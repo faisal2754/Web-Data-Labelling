@@ -15,6 +15,7 @@ const methodOverride = require('method-override')
 const fs = require('fs')
 const googleService = require('./googleServices')
 const { checkAuthenticated } = require('./middleware/auth.mw')
+const User = require('./models/User')
 
 if (!fs.existsSync('public/uploads')) {
     fs.mkdirSync('public/uploads')
@@ -22,15 +23,20 @@ if (!fs.existsSync('public/uploads')) {
 
 const gDriveFolderId = '14yJctoyNoX6ivWJre9dXLLgbUVnNRvpZ' //make environment variable
 
-const service = new googleService()
+let user
+async function bruh() {
+    user = await User.findOne({ _id: '609eb7ecd7aee60016023f4f' })
+    console.log(user)
+}
 
-// service.deleteFiles(imgUrls).then((res) => {
-//     console.log(res)
-// })
+bruh()
+
+const service = new googleService()
 
 // const imgPath = 'public/uploads/'
 // const localImg = String(fs.readdirSync(imgPath))
 // console.log(localImg)
+
 // service.uploadFile(localImg, imgPath).then((res) => {
 //     console.log('uploaded')
 // })

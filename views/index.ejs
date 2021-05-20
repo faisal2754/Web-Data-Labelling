@@ -1,10 +1,10 @@
 <% if (authenticated) { %>
-    <%- include('header-registered.ejs',{Firstname: name}) %>
+    <%- include('header-registered.ejs', {Firstname: name}) %>
 <% }else{ %>
     <%- include('header.ejs') %>
 <% } %>
 
-<%- include('home.ejs',{allJobs: allJobs}) %>
+<%- include('home.ejs', {allJobs: allJobs}) %>
 
 <% if (authenticated) { %>
     <%- include('footer.ejs') %>
