@@ -54,6 +54,24 @@ const googleService = class googleService {
         return Promise.all(promises)
     }
 
+    uploadFile(file, path) {
+        const fileMetadata = {
+            name: file,
+            parents: ['14yJctoyNoX6ivWJre9dXLLgbUVnNRvpZ']
+        }
+        const media = {
+            mimeType: 'image/jpeg',
+            body: fs.createReadStream(path + file)
+        }
+        const promise = this.drive.files.create({
+            resource: fileMetadata,
+            media: media,
+            fields: 'id, name'
+        })
+
+        return promise
+    }
+
     uploadFiles(files, path) {
         const promises = []
         for (let i = 0; i < files.length; i++) {

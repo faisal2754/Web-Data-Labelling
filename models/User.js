@@ -19,6 +19,9 @@ const userSchema = new Schema(
             require: true,
             minLength: 1
         },
+        avatar: {
+            type: String
+        },
         myJobs: {
             type: Array
         }

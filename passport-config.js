@@ -8,9 +8,7 @@ function initialize(passport, getUserByEmail) {
         const user = await getUserByEmail(email)
 
         if (user == null) {
-            return done(null, false, {
-                message: 'No user with that email',
-            })
+            return done(null, false, { message: 'No user with that email' })
         }
 
         if (password === user.password) {
@@ -20,12 +18,7 @@ function initialize(passport, getUserByEmail) {
         }
     }
 
-    passport.use(
-        new LocalStrategy(
-            { usernameField: 'email', passwordField: 'password' },
-            authenticateUser
-        )
-    )
+    passport.use(new LocalStrategy({ usernameField: 'email', passwordField: 'password' }, authenticateUser))
 
     passport.serializeUser((user, done) => {
         done(null, user.email)
