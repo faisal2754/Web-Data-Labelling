@@ -426,6 +426,15 @@ ul.social-circle-icons li a:hover {
   position: relative;
 }
 
+.type-1 {
+  border-radius:10px;
+  border: 1px solid #eee;
+  transition: .3s border-color;
+}
+.type-1:hover {
+  border: 1px solid #aaa;
+}
+
 .close {
   cursor: pointer;
   position: absolute;
