@@ -44,6 +44,13 @@ p {
   color: #888;
 }
 
+.gBack {
+  background: linear-gradient(45deg, #1870ed 0, #f18f88 100%);
+    background-repeat:no-repeat;
+    height: 100%;
+    background-size: cover;
+}
+
 label {
   font-size: 14px;
   letter-spacing: 0;
@@ -412,6 +419,13 @@ ul.social-circle-icons li a:hover {
   text-decoration: none;
   color: #fff;
   background: #5672f9;
+}
+.page-hero-image {
+  color: #fff;
+  padding: 80px 50px;
+  background-repeat: repeat;
+  background-position: 0 0;
+  background-size: cover;
 }
 
 .list-item {
