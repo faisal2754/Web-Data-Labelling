@@ -106,6 +106,22 @@ router.post('/user-profile', checkAuthenticated, async (req, res) => {
         })
 })
 
+router.post('/cancelJob', checkAuthenticated, async (req, res) => {
+    const id = req.body.jobId
+    const user = await req.user
+    const userEmail = user.email
+    const updated = await Job.findOneAndUpdate(
+        { _id: id },
+        { 
+            $pull: {
+                emailLabellers: userEmail
+            } 
+        }
+    )
+    console.log(updated)
+    res.redirect('/dashboard')
+})
+
 router.get('/user-profile', checkAuthenticated, async (req, res) => {
     const user = await req.user
     const username = user.name
