@@ -11,60 +11,73 @@
       <div class="row justify-content-center">
         <div class="align-item-center">
           <div id="formContent2">
-      <form id="form" action="/create-job" method="POST" enctype="multipart/form-data">
-        <!-- Post Your ad start -->
-        <fieldset class=" border-gary p-4 mb-5">
-          <div class="row">
-            <div class="col-lg-12">
-              <h3>Post Your Job</h3>
-            </div>
-            <div class="col-lg-6">
-              <h6 class="font-weight-bold pt-4 pb-1">Title Of Job:</h6>
-              <input type="text" class="border w-100 p-2 bg-white text-capitalize" placeholder="Write your job title"
-                name="title" required>
-              <h6 class="font-weight-bold pt-4 pb-1">Description:</h6>
-              <textarea name="description" id="" class="border p-3 w-100" rows="7"
-                placeholder="Write details about your job" required></textarea>
-              <h6 class="font-weight-bold pt-4 pb-1">Add the labels you would like to be used:</h6>
+            <form id="form" action="/create-job" method="POST" enctype="multipart/form-data">
+              <!-- Post Your ad start -->
+              <fieldset class=" border-gary p-4 mb-5">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <h3>Post Your Job</h3>
+                  </div>
+                  <div class="col-lg-6">
+                    <h6 class="font-weight-bold pt-4 pb-1">Title Of Job:</h6>
+                    <input type="text" class="border w-100 p-2 bg-white text-capitalize"
+                      placeholder="Write your job title" name="title" required>
+                    <h6 class="font-weight-bold pt-4 pb-1">Description:</h6>
+                    <textarea name="description" id="" class="border p-3 w-100" rows="7"
+                      placeholder="Write details about your job" required></textarea>
+                    <h6 class="font-weight-bold pt-4 pb-1">Add the labels you would like to be used:</h6>
 
-              <td>
-                <ul class="list-group" id="list"></ul>
-                <input type="text" id="candidate"/>
-                <!-- <input type="text" name="labels" id="addLabel" /> -->
-                <a type="button" class="btn btn-primary" style="color: white" value="" onclick="addLabel()">
-                  Add Label</a>
-              </td>
+                    <td>
+                      <ul class="list-group" id="list"></ul>
+                      <input type="text" id="candidate" />
+                      <!-- <input type="text" name="labels" id="addLabel" /> -->
+                      <a type="button" class="btn btn-primary" style="color: white" value="" onclick="addLabel()">
+                        Add Label</a>
+                    </td>
 
-              <script>
-                function addLabel() {
-                  var a = document.getElementById("list");
-                  var candidate = document.getElementById("candidate");
-                  var li = document.createElement("li");
-                  const deleteButton = document.createElement('button')
-                  deleteButton.innerText = 'x'
-                  deleteButton.addEventListener('click', event => a.removeChild(li))
-                  deleteButton.className = "close" 
+                    <script>
+                      var totalLabels = 0;
+                      function addLabel() {
+                        const deleteButton = document.createElement('button')
+                        deleteButton.addEventListener('click', event => {
+                          totalLabels -= 1;
+                          a.removeChild(li)
+                        })
+                        console.log(totalLabels)
+                        if (totalLabels < 5) {
 
-                  li.setAttribute('name', candidate.value)
-                  li.className = "list-group-item"
-                  li.appendChild(document.createTextNode(candidate.value));
-                  
-                  const input = document.createElement("input")
-                  input.setAttribute("name", "labels")
-                  input.setAttribute("type", "hidden")
-                  input.value = candidate.value
-                  li.appendChild(input)
-                  li.appendChild(deleteButton)
-                  
-                  if(candidate.value != ""){
-                    a.appendChild(li);
-                    
-                    candidate.value = ""
-                  }
-                  else{
-                    alert("Label field cannot be blank");
-                  }
-                }
+
+                          var a = document.getElementById("list");
+                          var candidate = document.getElementById("candidate");
+                          var li = document.createElement("li");
+                          deleteButton.innerText = 'x'
+                          deleteButton.className = "close"
+
+                          li.setAttribute('name', candidate.value)
+                          li.className = "list-group-item"
+                          li.appendChild(document.createTextNode(candidate.value));
+
+                          const input = document.createElement("input")
+                          input.setAttribute("name", "labels")
+                          input.setAttribute("type", "hidden")
+                          input.value = candidate.value
+                          li.appendChild(input)
+                          li.appendChild(deleteButton)
+
+                          if (candidate.value != "") {
+                            a.appendChild(li);
+
+                            candidate.value = ""
+                          }
+                          else {
+                            alert("Label field cannot be blank");
+                          }
+                          totalLabels += 1
+                        }
+                        else {
+                          alert("You cannot have more than 5 labels on a batch of images")
+                        }
+                      }
                 // Creating a function to remove item from list
                 //function removeItem() {
                   // Declaring a varible to get select element
@@ -105,11 +118,11 @@
 
 
                 //}
-              </script>
+                    </script>
 
-            </div>
-            <div class="col-lg-6">
-              <!--<h6 class="font-weight-bold pt-4 pb-1">Select Data Labelling Category:</h6>
+                  </div>
+                  <div class="col-lg-6">
+                    <!--<h6 class="font-weight-bold pt-4 pb-1">Select Data Labelling Category:</h6>
               <select name="" id="inputGroupSelect" class="w-100">
                 <option value="1">Select Category</option>
                 <option value="2">Numerical</option>
@@ -118,16 +131,16 @@
                 <option value="5">Text</option> 
 
               </select> -->
-              <div class="price">
-                <h6 class="font-weight-bold pt-4 pb-1">Job Credits:</h6>
-                <div class="row px-3">
-                  <div class="col-lg-4 mr-lg-4 rounded bg-white my-2 ">
-                    <input type="number" pattern="[0-9]" min="1" max="5000" name="credits" class="border py-2 w-100 price" placeholder="No. of Credits"
-                      id="price" required>
-                  </div>
+                    <div class="price">
+                      <h6 class="font-weight-bold pt-4 pb-1">Job Credits:</h6>
+                      <div class="row px-3">
+                        <div class="col-lg-4 mr-lg-4 rounded bg-white my-2 ">
+                          <input type="number" pattern="[0-9]" min="1" max="5000" name="credits"
+                            class="border py-2 w-100 price" placeholder="No. of Credits" id="price" required>
+                        </div>
 
-                </div>
-                <!--- <h6 class="font-weight-bold pt-4 pb-1">Job Scope:</h6>
+                      </div>
+                      <!--- <h6 class="font-weight-bold pt-4 pb-1">Job Scope:</h6>
                 <div class="row px-3">
                   <div class="col-lg-4 mr-lg-4 my-2 rounded bg-white">
                     <input type="radio" name="itemName" value="personal" id="personal">
@@ -142,33 +155,33 @@
                     <label for="business" class="py-2">Large</label>
                   </div>
                 </div> -->
-              </div>
-            </div>
-            <div class="container-fluid choose-file text-center my-4 py-4 rounded">
-              <label for="file-upload">
-                <span class="d-block font-weight-bold text-dark">Drop files anywhere to upload</span>
-                <span class="d-block">or</span>
-                 <input type="file" class="form-control-file d-none" id="file-upload" name="image" multiple>
-                 <div class="container">
-                  <a class="btn bg-primary text-white my-3" href="javascript:void(0)"
-                    onclick="$('#file-upload').click()">Upload Image</a>
-                  <span class="d-block">Maximum upload file size: 500 KB</span>
-                  <div class="d-flex flex-wrap preview-images-zone"> </div>
+                    </div>
+                  </div>
+                  <div class="container-fluid choose-file text-center my-4 py-4 rounded">
+                    <label for="file-upload">
+                      <span class="d-block font-weight-bold text-dark">Drop files anywhere to upload</span>
+                      <span class="d-block">or</span>
+                      <input type="file" class="form-control-file d-none" id="file-upload" name="image" multiple>
+                      <div class="container">
+                        <a class="btn bg-primary text-white my-3" href="javascript:void(0)"
+                          onclick="$('#file-upload').click()">Upload Image</a>
+                        <span class="d-block">Maximum upload file size: 500 KB</span>
+                        <div class="d-flex flex-wrap preview-images-zone"> </div>
+                      </div>
+                    </label>
+                  </div>
                 </div>
-              </label>
-            </div>
-          </div>
-          <div class=" text-center">
+                <div class=" text-center">
 
-            <button type="submit" class="btn btn-primary mt-2" >Post
-              Your Job</button>
+                  <button type="submit" class="btn btn-primary mt-2">Post
+                    Your Job</button>
+                </div>
           </div>
-    </div>
-    </fieldset>
-    <!-- Post Your ad end -->
+          </fieldset>
+          <!-- Post Your ad end -->
 
-    <!-- seller-information start -->
-    <!--<fieldset class="border p-4 my-5 seller-information bg-gray">
+          <!-- seller-information start -->
+          <!--<fieldset class="border p-4 my-5 seller-information bg-gray">
           <div class="row">
             <div class="col-lg-12">
               <h3>Seller Information</h3>
@@ -210,8 +223,8 @@
           </div>
         </fieldset> -->
 
-    <!-- ad-feature start -->
-    <!--<fieldset class="border bg-white p-4 my-5 ad-feature bg-gray">
+          <!-- ad-feature start -->
+          <!--<fieldset class="border bg-white p-4 my-5 ad-feature bg-gray">
                 <div class="row">
                     <div class="col-lg-12">
                         <h3 class="pb-3">Make Your Ad Featured
@@ -260,17 +273,17 @@
             </fieldset>
             ad-feature start -->
 
-    <!-- submit button -->
-    <!-- <div class="checkbox d-inline-flex">
+          <!-- submit button -->
+          <!-- <div class="checkbox d-inline-flex">
           <input type="checkbox" id="terms-&-condition" class="mt-1">
           <label for="terms-&-condition" class="ml-2">By click you must agree with our
             <span> <a class="text-success" href="/terms-conditions">Terms & Conditions</a></span>
           </label> 
         </div> -->
 
-    </form>
+          </form>
 
-    <!-- <script>
+          <!-- <script>
         console.log('Inside')
         const form = document.getElementById('form')
         const file = document.getElementById('file-upload')
@@ -286,169 +299,169 @@
 
 
 
-    </div>
+        </div>
 
-    <script>
-      $(document).ready(function () {
-        document.getElementById('file-upload').addEventListener('change', readImage, false);
+        <script>
+          $(document).ready(function () {
+            document.getElementById('file-upload').addEventListener('change', readImage, false);
 
-        // $(".preview-images-zone").sortable();
+            // $(".preview-images-zone").sortable();
 
-        $(document).on('click', '.image-cancel', function () {
-          let no = $(this).data('no');
-          $(".preview-image.preview-show-" + no).remove();
-        });
-      });
-
-
-      var num = 0;
-      function readImage() {
-        if (window.File && window.FileList && window.FileReader) {
-          var files = event.target.files; //FileList object
-          var output = $(".preview-images-zone");
-
-          for (let i = 0; i < files.length; i++) {
-            var file = files[i];
-            if (!file.type.match('image')) continue;
-
-            var picReader = new FileReader();
-
-            picReader.addEventListener('load', function (event) {
-              var picFile = event.target;
-              var html = '<div class="preview-image preview-show-' + num + '">' +
-                '<div class="image-cancel" data-no="' + num + '">x</div>' +
-                '<div class="image-zone"><img id="pro-img-' + num + '" src="' + picFile.result + '"></div>' +
-                '<div class="tools-edit-image"></div>' +
-                '</div>';
-
-              output.append(html);
-              num = num + 1;
+            $(document).on('click', '.image-cancel', function () {
+              let no = $(this).data('no');
+              $(".preview-image.preview-show-" + no).remove();
             });
-
-            picReader.readAsDataURL(file);
-          }
-          $("#pro-image").val('');
-        } else {
-          console.log('Browser not support');
-        }
-      }
+          });
 
 
+          var num = 0;
+          function readImage() {
+            if (window.File && window.FileList && window.FileReader) {
+              var files = event.target.files; //FileList object
+              var output = $(".preview-images-zone");
 
+              for (let i = 0; i < files.length; i++) {
+                var file = files[i];
+                if (!file.type.match('image')) continue;
 
+                var picReader = new FileReader();
 
+                picReader.addEventListener('load', function (event) {
+                  var picFile = event.target;
+                  var html = '<div class="preview-image preview-show-' + num + '">' +
+                    '<div class="image-cancel" data-no="' + num + '">x</div>' +
+                    '<div class="image-zone"><img id="pro-img-' + num + '" src="' + picFile.result + '"></div>' +
+                    '<div class="tools-edit-image"></div>' +
+                    '</div>';
 
+                  output.append(html);
+                  num = num + 1;
+                });
 
-
-
-
-
-
-      var i = 0;
-      function move() {
-        if (i == 0) {
-          i = 1;
-          var elem = document.getElementById("myBar");
-          var width = 10;
-          var id = setInterval(frame, 10);
-          function frame() {
-            if (width >= 100) {
-              clearInterval(id);
-              i = 0;
+                picReader.readAsDataURL(file);
+              }
+              $("#pro-image").val('');
             } else {
-              width++;
-              elem.style.width = width + "%";
-              elem.innerHTML = width + "%";
+              console.log('Browser not support');
             }
           }
-        }
-      }
 
 
-    </script>
 
-    <style>
-      .preview-images-zone {
-        width: 100%;
-        border: 1px solid #ddd;
-        min-height: 180px;
-        display: flex;
-        padding: 5px 5px 0px 5px;
-        position: relative;
-        overflow: auto;
-      }
 
-      /* .preview-images-zone>.preview-image:first-child {
+
+
+
+
+
+
+
+
+          var i = 0;
+          function move() {
+            if (i == 0) {
+              i = 1;
+              var elem = document.getElementById("myBar");
+              var width = 10;
+              var id = setInterval(frame, 10);
+              function frame() {
+                if (width >= 100) {
+                  clearInterval(id);
+                  i = 0;
+                } else {
+                  width++;
+                  elem.style.width = width + "%";
+                  elem.innerHTML = width + "%";
+                }
+              }
+            }
+          }
+
+
+        </script>
+
+        <style>
+          .preview-images-zone {
+            width: 100%;
+            border: 1px solid #ddd;
+            min-height: 180px;
+            display: flex;
+            padding: 5px 5px 0px 5px;
+            position: relative;
+            overflow: auto;
+          }
+
+          /* .preview-images-zone>.preview-image:first-child {
         height: 185px;
         width: 185px;
         position: relative;
         margin-right: 5px;
       } */
 
-      .preview-images-zone>.preview-image {
-        height: 90px;
-        width: 90px;
-        position: relative;
-        margin-right: 5px;
-        float: left;
-        margin-bottom: 5px;
-      }
+          .preview-images-zone>.preview-image {
+            height: 90px;
+            width: 90px;
+            position: relative;
+            margin-right: 5px;
+            float: left;
+            margin-bottom: 5px;
+          }
 
-      .preview-images-zone>.preview-image>.image-zone {
-        width: 100%;
-        height: 100%;
-      }
+          .preview-images-zone>.preview-image>.image-zone {
+            width: 100%;
+            height: 100%;
+          }
 
-      .preview-images-zone>.preview-image>.image-zone>img {
-        width: 100%;
-        height: 100%;
-      }
+          .preview-images-zone>.preview-image>.image-zone>img {
+            width: 100%;
+            height: 100%;
+          }
 
-      .preview-images-zone>.preview-image>.tools-edit-image {
-        position: absolute;
-        z-index: 100;
-        color: #fff;
-        bottom: 0;
-        width: 100%;
-        text-align: center;
-        margin-bottom: 10px;
-        display: none;
-      }
+          .preview-images-zone>.preview-image>.tools-edit-image {
+            position: absolute;
+            z-index: 100;
+            color: #fff;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 10px;
+            display: none;
+          }
 
-      .preview-images-zone>.preview-image>.image-cancel {
-        font-size: 18px;
-        position: absolute;
-        top: 0;
-        right: 0;
-        font-weight: bold;
-        margin-right: 10px;
-        cursor: pointer;
-        display: none;
-        z-index: 100;
-      }
+          .preview-images-zone>.preview-image>.image-cancel {
+            font-size: 18px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-weight: bold;
+            margin-right: 10px;
+            cursor: pointer;
+            display: none;
+            z-index: 100;
+          }
 
-      .preview-image:hover>.image-zone {
-        /* cursor: pointer; */
-        opacity: .5;
-      }
+          .preview-image:hover>.image-zone {
+            /* cursor: pointer; */
+            opacity: .5;
+          }
 
-      .preview-image:hover>.tools-edit-image,
-      .preview-image:hover>.image-cancel {
-        display: block;
-        cursor: pointer;
-      }
+          .preview-image:hover>.tools-edit-image,
+          .preview-image:hover>.image-cancel {
+            display: block;
+            cursor: pointer;
+          }
 
-      .ui-sortable-helper {
-        width: 90px !important;
-        height: 90px !important;
-      }
+          .ui-sortable-helper {
+            width: 90px !important;
+            height: 90px !important;
+          }
 
-      /* .container {
+          /* .container {
         padding-top: 50px;
       } */
-    </style>
+        </style>
       </div>
     </div>
-  </div>
+    </div>
   </section>
   <%- include('footer.ejs') %>
