@@ -91,11 +91,15 @@
                                 <i class="fa fa-eye"></i>
                               </a>
                             </li>
-                            <li class="list-inline-item">
-                              <a class="delete" data-toggle="tooltip" data-placement="top" title="Delete" href="">
+                            <form id="form<%= i %> "action="/cancelJob" method="POST">
+                              <input type="hidden" name="jobId" value="<%= acceptedJobs[i]._id %>" />
+                              <li class="list-inline-item">
+                                <a class="delete" data-toggle="tooltip" data-placement="top" title="Delete">
                                 <i class="fa fa-trash"></i>
-                              </a>
+                              </a> 
                             </li>
+                            <button class="btn btn-success" name="button">Cancel Job</button>
+                            </form>
                           </ul>
                         </div>
                       </td>
