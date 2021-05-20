@@ -167,8 +167,6 @@ describe('Invalid users should not be added to the database', () => {
                 email: 1
             })
             .end((err, res) => {
-                console.log(err)
-                console.log(res)
                 done()
             })
     })
