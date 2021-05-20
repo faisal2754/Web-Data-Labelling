@@ -4,6 +4,7 @@ const User = require('../models/User')
 const googleService = require('../googleServices')
 const { checkAuthenticated } = require('../middleware/auth.mw')
 const localStorage = require('../middleware/storage.mw')
+const fs = require('fs')
 
 const service = new googleService()
 
@@ -61,7 +62,7 @@ router.post('/dashboard', checkAuthenticated, async (req, res) => {
     }
 })
 
-router.patch('/user-profile', localStorage.single('avatar'), async (req, res) => {
+router.post('/user-profile', checkAuthenticated, async (req, res) => {
     const user = await req.user
     const userID = user._id
     const dbUser = await User.findOne({ _id: userID })
@@ -74,10 +75,14 @@ router.patch('/user-profile', localStorage.single('avatar'), async (req, res) =>
 
     service
         .uploadFile(localImg, imgPath)
-        .then((result) => {
+        .then(async (result) => {
             const driveImg = `https://drive.google.com/uc?id=${result.data.id}`
 
             dbUser.name = name
+            dbUser.password = password
+            dbUser.avatar = driveImg
+
+            await dbUser.save()
 
             fs.rm(imgPath + result.data.name, (err) => {
                 if (err) {
@@ -85,17 +90,28 @@ router.patch('/user-profile', localStorage.single('avatar'), async (req, res) =>
                 }
             })
 
-            Job.findOneAndUpdate({ _id: savedJob._id }, { $set: { images: driveImgArr } }, (err, ans) => {
-                if (err) {
-                    console.log(err)
-                }
-            })
-            console.log('Done uploading all images')
             res.redirect('/dashboard')
         })
         .catch((e) => {
             console.log(e)
+            res.redirect('/')
         })
+})
+
+router.post('/cancelJob', checkAuthenticated, async (req, res) => {
+    const id = req.body.jobId
+    const user = await req.user
+    const userEmail = user.email
+    const updated = await Job.findOneAndUpdate(
+        { _id: id },
+        { 
+            $pull: {
+                emailLabellers: userEmail
+            } 
+        }
+    )
+    console.log(updated)
+    res.redirect('/dashboard')
 })
 
 router.get('/user-profile', checkAuthenticated, async (req, res) => {
