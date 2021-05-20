@@ -6,6 +6,7 @@
             <%- include('header.ejs') %>
                 <% } %>
 
+
                     <!-- Variable allJobs contains all the jobs that we fetch from the database, it is logged in the console of the node app -->
 
                     <!-- <section class="page-search">
@@ -224,12 +225,41 @@
                                                     </div>
                                                     <div class="modal-body text-center">
                                                         <h6 class="py-2" style="font-size: 30px;"><%= allJobs[i].title %></h6>
-                                                        <img class="card-img-top img-fluid"
-                                                        src="<%=allJobs[i].images[0]%>" 
-                                                        alt="Card image cap">
+                                                        <div class="w3-content w3-display-container">
+                                                        <img class="<%= allJobs[i]._id %>" name="<%= allJobs[i]._id %>" src="<%= allJobs[i].images[0] %>" style="width:100%">
+                                                        <img class="<%= allJobs[i]._id %>" name="<%= allJobs[i]._id %>" src="<%= allJobs[i].images[1] %>" style="width:100%">
+                                                        <img class="<%= allJobs[i]._id %>" name="<%= allJobs[i]._id %>" src="<%= allJobs[i].images[2] %>" style="width:100%">
+                                                        <img class="<%= allJobs[i]._id %>" name="<%= allJobs[i]._id %>" src="<%= allJobs[i].images[3] %>" style="width:100%">
+                                                        
+                                                        <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+                                                        <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+                                                        </div>
                                                         <h6 class="py-2">Credits: <%= allJobs[i].credits %></h6>
                                                         <p><%= allJobs[i].description %></p>
                                                     </div>
+                                                    <script>
+                                                        var slideIndex = 1;
+                                                        showDivs(slideIndex);
+
+                                                        function plusDivs(n) {
+                                                        showDivs(slideIndex += n);
+                                                        console.log(slideIndex)
+                                                        }
+
+                                                        function showDivs(n) {
+                                                        var i;
+                                                        var x = document.getElementsByClassName("<%= allJobs[i]._id %>")
+                                                        
+                                                        if (n > x.length) {slideIndex = 1}
+                                                        if (n < 1) {slideIndex = x.length}
+                                                        for (i = 0; i < x.length; i++) {
+                                                            x[i].style.display = "none";  
+                                                        }
+                                                        x[slideIndex-1].style.display = "block";  
+                                                        }
+
+                                                           
+                                                    </script>
                                                     <div class="modal-footer border-top-0 mb-3 mx-5 justify-content-lg-between justify-content-center">
                                                         <!-- <button type="button" class="btn btn-success">Accept Job</button> -->
                                                         <form action="/acceptJob" method="POST">

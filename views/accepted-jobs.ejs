@@ -23,15 +23,15 @@
             <!-- Dashboard Links -->
             <div class="widget user-dashboard-menu">
               <ul>
-                <li class="active"><a href="/dashboard"><i class="fa fa-user"></i> My Jobs<span><%= userJobs.length %></span></a></li>
-                <li><a href="/accepted-jobs"><i class="fa fa-bookmark-o"></i> Accepted Jobs <span><%= acceptedJobs.length %></span></a></li>
+                <li ><a href="/dashboard"><i class="fa fa-user"></i> My Jobs<span><%= userJobs.length %></span></a></li>
+                <li class="active"><a href="/accepted-jobs"><i class="fa fa-bookmark-o"></i> Accepted Jobs <span><%= acceptedJobs.length %></span></a></li>
               </ul>
             </div>
   
             <!-- delete-account modal -->
                                       <!-- delete account popup modal start-->
                   <!-- Modal -->
-                  <div class="modal fade" id="deleteaccount" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+                  <!-- <div class="modal fade" id="deleteaccount" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
                     aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                       <div class="modal-content">
@@ -52,15 +52,15 @@
                       </div>
                     </div>
                   </div>
-                  <!-- delete account popup modal end-->
-            <!-- delete-account modal -->
+                  <!-- delete account popup modal end
+            delete-account modal -->
   
           </div>
         </div>
         <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-0">
           <!-- Recently Favorited -->
           <div class="widget dashboard-container my-adslist">
-            <h3 class="widget-header">My Jobs</h3>
+            <h3 class="widget-header">Accepted Jobs</h3>
             <table class="table table-responsive product-dashboard-table">
               <thead>
                 <tr>
@@ -71,16 +71,16 @@
                 </tr>
               </thead>
               <tbody>
-                <% for( let i=0; i < userJobs.length; i++ ) { %>
+                <% for( let i=0; i < acceptedJobs.length; i++ ) { %>
                 <tr>
 
                       <td class="product-thumb">
-                        <img width="80px" height="auto" src="<%= userJobs[i].images[0] %>" alt="image description"></td>
+                        <img width="80px" height="auto" src="<%= acceptedJobs[i].images[0] %>" alt="image description"></td>
                       <td class="product-details">
-                        <h3 class="title"> <%= userJobs[i].title %></h3>
-                        <span><strong style="width: 50%;">Posted on: </strong><time><%= new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'long', day: '2-digit'}).format(userJobs[i].createdAt) %></time> </span>
-                        <span><strong style="width: 50%;">Credits: </strong><time><%= userJobs[i].credits %></time> </span>
-                        <span class="status active"><strong style="width: 50%;">Number of Labellers: </strong> <%= userJobs[i].emailLabellers.length %></span>
+                        <h3 class="title"> <%= acceptedJobs[i].title %></h3>
+                        <span><strong style="width: 50%;">Posted on: </strong><time><%= new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'long', day: '2-digit'}).format(acceptedJobs[i].createdAt) %></time> </span>
+                        <span><strong style="width: 50%;">Credits: </strong><time><%= acceptedJobs[i].credits %></time> </span>
+                        <span class="status active"><strong style="width: 50%;">Number of Labellers: </strong> <%= acceptedJobs[i].emailLabellers.length %></span>
                       </td>
                       <td class="product-category"><span class="categories">Data Labelling</span></td>
                       <td class="action" data-title="Action">

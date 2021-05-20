@@ -24,7 +24,19 @@ router.get('/dashboard', checkAuthenticated, async (req, res) => {
     userEmail = user.email
     dateJoined = user.createdAt
     const job = await Job.find({ emailOwner: userEmail })
-    res.render('dashboard', { userJobs: job, name: username, dateJoined })
+    const acceptedJob = await Job.find({ emailLabellers: userEmail })
+    res.render('dashboard', {userJobs: job, acceptedJobs: acceptedJob, name: username, dateJoined })
+})
+
+router.get('/accepted-jobs', checkAuthenticated, async (req, res) => {
+    const user = await req.user
+    username = user.name
+    userEmail = user.email
+    dateJoined = user.createdAt
+    const job = await Job.find({ emailOwner: userEmail })
+    const acceptedJob = await Job.find({ emailLabellers: userEmail })
+    console.log(acceptedJob)
+    res.render('accepted-jobs', {userJobs: job, acceptedJobs: acceptedJob, name: username, dateJoined })
 })
 
 router.get('/secret-page', checkAuthenticated, (req, res) => {
