@@ -11,12 +11,13 @@ router.get('/register', (req, res) => {
 
 router.get('/', async (req, res) => {
     const auth = req.isAuthenticated()
+    const job = await Job.find()
     const user = await req.user
     var username = ''
     if (auth) {
         username = user.name
     }
-    res.render('index.ejs', { authenticated: auth, name: username })
+    res.render('index.ejs', { authenticated: auth, name: username , allJobs: job})
 })
 
 router.get('/available-jobs', async (req, res) => {
@@ -33,6 +34,7 @@ router.get('/available-jobs', async (req, res) => {
         name: username,
     })
 })
+
 
 router.get('/how-to-page', async (req, res) => {
     const user = await req.user
