@@ -47,7 +47,7 @@ router.get('/accepted-jobs', checkAuthenticated, async (req, res) => {
         userJobs: jobs,
         acceptedJobs: acceptedJobs,
         name: username,
-        dateJoined
+        dateJoined: dateJoined
     })
 })
 
