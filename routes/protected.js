@@ -4,7 +4,6 @@ const User = require('../models/User')
 const googleService = require('../googleServices')
 const { checkAuthenticated } = require('../middleware/auth.mw')
 const localStorage = require('../middleware/storage.mw')
-const { response } = require('express')
 
 const service = new googleService()
 
@@ -47,7 +46,7 @@ router.get('/accepted-jobs', checkAuthenticated, async (req, res) => {
         userJobs: jobs,
         acceptedJobs: acceptedJobs,
         name: username,
-        dateJoined: dateJoined
+        dateJoined
     })
 })
 

@@ -10,7 +10,7 @@ const googleService = require('../googleServices')
 
 const service = new googleService()
 
-initialize(passport, async email => {
+initialize(passport, async (email) => {
     // returning user with logged in email
     const user = await User.findOne({ email: email })
     return user
@@ -61,62 +61,54 @@ router.post('/create-job', checkAuthenticated, localStorage.array('image'), asyn
         emailOwner: emailOwner.email
     })
 
-    try {
-        const savedJob = await job.save()
-        const imgPath = 'public/uploads/'
-        const localImgArr = fs.readdirSync(imgPath)
-        const driveImgArr = []
-        service
-            .uploadFiles(localImgArr, imgPath)
-            .then(results => {
-                results.forEach(result => {
-                    driveImgArr.push(`https://drive.google.com/uc?id=${result.data.id}`)
-                    fs.rm(imgPath + result.data.name, err => {
-                        if (err) {
-                            console.log(err)
-                        }
-                    })
-                })
-                Job.findOneAndUpdate({ _id: savedJob._id }, { $set: { images: driveImgArr } }, (err, ans) => {
+    const savedJob = await job.save()
+    const imgPath = 'public/uploads/'
+    const localImgArr = fs.readdirSync(imgPath)
+    const driveImgArr = []
+    service
+        .uploadFiles(localImgArr, imgPath)
+        .then(async (results) => {
+            results.forEach((result) => {
+                driveImgArr.push(`https://drive.google.com/uc?id=${result.data.id}`)
+                fs.rm(imgPath + result.data.name, (err) => {
                     if (err) {
                         console.log(err)
                     }
                 })
-                console.log('Done uploading all images')
-                res.redirect('/dashboard')
             })
-            .catch(e => {
-                console.log(e)
-            })
-    } catch (e) {
-        console.log(e)
-        res.redirect('/')
-    }
+            await Job.findOneAndUpdate({ _id: savedJob._id }, { $set: { images: driveImgArr } })
+            console.log('Done uploading all images')
+            res.redirect('/dashboard')
+        })
+        .catch((e) => {
+            console.log(e)
+            res.redirect('/')
+        })
 })
 
-router.post('/acceptJob', checkAuthenticated, async (req, res) => {
+router.post('/acceptJob', async (req, res) => {
     if (req.isAuthenticated()) {
         const user = await req.user
         const userEmail = user.email
         const jobId = req.body.jobId
-        const result = await Job.findByIdAndUpdate(
+
+        Job.findByIdAndUpdate(
             //Identifies which jobs we are adding to
             jobId,
             {
-                // Add to set insures that a user doesn't get added to a job multiple times
+                //Add to set insures that a user doesn't get added to a job multiple times
                 $addToSet: {
                     emailLabellers: userEmail
                 }
             }
-        )
+        ).catch((err) => {
+            console.log(err)
+        })
 
         res.redirect('/dashboard')
     } else {
         res.redirect('/login')
     }
-
-    // console.log(result)
-    // console.log('Added to the Job')
 })
 
 router.delete('/logout', (req, res) => {
