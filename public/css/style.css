@@ -44,6 +44,13 @@ p {
   color: #888;
 }
 
+.gBack {
+  background: linear-gradient(45deg, #1870ed 0, #f18f88 100%);
+    background-repeat:no-repeat;
+    height: 100%;
+    background-size: cover;
+}
+
 label {
   font-size: 14px;
   letter-spacing: 0;
