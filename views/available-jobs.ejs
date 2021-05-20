@@ -180,7 +180,7 @@
                                                             </a>
                                                         </div>
 
-                                                        <div class="card-body" style="height: 250;">
+                                                        <div class="card-body" style="height: 70;">
                                                             <h4 class="card-title"><a href="" data-toggle="modal" data-target="#a<%= allJobs[i]._id %>"> </a>
                                                                 <%= allJobs[i].title %>
                                                             </h4>
@@ -202,9 +202,6 @@
                                                                     </a>
                                                                 </li>
                                                             </ul>
-                                                            <p class="card-text">
-                                                                <%= allJobs[i].description %>
-                                                            </p>
 
                                                         </div>
                                                         <form action="/acceptJob" method="POST">
@@ -218,11 +215,8 @@
                                                 <div class="modal fade" id="a<%= allJobs[i]._id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
                                                 aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered" role="document">
-                                                    <div class="modal-content">
-                                                    <div class="modal-header border-bottom-0">
-                                                        
-                                                        
-                                                    </div>
+                                                    <div class="modal-content" style="border: 0px;">
+                                                
                                                     <div class="modal-body text-center">
                                                         <h6 class="py-2" style="font-size: 30px;"><%= allJobs[i].title %></h6>
                                                         <div class="w3-content w3-display-container">
@@ -235,7 +229,7 @@
                                                         <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
                                                         </div>
                                                         <h6 class="py-2">Credits: <%= allJobs[i].credits %></h6>
-                                                        <p><%= allJobs[i].description %></p>
+                                                        <h6 style="overflow-wrap: break-word;"><%= allJobs[i].description %></h6>
                                                     </div>
                                                     <script>
                                                         var slideIndex = 1;
