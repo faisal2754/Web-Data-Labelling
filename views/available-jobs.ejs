@@ -262,10 +262,14 @@
                                                     </script>
                                                     <div class="modal-footer border-top-0 mb-3 mx-5 justify-content-lg-between justify-content-center">
                                                         <!-- <button type="button" class="btn btn-success">Accept Job</button> -->
+                                                        <% if(authenticated){ %> 
                                                         <form action="/acceptJob" method="POST">
                                                             <input type="hidden" name="jobId" value="<%= allJobs[i]._id %>" />
                                                             <button class="btn btn-success" name="button">Accept Job</button>
                                                         </form>
+                                                        <% } else{ %>
+                                                            <a class="btn btn-success" href="/login">Accept Job</a>
+                                                            <% } %>
                                                         <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
                                                         
                                                     </div>
