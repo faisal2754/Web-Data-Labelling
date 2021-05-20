@@ -108,7 +108,6 @@ describe('Should allow a logged in user to log out', () => {
     it('login', loginUser(agent))
     it('logout', done => {
         agent.delete('http://localhost:3000/logout').end((err, res) => {
-            console.log(err)
             expect(res.status == 200).toBeTruthy()
             expect(res.redirects[0] === 'http://localhost:3000/').toBeTruthy()
             done()
