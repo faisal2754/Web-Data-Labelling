@@ -4,7 +4,7 @@
     <%- include('header.ejs') %>
 <% } %>
 
-<%- include('home.ejs') %>
+<%- include('home.ejs',{allJobs: allJobs}) %>
 
 <% if (authenticated) { %>
     <%- include('footer.ejs') %>
