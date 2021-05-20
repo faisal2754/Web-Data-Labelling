@@ -21,9 +21,6 @@ const userSchema = new Schema(
         },
         avatar: {
             type: String
-        },
-        myJobs: {
-            type: Array
         }
     },
     {
