@@ -248,7 +248,7 @@ Sipho Sikakane.(Scrum master/Backend)
 - Tasks for the day: Allow users to see which jobs they’ve accepted and allow them to delete them 
 - Impediments: Work
 
-## Daily Scrum Meeting 20th May (Wednesday) 2021
+## Daily Scrum Meeting 19th May (Wednesday) 2021
 
 Aharon Cohen (Frontend):
 - Tasks completed yesterday: Religious Holiday
@@ -290,3 +290,44 @@ Sipho Sikakane.(Scrum master/Backend)
 - Tasks for the day: Allow users to see which jobs they’ve accepted and allow them to delete them 
 - Impediments: Work
 
+## Daily Scrum Meeting 20th May (Thursday) 2021
+
+Aharon Cohen (Frontend):
+- Tasks completed yesterday: Improve pop up functionality, add edit profile functionality
+- Tasks for the day: Added accepted jobs page and image preview slider 
+- Impediments: Other projects for ML and CGV
+
+Langiwe Mwale (Frontend):
+- Tasks completed Yesterday: added a label limit
+- Task for the Day: work with Ghulame on various fixes
+- Impediments: Time constraints
+
+Ioanni Balassis: (Frontend)
+- Tasks completed yesterday: accept jobs page
+- Tasks for the day: Improve pop up functionality (slider)
+- Impediments: Other projects for ML, CGV
+
+Jonathan Nunes (Frontend):
+- Tasks completed yesterday: Added accepted jobs page, stylized elements, attempted slider
+- Tasks for the day: Style profile dashboard, finish slider for images
+- Impediments: Other university work
+
+Faisal Saleem (Backend):
+- Tasks completed yesterday: Work on testing
+- Tasks for the day: Continue testing/Start edit profile
+- Impediments: Time
+
+Ghulame Mujtaba Arbi (Backend/Frontend):
+- Tasks completed yesterday: Working on dashboard
+- Tasks for the day: Work on general frontend tasks
+- Impediments: Time/quizzes/projects
+
+Tristan Bester (Backend):
+- Tasks completed yesterday: Worked on fixing authentication.
+- Tasks for the day: Continue on testing routes.
+- Impediments: Time.
+
+Sipho Sikakane.(Scrum master/Backend)
+- Tasks completed yesterday: Sent accepted Jobs to front end and fixed accept jobs bugs
+- Tasks for the day: Allow users to delete jobs
+- Impediments: Quizzes and Tests
