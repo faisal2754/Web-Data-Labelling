@@ -43,7 +43,6 @@ router.get('/accepted-jobs', checkAuthenticated, async (req, res) => {
     const dateJoined = user.createdAt
     const jobs = await Job.find({ emailOwner: userEmail })
     const acceptedJobs = await Job.find({ emailLabellers: userEmail })
-    console.log(acceptedJobs)
     res.render('accepted-jobs', {
         userJobs: jobs,
         acceptedJobs: acceptedJobs,
@@ -61,7 +60,7 @@ router.delete('/dashboard', checkAuthenticated, async (req, res) => {
     const job = await Job.findById(id)
     const imgArr = job.images
     res.send(imgArr)
-    service.deleteFiles(imgArr).then(async res => {
+    service.deleteFiles(imgArr).then(async (res) => {
         const deleted = await Job.deleteOne({ _id: id })
         if (deleted) {
             res.send('deleted')
@@ -84,12 +83,12 @@ router.patch('/user-profile', localStorage.single('avatar'), async (req, res) =>
 
     service
         .uploadFile(localImg, imgPath)
-        .then(result => {
+        .then((result) => {
             const driveImg = `https://drive.google.com/uc?id=${result.data.id}`
 
             dbUser.name = name
 
-            fs.rm(imgPath + result.data.name, err => {
+            fs.rm(imgPath + result.data.name, (err) => {
                 if (err) {
                     console.log(err)
                 }
@@ -103,7 +102,7 @@ router.patch('/user-profile', localStorage.single('avatar'), async (req, res) =>
             console.log('Done uploading all images')
             res.redirect('/dashboard')
         })
-        .catch(e => {
+        .catch((e) => {
             console.log(e)
         })
 })
