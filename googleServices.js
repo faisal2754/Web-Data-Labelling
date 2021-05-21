@@ -25,19 +25,10 @@ const googleService = class googleService {
             name: 'Data-Labelling',
             mimeType: 'application/vnd.google-apps.folder'
         }
-        this.drive.files.create(
-            {
-                resource: fileMetadata,
-                fields: 'id'
-            },
-            function (err, file) {
-                if (err) {
-                    console.error(err)
-                } else {
-                    console.log('Folder Id: ', file.data.id)
-                }
-            }
-        )
+        return this.drive.files.create({
+            resource: fileMetadata,
+            fields: 'id'
+        })
     }
 
     deleteFiles(imgUrls) {
