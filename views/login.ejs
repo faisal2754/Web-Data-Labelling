@@ -21,8 +21,8 @@
             <div class="row justify-content-center">
                 <div class="align-item-center">
                     
-                        <div id="formContent">
-                        <h3 class="bg-gray p-4">Login</h3>
+                        <div id="formContent" style="padding-top: 30px;">
+                        <h3>Login</h3>
                         <form action="/login" method="POST">
                             <!-- Runned the 'typeof' check because sometime we don't send a status (check unprotected.js for example) -->
                         <% if(typeof status == 'boolean' && status) { %>
@@ -30,7 +30,7 @@
                                 Registered Successfully!
                             </div>
                         <% } %>
-                            <fieldset class="p-4">
+                            <fieldset class="p-4" style="padding: inherit;">
                                 <input type="text" id="email" placeholder="Email" class="type-1 border p-3 w-100 my-2"
                                     name="email" required />
                                
