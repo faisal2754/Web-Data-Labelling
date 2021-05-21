@@ -1,8 +1,10 @@
 const mongoose = require('mongoose')
 const User = require('../../models/User')
+const Job = require('../../models/Job')
 const app = require('../testServer')
 const superagent = require('superagent')
 const { deleteMany } = require('../../models/User')
+const fs = require('fs')
 
 let appServer
 
@@ -163,12 +165,143 @@ describe('Invalid users should not be added to the database', () => {
     it('Should not store user', (done) => {
         superagent
             .post('http://localhost:3000/register')
+            .send({})
+            .end((err, res) => {
+                expect(res.status == 400).toBeTruthy()
+                done()
+            })
+    })
+})
+
+describe('Logged in user should be able to create jobs', () => {
+    afterAll(async (done) => {
+        await removeAllCollections()
+        done()
+    })
+    let agent = superagent.agent({ timeout: 3000 })
+    it('register', registerUser(agent))
+    it('login', loginUser(agent))
+
+    it('should create a job', async (done) => {
+        var fileContent = 'Hello World!'
+        var path = 'public/uploads/test_file.txt'
+
+        fs.writeFileSync(path, fileContent)
+
+        agent
+            .post('http://localhost:3000/create-job')
             .send({
-                email: 1
+                title: 'test title',
+                description: 'test description',
+                credits: 100,
+                labels: ['one', 'two'],
+                emailOwner: 'Test@Test.com'
             })
             .end((err, res) => {
-                console.log(err)
-                console.log(res)
+                expect(res.status == 200).toBeTruthy()
+                done()
+            })
+    })
+})
+
+describe('Invalid jobs should not be created', () => {
+    afterAll(async (done) => {
+        await removeAllCollections()
+        done()
+    })
+    let agent = superagent.agent({ timeout: 10000 })
+    it('register', registerUser(agent))
+    it('login', loginUser(agent))
+
+    it('should not create a job', async (done) => {
+        agent
+            .post('http://localhost:3000/create-job')
+            .send({})
+            .end((err, res) => {
+                expect(res.status == 400).toBeTruthy()
+                expect(res.text == 'Bad Request. Redirecting to /').toBeTruthy()
+                done()
+            })
+    })
+})
+
+describe('Logged in user should be able to accept jobs', () => {
+    afterAll(async (done) => {
+        await removeAllCollections()
+        done()
+    })
+    let agent = superagent.agent({ timeout: 10000 })
+    it('register', registerUser(agent))
+    it('login', loginUser(agent))
+
+    it('should create a job', async (done) => {
+        const job = new Job({
+            title: 'test title',
+            description: 'test description',
+            credits: 100,
+            labels: ['one', 'two'],
+            images: [],
+            emailOwner: 'Test@Test.com',
+            emailLabellers: ['test@test.com']
+        })
+
+        job.save().then((savedJob) => {
+            expect(savedJob == job).toBeTruthy()
+            done()
+        })
+    })
+
+    it('should accept a job', async (done) => {
+        const job = await Job.findOne({ emailOwner: 'Test@Test.com' })
+        const id = job._id
+
+        agent
+            .post('http://localhost:3000/acceptJob')
+            .send({
+                jobId: id
+            })
+            .end((err, res) => {
+                //console.log(res)
+                expect(res.status == 200).toBeTruthy()
+                expect(res.redirects[0] == 'http://localhost:3000/dashboard').toBeTruthy()
+                done()
+            })
+    })
+})
+
+describe('Only valid jobs should be able to be accepted.', () => {
+    afterAll(async (done) => {
+        await removeAllCollections()
+        done()
+    })
+    let agent = superagent.agent()
+    it('register', registerUser(agent))
+    it('login', loginUser(agent))
+
+    it('should accept a job', async (done) => {
+        agent
+            .post('http://localhost:3000/acceptJob')
+            .send({
+                jobId: ''
+            })
+            .end((err, res) => {
+                expect(res.status == 400).toBeTruthy()
+                expect(res.text == 'Bad Request. Redirecting to /login').toBeTruthy()
+                done()
+            })
+    })
+})
+
+describe('Unlogged in user should not be able to accept jobs.', () => {
+    it('should accept a job', async (done) => {
+        superagent
+            .post('http://localhost:3000/acceptJob')
+            .send({
+                jobId: ''
+            })
+            .end((err, res) => {
+                expect(res.status == 400).toBeTruthy()
+                expect(res.text == 'Bad Request. Redirecting to /login').toBeTruthy()
                 done()
             })
     })

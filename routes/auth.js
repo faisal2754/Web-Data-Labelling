@@ -17,21 +17,25 @@ initialize(passport, async (email) => {
 })
 
 router.post('/register', async (req, res) => {
-    const name = req.body.name
-    const email = req.body.email
-    const password = req.body.password
-
-    const user = new User({
-        name: name,
-        email: email,
-        password: password
-    })
-
     try {
+        const name = req.body.name
+        const email = req.body.email
+        const password = req.body.password
+
+        if (!name || !email || !password) {
+            throw 'user properties not defined.'
+        }
+
+        const user = new User({
+            name: name,
+            email: email,
+            password: password
+        })
+
         const savedUser = await user.save()
         res.render('login', { status: true })
     } catch (e) {
-        res.render('register', { error: true })
+        res.status(400).render('register', { error: true })
     }
 })
 
@@ -55,52 +59,62 @@ router.post('/create-job', checkAuthenticated, localStorage.array('image'), asyn
         emailOwner: emailOwner.email
     })
 
-    const savedJob = await job.save()
-    const imgPath = 'public/uploads/'
-    const localImgArr = fs.readdirSync(imgPath)
-    const driveImgArr = []
-    service
-        .uploadFiles(localImgArr, imgPath)
-        .then(async (results) => {
-            results.forEach((result) => {
-                driveImgArr.push(`https://drive.google.com/uc?id=${result.data.id}`)
-                fs.rm(imgPath + result.data.name, (err) => {
-                    if (err) {
-                        console.log(err)
-                    }
+    try {
+        const savedJob = await job.save()
+        const imgPath = 'public/uploads/'
+        const localImgArr = fs.readdirSync(imgPath)
+        const driveImgArr = []
+
+        if (localImgArr.length == 0) {
+            throw 'No images provided.'
+        }
+
+        service
+            .uploadFiles(localImgArr, imgPath)
+            .then(async (results) => {
+                results.forEach((result) => {
+                    driveImgArr.push(`https://drive.google.com/uc?id=${result.data.id}`)
+                    fs.rm(imgPath + result.data.name, (err) => {
+                        if (err) {
+                            console.log(err)
+                        }
+                    })
                 })
+                await Job.findOneAndUpdate({ _id: savedJob._id }, { $set: { images: driveImgArr } })
+                res.redirect('/dashboard')
             })
-            await Job.findOneAndUpdate({ _id: savedJob._id }, { $set: { images: driveImgArr } })
-            console.log('Done uploading all images')
-            res.redirect('/dashboard')
-        })
-        .catch((e) => {
-            console.log(e)
-            res.redirect('/')
-        })
+            .catch((e) => {
+                console.log(e)
+                res.redirect(400, '/')
+            })
+    } catch {
+        res.redirect(400, '/')
+    }
 })
 
 router.post('/acceptJob', async (req, res) => {
     if (req.isAuthenticated()) {
-        const user = await req.user
-        const userEmail = user.email
-        const jobId = req.body.jobId
+        try {
+            const user = await req.user
+            const userEmail = user.email
+            const jobId = req.body.jobId
 
-        Job.findByIdAndUpdate(
-            //Identifies which jobs we are adding to
-            jobId,
-            {
-                //Add to set insures that a user doesn't get added to a job multiple times
-                $addToSet: {
-                    emailLabellers: userEmail
+            const result = await Job.findByIdAndUpdate(
+                //Identifies which jobs we are adding to
+                jobId,
+                {
+                    //Add to set insures that a user doesn't get added to a job multiple times
+                    $addToSet: {
+                        emailLabellers: userEmail
+                    }
                 }
-            }
-        ).catch((err) => {
-            console.log(err)
-        })
-        res.redirect('/dashboard')
+            )
+            res.redirect('/dashboard')
+        } catch {
+            res.redirect(400, '/login')
+        }
     } else {
-        res.redirect('/login')
+        res.redirect(400, '/login')
     }
 })
 
