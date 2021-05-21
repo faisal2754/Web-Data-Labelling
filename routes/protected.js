@@ -54,8 +54,13 @@ router.post('/dashboard', checkAuthenticated, async (req, res) => {
     try {
         const job = await Job.findById(id)
         const imgArr = job.images
-
         await service.deleteFiles(imgArr)
+        const deleted = await Job.deleteOne({ _id: id })
+
+        if (!deleted) {
+            throw 'Deletion failed'
+        }
+
         res.redirect('/dashboard')
     } catch {
         res.redirect(400, '/')
@@ -104,10 +109,10 @@ router.post('/cancelJob', checkAuthenticated, async (req, res) => {
     const userEmail = user.email
     const updated = await Job.findOneAndUpdate(
         { _id: id },
-        { 
+        {
             $pull: {
                 emailLabellers: userEmail
-            } 
+            }
         }
     )
     console.log(updated)
