@@ -45,10 +45,39 @@ p {
 }
 
 .gBack {
-  background: linear-gradient(45deg, #1870ed 0, #f18f88 100%);
-    background-repeat:no-repeat;
-    height: 100%;
-    background-size: cover;
+  /* background: linear-gradient(45deg, #7800f8 0, #b500b9 100%); */
+  background-image: url(/images/bg12.jpg);
+    background-repeat: no-repeat;
+    height:auto;
+    background-position: center;
+   background-size: cover; 
+}
+
+.gBack2 {
+  /* background: linear-gradient(45deg, #7800f8 0, #b500b9 100%); */
+  background-image: url(/images/bg13.jpg);
+    background-repeat: no-repeat;
+    height:auto;
+    background-position: center;
+   background-size: cover; 
+}
+
+.gBack3 {
+  /* background: linear-gradient(45deg, #7800f8 0, #b500b9 100%); */
+  background-image: url(/images/bg14.jpg);
+    background-repeat: no-repeat;
+    height:auto;
+    background-position: center;
+   background-size: cover; 
+}
+
+.gBack4 {
+  /* background: linear-gradient(45deg, #7800f8 0, #b500b9 100%); */
+  background-image: url(/images/bg15.jpg);
+    background-repeat: no-repeat;
+    height:auto;
+    background-position: center;
+   background-size: cover; 
 }
 
 label {
