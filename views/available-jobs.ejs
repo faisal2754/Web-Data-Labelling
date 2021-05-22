@@ -224,41 +224,17 @@
                                                 
                                                     <div class="modal-body text-center">
                                                         <h6 class="py-2" style="font-size: 30px;"><%= allJobs[i].title %></h6>
-                                                        <div class="w3-content w3-display-container">
-                                                        <img class="<%= allJobs[i]._id %>" name="<%= allJobs[i]._id %>" src="<%= allJobs[i].images[0] %>" style="width:100%">
-                                                        <img class="<%= allJobs[i]._id %>" name="<%= allJobs[i]._id %>" src="<%= allJobs[i].images[1] %>" style="width:100%">
-                                                        <img class="<%= allJobs[i]._id %>" name="<%= allJobs[i]._id %>" src="<%= allJobs[i].images[2] %>" style="width:100%">
-                                                        <img class="<%= allJobs[i]._id %>" name="<%= allJobs[i]._id %>" src="<%= allJobs[i].images[3] %>" style="width:100%">
+                                                        <div class="w3-content w3-display-container" style="padding: inherit; overflow: auto; display: inline-flex;">
+                                                        <img class="<%= allJobs[i]._id %>" src="<%= allJobs[i].images[0] %>" style="width:100%; padding: inherit;">
+                                                        <img class="<%= allJobs[i]._id %>" src="<%= allJobs[i].images[1] %>" style="width:100%; padding: inherit;">
+                                                        <img class="<%= allJobs[i]._id %>" src="<%= allJobs[i].images[2] %>" style="width:100%; padding: inherit;">
+                                                        <img class="<%= allJobs[i]._id %>" src="<%= allJobs[i].images[3] %>" style="width:100%; padding: inherit;">
                                                         
-                                                        <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-                                                        <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+
                                                         </div>
                                                         <h6 class="py-2">Credits: <%= allJobs[i].credits %></h6>
                                                         <h6 style="overflow-wrap: break-word;"><%= allJobs[i].description %></h6>
                                                     </div>
-                                                    <script>
-                                                        var slideIndex = 1;
-                                                        showDivs(slideIndex);
-
-                                                        function plusDivs(n) {
-                                                        showDivs(slideIndex += n);
-                                                        console.log(slideIndex)
-                                                        }
-
-                                                        function showDivs(n) {
-                                                        var i;
-                                                        var x = document.getElementsByClassName("<%= allJobs[i]._id %>")
-                                                        
-                                                        if (n > x.length) {slideIndex = 1}
-                                                        if (n < 1) {slideIndex = x.length}
-                                                        for (i = 0; i < x.length; i++) {
-                                                            x[i].style.display = "none";  
-                                                        }
-                                                        x[slideIndex-1].style.display = "block";  
-                                                        }
-
-                                                           
-                                                    </script>
                                                     <div class="modal-footer border-top-0 mb-3 mx-5 justify-content-lg-between justify-content-center">
                                                         <!-- <button type="button" class="btn btn-success">Accept Job</button> -->
                                                         <% if(authenticated){ %> 
