@@ -59,10 +59,6 @@ router.post('/dashboard', checkAuthenticated, async (req, res) => {
         await service.deleteFiles(imgArr)
         const deleted = await Job.deleteOne({ _id: id })
 
-        if (!deleted) {
-            throw 'Deletion failed'
-        }
-
         res.redirect('/dashboard')
     } catch {
         res.redirect(400, '/')
@@ -70,55 +66,52 @@ router.post('/dashboard', checkAuthenticated, async (req, res) => {
 })
 
 router.post('/user-profile', checkAuthenticated, localStorage.single('image'), async (req, res) => {
-    const user = await req.user
-    const userID = user._id
-    const dbUser = await User.findOne({ _id: userID })
+    try {
+        const user = await req.user
+        const userID = user._id
+        const dbUser = await User.findOne({ _id: userID })
 
-    const name = req.body.name
-    const password = req.body.password
+        const name = req.body.name
+        const password = req.body.password
 
-    const imgPath = 'public/uploads/'
-    const localImg = String(fs.readdirSync(imgPath))
+        const imgPath = 'public/uploads/'
+        const localImg = String(fs.readdirSync(imgPath))
 
-    service
-        .uploadFile(localImg, imgPath)
-        .then(async (result) => {
-            const driveImg = `https://drive.google.com/uc?id=${result.data.id}`
+        const result = await service.uploadFile(localImg, imgPath)
 
-            dbUser.name = name
-            dbUser.password = password
-            dbUser.avatar = driveImg
+        const driveImg = `https://drive.google.com/uc?id=${result.data.id}`
 
-            await dbUser.save()
+        dbUser.name = name
+        dbUser.password = password
+        dbUser.avatar = driveImg
 
-            fs.rm(imgPath + result.data.name, (err) => {
-                if (err) {
-                    console.log(err)
-                }
-            })
+        await dbUser.save()
 
-            res.redirect('/dashboard')
-        })
-        .catch((e) => {
-            console.log(e)
-            res.redirect('/')
-        })
+        fs.rmSync(imgPath + result.data.name)
+
+        res.redirect('/dashboard')
+    } catch {
+        res.redirect(400, '/')
+    }
 })
 
 router.post('/cancelJob', checkAuthenticated, async (req, res) => {
-    const id = req.body.jobId
-    const user = await req.user
-    const userEmail = user.email
-    const updated = await Job.findOneAndUpdate(
-        { _id: id },
-        {
-            $pull: {
-                emailLabellers: userEmail
+    try {
+        const id = req.body.jobId
+        const user = await req.user
+        const userEmail = user.email
+        const updated = await Job.findOneAndUpdate(
+            { _id: id },
+            {
+                $pull: {
+                    emailLabellers: userEmail
+                }
             }
-        }
-    )
-    console.log(updated)
-    res.redirect('/dashboard')
+        )
+        res.redirect('/dashboard')
+    } catch {
+        res.redirect(400, '/')
+    }
 })
 
 router.get('/user-profile', checkAuthenticated, async (req, res) => {

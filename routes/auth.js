@@ -45,21 +45,21 @@ router.post(
 )
 
 router.post('/create-job', checkAuthenticated, localStorage.array('image'), async (req, res) => {
-    const title = req.body.title
-    const description = req.body.description
-    const labels = req.body.labels
-    const credits = req.body.credits
-    const emailOwner = await req.user
-
-    const job = await new Job({
-        title: title,
-        description: description,
-        credits: credits,
-        labels: labels,
-        emailOwner: emailOwner.email
-    })
-
     try {
+        const title = req.body.title
+        const description = req.body.description
+        const labels = req.body.labels
+        const credits = req.body.credits
+        const emailOwner = await req.user
+
+        const job = await new Job({
+            title: title,
+            description: description,
+            credits: credits,
+            labels: labels,
+            emailOwner: emailOwner.email
+        })
+
         const savedJob = await job.save()
         const imgPath = 'public/uploads/'
         const localImgArr = fs.readdirSync(imgPath)
@@ -69,24 +69,16 @@ router.post('/create-job', checkAuthenticated, localStorage.array('image'), asyn
             throw 'No images provided.'
         }
 
-        service
-            .uploadFiles(localImgArr, imgPath)
-            .then(async (results) => {
-                results.forEach((result) => {
-                    driveImgArr.push(`https://drive.google.com/uc?id=${result.data.id}`)
-                    fs.rm(imgPath + result.data.name, (err) => {
-                        if (err) {
-                            console.log(err)
-                        }
-                    })
-                })
-                await Job.findOneAndUpdate({ _id: savedJob._id }, { $set: { images: driveImgArr } })
-                res.redirect('/dashboard')
-            })
-            .catch((e) => {
-                console.log(e)
-                res.redirect(400, '/')
-            })
+        const results = await service.uploadFiles(localImgArr, imgPath)
+
+        results.forEach((result) => {
+            driveImgArr.push(`https://drive.google.com/uc?id=${result.data.id}`)
+            fs.rmSync(imgPath + result.data.name)
+        })
+
+        await Job.findOneAndUpdate({ _id: savedJob._id }, { $set: { images: driveImgArr } })
+
+        res.redirect('/dashboard')
     } catch {
         res.redirect(400, '/')
     }
