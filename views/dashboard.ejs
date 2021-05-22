@@ -12,8 +12,8 @@
             <!-- User Widget -->
             <div class="widget user-dashboard-profile">
               <!-- User Image -->
-              <div class="profile-thumb">
-                <img src="images/user/user-thumb.jpg" alt="" class="rounded-circle">
+              <div class="circular--landscape">
+                <img src="<%= avatar %> " alt="" class="rounded-circle">
               </div>
               <!-- User Name -->
               <h5 class="text-center"><%= name %> </h5>
@@ -145,5 +145,20 @@
     </div>
     <!-- Container End -->
   </section>
+<style>
+  .circular--landscape {
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+}
 
+.circular--landscape img {
+  width: auto;
+  height: 100%;
+  margin-left: -70px;
+}
+</style>
 <%- include('footer') %> 

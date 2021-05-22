@@ -16,6 +16,7 @@ const fs = require('fs')
 const googleService = require('./googleServices')
 const { checkAuthenticated } = require('./middleware/auth.mw')
 
+
 if (!fs.existsSync('public/uploads')) {
     fs.mkdirSync('public/uploads')
 }

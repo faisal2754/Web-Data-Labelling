@@ -17,12 +17,14 @@ router.get('/create-job', checkAuthenticated, async (req, res) => {
 router.get('/dashboard', checkAuthenticated, async (req, res) => {
     const user = await req.user
     const username = user.name
+    const userAvatar = user.avatar
     const userEmail = user.email
     const dateJoined = user.createdAt
     const jobs = await Job.find({ emailOwner: userEmail })
     const acceptedJobs = await Job.find({ emailLabellers: userEmail })
     res.render('dashboard', {
         userJobs: jobs,
+        avatar: userAvatar,
         acceptedJobs: acceptedJobs,
         name: username,
         dateJoined
@@ -67,7 +69,7 @@ router.post('/dashboard', checkAuthenticated, async (req, res) => {
     }
 })
 
-router.post('/user-profile', checkAuthenticated, async (req, res) => {
+router.post('/user-profile', checkAuthenticated, localStorage.single('image'), async (req, res) => {
     const user = await req.user
     const userID = user._id
     const dbUser = await User.findOne({ _id: userID })
@@ -122,8 +124,9 @@ router.post('/cancelJob', checkAuthenticated, async (req, res) => {
 router.get('/user-profile', checkAuthenticated, async (req, res) => {
     const user = await req.user
     const username = user.name
+    const userAvatar = user.avatar
     const userEmail = user.email
-    res.render('user-profile', { name: username,email: userEmail })
+    res.render('user-profile', { name: username, email: userEmail, avatar: userAvatar })
 })
 
 module.exports = router
