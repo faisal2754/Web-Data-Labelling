@@ -224,6 +224,7 @@
                                                 
                                                     <div class="modal-body text-center">
                                                         <h6 class="py-2" style="font-size: 30px;"><%= allJobs[i].title %></h6>
+                                                        <h6 class="py-2" style="padding-bottom: 0;">Image Previews:</h6>
                                                         <div class="w3-content w3-display-container" style="padding: inherit; overflow: auto; display: inline-flex;">
                                                         <img class="<%= allJobs[i]._id %>" src="<%= allJobs[i].images[0] %>" style="width:100%; padding: inherit;">
                                                         <img class="<%= allJobs[i]._id %>" src="<%= allJobs[i].images[1] %>" style="width:100%; padding: inherit;">
@@ -232,7 +233,7 @@
                                                         
 
                                                         </div>
-                                                        <h6 class="py-2">Credits: <%= allJobs[i].credits %></h6>
+                                                        <h6 class="py-2" style="padding-top: 10px;">Credits: <%= allJobs[i].credits %> | Job Owner: </h6>
                                                         <h6 style="overflow-wrap: break-word;"><%= allJobs[i].description %></h6>
                                                     </div>
                                                     <div class="modal-footer border-top-0 mb-3 mx-5 justify-content-lg-between justify-content-center">
