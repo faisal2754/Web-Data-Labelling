@@ -122,7 +122,8 @@ router.post('/cancelJob', checkAuthenticated, async (req, res) => {
 router.get('/user-profile', checkAuthenticated, async (req, res) => {
     const user = await req.user
     const username = user.name
-    res.render('user-profile', { name: username })
+    const userEmail = user.email
+    res.render('user-profile', { name: username,email: userEmail })
 })
 
 module.exports = router

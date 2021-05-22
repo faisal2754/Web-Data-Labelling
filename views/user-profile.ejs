@@ -1,6 +1,6 @@
 <title>Edit Profile</title>
 
-<%- include('header-registered.ejs',{Firstname: name}) %>
+<%- include('header-registered.ejs',{Firstname: name, }) %>
 
 <section class="user-profile section gback2">
     <div class="container">
@@ -18,7 +18,7 @@
                             <img src="images/user/user-thumb.jpg" alt="" class="">
                         </div>
                         <h5 class="user-name"><%= name %></h5>
-                        <h6 class="email">email@email.com</h6>
+                        <h6 class="email"><%= email %> </h6>
                             </div>
                         </div>
                     </div>
