@@ -12,7 +12,7 @@
     <div class="wrapper fadeInDown">
       <div class="row justify-content-center">
         <div class="align-item-center">
-          <div id="formContent2">
+          <div id="formContent2" style="padding: 0px;">
             <form id="form" action="/create-job" method="POST" enctype="multipart/form-data">
               <!-- Post Your ad start -->
               <fieldset class=" border-gary p-4 mb-5">
@@ -135,49 +135,51 @@
               </select> -->
                     <div class="price">
                       <h6 class="font-weight-bold pt-4 pb-1">Job Credits:</h6>
-                      <div class="row px-3">
+                      <div class="row px-3" style="align-items: center; padding-right: 0px!important; box-sizing: inherit!important;">
                         <div class="col-lg-4 mr-lg-4 rounded bg-white my-2 ">
                           <input type="number" pattern="[0-9]" min="1" max="5000" name="credits"
                             class="type-1 border py-2 w-100 price" placeholder="No. of Credits" id="price" required>
                         </div>
 
                       </div>
-                      <!--- <h6 class="font-weight-bold pt-4 pb-1">Job Scope:</h6>
-                <div class="row px-3">
-                  <div class="col-lg-4 mr-lg-4 my-2 rounded bg-white">
-                    <input type="radio" name="itemName" value="personal" id="personal">
-                    <label for="personal" class="py-2">Small</label>
-                  </div>
-                  <div class="col-lg-4 mr-lg-4 my-2 rounded bg-white ">
-                    <input type="radio" name="itemName" value="business" id="business">
-                    <label for="business" class="py-2">Medium</label>
-                  </div>
-                  <div class="col-lg-4 mr-lg-4 my-2 rounded bg-white ">
-                    <input type="radio" name="itemName" value="business" id="business">
-                    <label for="business" class="py-2">Large</label>
-                  </div>
-                </div> -->
+                                  <!--- <h6 class="font-weight-bold pt-4 pb-1">Job Scope:</h6>
+                            <div class="row px-3">
+                              <div class="col-lg-4 mr-lg-4 my-2 rounded bg-white">
+                                <input type="radio" name="itemName" value="personal" id="personal">
+                                <label for="personal" class="py-2">Small</label>
+                              </div>
+                              <div class="col-lg-4 mr-lg-4 my-2 rounded bg-white ">
+                                <input type="radio" name="itemName" value="business" id="business">
+                                <label for="business" class="py-2">Medium</label>
+                              </div>
+                              <div class="col-lg-4 mr-lg-4 my-2 rounded bg-white ">
+                                <input type="radio" name="itemName" value="business" id="business">
+                                <label for="business" class="py-2">Large</label>
+                              </div>
+                            </div> -->
+                    </div>
+                    <div class="container-fluid choose-file text-center my-4 py-4 rounded">
+                      <label for="file-upload">
+                        <span class="d-block font-weight-bold text-dark">Drop files anywhere to upload</span>
+                        <span class="d-block">or</span>
+                        <input type="file" class="form-control-file d-none" id="file-upload" name="image" multiple>
+                        <div class="container">
+                          <a class="btn bg-primary text-white my-3" href="javascript:void(0)"
+                            onclick="$('#file-upload').click()">Upload Image</a>
+                          <span class="d-block">Maximum upload file size: 500 KB</span>
+                          <div class="d-flex flex-wrap preview-images-zone"> </div>
+                        </div>
+                      </label>
                     </div>
                   </div>
-                  <div class="container-fluid choose-file text-center my-4 py-4 rounded">
-                    <label for="file-upload">
-                      <span class="d-block font-weight-bold text-dark">Drop files anywhere to upload</span>
-                      <span class="d-block">or</span>
-                      <input type="file" class="form-control-file d-none" id="file-upload" name="image" multiple>
-                      <div class="container">
-                        <a class="btn bg-primary text-white my-3" href="javascript:void(0)"
-                          onclick="$('#file-upload').click()">Upload Image</a>
-                        <span class="d-block">Maximum upload file size: 500 KB</span>
-                        <div class="d-flex flex-wrap preview-images-zone"> </div>
-                      </div>
-                    </label>
+                  </div>
+                  <div class=" text-center">
+
+                    <button type="submit" class="btn btn-primary mt-2">Post
+                      Your Job</button>
                   </div>
                 </div>
-                <div class=" text-center">
-
-                  <button type="submit" class="btn btn-primary mt-2">Post
-                    Your Job</button>
-                </div>
+                
           </div>
           </fieldset>
           <!-- Post Your ad end -->
