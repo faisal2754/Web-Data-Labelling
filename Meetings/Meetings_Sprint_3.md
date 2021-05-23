@@ -331,3 +331,46 @@ Sipho Sikakane.(Scrum master/Backend)
 - Tasks completed yesterday: Sent accepted Jobs to front end and fixed accept jobs bugs
 - Tasks for the day: Allow users to delete jobs
 - Impediments: Quizzes and Tests
+
+## Daily Scrum Meeting 21st May (Friday) 2021
+
+Aharon Cohen (Frontend):
+- Tasks completed yesterday: Added accepted jobs page and image preview slider
+- Tasks for the day: Improve pop up functionality (slider)
+- Impediments: Other projects for ML and CGV
+
+Langiwe Mwale (Frontend):
+- Tasks completed Yesterday: added a little polish 
+- Task for the Day:work on forms for edit profile
+- Impediments: Time constraints
+
+Ioanni Balassis: (Frontend)
+- Tasks completed yesterday: accept jobs page
+- Tasks for the day: Improve pop up functionality (slider)
+- Impediments: Other projects for ML, CGV
+
+Jonathan Nunes (Frontend):
+- Tasks completed yesterday: Added accepted jobs page, stylized elements, attempted slider
+- Tasks for the day: Style profile dashboard, finish slider for images
+- Impediments: Other university work
+
+Faisal Saleem (Backend):
+- Tasks completed yesterday: Finished edit profile functionality
+- Tasks for the day: Test Google Drive API
+- Impediments: Time
+
+Ghulame Mujtaba Arbi (Backend/Frontend):
+- Tasks completed yesterday: Working on dashboard
+- Tasks for the day: Work on general frontend tasks
+- Impediments: Time/quizzes/projects
+
+Tristan Bester (Backend):
+- Tasks completed yesterday: Fixed authentication, added route tests.
+- Tasks for the day: Continue increasing test coverage.
+- Impediments: Time.
+
+Sipho Sikakane.(Scrum master/Backend)
+- Tasks completed yesterday: Labellers can remove themselves from jobs
+- Tasks for the day: Allow users to delete jobs they’ve made
+- Impediments: Tests
+

@@ -8,7 +8,7 @@
 
 
 
-  <section class="py-5 gback">
+  <section class="py-5 gback3">
     <div class="wrapper fadeInDown">
       <div class="row justify-content-center">
         <div class="align-item-center">
@@ -163,12 +163,11 @@
                       <label for="file-upload">
                         <span class="d-block font-weight-bold text-dark">Drop files anywhere to upload</span>
                         <span class="d-block">or</span>
-                        <input type="file" class="form-control-file d-none" id="file-upload" name="image" multiple>
+                        <input type="file" class="form-control-file d-none" id="file-upload" name="image" multiple required>
                         <div class="container">
                           <a class="btn bg-primary text-white my-3" href="javascript:void(0)"
                             onclick="$('#file-upload').click()">Upload Image</a>
-                          <span class="d-block">Maximum upload file size: 500 KB</span>
-                          <div class="d-flex flex-wrap preview-images-zone"> </div>
+                          <div class="d-flex rounded flex-wrap preview-images-zone"> </div>
                         </div>
                       </label>
                     </div>
