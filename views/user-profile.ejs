@@ -69,17 +69,31 @@
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label for="currentPw">Current Password</label>
-                                        <input type="password" class="form-control" id="currentPw" placeholder="Current Password">
+                                        <label for="password">Current Password</label>
+                                        <input type="password" name=password id="password" placeholder="New Password"
+                                            class="type-1 border p-3 w-100 my-2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                            title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                                            name="password">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label for="newPw">New Password</label>
-                                        <input type="name" class="form-control" id="newPw" name="password" placeholder="New Password">
+                                        <label for="confirmPw">Confirm Password</label>
+                                        <input type="password" id="confirmPw" placeholder="Confirm Password"
+                                            class="type-1 border p-3 w-100 my-2" name="password_confirm" oninput="check(this)">
                                     </div>
                                 </div>
                             </div>
+                            <script language='javascript' type='text/javascript'>
+                                function check(input) {
+                                  if (input.value != document.getElementById('password').value) {
+                                    input.setCustomValidity('Password Must be Matching.');
+                                  } else {
+                                    // input is valid -- reset the error message
+                                    input.setCustomValidity('');
+                                  }
+                                }
+                              </script>
                             <div class="row gutters">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <div style="text-align: center;">
