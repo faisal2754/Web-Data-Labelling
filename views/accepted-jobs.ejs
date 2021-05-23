@@ -87,24 +87,48 @@
                         <div class="">
                           <ul class="list-inline justify-content-center">
                             <li class="list-inline-item">
-                              <a data-toggle="tooltip" data-placement="top" title="view" class="view" href="category.html">
+                              <a data-placement="top" title="View Job" class="view" data-toggle="modal" data-target="#a<%= acceptedJobs[i]._id %>" style="cursor: pointer;">
                                 <i class="fa fa-eye"></i>
                               </a>
                             </li>
-                            <form id="form<%= i %> "action="/cancelJob" method="POST">
-                              <input type="hidden" name="jobId" value="<%= acceptedJobs[i]._id %>" />
-                              <li class="list-inline-item">
-                                <a class="delete" data-toggle="tooltip" data-placement="top" title="Delete">
-                                <i class="fa fa-trash"></i>
-                              </a> 
+                            <li class="list-inline-item">
+                              <form id="form<%= i %> "action="/cancelJob" method="POST">
+                                <input type="hidden" name="jobId" value="<%= acceptedJobs[i]._id %>" />
+                                <button class="btn btn-danger" title="Cancel Job" style=" width: 40px; height: 40px; border-radius: 40px; font-size: 14px; color: #ffffff; text-align: center; display: inline-block;" name="button"><i class="fa fa-minus-circle"></i></button>
+                              </form>
                             </li>
-                            <button class="btn btn-success" name="button">Cancel Job</button>
-                            </form>
                           </ul>
                         </div>
                       </td>
                       
                   </tr>
+                  <!-- Modal -->
+                  <div class="modal fade" id="a<%= acceptedJobs[i]._id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content" style="border: 0px;">
+                    
+                        <div class="modal-body text-center">
+                            <h6 class="py-2" style="font-size: 30px;"><%= acceptedJobs[i].title %></h6>
+                            <h6 class="py-2" style="padding-bottom: 0;">Image Previews:</h6>
+                            <div class="w3-content w3-display-container" style="padding: inherit; overflow: auto; display: inline-flex;">
+                            <img class="<%= acceptedJobs[i]._id %>" src="<%= acceptedJobs[i].images[0] %>" style="width:100%; padding: inherit;">
+                            <img class="<%= acceptedJobs[i]._id %>" src="<%= acceptedJobs[i].images[1] %>" style="width:100%; padding: inherit;">
+                            <img class="<%= acceptedJobs[i]._id %>" src="<%= acceptedJobs[i].images[2] %>" style="width:100%; padding: inherit;">
+                            <img class="<%= acceptedJobs[i]._id %>" src="<%= acceptedJobs[i].images[3] %>" style="width:100%; padding: inherit;">
+                            
+
+                            </div>
+                            <h6 class="py-2" style="padding-top: 10px;">Credits: <%= acceptedJobs[i].credits %> | Job Owner: <%= acceptedJobs[i].emailOwner %></h6>
+                            <h6 style="overflow-wrap: break-word;"><%= acceptedJobs[i].description %></h6>
+                        </div>
+                        <div class="modal-footer border-top-0 mb-3 mx-5 justify-content-lg-between justify-content-center" style="justify-content: center!important;">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Back</button>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    </div>
                   <% } %>
                 <tr>
   

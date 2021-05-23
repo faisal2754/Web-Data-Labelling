@@ -1,8 +1,44 @@
 <title>Profile Dashboard</title>
 
 <%- include('header-registered.ejs',{Firstname: name}) %>
-
-<section class="dashboard section">
+<style>
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -60px;
+  }
+  
+  .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+  </style>
+<section class="dashboard section gback2">
     <!-- Container Start -->
     <div class="container">
       <!-- Row Start -->
@@ -27,34 +63,6 @@
                 <li><a href="/accepted-jobs"><i class="fa fa-bookmark-o"></i> Accepted Jobs <span><%= acceptedJobs.length %></span></a></li>
               </ul>
             </div>
-  
-            <!-- delete-account modal -->
-                                      <!-- delete account popup modal start-->
-                  <!-- Modal -->
-                  <div class="modal fade" id="deleteaccount" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header border-bottom-0">
-                            
-                          
-                        </div>
-                        <div class="modal-body text-center">
-                          <img src="images/account/Account1.png" class="img-fluid mb-2" alt="">
-                          <h6 class="py-2">Are you sure you want to delete your account?</h6>
-                          <p>Once you delete your account this process cannot be undone.</p>
-                        </div>
-                        <div class="modal-footer border-top-0 mb-3 mx-5 justify-content-lg-between justify-content-center">
-                          <button type="button" class="btn btn-danger">Delete</button>
-                          <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-                          
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- delete account popup modal end-->
-            <!-- delete-account modal -->
-  
           </div>
         </div>
         <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-0">
@@ -87,12 +95,12 @@
                         <div class="">
                           <ul class="list-inline justify-content-center">
                             <li class="list-inline-item">
-                              <a data-toggle="tooltip" data-placement="top" title="view" class="view" href="category.html">
+                              <a data-placement="top" title="View Job" class="view" data-toggle="modal" data-target="#a<%= userJobs[i]._id %>" style="cursor: pointer;">
                                 <i class="fa fa-eye"></i>
                               </a>
                             </li>
                             <li class="list-inline-item">
-                              <a class="delete" data-toggle="tooltip" data-placement="top" title="Delete" href="">
+                              <a class="delete" data-placement="top" title="Delete Job" href="">
                                 <i class="fa fa-trash"></i>
                               </a>
                             </li>
@@ -101,6 +109,33 @@
                       </td>
                       
                   </tr>
+                  <!-- Modal -->
+                  <div class="modal fade" id="a<%= userJobs[i]._id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content" style="border: 0px;">
+                    
+                        <div class="modal-body text-center">
+                            <h6 class="py-2" style="font-size: 30px;"><%= userJobs[i].title %></h6>
+                            <h6 class="py-2" style="padding-bottom: 0;">Image Previews:</h6>
+                            <div class="w3-content w3-display-container" style="padding: inherit; overflow: auto; display: inline-flex;">
+                            <img class="<%= userJobs[i]._id %>" src="<%= userJobs[i].images[0] %>" style="width:100%; padding: inherit;">
+                            <img class="<%= userJobs[i]._id %>" src="<%= userJobs[i].images[1] %>" style="width:100%; padding: inherit;">
+                            <img class="<%= userJobs[i]._id %>" src="<%= userJobs[i].images[2] %>" style="width:100%; padding: inherit;">
+                            <img class="<%= userJobs[i]._id %>" src="<%= userJobs[i].images[3] %>" style="width:100%; padding: inherit;">
+                            
+
+                            </div>
+                            <h6 class="py-2" style="padding-top: 10px;">Credits: <%= userJobs[i].credits %> | Job Owner: <%= userJobs[i].emailOwner %></h6>
+                            <h6 style="overflow-wrap: break-word;"><%= userJobs[i].description %></h6>
+                        </div>
+                        <div class="modal-footer border-top-0 mb-3 mx-5 justify-content-lg-between justify-content-center" style="justify-content: center!important;">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Back</button>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    </div>
                   <% } %>
                 <tr>
   
