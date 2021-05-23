@@ -73,15 +73,28 @@ router.post('/user-profile', checkAuthenticated, localStorage.single('image'), a
         const userID = user._id
         const dbUser = await User.findOne({ _id: userID })
 
-        const name = req.body.name
-        const password = req.body.password
+        let name = req.body.name
+        if (!name) {
+            name = user.name
+        }
 
-        const imgPath = 'public/uploads/'
-        const localImg = String(fs.readdirSync(imgPath))
+        let password = req.body.password
+        if (!password) {
+            password = user.password
+        }
 
-        const result = await service.uploadFile(localImg, imgPath)
+        let driveImg
+        if (!req.body.image) {
+            driveImg = user.avatar
+        } else {
+            const imgPath = 'public/uploads/'
+            const localImg = String(fs.readdirSync(imgPath))
 
-        const driveImg = `https://drive.google.com/uc?id=${result.data.id}`
+            const result = await service.uploadFile(localImg, imgPath)
+            driveImg = `https://drive.google.com/uc?id=${result.data.id}`
+
+            fs.rmSync(imgPath + result.data.name)
+        }
 
         dbUser.name = name
         dbUser.password = password
@@ -89,10 +102,9 @@ router.post('/user-profile', checkAuthenticated, localStorage.single('image'), a
 
         await dbUser.save()
 
-        fs.rmSync(imgPath + result.data.name)
-
         res.redirect('/dashboard')
-    } catch {
+    } catch (e) {
+        console.log(e)
         res.redirect(400, '/')
     }
 })
