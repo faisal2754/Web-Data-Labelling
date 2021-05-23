@@ -2,7 +2,7 @@
 
 <%- include('header-registered.ejs',{Firstname: name}) %>
 
-<section class="dashboard section">
+<section class="dashboard section gback2">
     <!-- Container Start -->
     <div class="container">
       <!-- Row Start -->
@@ -10,22 +10,28 @@
         <div class="col-md-10 offset-md-1 col-lg-4 offset-lg-0">
           <div class="sidebar">
             <!-- User Widget -->
-            <div class="widget user-dashboard-profile">
+            <div class="wrapper fadeInDown" style="align-items: inherit; min-height: 0%;">
+              <div id="formContent" style="padding: 30px; width: 110%; max-width: 800px;">
               <!-- User Image -->
               <div class="profile-thumb">
-                <img src="images/user/user-thumb.jpg" alt="" class="rounded-circle">
+                <img src="images/user/user-thumb.jpg" alt="" class="rounded-circle" style="max-width: -webkit-fill-available; max-height: 200px;">
               </div>
               <!-- User Name -->
               <h5 class="text-center"><%= name %> </h5>
               <p><%= new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'long', day: '2-digit'}).format(dateJoined) %></p>
               <a href="/user-profile" class="btn btn-primary mt-2">Edit Profile</a>
+              </div>
             </div>
             <!-- Dashboard Links -->
-            <div class="widget user-dashboard-menu">
-              <ul>
-                <li ><a href="/dashboard"><i class="fa fa-user"></i> My Jobs<span><%= userJobs.length %></span></a></li>
-                <li class="active"><a href="/accepted-jobs"><i class="fa fa-bookmark-o"></i> Accepted Jobs <span><%= acceptedJobs.length %></span></a></li>
+            <div class="wrapper fadeInDown" style="align-items: inherit; min-height: 0%;">
+              <div id="formContent" style="padding: 0px; width: 110%; max-width: 800px;">
+            <div class="widget user-dashboard-menu" style="margin-bottom: 0px; padding: 0px; border-radius: inherit;">
+              <ul style="margin-bottom: 0px;">
+                <li style="margin-bottom: 0px;"><a href="/dashboard"><i class="fa fa-user"></i> My Jobs<span><%= userJobs.length %></span></a></li>
+                <li class="active" style="margin-bottom: 0px;"><a href="/accepted-jobs" style="border-radius: 10px;"><i class="fa fa-bookmark-o"></i> Accepted Jobs <span><%= acceptedJobs.length %></span></a></li>
               </ul>
+            </div>
+              </div>
             </div>
   
             <!-- delete-account modal -->
@@ -58,6 +64,8 @@
           </div>
         </div>
         <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-0">
+          <div class="wrapper" style="align-items: inherit;">
+            <div id="formContent" style="padding: 30px; width: 110%; max-width: 800px;">
           <!-- Recently Favorited -->
           <div class="widget dashboard-container my-adslist">
             <h3 class="widget-header">Accepted Jobs</h3>
@@ -166,8 +174,10 @@
                       </nav>
                   </div>
            pagination -->
-  
+            </div>
+          </div>
         </div>
+          
       </div>
       <!-- Row End -->
     </div>

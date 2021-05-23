@@ -6,30 +6,33 @@
         <div class="container">
             <div class="row gutters">
                 <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
-                    <div class="wrapper fadeInDown">
-
-                        <div class="card-body">
+                    
+                        
                             <div class="account-settings">
                                 <div class="user-profile">
                                     <div class="sidebar" style="align-items: center;">
-                                        <!-- User Widget -->
-                                        <div class="widget user" style="align-items: center;">
-                                            <div class="image d-flex justify-content-center">
-                                                <img src="<%= avatar %> " alt="images/user/user-thumb.jpg" class="">
-                                            </div>
-                                            <h5 class="user-name">
-                                                <%= name %>
-                                            </h5>
-                                            <h6 class="email">
-                                                <%= email %>
-                                            </h6>
-                                        </div>
+                                        <div class="wrapper fadeInDown" style="align-items: inherit; min-height: 0%;">
+                                            <div id="formContent" style="padding: 30px; width: 110%; max-width: 800px;">
+                                            <!-- User Widget -->
+                                            <div class="widget user-dashboard-menu" style="margin-bottom: 0px; padding: 0px; border-radius: inherit; box-shadow: none;">
+                                                <!-- User Image -->
+                                                <div class="profile-thumb" style="margin-bottom: 15px;">
+                                                    <img src="images/user/user-thumb.jpg" alt="" class="rounded-circle" style="max-width: -webkit-fill-available; max-height: 200px;">
+                                                </div>
+                                                <h5 class="user-name">
+                                                    <%= name %>
+                                                </h5>
+                                                <h6 class="email">
+                                                    <%= email %>
+                                                </h6>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
                         </div>
-                    </div>
+                        </div>
+                    
                 </div>
                 <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
                     <div class="wrapper fadeInDown" style="align-items: inherit;">
