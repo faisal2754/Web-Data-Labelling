@@ -34,12 +34,14 @@ router.get('/dashboard', checkAuthenticated, async (req, res) => {
 router.get('/accepted-jobs', checkAuthenticated, async (req, res) => {
     const user = await req.user
     const username = user.name
+    const userAvatar = user.avatar
     const userEmail = user.email
     const dateJoined = user.createdAt
     const jobs = await Job.find({ emailOwner: userEmail })
     const acceptedJobs = await Job.find({ emailLabellers: userEmail })
     res.render('accepted-jobs', {
         userJobs: jobs,
+        avatar: userAvatar,
         acceptedJobs: acceptedJobs,
         name: username,
         dateJoined
