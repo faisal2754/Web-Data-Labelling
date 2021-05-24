@@ -39,6 +39,7 @@
                         <div id="formContent" style="padding: 30px; width: auto; max-width: 800px;">
                             <div class="card-body" style="padding: 0;">
                                 <h3>Edit Profile</h3>
+
                                 <form action="/user-profile" method="POST" enctype="multipart/form-data">
 
                                     <div class="row gutters">
@@ -57,13 +58,13 @@
                                         <h6 class="mt-3 mb-2 text-primary">Profile Picture</h6>
                                         <div class="widget user" style="align-items: center;">
                                             <div class="image d-flex justify-content-center">
-                                                <img src="<%= avatar %>" alt="images/user/user-thumb.jpg" class="">
+                                                <img src="<%= avatar %>" alt="avatar" class="">
                                             </div>
                                             <input type="file" class="form-control-file mt-2 pt-1" name="image" id="input-file">
                                         </div>
                                     </div>
                             </div>
-                            <div class="row gutters">
+                                    <div class="row gutters">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <h6 class="mt-3 mb-2 text-primary">Password</h6>
                                 </div>
@@ -83,27 +84,29 @@
                                             class="type-1 border p-3 w-100 my-2" name="password_confirm" oninput="check(this)">
                                     </div>
                                 </div>
-                            </div>
-                            <script language='javascript' type='text/javascript'>
-                                function check(input) {
-                                  if (input.value != document.getElementById('password').value) {
-                                    input.setCustomValidity('Password Must be Matching.');
-                                  } else {
-                                    // input is valid -- reset the error message
-                                    input.setCustomValidity('');
-                                  }
-                                }
-                              </script>
-                            <div class="row gutters">
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <div style="text-align: center;">
-                                        <button type="submit" id="submit" name="submit"
-                                            class="btn btn-primary">Update</button>
-                                        <a href="/dashboard" class="btn btn-secondary">Cancel</a>
                                     </div>
-                                </div>
-                            </div>
-                            </form>
+                            
+                                    <script language='javascript' type='text/javascript'>
+                                        function check(input) {
+                                        if (input.value != document.getElementById('password').value) {
+                                            input.setCustomValidity('Password Must be Matching.');
+                                        } else {
+                                            // input is valid -- reset the error message
+                                            input.setCustomValidity('');
+                                        }
+                                        }
+                                    </script>
+
+                                    <div class="row gutters">
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                            <div style="text-align: center;">
+                                                <button type="submit" id="submit" name="submit"
+                                                    class="btn btn-primary">Update</button>
+                                                <a href="/dashboard" class="btn btn-secondary">Cancel</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
                         </div>
                     </div>
                 </div>

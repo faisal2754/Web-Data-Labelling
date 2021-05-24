@@ -83,31 +83,102 @@ router.post('/user-profile', checkAuthenticated, localStorage.single('image'), a
             password = user.password
         }
 
-        let driveImg
-        if (!req.body.image) {
-            driveImg = user.avatar
-        } else {
+        if (req.file) {
+            console.log('printing file')
             const imgPath = 'public/uploads/'
             const localImg = String(fs.readdirSync(imgPath))
 
             const result = await service.uploadFile(localImg, imgPath)
-            driveImg = `https://drive.google.com/uc?id=${result.data.id}`
+            const driveImg = `https://drive.google.com/uc?id=${result.data.id}`
+            dbUser.avatar = driveImg
 
-            fs.rmSync(imgPath + result.data.name)
+            fs.rm(imgPath + result.data.name, (err) => {
+                if (err) {
+                    console.log(err)
+                }
+            })
         }
 
         dbUser.name = name
         dbUser.password = password
-        dbUser.avatar = driveImg
 
         await dbUser.save()
 
         res.redirect('/dashboard')
     } catch (e) {
         console.log(e)
-        res.redirect(400, '/')
+        res.redirect('/')
     }
+
+    // dbUser.name = name
+    // dbUser.password = password
+    // // dbUser.avatar = driveImg
+
+    // dbUser
+    //     .save()
+    //     .then((res) => {
+    //         console.log(res)
+    //     })
+    //     .catch((e) => {
+    //         console.log(e)
+    //     })
+
+    // res.redirect('/dashboard')
 })
+
+// router.post('/user-profile', checkAuthenticated, localStorage.single('image'), async (req, res) => {
+//     try {
+//         const user = await req.user
+//         const userID = user._id
+//         const dbUser = await User.findOne({ _id: userID })
+
+//         let name = req.body.name
+//         if (!name) {
+//             name = user.name
+//         }
+
+//         let password = req.body.password
+//         if (!password) {
+//             password = user.password
+//         }
+//         let driveImg
+//         if (!req.file) {
+//             console.log('didnt detect image')
+//             driveImg = user.avatar
+//         } else {
+//             console.log(req.file)
+//             const imgPath = 'public/uploads/'
+//             const localImg = String(fs.readdirSync(imgPath))
+
+//             const result = await service.uploadFile(localImg, imgPath)
+//             driveImg = `https://drive.google.com/uc?id=${result.data.id}`
+
+//             fs.rmSync(imgPath + result.data.name)
+//         }
+
+//         dbUser.name = name
+//         dbUser.password = password
+//         dbUser.avatar = driveImg
+
+//         dbUser
+//             .save()
+//             .then((res) => {
+//                 console.log(res)
+//             })
+//             .catch((e) => {
+//                 console.log(e)
+//             })
+
+//         try {
+//             res.redirect('/dashboard')
+//         } catch (error) {
+//             console.log(error)
+//         }
+//     } catch (e) {
+//         console.log(e)
+//         res.redirect(400, '/')
+//     }
+// })
 
 router.post('/cancelJob', checkAuthenticated, async (req, res) => {
     try {
