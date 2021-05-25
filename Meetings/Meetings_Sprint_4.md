@@ -1,4 +1,4 @@
-## Meet with Tarshen Monday 24th May to review Sprint 3 get ready to begin Sprint 4
+Meet with Tarshen Monday 24th May to review Sprint 3 get ready to begin Sprint 4
 
 Meeting with Mr Jiahao 25 May 12:00pm:
 
