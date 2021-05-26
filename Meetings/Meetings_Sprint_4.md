@@ -17,3 +17,46 @@ For Sprint 4:
   some type of timeline?)
   
 **Team met after meeting to prioritise backlog for Sprint 4
+
+##Daily Scrum Meet 26th May (Wednesday) 4pm: 
+
+Aharon Cohen (Frontend):
+- Tasks completed yesterday: Planned Sprint 4
+- Tasks for the day: Filtering and polishing  
+- Impediments: Other projects for ML and CGV
+
+Langiwe Mwale (Frontend):
+- Tasks completed Yesterday: Polish
+- Task for the Day: Implement filtering
+- Impediments: Time constraints/projects
+
+Ioanni Balassis: (Frontend)
+- Tasks completed yesterday: New Sprint Started
+- Tasks for the day: Create Do job page
+- Impediments: Other projects for ML, CGV
+
+Jonathan Nunes (Frontend):
+- Tasks completed yesterday: New sprint planned
+- Tasks for the day: Plan shell for label page
+- Impediments: Other university work
+
+Faisal Saleem (Backend):
+- Tasks completed yesterday: Began working on the labelling process.
+- Tasks for the day: Continue work on the labelling process.
+- Impediments: Time
+
+Ghulame Mujtaba Arbi (Backend/Frontend):
+- Tasks completed yesterday: Working on the labelling process.
+- Tasks for the day: Still working on the labelling process and refining frontend design.
+- Impediments: Time/quizzes/projects
+
+Tristan Bester (Backend):
+- Tasks completed yesterday: Began working on the labelling process.
+- Tasks for the day: Continue work on the labelling process.
+- Impediments: Time.
+
+Sipho Sikakane.(Scrum master/Backend)
+- Tasks completed yesterday: Labellers can remove themselves from jobs
+- Tasks for the day: Look into how to structure database for job labelling
+- Impediments: Tests
+
