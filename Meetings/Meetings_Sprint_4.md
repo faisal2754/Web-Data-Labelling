@@ -18,7 +18,7 @@ For Sprint 4:
   
 **Team met after meeting to prioritise backlog for Sprint 4
 
-##Daily Scrum Meet 26th May (Wednesday) 4pm: 
+## Daily Scrum Meet 26th May (Wednesday) 4pm: 
 
 Aharon Cohen (Frontend):
 - Tasks completed yesterday: Planned Sprint 4
