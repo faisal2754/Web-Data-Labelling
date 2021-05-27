@@ -60,3 +60,46 @@ Sipho Sikakane.(Scrum master/Backend)
 - Tasks for the day: Look into how to structure database for job labelling
 - Impediments: Tests
 
+## Daily Scrum Meet 27th May (Thursday) 4pm:
+
+Aharon Cohen (Frontend):
+- Tasks completed yesterday: Polishing
+- Tasks for the day: Continue filtering jobs  
+- Impediments: Other projects for ML and CGV
+
+Langiwe Mwale (Frontend):
+- Tasks completed Yesterday:set up filtering
+- Task for the Day: Implement filtering
+- Impediments: Time constraints/projects
+
+Ioanni Balassis: (Frontend)
+- Tasks completed yesterday: Started filter jobs
+- Tasks for the day: Started filter page
+- Impediments: Other projects for ML, CGV
+
+Jonathan Nunes (Frontend):
+- Tasks completed yesterday: New sprint planned
+- Tasks for the day: Started filter page
+- Impediments: Other university work
+
+Faisal Saleem (Backend):
+- Tasks completed yesterday: Began working on the labelling process.
+- Tasks for the day: Continue work on the labelling process.
+- Impediments: Time
+
+Ghulame Mujtaba Arbi (Backend/Frontend):
+- Tasks completed yesterday: Working on the labelling process.
+- Tasks for the day: Still working on the labelling process and refining frontend design.
+- Impediments: Time/quizzes/projects
+
+Tristan Bester (Backend):
+- Tasks completed yesterday: Began working on the labelling process.
+- Tasks for the day: Continue work on the labelling process.
+- Impediments: Time.
+
+Sipho Sikakane.(Scrum master/Backend)
+- Tasks completed yesterday: Labellers can remove themselves from jobs
+- Tasks for the day: Look into how to structure database for job labelling
+- Impediments: Tests
+
+
