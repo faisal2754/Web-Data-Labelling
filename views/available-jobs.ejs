@@ -57,11 +57,19 @@
                                 <div class="col-md-12">
                                     <div class="search-result bg-gray">
                                         <h2>See All our Listings!</h2>
+                                        
                                         <p>
                                             <%= allJobs.length %> results on
                                                 <!-- this span displaysthe current date -->
                                                 <span id="currentDate"></span>
                                         </p>
+                                        <label for="Jobs">Order Jobs By:</label>
+                                            <select name="Jobs" id="Sort">
+                                            <option value="Credits-a">Credits Ascending</option>
+                                            <option value="Credits-d">Credits Descending</option>
+                                            <option value="Recent">Most Recent</option>
+                                            <option value="Title">Job Title</option>
+                                            </select>
                                     </div>
                                 </div>
                             </div>
@@ -171,6 +179,30 @@
                                     </div> -->
                                 <div class="product-grid-list">
                                     <div class="row mt-30">
+                                        <script>
+                                           if (document.getElementById("Sort").value=="Credits-a"){
+                                                let n = "<%= allJobs.length %>";
+                                                console.log(n)
+        
+                                            //      for(let i = 0; i < n; i++) { 
+                                            //     // Finding the smallest number in the subarray
+                                            //      let min = i;
+                                            //      for(let j = i+1; j < n; j++){
+                                            //          if( allJobs[i].credits <  allJobs[min].credits ) { 
+                                            //              min=j 
+                                            //         }
+                                            //     } 
+                                            //      if (min != i) { 
+                                            //         // Swapping the elements
+                                            //          let tmp  =  allJobs[i]   
+                                            //          allJobs[i] =  allJobs[min] 
+                                            //          allJobs[min] = tmp;      
+                                            //     }
+                                            // } 
+                                            }
+                                            
+                                        </script>
+                                        
                                         <% for( let i=0; i < allJobs.length; i++ ) { %>
                                             <div class="col-sm-12 col-lg-4 col-md-6">
                                                 <!-- product card -->
