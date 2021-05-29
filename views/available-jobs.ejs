@@ -54,24 +54,31 @@
                     <section class="section-sm">
                         <div class="container" style="max-width: 1500px;">
                             <div class="row">
-                                <div class="col-md-12">
-                                    <div class="search-result bg-gray">
+                                <div class="col-md-12" style="display: flex; justify-content: space-between;">
+                                    <div>
                                         <h2>See All our Listings!</h2>
-                                        
-                                        <p>
+                                        <p style="padding-left: 20px;">
                                             <%= allJobs.length %> results on
                                                 <!-- this span displaysthe current date -->
                                                 <span id="currentDate"></span>
                                         </p>
-                                        <label for="Jobs">Order Jobs By:</label>
-                                            <select name="Jobs" id="Sort">
+                                    </div>
+                                        <div>
+                                            <p style="padding-left: 20px;">
+                                                Order Jobs By:
+                                            </p>
+
+                                            <select style="display: block;" name="Jobs" id="Sort" onchange= sort();>
                                             <option value="credits-a">Credits Ascending</option>
                                             <option value="credits-d">Credits Descending</option>
                                             <option value="recent">Most Recent</option>
                                             <option value="title">Job Title</option>
                                             </select>
-                                    </div>
+                                        </div>
+                                        
+                                    
                                 </div>
+                                
                             </div>
 
 
@@ -180,6 +187,8 @@
                                 <div class="product-grid-list">
                                     <div class="row mt-30">
                                         <script>
+
+                                            function sort(){
                                             console.log(document.getElementById("Sort").value)
                                            if(document.getElementById("Sort").value == "credits-a"){
                                             "<%  var n =  allJobs.length;%>"
@@ -197,13 +206,12 @@
                                             console.log("BROOOO");
                                            }
                                            else if(document.getElementById("Sort").value == "credits-d"){
-                                               console.log("SIIIIIIIIII");
                                             "<%  var n =  allJobs.length;%>"
                                             "<%    var temp = allJobs[0];%>"
                                                 
                                             "<%    for(var i = 0; i < n-1; i++){ %>"
                                             " <%        for(var j = i + 1; j < n; j++){%>"
-                                            "<%           if(allJobs[i].credits < allJobs[j].credits){%>"
+                                            "<%           if(allJobs[i].credits > allJobs[j].credits){%>"
                                             "<%                temp = allJobs[i];%>"
                                             "<%                allJobs[i] = allJobs[j];%>"
                                             "<%                allJobs[j] = temp;%>"
@@ -211,7 +219,7 @@
                                             "<%}%>"
                                             "<%}%>"
                                            }
-
+                                            }
                                                     
                                             
                                          </script> 
@@ -278,7 +286,13 @@
                                                         
 
                                                         </div>
-                                                        <h6 class="py-2" style="padding-top: 10px;">Credits: <%= allJobs[i].credits %> | Job Owner: <%= allJobs[i].emailOwner %></h6>
+                                                        <div style="display: flex;justify-content: space-around; padding: inherit;">
+                                                        
+                                                        <h6 class="py-2" style="padding-top: 10px;">Job Owner: <%= allJobs[i].emailOwner %></h6>
+                                                        <h6 class="py-2" style="padding-top: 10px;">Credits: <%= allJobs[i].credits %></h6>
+                                                        
+                                                        </div>
+                                                        <h6 class="py-2" style="padding-bottom: 0;">Description:</h6>
                                                         <h6 style="overflow-wrap: break-word;"><%= allJobs[i].description %></h6>
                                                     </div>
                                                     <div class="modal-footer border-top-0 mb-3 mx-5 justify-content-lg-between justify-content-center">

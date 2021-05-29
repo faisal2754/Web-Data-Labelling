@@ -1877,6 +1877,8 @@ ul.pagination .active a {
   float: none;
   display: inline-block;
   border-radius: 0;
+  font-family: "Poppins", sans-serif;
+  height: auto;
 }
 
 .nice-select .list {

@@ -8,14 +8,16 @@
   cursor: pointer;
   display: block;
   float: left;
-  font-family: inherit;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-weight: normal;
-  height: 42px;
+  height: auto;
   line-height: 30px;
   outline: none;
   padding-left: 18px;
   padding-right: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   position: relative;
   text-align: left !important;
   transition: all 0.2s ease-in-out;
