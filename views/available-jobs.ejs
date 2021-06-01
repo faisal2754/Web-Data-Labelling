@@ -1,16 +1,17 @@
 <title>Find A Job</title>
 
 <% if (authenticated) { %>
-    <%- include('header-registered.ejs',{Firstname: name}) %> 
+    <%- include('header-registered.ejs',{Firstname: name}) %>
         <% }else{ %>
             <%- include('header.ejs') %>
                 <% } %>
 
-                <div class="page-hero-image" style="background-image: url(/images/hero.jpg); height: 260px;">
-                    <h1 style="color: #ffffff; font-size: 36px;">Explore Label.ml’s Available Jobs</h1>
-                    <p><span style="color: #ffffff; font-size: 18px;">All available jobs for you to start labelling now!</span></p>
-              <!-- <p><span style="color: #ffffff;">All available jobs for you to start labelling!</span></p> -->
-                  </div>
+                    <div class="page-hero-image" style="background-image: url(/images/hero.jpg); height: 260px;">
+                        <h1 style="color: #ffffff; font-size: 36px;">Explore Label.ml’s Available Jobs</h1>
+                        <p><span style="color: #ffffff; font-size: 18px;">All available jobs for you to start labelling
+                                now!</span></p>
+                        <!-- <p><span style="color: #ffffff;">All available jobs for you to start labelling!</span></p> -->
+                    </div>
 
                     <!-- Variable allJobs contains all the jobs that we fetch from the database, it is logged in the console of the node app -->
 
@@ -51,7 +52,7 @@
                     </section> -->
 
 
-                    <section class="section-sm">
+                    <section id="allJobs_section" class="section-sm">
                         <div class="container" style="max-width: 1500px;">
                             <div class="row">
                                 <div class="col-md-12" style="display: flex; justify-content: space-between;">
@@ -63,22 +64,22 @@
                                                 <span id="currentDate"></span>
                                         </p>
                                     </div>
-                                        <div>
-                                            <p style="padding-left: 20px;">
-                                                Order Jobs By:
-                                            </p>
+                                    <div>
+                                        <p style="padding-left: 20px;">
+                                            Order Jobs By:
+                                        </p>
 
-                                            <select style="display: block;" name="Jobs" id="Sort" onchange= sort();>
+                                        <select style="display: block;" name="Jobs" id="Sort" onchange=sort();>
                                             <option value="credits-a">Credits Ascending</option>
                                             <option value="credits-d">Credits Descending</option>
                                             <option value="recent">Most Recent</option>
                                             <option value="title">Job Title</option>
-                                            </select>
-                                        </div>
-                                        
-                                    
+                                        </select>
+                                    </div>
+
+
                                 </div>
-                                
+
                             </div>
 
 
@@ -188,42 +189,42 @@
                                     <div class="row mt-30">
                                         <script>
 
-                                            function sort(){
-                                            console.log(document.getElementById("Sort").value)
-                                           if(document.getElementById("Sort").value == "credits-a"){
-                                            "<%  var n =  allJobs.length;%>"
-                                            "<%    var temp = allJobs[0];%>"
-                                                
-                                            "<%    for(var i = 0; i < n-1; i++){ %>"
-                                            " <%        for(var j = i + 1; j < n; j++){%>"
-                                            "<%           if(allJobs[i].credits < allJobs[j].credits){%>"
-                                            "<%                temp = allJobs[i];%>"
-                                            "<%                allJobs[i] = allJobs[j];%>"
-                                            "<%                allJobs[j] = temp;%>"
-                                            "<%}%>"
-                                            "<%}%>"
-                                            "<%}%>"
-                                            console.log("BROOOO");
-                                           }
-                                           else if(document.getElementById("Sort").value == "credits-d"){
-                                            "<%  var n =  allJobs.length;%>"
-                                            "<%    var temp = allJobs[0];%>"
-                                                
-                                            "<%    for(var i = 0; i < n-1; i++){ %>"
-                                            " <%        for(var j = i + 1; j < n; j++){%>"
-                                            "<%           if(allJobs[i].credits > allJobs[j].credits){%>"
-                                            "<%                temp = allJobs[i];%>"
-                                            "<%                allJobs[i] = allJobs[j];%>"
-                                            "<%                allJobs[j] = temp;%>"
-                                            "<%}%>"
-                                            "<%}%>"
-                                            "<%}%>"
-                                           }
+                                            function sort() {
+                                                console.log(document.getElementById("Sort").value)
+                                                if (document.getElementById("Sort").value == "credits-a") {
+                                                    "<%  var n =  allJobs.length;%>"
+                                                    "<%    var temp = allJobs[0];%>"
+
+                                                    "<%    for(var i = 0; i < n-1; i++){ %>"
+                                                    " <%        for(var j = i + 1; j < n; j++){%>"
+                                                    "<%           if(allJobs[i].credits < allJobs[j].credits){%>"
+                                                    "<%                temp = allJobs[i];%>"
+                                                    "<%                allJobs[i] = allJobs[j];%>"
+                                                    "<%                allJobs[j] = temp;%>"
+                                                    "<%}%>"
+                                                    "<%}%>"
+                                                    "<%}%>"
+                                                    console.log("BROOOO");
+                                                }
+                                                else if (document.getElementById("Sort").value == "credits-d") {
+                                                    "<%  var n =  allJobs.length;%>"
+                                                    "<%    var temp = allJobs[0];%>"
+
+                                                    "<%    for(var i = 0; i < n-1; i++){ %>"
+                                                    " <%        for(var j = i + 1; j < n; j++){%>"
+                                                    "<%           if(allJobs[i].credits > allJobs[j].credits){%>"
+                                                    "<%                temp = allJobs[i];%>"
+                                                    "<%                allJobs[i] = allJobs[j];%>"
+                                                    "<%                allJobs[j] = temp;%>"
+                                                    "<%}%>"
+                                                    "<%}%>"
+                                                    "<%}%>"
+                                                }
                                             }
-                                                    
-                                            
-                                         </script> 
-                                        
+
+
+                                        </script>
+
                                         <% for( let i=0; i < allJobs.length; i++ ) { %>
                                             <div class="col-sm-12 col-lg-4 col-md-6">
                                                 <!-- product card -->
@@ -231,22 +232,25 @@
                                                     <div class="card">
                                                         <div class="thumb-content">
                                                             <!-- <div class="price">$200</div> -->
-                                                            <a href="" data-toggle="modal" data-target="#a<%= allJobs[i]._id %>">
+                                                            <a href="" data-toggle="modal"
+                                                                data-target="#a<%= allJobs[i]._id %>">
                                                                 <img class="card-img-top img-fluid"
-                                                                    src="<%=allJobs[i].images[0]%>" 
+                                                                    src="<%=allJobs[i].images[0]%>"
                                                                     alt="Card image cap">
                                                             </a>
                                                         </div>
 
                                                         <div class="card-body" style="height: 70;">
-                                                            <h4 class="card-title"><a href="" data-toggle="modal" data-target="#a<%= allJobs[i]._id %>"> </a>
+                                                            <h4 class="card-title"><a href="" data-toggle="modal"
+                                                                    data-target="#a<%= allJobs[i]._id %>"> </a>
                                                                 <%= allJobs[i].title %>
                                                             </h4>
                                                             <ul class="list-inline product-meta">
                                                                 <li class="flex-row list-inline-item">
-                                                                    <a href="" data-toggle="modal" data-target="#a<%= allJobs[i]._id %>"><i
+                                                                    <a href="" data-toggle="modal"
+                                                                        data-target="#a<%= allJobs[i]._id %>"><i
                                                                             class="fa fa-folder-open-o"></i>Images
-                                                                             
+
                                                                     </a>
                                                                 </li>
                                                                 <li class="flex-row list-inline-item ">
@@ -263,56 +267,83 @@
 
                                                         </div>
                                                         <form action="/acceptJob" method="POST">
-                                                            <input type="hidden" name="jobId" value="a<%= allJobs[i]._id %>" />
-                                                            
+                                                            <input type="hidden" name="jobId"
+                                                                value="a<%= allJobs[i]._id %>" />
+
                                                         </form>
                                                     </div>
                                                 </div>
                                             </div>
                                             <!-- Modal -->
-                                                <div class="modal fade" id="a<%= allJobs[i]._id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+                                            <div class="modal fade" id="a<%= allJobs[i]._id %>" tabindex="-1"
+                                                role="dialog" aria-labelledby="exampleModalCenterTitle"
                                                 aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                                     <div class="modal-content" style="border: 0px;">
-                                                
-                                                    <div class="modal-body text-center">
-                                                        <h6 class="py-2" style="font-size: 30px;"><%= allJobs[i].title %></h6>
-                                                        <h6 class="py-2" style="padding-bottom: 0;">Image Previews:</h6>
-                                                        <div class="w3-content w3-display-container" style="padding: inherit; overflow: auto; display: inline-flex;">
-                                                        <img class="<%= allJobs[i]._id %>" src="<%= allJobs[i].images[0] %>" style="width:100%; padding: inherit;">
-                                                        <img class="<%= allJobs[i]._id %>" src="<%= allJobs[i].images[1] %>" style="width:100%; padding: inherit;">
-                                                        <img class="<%= allJobs[i]._id %>" src="<%= allJobs[i].images[2] %>" style="width:100%; padding: inherit;">
-                                                        <img class="<%= allJobs[i]._id %>" src="<%= allJobs[i].images[3] %>" style="width:100%; padding: inherit;">
-                                                        
+
+                                                        <div class="modal-body text-center">
+                                                            <h6 class="py-2" style="font-size: 30px;">
+                                                                <%= allJobs[i].title %>
+                                                            </h6>
+                                                            <h6 class="py-2" style="padding-bottom: 0;">Image Previews:
+                                                            </h6>
+                                                            <div class="w3-content w3-display-container"
+                                                                style="padding: inherit; overflow: auto; display: inline-flex;">
+                                                                <img class="<%= allJobs[i]._id %>"
+                                                                    src="<%= allJobs[i].images[0] %>"
+                                                                    style="width:100%; padding: inherit;">
+                                                                <img class="<%= allJobs[i]._id %>"
+                                                                    src="<%= allJobs[i].images[1] %>"
+                                                                    style="width:100%; padding: inherit;">
+                                                                <img class="<%= allJobs[i]._id %>"
+                                                                    src="<%= allJobs[i].images[2] %>"
+                                                                    style="width:100%; padding: inherit;">
+                                                                <img class="<%= allJobs[i]._id %>"
+                                                                    src="<%= allJobs[i].images[3] %>"
+                                                                    style="width:100%; padding: inherit;">
+
+
+                                                            </div>
+                                                            <div
+                                                                style="display: flex;justify-content: space-around; padding: inherit;">
+
+                                                                <h6 class="py-2" style="padding-top: 10px;">Job Owner:
+                                                                    <%= allJobs[i].emailOwner %>
+                                                                </h6>
+                                                                <h6 class="py-2" style="padding-top: 10px;">Credits: <%=
+                                                                        allJobs[i].credits %>
+                                                                </h6>
+
+                                                            </div>
+                                                            <h6 class="py-2" style="padding-bottom: 0;">Description:
+                                                            </h6>
+                                                            <h6 style="overflow-wrap: break-word;">
+                                                                <%= allJobs[i].description %>
+                                                            </h6>
+                                                        </div>
+                                                        <div
+                                                            class="modal-footer border-top-0 mb-3 mx-5 justify-content-lg-between justify-content-center">
+                                                            <!-- <button type="button" class="btn btn-success">Accept Job</button> -->
+                                                            <% if(authenticated){ %>
+                                                                <form action="/acceptJob" method="POST">
+                                                                    <input type="hidden" name="jobId"
+                                                                        value="<%= allJobs[i]._id %>" />
+                                                                    <button class="btn btn-success" name="button">Accept
+                                                                        Job</button>
+                                                                </form>
+                                                                <% } else{ %>
+                                                                    <a class="btn btn-success" href="/login">Accept
+                                                                        Job</a>
+                                                                    <% } %>
+                                                                        <button type="button" class="btn btn-primary"
+                                                                            data-dismiss="modal">Cancel</button>
 
                                                         </div>
-                                                        <div style="display: flex;justify-content: space-around; padding: inherit;">
-                                                        
-                                                        <h6 class="py-2" style="padding-top: 10px;">Job Owner: <%= allJobs[i].emailOwner %></h6>
-                                                        <h6 class="py-2" style="padding-top: 10px;">Credits: <%= allJobs[i].credits %></h6>
-                                                        
-                                                        </div>
-                                                        <h6 class="py-2" style="padding-bottom: 0;">Description:</h6>
-                                                        <h6 style="overflow-wrap: break-word;"><%= allJobs[i].description %></h6>
-                                                    </div>
-                                                    <div class="modal-footer border-top-0 mb-3 mx-5 justify-content-lg-between justify-content-center">
-                                                        <!-- <button type="button" class="btn btn-success">Accept Job</button> -->
-                                                        <% if(authenticated){ %> 
-                                                        <form action="/acceptJob" method="POST">
-                                                            <input type="hidden" name="jobId" value="<%= allJobs[i]._id %>" />
-                                                            <button class="btn btn-success" name="button">Accept Job</button>
-                                                        </form>
-                                                        <% } else{ %>
-                                                            <a class="btn btn-success" href="/login">Accept Job</a>
-                                                            <% } %>
-                                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-                                                        
-                                                    </div>
                                                     </div>
                                                 </div>
-                                                </div>
-                                                <!-- delete account popup modal end-->
-                                                    <!-- delete-account modal -->
+                                            </div>
+                                            <!-- delete account popup modal end-->
+                                            <!-- delete-account modal -->
                                             <% } %>
                                     </div>
                                 </div>
@@ -340,7 +371,7 @@
                             </div>
                         </div>
                         </div>
-                        
+
                     </section>
                     <script>
                         var day = new Date();
