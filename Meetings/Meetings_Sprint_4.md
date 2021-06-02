@@ -144,3 +144,47 @@ Sipho Sikakane.(Scrum master/Backend)
 - Tasks for the day: Get build to pass
 - Impediments: Lectures and TIme
 
+## Daily Scrum Meet 1st June (Tuesday) 4pm:
+
+Aharon Cohen (Frontend):
+- Tasks completed yesterday: Polishing
+- Tasks for the day: Start setting up labelling page  
+- Impediments: Other projects for ML and CGV
+
+Langiwe Mwale (Frontend):
+- Tasks completed Yesterday:Tried to fix filtering
+- Task for the Day: move on to making the ‘Do Job’ page,look into AJAX
+- Impediments: ejs issues
+
+Ioanni Balassis: (Frontend)
+- Tasks completed yesterday: Started filter jobs
+- Tasks for the day: Start 
+- Impediments: Other projects for ML, CGV
+
+Jonathan Nunes (Frontend):
+- Tasks completed yesterday: Started filtering on available jobs page
+- Tasks for the day: Continue filtering
+- Impediments: Other university work
+
+Faisal Saleem (Backend):
+- Tasks completed yesterday: Continued work on the labelling process.
+- Tasks for the day: Fix build failing
+- Impediments: Time
+
+Ghulame Mujtaba Arbi (Backend/Frontend):
+- Tasks completed yesterday: start working labelling process 
+- Tasks for the day: work on labelling and filtering process
+- Impediments: Time/quizzes/projects
+
+Tristan Bester (Backend):
+- Tasks completed yesterday: Looked at build issues
+- Tasks for the day: Continue work with supertest and Jest.
+- Impediments: Time.
+
+Sipho Sikakane.(Scrum master/Backend)
+- Tasks completed yesterday:  Look into how to structure database for job labelling
+- Tasks for the day: Get build to pass
+- Impediments: Lectures and TIme
+
+## Daily Scrum Meet 2nd June (Wednesday) 4pm:
+
