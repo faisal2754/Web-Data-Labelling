@@ -1,0 +1,79 @@
+<div class="loader-wrapper">
+    <div class="loading">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+</div>
+
+
+<!-- <script>
+    window.load(function(){
+        $(".loader-wrapper").fadeOut("slow");
+    })
+</script> -->
+<style>
+    body {
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        background: #222;
+    }
+
+    .loader-wrapper {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        background-color: #242f3f;
+    }
+
+    .loading {
+        $colors: #9704d9, #b15add, #c464ce, #cb8ae6, #000080;
+        display: flex;
+
+        .dot {
+            position: relative;
+            width: 2em;
+            height: 2em;
+            margin: 0.8em;
+            border-radius: 50%;
+
+            &::before {
+                position: absolute;
+                content: "";
+                width: 100%;
+                height: 100%;
+                background: inherit;
+                border-radius: inherit;
+                animation: wave 2s ease-out infinite;
+            }
+
+            @for $i from 1 through 5 {
+                &:nth-child(#{$i}) {
+                    background: nth($colors, $i);
+
+                    &::before {
+                        animation-delay: $i * 0.2s;
+                    }
+                }
+            }
+        }
+    }
+
+    @keyframes wave {
+
+        50%,
+        75% {
+            transform: scale(2.5);
+        }
+
+        80%,
+        100% {
+            opacity: 0;
+        }
+    }
+</style>
