@@ -58,6 +58,16 @@ router.get('/how-to-page', async (req, res) => {
     res.render('how-to-page', { authenticated: auth, name: username })
 })
 
+router.get('/how-it-works', async (req, res) => {
+    const user = await req.user
+    const auth = req.isAuthenticated()
+    var username = ''
+    if (auth) {
+        username = user.name
+    }
+    res.render('how-it-works', { authenticated: auth, name: username })
+})
+
 router.get('/about-us', async (req, res) => {
     const user = await req.user
     const auth = req.isAuthenticated()
