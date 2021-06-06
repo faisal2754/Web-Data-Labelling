@@ -175,3 +175,33 @@ describe('Logged in user should be able to access terms and conditions  page', (
     it('login', loginUser(agent))
     it('should access terms and conditions page', accessRoute(agent, 'http://localhost:3000/terms-conditions'))
 })
+
+describe('Loading screen should be accessible', () => {
+    it('should access loading screen', (done) => {
+        superagent.get('http://localhost:3000/loading-screen').end((err, res) => {
+            expect(res.status == 200).toBeTruthy()
+            done()
+        })
+    })
+})
+
+describe('Logged in user should be able to access how it works page', () => {
+    afterAll(async (done) => {
+        await removeAllCollections()
+        done()
+    })
+
+    let agent = superagent.agent()
+    it('register', registerUser(agent))
+    it('login', loginUser(agent))
+    it('should access how it works page', accessRoute(agent, 'http://localhost:3000/how-it-works'))
+})
+
+describe('Unlogged in user should be able to access how it works page', () => {
+    it('should access how it works page', (done) => {
+        superagent.get('http://localhost:3000/how-it-works').end((err, res) => {
+            expect(res.status == 200).toBeTruthy()
+            done()
+        })
+    })
+})

@@ -49,11 +49,6 @@ router.get('/accepted-jobs', checkAuthenticated, async (req, res) => {
     })
 })
 
-// router.get('/do-job/:id', (req, res) => {
-
-//     // res.send(req.params.id)
-// })
-
 router.get('/secret-page', checkAuthenticated, (req, res) => {
     res.send('bruh')
 })
@@ -89,8 +84,7 @@ router.post('/user-profile', checkAuthenticated, localStorage.single('image'), a
             password = user.password
         }
 
-        if (req.file) {
-            console.log('printing file')
+        if (req.file || req.body.file) {
             const imgPath = 'public/uploads/'
             const localImg = String(fs.readdirSync(imgPath))
 
@@ -112,79 +106,9 @@ router.post('/user-profile', checkAuthenticated, localStorage.single('image'), a
 
         res.redirect('/dashboard')
     } catch (e) {
-        console.log(e)
         res.redirect('/')
     }
-
-    // dbUser.name = name
-    // dbUser.password = password
-    // // dbUser.avatar = driveImg
-
-    // dbUser
-    //     .save()
-    //     .then((res) => {
-    //         console.log(res)
-    //     })
-    //     .catch((e) => {
-    //         console.log(e)
-    //     })
-
-    // res.redirect('/dashboard')
 })
-
-// router.post('/user-profile', checkAuthenticated, localStorage.single('image'), async (req, res) => {
-//     try {
-//         const user = await req.user
-//         const userID = user._id
-//         const dbUser = await User.findOne({ _id: userID })
-
-//         let name = req.body.name
-//         if (!name) {
-//             name = user.name
-//         }
-
-//         let password = req.body.password
-//         if (!password) {
-//             password = user.password
-//         }
-//         let driveImg
-//         if (!req.file) {
-//             console.log('didnt detect image')
-//             driveImg = user.avatar
-//         } else {
-//             console.log(req.file)
-//             const imgPath = 'public/uploads/'
-//             const localImg = String(fs.readdirSync(imgPath))
-
-//             const result = await service.uploadFile(localImg, imgPath)
-//             driveImg = `https://drive.google.com/uc?id=${result.data.id}`
-
-//             fs.rmSync(imgPath + result.data.name)
-//         }
-
-//         dbUser.name = name
-//         dbUser.password = password
-//         dbUser.avatar = driveImg
-
-//         dbUser
-//             .save()
-//             .then((res) => {
-//                 console.log(res)
-//             })
-//             .catch((e) => {
-//                 console.log(e)
-//             })
-
-//         try {
-//             res.redirect('/dashboard')
-//         } catch (error) {
-//             console.log(error)
-//         }
-//     } catch (e) {
-//         console.log(e)
-//         res.redirect(400, '/')
-//     }
-// })
 
 router.post('/cancelJob', checkAuthenticated, async (req, res) => {
     try {
