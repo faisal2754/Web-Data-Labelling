@@ -9,13 +9,13 @@ const Labelling = require('../models/Labelling')
 
 const service = new googleService()
 
-router.get('/create-job', checkAuthenticated, async(req, res) => {
+router.get('/create-job', checkAuthenticated, async (req, res) => {
     const user = await req.user
     const username = user.name
     res.render('create-job', { name: username })
 })
 
-router.get('/dashboard', checkAuthenticated, async(req, res) => {
+router.get('/dashboard', checkAuthenticated, async (req, res) => {
     const user = await req.user
     const username = user.name
     const userAvatar = user.avatar
@@ -32,7 +32,7 @@ router.get('/dashboard', checkAuthenticated, async(req, res) => {
     })
 })
 
-router.get('/accepted-jobs', checkAuthenticated, async(req, res) => {
+router.get('/accepted-jobs', checkAuthenticated, async (req, res) => {
     const user = await req.user
     const username = user.name
     const userAvatar = user.avatar
@@ -58,7 +58,7 @@ router.get('/secret-page', checkAuthenticated, (req, res) => {
     res.send('bruh')
 })
 
-router.post('/dashboard', checkAuthenticated, async(req, res) => {
+router.post('/dashboard', checkAuthenticated, async (req, res) => {
     const id = req.body.id
 
     try {
@@ -73,7 +73,7 @@ router.post('/dashboard', checkAuthenticated, async(req, res) => {
     }
 })
 
-router.post('/user-profile', checkAuthenticated, localStorage.single('image'), async(req, res) => {
+router.post('/user-profile', checkAuthenticated, localStorage.single('image'), async (req, res) => {
     try {
         const user = await req.user
         const userID = user._id
@@ -186,23 +186,26 @@ router.post('/user-profile', checkAuthenticated, localStorage.single('image'), a
 //     }
 // })
 
-router.post('/cancelJob', checkAuthenticated, async(req, res) => {
+router.post('/cancelJob', checkAuthenticated, async (req, res) => {
     try {
         const id = req.body.jobId
         const user = await req.user
         const userEmail = user.email
-        const updated = await Job.findOneAndUpdate({ _id: id }, {
-            $pull: {
-                emailLabellers: userEmail
+        const updated = await Job.findOneAndUpdate(
+            { _id: id },
+            {
+                $pull: {
+                    emailLabellers: userEmail
+                }
             }
-        })
+        )
         res.redirect('/dashboard')
     } catch {
         res.redirect(400, '/')
     }
 })
 
-router.get('/user-profile', checkAuthenticated, async(req, res) => {
+router.get('/user-profile', checkAuthenticated, async (req, res) => {
     const user = await req.user
     const username = user.name
     const userAvatar = user.avatar
@@ -210,7 +213,11 @@ router.get('/user-profile', checkAuthenticated, async(req, res) => {
     res.render('user-profile', { name: username, email: userEmail, avatar: userAvatar })
 })
 
-router.get('/do-job/:id', async(req, res) => {
+router.post('/job-label-update', async (req, res) => {
+    res.send('bruh')
+})
+
+router.get('/do-job/:id', async (req, res) => {
     const user = await req.user
 
     const labellingData = await Labelling.findOne({

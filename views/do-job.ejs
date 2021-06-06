@@ -51,6 +51,14 @@
                                     </div>
                                 </div>
 
+                                <% var slide = 20 %> 
+
+                                <script>
+                                    function getCurrentImg() {
+                                        console.log(slide)
+                                    }
+                                </script>
+
                                 <div class="wrapper fadeInDown" style="width: auto; padding: 0;">
                                     <div id="formContent" style="padding: 20px; width: min-content; max-width: 800px;">
                                         <label style="font-size: inherit; font-weight: 100; color: black;">Select
@@ -62,7 +70,7 @@
                                                     <div class="radio-toolbar">
                                                         <% for( let i=0; i < labels.length; i++ ) { %>
 
-                                                            <input type="radio" id="<%=labels[i]%>" name="radio" value="<%=labels[i]%>">
+                                                            <input type="radio" id="<%=labels[i]%>" onclick="alert(window.slide)" name="radio" value="<%=labels[i]%>">
                                                             <label for="<%=labels[i]%>" style="width: 100;">
 																<%= labels[i] %>
 															</label>
@@ -80,9 +88,11 @@
                             </div>
 
 
-
+                            
 
                             <script>
+                                window.slide = 20
+
                                 var slideIndex = 1;
                                 showSlides(slideIndex);
 
