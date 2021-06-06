@@ -15,35 +15,6 @@ const methodOverride = require('method-override')
 const fs = require('fs')
 const googleService = require('./googleServices')
 const { checkAuthenticated } = require('./middleware/auth.mw')
-const Labelling = require('./models/Labelling')
-const LabellingFragment = require('./LabellingFragment')
-const Job = require('./models/Job')
-
-async function bruh(jobId, numLabellers, imgUrlArr) {
-    const fragmentArr = []
-    const imgUrls = imgUrlArr
-    const equalAmount = Math.floor(imgUrls.length / numLabellers)
-    var currentUrl = 0
-    for (let i = 0; i < numLabellers; i++) {
-        let imgFragment
-        if (i == numLabellers - 1) {
-            imgFragment = imgUrls.slice(currentUrl)
-        } else {
-            imgFragment = imgUrls.slice(currentUrl, currentUrl + equalAmount)
-            currentUrl += equalAmount
-        }
-
-        const fragment = new LabellingFragment(null, imgFragment)
-        fragmentArr.push(fragment.getFragment())
-    }
-    const labelling = new Labelling({
-        jobId: jobId,
-        labellersArr: fragmentArr
-    })
-
-    await labelling.save()
-}
-// bruh('bruh', 6, ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l'])
 
 if (!fs.existsSync('public/uploads')) {
     fs.mkdirSync('public/uploads')

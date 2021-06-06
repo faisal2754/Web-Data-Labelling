@@ -31,6 +31,10 @@ const jobSchema = new Schema(
             type: Number,
             require: true
         },
+        filled: {
+            type: Boolean,
+            default: false
+        },
         emailLabellers: [
             {
                 type: String,

@@ -121,6 +121,8 @@ router.post('/acceptJob', async (req, res) => {
             const userEmail = user.email
             const jobId = req.body.jobId
 
+            const job = await Job.findById(jobId)
+
             const result = await Job.findByIdAndUpdate(
                 //Identifies which jobs we are adding to
                 jobId,
@@ -131,8 +133,8 @@ router.post('/acceptJob', async (req, res) => {
                     }
                 }
             )
-            res.redirect('/dashboard')
-            Labelling.updateOne(
+            console.log('starting mongo query')
+            await Labelling.updateOne(
                 {
                     jobId: jobId,
                     labellersArr: {
@@ -143,6 +145,21 @@ router.post('/acceptJob', async (req, res) => {
                     $set: { 'labellersArr.$.email': userEmail }
                 }
             )
+
+            const notFilled = Labelling.findOne({
+                jobId: jobId,
+                labellersArr: {
+                    $elemMatch: { email: null }
+                }
+            })
+
+            if (!notFilled) {
+                console.log('filled?')
+                job.filled = true
+                await job.save()
+            }
+
+            res.redirect('/dashboard')
         } catch {
             res.redirect(400, '/login')
         }

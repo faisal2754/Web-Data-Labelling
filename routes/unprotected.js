@@ -24,12 +24,13 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/available-jobs', async (req, res) => {
-    const job = await Job.find()
-    const jobCreditsAsc = await Job.find().sort({ credits: 1 })
-    const jobCreditsDesc = await Job.find().sort({ credits: -1 })
-    const jobTitleAsc = await Job.find({}).sort({ title: 1 })
-    const jobRecent = await Job.find().sort({ createdAt: -1 })
-    const jobOldest = await Job.find().sort({ createdAt: 1 })
+    const job = await Job.find({ filled: false })
+    console.log(job)
+    const jobCreditsAsc = await Job.find({ filled: false }).sort({ credits: 1 })
+    const jobCreditsDesc = await Job.find({ filled: false }).sort({ credits: -1 })
+    const jobTitleAsc = await Job.find({ filled: false }).sort({ title: 1 })
+    const jobRecent = await Job.find({ filled: false }).sort({ createdAt: -1 })
+    const jobOldest = await Job.find({ filled: false }).sort({ createdAt: 1 })
     const auth = req.isAuthenticated()
     const user = await req.user
     var username = ''
