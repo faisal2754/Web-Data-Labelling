@@ -1,267 +1,271 @@
 <title>Label Job</title>
 
 <% if (authenticated) { %>
-	<%- include('header-registered.ejs',{Firstname: name}) %>
-		<% }else{ %>
-			<%- include('header.ejs') %>
-				<% } %>
-					<section class="py-5 gback3">
-						<div class="container  ">
-							<div class="row m-10">
+    <%- include('header-registered.ejs',{Firstname: name}) %>
+        <% }else{ %>
+            <%- include('header.ejs') %>
+                <% } %>
+                    <section class="py-5 gback3">
+                        <div class="container  ">
+                            <div class="row m-10">
 
 
-								<div class="wrapper fadeInDown" style="width: auto; padding: 0;">
-									<div id="formContent"
-										style="padding: 0px; max-width: 900px; border-radius: 20px; text-align: inherit;">
-										<div id="image-section" class="col-9 " style="max-width: 100%;">
-											<div class="row" style="padding: 0px;">
+                                <div class="wrapper fadeInDown" style="width: auto; padding: 0;">
+                                    <div id="formContent"
+                                        style="padding: 0px; max-width: 900px; border-radius: 20px; text-align: inherit;">
+                                        <div id="image-section" class="col-9 " style="max-width: 100%;">
+                                            <div class="row" style="padding: 0px;">
 
-												<div class="slideshow-container">
+                                                <div class="slideshow-container">
+                                                    <% for( let index=0; index < labellingData.length; index++ ) { %>
+                                                        <div class="mySlides fadepic">
 
-													<div class="mySlides fadepic">
-														<div class="numbertext">1 / 3</div>
-														<img src="/images/bg12.jpg"
-															style="width:100%; border-radius: 20px;">
-														<div class="text">Caption 1</div>
-													</div>
+                                                            <div class="numbertext"
+                                                                style="text-shadow: 2px 2px rgba(0, 0, 0, 0.7)">
+                                                                <%=index+1 %>/
+                                                                    <%= labellingData.length %>
+                                                            </div>
+                                                            <img src="<%=labellingData[index].imgUrl  %>"
+                                                                style="width:100%; border-radius: 20px;">
 
-													<div class="mySlides fadepic">
-														<div class="numbertext">2 / 3</div>
-														<img src="/images/bg12.jpg"
-															style="width:100%; border-radius: 20px;">
-														<div class="text">Caption Two</div>
-													</div>
+                                                        </div>
+                                                        <% } %>
+                                                            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                                                            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+								<% for( let index=0; index < labellingData.length; index++ ) { %>
+                                <div class="wrapper fadeInDown" style="width: auto; padding: 0;">
+                                    <div id="formContent" style="padding: 20px; width: min-content; max-width: 800px;">
+                                        <label style="font-size: inherit; font-weight: 100; color: black;">Select
+                                            Label</label>
+                                        <div id="Labels-section" class="col-3 p-20 d-flex align-middle flex-column "
+                                            style="text-align: center;">
 
-													<div class="mySlides fadepic">
-														<div class="numbertext">3 / 3</div>
-														<img src="/images/bg12.jpg"
-															style="width:100%; border-radius: 20px;">
-														<div class="text">Caption Three</div>
-													</div>
+                                            <div class="container align-middle "
+                                                style="max-width: min-content; padding: 20px; margin-top: 5%;">
+                                                <form action="/job-label-update" methods="POST">
+                                                    <div class="radio-toolbar">
+                                                        <% for( let i=0; i < labels.length; i++ ) { %>
 
-													<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-													<a class="next" onclick="plusSlides(1)">&#10095;</a>
+                                                            <input type="radio" id="<%=labels[i]%>" name="radio" onclick="sendLabel('<%=labels[i]%>')" value="<%=labels[i]%>">
+                                                            <label for="<%=labels[i]%>" style="width: 100;">
+                                                                <%= labels[i] %>
+                                                            </label>
+                                                        <% } %>
 
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
+                                                                <input type="radio" onclick="sendLabel('other')" id="other"
+                                                                    name="radio" value="other">
+                                                                <label for="other" style="width: 100; ">Other</label>
 
-								<div class="wrapper fadeInDown" style="width: auto; padding: 0;">
-									<div id="formContent" style="padding: 20px; width: min-content; max-width: 800px;">
-										<label style="font-size: inherit; font-weight: 100; color: black;">Select
-											Label</label>
-										<div id="Labels-section" class="col-3 p-20 d-flex align-middle flex-column "
-											style="text-align: center;">
-
-											<div class="container align-middle "
-												style="max-width: min-content; padding: 20px; margin-top: 5%;">
-												<div class="radio-toolbar">
-													<input type="radio" id="radio1" name="radio" value="label1" checked>
-													<label for="radio1" style="width: 100;">Label 1</label>
-
-													<input type="radio" id="radio2" name="radio" value="label2">
-													<label for="radio2" style="width: 100;">Label 2</label>
-
-													<input type="radio" id="radio3" name="radio" value="label3">
-													<label for="radio3" style="width: 100;">Label 3</label>
-
-													<input type="radio" id="radio4" name="radio" value="label4">
-													<label for="radio4" style="width: 100;">Label 4</label>
-
-													<input type="radio" id="radio5" name="radio" value="label5">
-													<label for="radio5" style="width: 100;">Other</label>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+								<% } %>
+                            </div>
+                        </div>
 
 
 
+                        <script>
+                            var slideIndex = 1;
+                            showSlides(slideIndex);
+
+                            function plusSlides(n) {
+                                showSlides(slideIndex += n);
+                            }
+							
+                            function sendLabel(answer) {
+
+								var values = [{label: answer}, {imageIndex: slideIndex}]
+							
+
+                            }
+
+                            function currentSlide(n) {
+                                showSlides(slideIndex = n);
+                            }
+
+                            function showSlides(n) {
+                                var i;
+                                var slides = document.getElementsByClassName("mySlides ");
+                                if (n > slides.length) {
+                                    slideIndex = 1
+                                }
+                                if (n < 1) {
+                                    slideIndex = slides.length
+							
+                                }
+                                for (i = 0; i < slides.length; i++) {
+                                    slides[i].style.display = "none ";
+                                }
+                                slides[slideIndex - 1].style.display = "block ";
+                                window.slide = slideIndex - 1
+
+                            }
+                        </script>
+
+                        <style>
+                            .radio-toolbar {
+                                margin: 10px;
+                            }
+
+                            .radio-toolbar input[type="radio"] {
+                                opacity: 0;
+                                position: fixed;
+                                width: 0;
+                            }
+
+                            .radio-toolbar label {
+                                display: inline-block;
+                                background-color: rgb(255, 255, 255);
+                                padding: 10px 20px;
+                                font-family: sans-serif, Arial;
+                                font-size: 16px;
+                                border: 1px solid rgb(195, 0, 255);
+                                color: rgb(195, 0, 255);
+                                border-radius: 4px;
+                            }
+
+                            .radio-toolbar label:hover {
+                                background-color: rgb(195, 0, 255);
+                                color: #ffffff;
+                                cursor: pointer;
+                            }
+
+                            .radio-toolbar input[type="radio"]:focus+label {
+                                border: 2px dashed rgb(255, 255, 255);
+                            }
+
+                            .radio-toolbar input[type="radio"]:checked+label {
+                                background-color: rgb(195, 0, 255);
+                                border-color: rgb(195, 0, 255);
+                                color: #ffffff;
+                            }
+
+                            .mySlides {
+                                display: none
+                            }
+
+                            /* Slideshow container */
+
+                            .slideshow-container {
+                                max-width: 1000px;
+                                position: relative;
+                                margin: auto;
+                            }
+
+                            /* Next & previous buttons */
+
+                            .prev,
+                            .next {
+                                cursor: pointer;
+                                position: absolute;
+                                top: 50%;
+                                width: auto;
+                                padding: 16px;
+                                margin-top: -22px;
+                                color: white !important;
+                                font-weight: bold;
+                                font-size: 18px;
+                                transition: 0.6s ease;
+                                border-radius: 0 3px 3px 0;
+                                user-select: none;
+                            }
+
+                            /* Position the "next button " to the right */
+
+                            .next {
+                                right: 0;
+                                border-radius: 3px 0 0 3px;
+                            }
+
+                            /* On hover, add a black background color with a little bit see-through */
+
+                            .prev:hover,
+                            .next:hover {
+                                background-color: rgba(0, 0, 0, 0.8);
+                            }
+
+                            /* Caption text */
+
+                            .text {
+                                color: #f2f2f2;
+                                font-size: 15px;
+                                padding: 8px 12px;
+                                position: absolute;
+                                bottom: 8px;
+                                width: 100%;
+                                text-align: center;
+                            }
+
+                            /* Number text (1/3 etc) */
+
+                            .numbertext {
+                                color: #f2f2f2;
+                                font-size: 12px;
+                                padding: 8px 12px;
+                                position: absolute;
+                                top: 0;
+                            }
+
+                            /* Fading animation */
+
+                            .fadepic {
+                                -webkit-animation-name: fadepic;
+                                -webkit-animation-duration: 1.5s;
+                                animation-name: fadepic;
+                                animation-duration: 1.5s;
+                            }
+
+                            @-webkit-keyframes fadepic {
+                                from {
+                                    opacity: .4
+                                }
+
+                                to {
+                                    opacity: 1
+                                }
+                            }
+
+                            @keyframes fadepic {
+                                from {
+                                    opacity: .4
+                                }
+
+                                to {
+                                    opacity: 1
+                                }
+                            }
+
+                            /* On smaller screens, decrease text size */
+
+                            @media only screen and (max-width: 300px) {
+
+                                .prev,
+                                .next,
+                                .text {
+                                    font-size: 11px
+                                }
+                            }
+                        </style>
 
 
-							<script>
-								var slideIndex = 1;
-								showSlides(slideIndex);
-
-								function plusSlides(n) {
-									showSlides(slideIndex += n);
-								}
-
-								function currentSlide(n) {
-									showSlides(slideIndex = n);
-								}
-
-								function showSlides(n) {
-									var i;
-									var slides = document.getElementsByClassName("mySlides");
-									if (n > slides.length) { slideIndex = 1 }
-									if (n < 1) { slideIndex = slides.length }
-									for (i = 0; i < slides.length; i++) {
-										slides[i].style.display = "none";
-									}
-									slides[slideIndex - 1].style.display = "block";
-								}
-							</script>
-
-							<style>
-								.radio-toolbar {
-									margin: 10px;
-								}
-
-								.radio-toolbar input[type="radio"] {
-									opacity: 0;
-									position: fixed;
-									width: 0;
-								}
-
-								.radio-toolbar label {
-									display: inline-block;
-									background-color: rgb(255, 255, 255);
-									padding: 10px 20px;
-									font-family: sans-serif, Arial;
-									font-size: 16px;
-									border: 1px solid rgb(195, 0, 255);
-									color: rgb(195, 0, 255);
-									border-radius: 4px;
-								}
-
-								.radio-toolbar label:hover {
-									background-color: rgb(195, 0, 255);
-									color: #ffffff;
-									cursor: pointer;
-								}
-
-								.radio-toolbar input[type="radio"]:focus+label {
-									border: 2px dashed rgb(255, 255, 255);
-								}
-
-								.radio-toolbar input[type="radio"]:checked+label {
-									background-color: rgb(195, 0, 255);
-									border-color: rgb(195, 0, 255);
-									color: #ffffff;
-								}
-
-
-
-
-								.mySlides {
-									display: none
-								}
-
-
-								/* Slideshow container */
-								.slideshow-container {
-									max-width: 1000px;
-									position: relative;
-									margin: auto;
-								}
-
-								/* Next & previous buttons */
-								.prev,
-								.next {
-									cursor: pointer;
-									position: absolute;
-									top: 50%;
-									width: auto;
-									padding: 16px;
-									margin-top: -22px;
-									color: white !important;
-									font-weight: bold;
-									font-size: 18px;
-									transition: 0.6s ease;
-									border-radius: 0 3px 3px 0;
-									user-select: none;
-								}
-
-								/* Position the "next button" to the right */
-								.next {
-									right: 0;
-									border-radius: 3px 0 0 3px;
-								}
-
-								/* On hover, add a black background color with a little bit see-through */
-								.prev:hover,
-								.next:hover {
-									background-color: rgba(0, 0, 0, 0.8);
-								}
-
-								/* Caption text */
-								.text {
-									color: #f2f2f2;
-									font-size: 15px;
-									padding: 8px 12px;
-									position: absolute;
-									bottom: 8px;
-									width: 100%;
-									text-align: center;
-								}
-
-								/* Number text (1/3 etc) */
-								.numbertext {
-									color: #f2f2f2;
-									font-size: 12px;
-									padding: 8px 12px;
-									position: absolute;
-									top: 0;
-								}
-
-
-
-								/* Fading animation */
-								.fadepic {
-									-webkit-animation-name: fadepic;
-									-webkit-animation-duration: 1.5s;
-									animation-name: fadepic;
-									animation-duration: 1.5s;
-								}
-
-								@-webkit-keyframes fadepic {
-									from {
-										opacity: .4
-									}
-
-									to {
-										opacity: 1
-									}
-								}
-
-								@keyframes fadepic {
-									from {
-										opacity: .4
-									}
-
-									to {
-										opacity: 1
-									}
-								}
-
-								/* On smaller screens, decrease text size */
-								@media only screen and (max-width: 300px) {
-
-									.prev,
-									.next,
-									.text {
-										font-size: 11px
-									}
-								}
-							</style>
-
-
-							<style>
-								body {
-
-									justify-content: center;
-									font-size: 200%;
-								}
-							</style>
-						</div>
-					</section>
-					<% if (authenticated) { %>
-						<%- include('footer.ejs') %>
-							<% }else{ %>
-								<%- include('footer-unregistered.ejs') %>
-									<% } %>
+                        <style>
+                            body {
+                                justify-content: center;
+                                font-size: 200%;
+                            }
+                        </style>
+                        </div>
+                    </section>
+                    <% if (authenticated) { %>
+                        <%- include('footer.ejs') %>
+                            <% }else{ %>
+                                <%- include('footer-unregistered.ejs') %>
+                                    <% } %>
