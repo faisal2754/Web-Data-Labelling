@@ -1,60 +1,25 @@
 <!--<div class="transition transition-3 is-active"></div>
 <script src ="../js/transitions.js"></script> -->
 <title>Home</title>
-<section class="hero-area bg-ml text-center overly">
+<section class="hero-area bg-ml text-center overly" >
   <!-- Container Start -->
   <div class="container">
     <div class="row">
       <div class="col-md-12">
         <!-- Header Contetnt -->
-        <div class="content-block">
+        <div class="content-block" style="padding-bottom: 0px;">
           <h1>Crowd Sourced Data Labelling Marketplace for ML</h1>
           <p>‎‎‎‏‏‎ ‎</p>
           <p>Join the revolution.
             <!-- <br> Data Labelling Martetplace. -->
           </p>
-          <div class="short-popular-category-list text-center">
-            <!-- <h2>Data Labelling Categories</h2> -->
-            <ul class="list-inline">
-
-              <!-- <li class="list-inline-item"><a class="nav-link text-white btn-main3" href="/available-jobs">Find Job</a>
-              </li>
-  
-              <% if(authenticated){ %>
-                <li class="list-inline-item"><a class="nav-link text-white btn-main2" href="/create-job">Create Job</a>
-                
-                </li>
-              <% } else{ %>  
-                <li class="list-inline-item"><a class="nav-link text-white btn-main2" href="/login">Create Job</a>
-                
-                </li>
-             <% } %> -->
-
-
-              <!-- <li class="list-inline-item">
-                <a href="/available-jobs"><i class="fa fa-plus-circle"></i> Numerical Data</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="/available-jobs"><i class="fa fa-plus-circle"></i> Categorical Data</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="/available-jobs"><i class="fa fa-plus-circle"></i> Time-Series Data</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="/available-jobs"><i class="fa fa-plus-circle"></i> Text Data</a>
-              </li>
-            <li class="list-inline-item">
-              <a href="availableJobs.html"><i class="fa fa-coffee"></i> Cafe</a>
-            </li>  -->
-            </ul>
-          </div>
 
         </div>
-        <!-- Advance Search -->
-        <div class="advance-search">
+
+
           <div class="container">
             <div class="row justify-content-center">
-              <div class="col-lg-12 col-md-12 align-content-center">
+              <div class="col-lg-12 col-md-12 align-content-center" style="padding: 60px;">
                 <!-- <form>
                   <div class="form-row">
                     <div class="form-group col-md-4">
@@ -87,19 +52,19 @@
 
                 <ul class="list-inline">
 
-                  <li class="list-inline-item"><a class="nav-link text-white btn-main3" href="/available-jobs">Find
+                  <li class="list-inline-item" style="padding: 10px;"><a class="nav-link text-white btn-grad" href="/available-jobs" style="padding: 1rem 2rem; font-size: initial;">Find
                       Job</a>
                   </li>
-                  <li class="list-inline-item"><a class="nav-link text-white btn-main3" href="/do-job">go to temp do job page</a>
+                  <li class="list-inline-item" style="padding: 10px;"><a class="nav-link text-white btn-grad" href="/do-job" style="padding: 1rem 2rem; font-size: initial;">go to temp do job page</a>
                   </li>
 
                   <% if(authenticated){ %>
-                    <li class="list-inline-item"><a class="nav-link text-white btn-main2" href="/create-job">Create
+                    <li class="list-inline-item" style="padding: 10px;"><a class="nav-link text-white btn-grad" href="/create-job" style="padding: 1rem 2rem; font-size: initial;">Create
                         Job</a>
 
                     </li>
                     <% } else{ %>
-                      <li class="list-inline-item"><a class="nav-link text-white btn-main2" href="/login">Create Job</a>
+                      <li class="list-inline-item" style="padding: 10px;"><a class="nav-link text-white btn-grad" href="/login" style="padding: 1rem 2rem; font-size: initial;">Create Job</a>
 
                       </li>
                       <% } %>
@@ -125,7 +90,7 @@
               </div>
             </div>
           </div>
-        </div>
+
 
       </div>
     </div>
@@ -133,13 +98,13 @@
   <!-- Container End -->
 </section>
 
-<section class="popular-deals section bg-gray">
-  <div class="container">
+<section class="gback2" style="padding: 20px;">
+  <div class="container" style="max-width: 2000px;">
     <div class="row">
       <div class="col-md-12">
-        <div class="section-title">
-          <h2>Featured ML Jobs</h2>
-          <p>Featured Labelling Jobs This Week</p>
+        <div>
+          <h2 style="text-align: center;">Featured ML Jobs</h2>
+          <p style="color: #7302ff; text-align: center; font-size: large;">Featured Labelling Jobs This Week</p>
         </div>
       </div>
     </div>
@@ -166,7 +131,7 @@
                     </a>
                   </div>
                   <div class="card-body">
-                    <h4 class="card-title"><a href="/available-jobs"><%= allJobs[i].title %> </a></h4>
+                    <h4 class="card-title"><a href="/available-jobs" style="color: #9a02ff;"><%= allJobs[i].title %> </a></h4>
                     <ul class="list-inline product-meta">
                       <li class="list-inline-item">
                         <a href="/available-jobs"><i class="fa fa-folder-open-o"></i>Images</a>
@@ -175,127 +140,11 @@
                       <a href="#"><i class="fa fa-dollar"></i><%= allJobs[i].credits %> </a>
                     </li>
                   </ul>
-                  
-                  <!-- <div class="product-ratings">
-                    <ul class="list-inline">
-                      <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                      <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                      <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                      <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                      <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                    </ul>
-                  </div> -->
                 </div>
               </div>
             </div>
           </div>
           <% } %>
-          
-          <!-- <div class="col-sm-12 col-lg-4">
-            product card 
-            <div class="product-item bg-light">
-              <div class="card">
-                <div class="thumb-content">
-                   <div class="price">$200</div> 
-                  <a href="single.html">
-                    <img class="card-img-top img-fluid" src="" alt="Card image cap">
-                  </a>
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title"><a href="single.html">Numerical Job</a></h4>
-                  <ul class="list-inline product-meta">
-                    <li class="list-inline-item">
-                      <a href="single.html"><i class="fa fa-folder-open-o"></i>Labelling</a>
-                    </li>
-                    <li class="list-inline-item">
-                      <a href="#"><i class="fa fa-calendar"></i>26th December</a>
-                    </li>
-                  </ul>
-                  <p class="card-text">Numerical Job Description</p>
-                  <div class="product-ratings">
-                    <ul class="list-inline">
-                      <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                      <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                      <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                      <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                      <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-12 col-lg-4">
-             product card 
-            <div class="product-item bg-light">
-              <div class="card">
-                <div class="thumb-content">
-                   <div class="price">$200</div> 
-                  <a href="single.html">
-                    <img class="card-img-top img-fluid" src="" alt="Card image cap">
-                  </a>
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title"><a href="single.html">Numerical Job</a></h4>
-                  <ul class="list-inline product-meta">
-                    <li class="list-inline-item">
-                      <a href="single.html"><i class="fa fa-folder-open-o"></i>Labelling</a>
-                    </li>
-                    <li class="list-inline-item">
-                      <a href="#"><i class="fa fa-calendar"></i>26th December</a>
-                    </li>
-                  </ul>
-                  <p class="card-text">Numerical Job Description</p>
-                  <div class="product-ratings">
-                    <ul class="list-inline">
-                      <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                      <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                      <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                      <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                      <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-12 col-lg-4">
-             product card 
-            <div class="product-item bg-light">
-              <div class="card">
-                <div class="thumb-content">
-                   <div class="price">$200</div> 
-                  <a href="single.html">
-                    <img class="card-img-top img-fluid" src="" alt="Card image cap">
-                  </a>
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title"><a href="single.html">Numerical Job</a></h4>
-                  <ul class="list-inline product-meta">
-                    <li class="list-inline-item">
-                      <a href="single.html"><i class="fa fa-folder-open-o"></i>Labelling</a>
-                    </li>
-                    <li class="list-inline-item">
-                      <a href="#"><i class="fa fa-calendar"></i>26th December</a>
-                    </li>
-                  </ul>
-                  <p class="card-text">Numerical Job Description</p>
-                  <div class="product-ratings">
-                    <ul class="list-inline">
-                      <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                      <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                      <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                      <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                      <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> -->
-
         </div>
       </div>
     </div>
