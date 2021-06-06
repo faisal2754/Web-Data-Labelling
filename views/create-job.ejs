@@ -134,14 +134,34 @@
 
               </select> -->
                     <div>
-                      <h6 class="font-weight-bold pt-4 pb-1">Job Credits:</h6>
-                      <div class="row px-3" style="align-items: center; padding-right: 0px!important; box-sizing: inherit!important;">
-                        <div class="col-lg-4 mr-lg-4 rounded bg-white my-2 " style="flex: 0 0 1;">
-                          <input type="number" pattern="[0-9]" min="1" max="5000" name="credits"
-                            class="type-1 border py-2" placeholder="No. of Credits" id="price" required style="width: 140;">
+                      <h6 class="font-weight-bold pt-4 pb-1">Job Credits and Labellers:</h6>
+                      <div class="row px-3" style="align-items: center; padding-right: 0px!important; box-sizing: inherit!important; justify-content: center;">
+                        <div class="col-lg-4 mr-lg-4 rounded bg-white my-2 " style="flex: 0 0 1; display: contents;" onchange="calculateTotal()">
+                          <input type="number" pattern="[0-9]" min="1" max="10" name="labellers"
+                            class="type-1 border py-2" placeholder="No. of Labellers" id="labellers" required style="width: 140; margin-right: inherit;">
+                            <input type="number" pattern="[0-9]" min="1" max="5000" name="credits"
+                            class="type-1 border py-2" placeholder="Credits per labeller" id="credits" required style="width: 160;" onchange="calculateTotal()">
+                            
+
+                            <script>
+
+                              function calculateTotal(){
+                              var maxCredits = document.getElementById("maxCredits");
+                              var creditsPerLabeller = document.getElementById("credits").value;
+                              var labellers = document.getElementById("labellers").value;
+
+                              maxCredits = creditsPerLabeller*labellers;
+
+                              document.getElementById("maxCredits").innerText = "Maximum Assigned Credits: " + maxCredits;
+
+                              }
+
+                            </script>
                         </div>
+                        
 
                       </div>
+                      <label style="font-size: large; padding: 10px;" id="maxCredits">Maximum Assigned Credits: 0</label>
                                   <!--- <h6 class="font-weight-bold pt-4 pb-1">Job Scope:</h6>
                             <div class="row px-3">
                               <div class="col-lg-4 mr-lg-4 my-2 rounded bg-white">

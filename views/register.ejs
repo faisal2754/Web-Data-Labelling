@@ -42,14 +42,20 @@
                 <div class="loggedin-forgot d-inline-flex my-3">
                   <input type="checkbox" id="registering" class="mt-1" required>
                   <label for="registering" class="px-2">By registering, you accept our <a
-                      class="text-primary font-weight-bold" href="/terms-conditions">Terms & Conditions </a></label>
+                      class="text-primary font-weight-bold" href="/terms-conditions" style="color: #9733ee!important;">Terms & Conditions </a></label>
                 </div>
                 <button type="submit" id="btnRegister"
-                  class="py-3 px-4 bg-primary text-white border-0 rounded font-weight-bold">Register
+                  class="py-3 px-4 btn-grad text-white border-0 rounded font-weight-bold" style="display: initial;">Register
                   </button>
                   
                   <div id="formFooter">
-                  <a class="underlineHover" href="/login">Already Have An Account? Login Now</a>
+                  <a class="underlineHover" href="/login" style="color: #9733ee; font-weight: 600;">Already Have An Account? Login Now</a>
+                  <style >
+                    .underlineHover:after{
+                        background-color: #d723fe;
+                    }
+
+                </style>
                 </div>
               </fieldset>
             </form>

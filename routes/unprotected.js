@@ -4,6 +4,9 @@ const Job = require('../models/Job')
 router.get('/login', (req, res) => {
     res.render('login')
 })
+router.get('/loading-screen', (req, res) => {
+    res.render('loading-screen')
+})
 
 router.get('/register', (req, res) => {
     res.render('register')
@@ -84,5 +87,7 @@ router.get('/terms-conditions', async (req, res) => {
     }
     res.render('terms-conditions', { authenticated: auth, name: username })
 })
+
+
 
 module.exports = router

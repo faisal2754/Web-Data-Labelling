@@ -207,4 +207,14 @@ router.get('/user-profile', checkAuthenticated, async (req, res) => {
     res.render('user-profile', { name: username, email: userEmail, avatar: userAvatar })
 })
 
+router.get('/do-job', async (req, res) => {
+    const user = await req.user
+    const auth = req.isAuthenticated()
+    var username = ''
+    if (auth) {
+        username = user.name
+    }
+    res.render('do-job', { authenticated: auth, name: username })
+})
+
 module.exports = router
