@@ -17,7 +17,7 @@
                                             <div class="widget user-dashboard-menu" style="margin-bottom: 0px; padding: 0px; border-radius: inherit; box-shadow: none;">
                                                 <!-- User Image -->
                                                 <div class="profile-thumb" style="margin-bottom: 15px;">
-                                                    <img src="<%= avatar %>" alt="images/user/user-thumb.jpg" class="rounded-circle" style="width: 100px; height: 100px;">
+                                                    <img src="<%= avatar %>" onError="this.onerror=null;this.src='images/user/user-thumb.jpg';" alt="images/user/user-thumb.jpg" class="rounded-circle" style="width: 100px; height: 100px;" >
                                                 </div>
                                                 <h5 class="user-name">
                                                     <%= name %>
