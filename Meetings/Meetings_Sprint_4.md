@@ -9,7 +9,7 @@ For Sprint 4:
 - Labeling should occur on the site; keep track of current images that have been labeled.
 - Begin labeling on Accepted Jobs page, be directed to new page where we have images side to side with available labels and then save responses. 
 - Job owners should specify how many labellers can split the job/credits and how many credits they will be allocating to the job.
-- Some type of completion feature (either reached max. no. of labelers or job is completed - Users should also be able to continue labelling from the state that they left off
+- Some type of completion feature (either reached max. no. of labelers or job is completed) - Users should also be able to continue labelling from the state that they left off
   
 **Team met after meeting to prioritise backlog for Sprint 4
 
