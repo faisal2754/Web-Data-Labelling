@@ -86,7 +86,6 @@ router.post('/create-job', checkAuthenticated, localStorage.array('image'), asyn
         res.redirect('/dashboard')
         await setJobFragments(savedJob._id, savedJob.maxNumLabellers, driveImgArr)
     } catch (e) {
-        console.log(e)
         res.redirect(400, '/')
     }
 })
