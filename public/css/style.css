@@ -863,10 +863,10 @@ button {
     text-decoration: none;
 }
 
-.btn-grad2 {
+.btn-gradBlue {
     background-image: linear-gradient(to right, #3336ee 0%, #2289ff 51%, #335fee 100%);
 }
-.btn-grad2 {
+.btn-gradBlue {
     padding: 15px 45px;
     text-align: center;
     transition: 0.5s;
@@ -876,7 +876,7 @@ button {
     display: block;
 }
 
-.btn-grad2:hover {
+.btn-gradBlue:hover {
     background-position: right center; /* change the direction of the change here */
     color: #fff;
     text-decoration: none;
