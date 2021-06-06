@@ -102,21 +102,63 @@ Sipho Sikakane.(Scrum master/Backend)
 - Tasks for the day: Look into how to structure database for job labelling
 - Impediments: Tests
 
-## Daily Scrum Meet 31st May (Monday) 4pm:
+## Daily Scrum Meet 28th May (Friday) 11:30 am:
 
 Aharon Cohen (Frontend):
 - Tasks completed yesterday: Polishing
-- Tasks for the day: Start setting up labelling page  
+- Tasks for the day: Continue filtering jobs  
 - Impediments: Other projects for ML and CGV
 
 Langiwe Mwale (Frontend):
-- Tasks completed Yesterday:set up filtering
-- Task for the Day: Implement filtering
+- Tasks completed Yesterday: Started to set up filtering
+- Task for the Day: Continue to implement filtering
 - Impediments: Time constraints/projects
 
 Ioanni Balassis: (Frontend)
 - Tasks completed yesterday: Started filter jobs
-- Tasks for the day: Start 
+- Tasks for the day: Continue filter page
+- Impediments: Other projects for ML, CGV
+
+Jonathan Nunes (Frontend):
+- Tasks completed yesterday: Started filter page
+- Tasks for the day: Continue filter page
+- Impediments: Other university work
+
+Faisal Saleem (Backend):
+- Tasks completed yesterday: Began working on the labelling process.
+- Tasks for the day: Continue work on the labelling process.
+- Impediments: Time
+
+Ghulame Mujtaba Arbi (Backend/Frontend):
+- Tasks completed yesterday: Working on the labelling process.
+- Tasks for the day: Still working on the labelling process and refining frontend design.
+- Impediments: Time/quizzes/projects
+
+Tristan Bester (Backend):
+- Tasks completed yesterday: Began working on the labelling process.
+- Tasks for the day: Continue work on the labelling process.
+- Impediments: Time.
+
+Sipho Sikakane.(Scrum master/Backend)
+- Tasks completed yesterday: Labellers can remove themselves from jobs
+- Tasks for the day: Look into how to structure database for job labelling
+- Impediments: Tests
+
+## Daily Scrum Meet 31st May (Monday) 4pm:
+
+Aharon Cohen (Frontend):
+- Tasks completed yesterday: Polishing/filtering page
+- Tasks for the day: Continue filtering  
+- Impediments: Other projects for ML and CGV
+
+Langiwe Mwale (Frontend):
+- Tasks completed Yesterday: Set up filtering
+- Task for the Day: Continue filtering
+- Impediments: Time constraints/projects
+
+Ioanni Balassis: (Frontend)
+- Tasks completed yesterday: Started filter jobs
+- Tasks for the day: Continue filtering 
 - Impediments: Other projects for ML, CGV
 
 Jonathan Nunes (Frontend):
@@ -142,23 +184,23 @@ Tristan Bester (Backend):
 Sipho Sikakane.(Scrum master/Backend)
 - Tasks completed yesterday:  Look into how to structure database for job labelling
 - Tasks for the day: Get build to pass
-- Impediments: Lectures and TIme
+- Impediments: Lectures and Time
 
 ## Daily Scrum Meet 1st June (Tuesday) 4pm:
 
 Aharon Cohen (Frontend):
-- Tasks completed yesterday: Polishing
-- Tasks for the day: Start setting up labelling page  
+- Tasks completed yesterday: Polishing/Filtering
+- Tasks for the day: Continue filtering  
 - Impediments: Other projects for ML and CGV
 
 Langiwe Mwale (Frontend):
-- Tasks completed Yesterday:Tried to fix filtering
-- Task for the Day: move on to making the ‘Do Job’ page,look into AJAX
+- Tasks completed Yesterday: Tried to fix filtering
+- Task for the Day: Move on to making the ‘Do Job’ page, look into AJAX
 - Impediments: ejs issues
 
 Ioanni Balassis: (Frontend)
 - Tasks completed yesterday: Started filter jobs
-- Tasks for the day: Start 
+- Tasks for the day: Continue filtering 
 - Impediments: Other projects for ML, CGV
 
 Jonathan Nunes (Frontend):
@@ -172,8 +214,8 @@ Faisal Saleem (Backend):
 - Impediments: Time
 
 Ghulame Mujtaba Arbi (Backend/Frontend):
-- Tasks completed yesterday: start working labelling process 
-- Tasks for the day: work on labelling and filtering process
+- Tasks completed yesterday: Started working on labelling process 
+- Tasks for the day: Work on labelling and filtering process
 - Impediments: Time/quizzes/projects
 
 Tristan Bester (Backend):
@@ -184,23 +226,23 @@ Tristan Bester (Backend):
 Sipho Sikakane.(Scrum master/Backend)
 - Tasks completed yesterday:  Look into how to structure database for job labelling
 - Tasks for the day: Get build to pass
-- Impediments: Lectures and TIme
+- Impediments: Lectures and Time
 
 ## Daily Scrum Meet 2nd June (Wednesday) 4pm:
 
 Aharon Cohen (Frontend):
-- Tasks completed yesterday: Polishing
+- Tasks completed yesterday: Worked on filtering
 - Tasks for the day: Work on Create Job form and add extra fields  
 - Impediments: Other projects for ML and CGV
 
 Langiwe Mwale (Frontend):
-- Tasks completed Yesterday:made frame for do jobs
-- Task for the Day: move on to making the ‘Do Job’ page,look into AJAX
+- Tasks completed Yesterday: Made frame for do jobs
+- Task for the Day: Work on Do Job Page
 - Impediments: ejs issues
 
 Ioanni Balassis: (Frontend)
-- Tasks completed yesterday: Started filter jobs
-- Tasks for the day: Start 
+- Tasks completed yesterday: Continued filter jobs
+- Tasks for the day: Continue filtering 
 - Impediments: Other projects for ML, CGV
 
 Jonathan Nunes (Frontend):
@@ -226,5 +268,89 @@ Tristan Bester (Backend):
 Sipho Sikakane.(Scrum master/Backend)
 - Tasks completed yesterday:  Look into how to structure database for job labelling
 - Tasks for the day: Get build to pass
-- Impediments: Lectures and TIme
+- Impediments: Lectures and Time
+
+## Daily Scrum Meet 3nd June (Thursday) 4pm:
+
+Aharon Cohen (Frontend):
+- Tasks completed yesterday: Work on Create Job form and add extra fields
+- Tasks for the day: Carry on filtering and work on 'Do Jobs' Page  
+- Impediments: Other projects for ML and CGV
+
+Langiwe Mwale (Frontend):
+- Tasks completed Yesterday: Move on to making the ‘Do Job’ page, look into AJAX
+- Task for the Day: Carry on filtering and work on 'Do Jobs' Page
+- Impediments: ejs issues
+
+Ioanni Balassis: (Frontend)
+- Tasks completed yesterday: Continued filter jobs
+- Tasks for the day: Carry on filtering and work on 'Do Jobs' Page 
+- Impediments: Other projects for ML, CGV
+
+Jonathan Nunes (Frontend):
+- Tasks completed yesterday: Started filtering on available jobs page
+- Tasks for the day: Carry on filtering and work on 'Do Jobs' Page
+- Impediments: Other university work
+
+Faisal Saleem (Backend):
+- Tasks completed yesterday: Continued work to fix build failing
+- Tasks for the day: Setup backend for labelling 
+- Impediments: Time
+
+Ghulame Mujtaba Arbi (Backend/Frontend):
+- Tasks completed yesterday: Continued work to fix build failing
+- Tasks for the day: Setup backend for labelling
+- Impediments: Time/quizzes/projects
+
+Tristan Bester (Backend):
+- Tasks completed yesterday: Continued work to fix build failing
+- Tasks for the day: Setup backend for labelling
+- Impediments: Time.
+
+Sipho Sikakane.(Scrum master/Backend)
+- Tasks completed yesterday: Continued work to fix build failing
+- Tasks for the day: Setup backend for labelling
+- Impediments: Lectures and Time
+
+## Daily Scrum Meet 4th June (Friday) 11:30 am:
+
+Aharon Cohen (Frontend):
+- Tasks completed yesterday: Worked on filtering and worked on 'Do Jobs' Page
+- Tasks for the day: Connect with backend to implement labelling on Do Jobs Page  
+- Impediments: Other projects for ML and CGV
+
+Langiwe Mwale (Frontend):
+- Tasks completed yesterday: Worked on filtering and worked on 'Do Jobs' Page
+- Tasks for the day: Connect with backend to implement labelling on Do Jobs Page
+- Impediments: ejs issues
+
+Ioanni Balassis: (Frontend)
+- Tasks completed yesterday: Worked on filtering and worked on 'Do Jobs' Page
+- Tasks for the day: Connect with backend to implement labelling on Do Jobs Page 
+- Impediments: Other projects for ML, CGV
+
+Jonathan Nunes (Frontend):
+- Tasks completed yesterday: Worked on filtering and worked on 'Do Jobs' Page
+- Tasks for the day: Connect with backend to implement labelling on Do Jobs Page
+- Impediments: Other university work
+
+Faisal Saleem (Backend):
+- Tasks completed yesterday: Worked on backend labelling functionality
+- Tasks for the day: Continue to setup backend for labelling
+- Impediments: Time
+
+Ghulame Mujtaba Arbi (Backend/Frontend):
+- Tasks completed yesterday: Worked on backend labelling functionality
+- Tasks for the day: Continue to setup backend for labelling
+- Impediments: Time/quizzes/projects
+
+Tristan Bester (Backend):
+- Tasks completed yesterday: Worked on backend labelling functionality
+- Tasks for the day: Continue to setup backend for labelling
+- Impediments: Time.
+
+Sipho Sikakane.(Scrum master/Backend)
+- Tasks completed yesterday: Worked on backend labelling functionality
+- Tasks for the day: Continue to setup backend for labelling
+- Impediments: Lectures and Time
 
