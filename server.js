@@ -19,18 +19,17 @@ const Labelling = require('./models/Labelling')
 const LabellingFragment = require('./LabellingFragment')
 const Job = require('./models/Job')
 
-async function bruh() {
+async function bruh(jobId, numLabellers, imgUrlArr) {
     const fragmentArr = []
-    const imgArr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l']
-    const equalAmount = Math.floor(imgArr.length / 5)
-    const remainingAmount = imgArr.length - equalAmount * 5
+    const imgUrls = imgUrlArr
+    const equalAmount = Math.floor(imgUrls.length / numLabellers)
     var currentUrl = 0
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < numLabellers; i++) {
         let imgFragment
-        if (i == 4) {
-            imgFragment = imgArr.slice(currentUrl)
+        if (i == numLabellers - 1) {
+            imgFragment = imgUrls.slice(currentUrl)
         } else {
-            imgFragment = imgArr.slice(currentUrl, currentUrl + equalAmount)
+            imgFragment = imgUrls.slice(currentUrl, currentUrl + equalAmount)
             currentUrl += equalAmount
         }
 
@@ -38,13 +37,13 @@ async function bruh() {
         fragmentArr.push(fragment.getFragment())
     }
     const labelling = new Labelling({
-        jobId: 'abc',
+        jobId: jobId,
         labellersArr: fragmentArr
     })
 
     await labelling.save()
 }
-// bruh()
+// bruh('bruh', 6, ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l'])
 
 if (!fs.existsSync('public/uploads')) {
     fs.mkdirSync('public/uploads')
