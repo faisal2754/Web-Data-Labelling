@@ -51,12 +51,12 @@
                 <div id="formContent" style="padding: 30px; width: 110%; max-width: 800px;">
                <!-- User Image -->
                <div class="profile-thumb">
-                <img src="<%= avatar %>" alt="avatar" class="rounded-circle" style="width: 100px; height: 100px;">
+                <img src="<%= avatar %>" onError="this.onerror=null;this.src='images/user/user-thumb.jpg';" alt="avatar" class="rounded-circle" style="width: 100px; height: 100px;">
               </div>
               <!-- User Name -->
               <h5 class="text-center"><%= name %> </h5>
               <p><%= new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'long', day: '2-digit'}).format(dateJoined) %></p>
-              <a href="/user-profile" class="btn btn-primary mt-2">Edit Profile</a>
+              <a href="/user-profile" class="text-white btn-gradBlue mt-2">Edit Profile</a>
                 </div>
               </div>
             

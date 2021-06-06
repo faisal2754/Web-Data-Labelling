@@ -27,9 +27,9 @@ router.get('/available-jobs', async (req, res) => {
     const job = await Job.find()
     const jobCreditsAsc = await Job.find().sort({ credits: 1 })
     const jobCreditsDesc = await Job.find().sort({ credits: -1 })
-    const jobTitleAsc = await Job.find().sort({ title: 1 })
-    const jobRecent = await Job.find().sort({ createdAt: 1 })
-    const jobOldest = await Job.find().sort({ createdAt: -1 })
+    const jobTitleAsc = await Job.find({}).sort({ title: 1 })
+    const jobRecent = await Job.find().sort({ createdAt: -1 })
+    const jobOldest = await Job.find().sort({ createdAt: 1 })
     const auth = req.isAuthenticated()
     const user = await req.user
     var username = ''
@@ -56,6 +56,16 @@ router.get('/how-to-page', async (req, res) => {
         username = user.name
     }
     res.render('how-to-page', { authenticated: auth, name: username })
+})
+
+router.get('/how-it-works', async (req, res) => {
+    const user = await req.user
+    const auth = req.isAuthenticated()
+    var username = ''
+    if (auth) {
+        username = user.name
+    }
+    res.render('how-it-works', { authenticated: auth, name: username })
 })
 
 router.get('/about-us', async (req, res) => {
