@@ -863,6 +863,25 @@ button {
     text-decoration: none;
 }
 
+.btn-grad2 {
+    background-image: linear-gradient(to right, #3336ee 0%, #2289ff 51%, #335fee 100%);
+}
+.btn-grad2 {
+    padding: 15px 45px;
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: block;
+}
+
+.btn-grad2:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
 .btn-main-sm {
     padding: 6px 20px;
     font-size: 12px;
