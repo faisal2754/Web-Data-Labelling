@@ -105,6 +105,9 @@
                                 <button class="btn btn-danger" title="Cancel Job" style=" width: 40px; height: 40px; border-radius: 40px; font-size: 14px; color: #ffffff; text-align: center; display: inline-block;" name="button"><i class="fa fa-minus-circle"></i></button>
                               </form>
                             </li>
+                            <li class="list-inline-item">
+                              <a href="/do-job" onclick="location.href=this.href+'/'+ '<%= acceptedJobs[i]._id %>';return false;" class="button">Label Job</a>
+                            </li>
                           </ul>
                         </div>
                       </td>

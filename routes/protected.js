@@ -5,6 +5,7 @@ const googleService = require('../googleServices')
 const { checkAuthenticated } = require('../middleware/auth.mw')
 const localStorage = require('../middleware/storage.mw')
 const fs = require('fs')
+const Labelling = require('../models/Labelling')
 
 const service = new googleService()
 
@@ -47,6 +48,11 @@ router.get('/accepted-jobs', checkAuthenticated, async (req, res) => {
         dateJoined
     })
 })
+
+// router.get('/do-job/:id', (req, res) => {
+
+//     // res.send(req.params.id)
+// })
 
 router.get('/secret-page', checkAuthenticated, (req, res) => {
     res.send('bruh')
@@ -207,14 +213,34 @@ router.get('/user-profile', checkAuthenticated, async (req, res) => {
     res.render('user-profile', { name: username, email: userEmail, avatar: userAvatar })
 })
 
-router.get('/do-job', async (req, res) => {
+router.get('/do-job/:id', async (req, res) => {
     const user = await req.user
+
+    const labellingData = await Labelling.findOne({
+        jobId: req.params.id
+    })
+
+    const jobData = await Job.findOne({
+        _id: req.params.id
+    })
+
+    const jobLabels = jobData.labels
+
+    let fragmentData
+
+    for (let i = 0; i < labellingData.labellersArr.length; i++) {
+        if (labellingData.labellersArr[i].email === user.email) {
+            fragmentData = labellingData.labellersArr[i].labelMapping
+            break
+        }
+    }
+
     const auth = req.isAuthenticated()
     var username = ''
     if (auth) {
         username = user.name
     }
-    res.render('do-job', { authenticated: auth, name: username })
+    res.render('do-job', { authenticated: auth, name: username, labellingData: fragmentData, labels: jobLabels })
 })
 
 module.exports = router
