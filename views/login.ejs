@@ -40,7 +40,7 @@
                                     
                                 </div>
                                 <button type="submit" id="btnLogin"
-                                    class="py-3 px-5 bg-primary text-white border-0 rounded font-weight-bold mt-3 popover-test">
+                                    class="py-3 px-5 btn-grad text-white border-0 rounded font-weight-bold mt-3 popover-test" style="display: initial;">
                                     Log in
                                 </button>
                                 <% if(messages.error) { %>
@@ -51,10 +51,16 @@
                                     <div id="formFooter">
 
                                        <!--- <a class="underlineHover" href="#">Forget Password?</a> -->
-                                        <a class="underlineHover" href="/register">Dont Have An
+                                        <a id="hover" class="underlineHover" href="/register" style="color: #9733ee; font-weight: 600;">Dont Have An
                                             Account? Register
                                             Now</a>
                                         </div>
+                                        <style >
+                                            .underlineHover:after{
+                                                background-color: #d723fe;
+                                            }
+
+                                        </style>
                             </fieldset>
                         </form>
                     
