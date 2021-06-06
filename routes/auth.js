@@ -7,6 +7,8 @@ const fs = require('fs')
 const { checkAuthenticated } = require('../middleware/auth.mw')
 const localStorage = require('../middleware/storage.mw')
 const googleService = require('../googleServices')
+const LabellingFragment = require('../LabellingFragment')
+const Labelling = require('../models/Labelling')
 
 const service = new googleService()
 
@@ -44,12 +46,38 @@ router.post(
     passport.authenticate('local', { successRedirect: 'dashboard', failureRedirect: 'login', failureFlash: true })
 )
 
+async function setJobFragments(jobId, numLabellers, imgUrlArr) {
+    const fragmentArr = []
+    const imgUrls = imgUrlArr
+    const equalAmount = Math.floor(imgUrls.length / numLabellers)
+    var currentUrl = 0
+    for (let i = 0; i < numLabellers; i++) {
+        let imgFragment
+        if (i == numLabellers - 1) {
+            imgFragment = imgUrls.slice(currentUrl)
+        } else {
+            imgFragment = imgUrls.slice(currentUrl, currentUrl + equalAmount)
+            currentUrl += equalAmount
+        }
+
+        const fragment = new LabellingFragment(null, imgFragment)
+        fragmentArr.push(fragment.getFragment())
+    }
+    const labelling = new Labelling({
+        jobId: jobId,
+        labellersArr: fragmentArr
+    })
+
+    await labelling.save()
+}
+
 router.post('/create-job', checkAuthenticated, localStorage.array('image'), async (req, res) => {
     try {
         const title = req.body.title
         const description = req.body.description
         const labels = req.body.labels
         const credits = req.body.credits
+        const maxNumLabellers = req.body.labellers
         const emailOwner = await req.user
 
         const job = await new Job({
@@ -57,7 +85,8 @@ router.post('/create-job', checkAuthenticated, localStorage.array('image'), asyn
             description: description,
             credits: credits,
             labels: labels,
-            emailOwner: emailOwner.email
+            emailOwner: emailOwner.email,
+            maxNumLabellers: maxNumLabellers
         })
 
         const savedJob = await job.save()
@@ -79,6 +108,7 @@ router.post('/create-job', checkAuthenticated, localStorage.array('image'), asyn
         await Job.findOneAndUpdate({ _id: savedJob._id }, { $set: { images: driveImgArr } })
 
         res.redirect('/dashboard')
+        setJobFragments(savedJob._id, savedJob.maxNumLabellers, driveImgArr)
     } catch {
         res.redirect(400, '/')
     }
@@ -102,6 +132,17 @@ router.post('/acceptJob', async (req, res) => {
                 }
             )
             res.redirect('/dashboard')
+            Labelling.updateOne(
+                {
+                    jobId: jobId,
+                    labellersArr: {
+                        $elemMatch: { email: null }
+                    }
+                },
+                {
+                    $set: { 'labellersArr.$.email': userEmail }
+                }
+            )
         } catch {
             res.redirect(400, '/login')
         }

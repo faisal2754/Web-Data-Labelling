@@ -88,6 +88,4 @@ router.get('/terms-conditions', async (req, res) => {
     res.render('terms-conditions', { authenticated: auth, name: username })
 })
 
-
-
 module.exports = router
