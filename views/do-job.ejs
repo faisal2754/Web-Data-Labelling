@@ -37,6 +37,7 @@
                                         </div>
                                     </div>
                                 </div>
+								<% for( let index=0; index < labellingData.length; index++ ) { %>
                                 <div class="wrapper fadeInDown" style="width: auto; padding: 0;">
                                     <div id="formContent" style="padding: 20px; width: min-content; max-width: 800px;">
                                         <label style="font-size: inherit; font-weight: 100; color: black;">Select
@@ -50,12 +51,11 @@
                                                     <div class="radio-toolbar">
                                                         <% for( let i=0; i < labels.length; i++ ) { %>
 
-                                                            <input type="radio" id="<%=labels[i]%>" name="radio"
-                                                                onclick="sendLabel('<%=labels[i]%>')" value="<%=labels[i]%>">
+                                                            <input type="radio" id="<%=labels[i]%>" name="radio" onclick="sendLabel('<%=labels[i]%>')" value="<%=labels[i]%>">
                                                             <label for="<%=labels[i]%>" style="width: 100;">
                                                                 <%= labels[i] %>
                                                             </label>
-                                                            <% } %>
+                                                        <% } %>
 
                                                                 <input type="radio" onclick="sendLabel('other')" id="other"
                                                                     name="radio" value="other">
@@ -66,6 +66,7 @@
                                         </div>
                                     </div>
                                 </div>
+								<% } %>
                             </div>
                         </div>
 
@@ -78,14 +79,11 @@
                             function plusSlides(n) {
                                 showSlides(slideIndex += n);
                             }
+							
                             function sendLabel(answer) {
-                               "<%var index%>"= window.slide
-                                var values = [
-                                    { image: "<%=labellingData[index]%>" },
-                                    { label: answer }
-                                ];
-                                alert(values)
-                                return values
+
+								var values = [{label: answer}, {imageIndex: slideIndex}]
+							
 
                             }
 
@@ -101,6 +99,7 @@
                                 }
                                 if (n < 1) {
                                     slideIndex = slides.length
+							
                                 }
                                 for (i = 0; i < slides.length; i++) {
                                     slides[i].style.display = "none ";
