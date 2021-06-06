@@ -133,14 +133,19 @@
                             <h6 class="py-2" style="padding-top: 10px;">Credits: <%= acceptedJobs[i].credits %> | Job Owner: <%= acceptedJobs[i].emailOwner %></h6>
                             <h6 style="overflow-wrap: break-word;"><%= acceptedJobs[i].description %></h6>
                         </div>
-                        <div class="modal-footer border-top-0 mb-3 mx-5 justify-content-lg-between justify-content-center" style="justify-content: center!important;">
-                          <a href="/do-job" onclick="location.href=this.href+'/'+ '<%= acceptedJobs[i]._id %>';return false;" class="py-3 px-5 btn-grad text-white border-0 rounded font-weight-bold mt-3 popover-test" style="display: initial; " name="button">Label Job</a>
-                          
-                      </div>
-                        <div class="modal-footer border-top-0 mb-3 mx-5 justify-content-lg-between justify-content-center" style="justify-content: center!important;">
-                            <button type="button" class="py-3 px-5 btn-grad text-white border-0 rounded font-weight-bold mt-3 popover-test" style="display: initial; background-image: linear-gradient(to right, #7c7c7c, #4d4d4d 51%, #7c7c7c 100%)!important;" data-dismiss="modal">Back</button>
+
+                        <div class="modal-footer border-top-0 mb-3 mx-5 justify-content-lg-between justify-content-center">
+                          <div style="justify-content: center!important;">
+                            <a href="/do-job" onclick="location.href=this.href+'/'+ '<%= acceptedJobs[i]._id %>';return false;" class="py-3 px-5 btn-grad text-white border-0 rounded font-weight-bold mt-3 popover-test" style="display: initial; " name="button">Label Job</a>
                             
+                          </div>
+                          <div style="justify-content: center!important;">
+                              <button type="button" class="py-3 px-5 btn-grad text-white border-0 rounded font-weight-bold mt-3 popover-test" style="display: initial; background-image: linear-gradient(to right, #7c7c7c, #4d4d4d 51%, #7c7c7c 100%)!important;" data-dismiss="modal">Back</button>
+                              
+                          </div>
+
                         </div>
+                        
                         </div>
                     </div>
                     </div>
