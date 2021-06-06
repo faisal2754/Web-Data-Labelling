@@ -27,9 +27,9 @@ router.get('/available-jobs', async (req, res) => {
     const job = await Job.find()
     const jobCreditsAsc = await Job.find().sort({ credits: 1 })
     const jobCreditsDesc = await Job.find().sort({ credits: -1 })
-    const jobTitleAsc = await Job.find().sort({ title: 1 })
-    const jobRecent = await Job.find().sort({ createdAt: 1 })
-    const jobOldest = await Job.find().sort({ createdAt: -1 })
+    const jobTitleAsc = await Job.find({}).sort({ title: 1 })
+    const jobRecent = await Job.find().sort({ createdAt: -1 })
+    const jobOldest = await Job.find().sort({ createdAt: 1 })
     const auth = req.isAuthenticated()
     const user = await req.user
     var username = ''
@@ -97,7 +97,5 @@ router.get('/terms-conditions', async (req, res) => {
     }
     res.render('terms-conditions', { authenticated: auth, name: username })
 })
-
-
 
 module.exports = router

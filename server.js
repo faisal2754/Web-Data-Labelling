@@ -44,7 +44,7 @@ async function bruh() {
 
     await labelling.save()
 }
-bruh()
+// bruh()
 
 if (!fs.existsSync('public/uploads')) {
     fs.mkdirSync('public/uploads')
