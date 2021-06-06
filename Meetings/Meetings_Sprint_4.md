@@ -4,12 +4,17 @@ Meeting with Mr Jiahao 25 May 12:00pm:
 
 For Sprint 4:
 
-- Implement job filtering on Available Jobs page (being able to sort through jobs according to different criteria)
-- Get labeling functionality working and capturing responses.
+- Implement not being able to accept your own job
+- Carousel showing top jobs should be based on something specific
+- Notifying the labeler if a job is deleted
+- Get labeling functionality working and capturing responses 
+- Person posting job should define how many labelers can split the job/credits
+  and calculate accordingly
 - Labeling should occur on the site; keep track of current images that have been labeled.
-- Begin labeling on Accepted Jobs page, be directed to new page where we have images side to side with available labels and then save responses. 
-- Job owners should specify how many labellers can split the job/credits and how many credits they will be allocating to the job.
-- Some type of completion feature (either reached max. no. of labelers or job is completed) - Users should also be able to continue labelling from the state that they left off
+- Begin labeling on Accepted Jobs page, be directed to new page where we have images
+  side to side with available labels and then save responses
+- Some type of completion feature (either reached max. no. of labelers or job is completed - 
+  some type of timeline?)
   
 **Team met after meeting to prioritise backlog for Sprint 4
 
@@ -41,8 +46,8 @@ Faisal Saleem (Backend):
 - Impediments: Time
 
 Ghulame Mujtaba Arbi (Backend/Frontend):
-- Tasks completed yesterday: Working on the labelling process.
-- Tasks for the day: Still working on the labelling process and refining frontend design.
+- Tasks completed yesterday: New sprint began.
+- Tasks for the day: Start working on do-job page for labelling process.
 - Impediments: Time/quizzes/projects
 
 Tristan Bester (Backend):
@@ -78,18 +83,18 @@ Jonathan Nunes (Frontend):
 - Impediments: Other university work
 
 Faisal Saleem (Backend):
-- Tasks completed yesterday: Began working on the labelling process.
-- Tasks for the day: Continue work on the labelling process.
+- Tasks completed yesterday: Working on the labelling process.
+- Tasks for the day: Continue work on the labelling process and starting filtering.
 - Impediments: Time
 
 Ghulame Mujtaba Arbi (Backend/Frontend):
 - Tasks completed yesterday: Working on the labelling process.
-- Tasks for the day: Still working on the labelling process and refining frontend design.
+- Tasks for the day: Start filtering job.
 - Impediments: Time/quizzes/projects
 
 Tristan Bester (Backend):
-- Tasks completed yesterday: Began working on the labelling process.
-- Tasks for the day: Continue work on the labelling process.
+- Tasks completed yesterday: Working on the labelling process.
+- Tasks for the day: Continue work on the labelling process and setting up filtering backend.
 - Impediments: Time.
 
 Sipho Sikakane.(Scrum master/Backend)
@@ -120,18 +125,18 @@ Jonathan Nunes (Frontend):
 - Impediments: Other university work
 
 Faisal Saleem (Backend):
-- Tasks completed yesterday: Began working on the labelling process.
-- Tasks for the day: Continue work on the labelling process.
+- Tasks completed yesterday: Worked on labelling and filtering.
+- Tasks for the day: Continue work on the labelling and filtering processes.
 - Impediments: Time
 
 Ghulame Mujtaba Arbi (Backend/Frontend):
-- Tasks completed yesterday: Working on the labelling process.
-- Tasks for the day: Still working on the labelling process and refining frontend design.
+- Tasks completed yesterday: Working on the filtering process.
+- Tasks for the day: Still working on the filtering process and overall frontend polish.
 - Impediments: Time/quizzes/projects
 
 Tristan Bester (Backend):
-- Tasks completed yesterday: Began working on the labelling process.
-- Tasks for the day: Continue work on the labelling process.
+- Tasks completed yesterday: Worked on labelling and filtering.
+- Tasks for the day: Continue work on the labelling and filtering processes.
 - Impediments: Time.
 
 Sipho Sikakane.(Scrum master/Backend)
@@ -167,8 +172,8 @@ Faisal Saleem (Backend):
 - Impediments: Time
 
 Ghulame Mujtaba Arbi (Backend/Frontend):
-- Tasks completed yesterday: Working on the labelling process.
-- Tasks for the day: Still working on the labelling process and refining frontend design.
+- Tasks completed yesterday: Started filtering on available jobs page.
+- Tasks for the day: Polishing designs.
 - Impediments: Time/quizzes/projects
 
 Tristan Bester (Backend):
@@ -204,17 +209,17 @@ Jonathan Nunes (Frontend):
 - Impediments: Other university work
 
 Faisal Saleem (Backend):
-- Tasks completed yesterday: Continued work on the labelling process.
-- Tasks for the day: Fix build failing
+- Tasks completed yesterday: Fix build failing.
+- Tasks for the day: Start setting up labelling database design.
 - Impediments: Time
 
 Ghulame Mujtaba Arbi (Backend/Frontend):
-- Tasks completed yesterday: Started working on labelling process 
-- Tasks for the day: Work on labelling and filtering process
+- Tasks completed yesterday: Polishing frontend. 
+- Tasks for the day: Fixing labelling and filtering issues.
 - Impediments: Time/quizzes/projects
 
 Tristan Bester (Backend):
-- Tasks completed yesterday: Looked at build issues
+- Tasks completed yesterday: Looked at build issues.
 - Tasks for the day: Continue work with supertest and Jest.
 - Impediments: Time.
 
@@ -246,18 +251,18 @@ Jonathan Nunes (Frontend):
 - Impediments: Other university work
 
 Faisal Saleem (Backend):
-- Tasks completed yesterday: Continued work on the labelling process.
+- Tasks completed yesterday: Start setting up labelling database design.
 - Tasks for the day: Fix build failing
 - Impediments: Time
 
 Ghulame Mujtaba Arbi (Backend/Frontend):
-- Tasks completed yesterday: start working labelling process 
-- Tasks for the day: work on labelling and filtering process
+- Tasks completed yesterday: Fixing labelling and filtering issues.
+- Tasks for the day: Working on general polish.
 - Impediments: Time/quizzes/projects
 
 Tristan Bester (Backend):
-- Tasks completed yesterday: Looked at build issues
-- Tasks for the day: Continue work with supertest and Jest.
+- Tasks completed yesterday: Continue work with supertest and Jest.
+- Tasks for the day: Work on labelling database structure.
 - Impediments: Time.
 
 Sipho Sikakane.(Scrum master/Backend)
@@ -288,18 +293,18 @@ Jonathan Nunes (Frontend):
 - Impediments: Other university work
 
 Faisal Saleem (Backend):
-- Tasks completed yesterday: Continued work to fix build failing
-- Tasks for the day: Setup backend for labelling 
+- Tasks completed yesterday: Start setting up labelling database design.
+- Tasks for the day: Continue working on labelling and filtering backend.
 - Impediments: Time
 
 Ghulame Mujtaba Arbi (Backend/Frontend):
-- Tasks completed yesterday: Continued work to fix build failing
-- Tasks for the day: Setup backend for labelling
+- Tasks completed yesterday: Working on general polish.
+- Tasks for the day: Polish and filtering.
 - Impediments: Time/quizzes/projects
 
 Tristan Bester (Backend):
-- Tasks completed yesterday: Continued work to fix build failing
-- Tasks for the day: Setup backend for labelling
+- Tasks completed yesterday: Work on labelling database structure.
+- Tasks for the day: Continue working on labelling and filtering backend.
 - Impediments: Time.
 
 Sipho Sikakane.(Scrum master/Backend)
@@ -330,18 +335,18 @@ Jonathan Nunes (Frontend):
 - Impediments: Other university work
 
 Faisal Saleem (Backend):
-- Tasks completed yesterday: Worked on backend labelling functionality
-- Tasks for the day: Continue to setup backend for labelling
+- Tasks completed yesterday: Continue working on labelling and filtering backend.
+- Tasks for the day: Refine labelling and filtering process.
 - Impediments: Time
 
 Ghulame Mujtaba Arbi (Backend/Frontend):
-- Tasks completed yesterday: Worked on backend labelling functionality
-- Tasks for the day: Continue to setup backend for labelling
+- Tasks completed yesterday: Polish and filtering.
+- Tasks for the day: Finishing up general small frontend tasks.
 - Impediments: Time/quizzes/projects
 
 Tristan Bester (Backend):
-- Tasks completed yesterday: Worked on backend labelling functionality
-- Tasks for the day: Continue to setup backend for labelling
+- Tasks completed yesterday: Continue working on labelling and filtering backend.
+- Tasks for the day: Cleaning up labelling and filtering process funtionality.
 - Impediments: Time.
 
 Sipho Sikakane.(Scrum master/Backend)
