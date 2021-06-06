@@ -56,7 +56,7 @@
               <!-- User Name -->
               <h5 class="text-center"><%= name %> </h5>
               <p><%= new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'long', day: '2-digit'}).format(dateJoined) %></p>
-              <a href="/user-profile" class="text-white btn-gradBlue mt-2">Edit Profile</a>
+              <a href="/user-profile" class="text-white btn-grad mt-2">Edit Profile</a>
                 </div>
               </div>
             
@@ -65,7 +65,7 @@
               <div id="formContent" style="padding: 0px; width: 110%; max-width: 800px;">
             <div class="widget user-dashboard-menu" style="margin-bottom: 0px; padding: 0px; border-radius: inherit;">
               <ul style="margin-bottom: 0px;">
-                <li class="active" style="margin-bottom: 0px;"><a href="/dashboard" style="border-radius: 10px;"><i class="fa fa-user"></i> My Jobs<span><%= userJobs.length %></span></a></li>
+                <li class="active" style="margin-bottom: 0px;"><a href="/dashboard" style="border-radius: 10px; background: #b82af6;"><i class="fa fa-user"></i> My Jobs<span><%= userJobs.length %></span></a></li>
                 <li style="margin-bottom: 0px;"><a href="/accepted-jobs"><i class="fa fa-bookmark-o"></i> Accepted Jobs <span><%= acceptedJobs.length %></span></a></li>
               </ul>
             </div>
