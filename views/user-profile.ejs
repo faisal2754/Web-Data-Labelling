@@ -19,7 +19,7 @@
                                                 <div class="profile-thumb" style="margin-bottom: 15px;">
                                                     <img src="<%= avatar %>" onError="this.onerror=null;this.src='images/user/user-thumb.jpg';" alt="images/user/user-thumb.jpg" class="rounded-circle" style="width: 100px; height: 100px;" >
                                                 </div>
-                                                <h5 class="user-name">
+                                                <h5 class="user-name"> 
                                                     <%= name %>
                                                 </h5>
                                                 <h6 class="email">
@@ -66,7 +66,7 @@
                                         <h6 class="mt-3 mb-2 text-primary">Profile Picture</h6>
                                         <div class="widget user" style="align-items: center;">
                                             <div class="image d-flex justify-content-center">
-                                                <img src="<%= avatar %>" alt="avatar" class="">
+                                                <img src="<%= avatar %>" onError="this.onerror=null;this.src='images/user/user-thumb.jpg';" alt="avatar" class="">
                                             </div>
                                             <input type="file" class="form-control-file mt-2 pt-1" name="image" id="input-file">
                                         </div>
