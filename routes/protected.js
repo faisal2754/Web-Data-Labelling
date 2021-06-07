@@ -110,60 +110,6 @@ router.post('/user-profile', checkAuthenticated, localStorage.single('image'), a
     }
 })
 
-// router.post('/user-profile', checkAuthenticated, localStorage.single('image'), async (req, res) => {
-//     try {
-//         const user = await req.user
-//         const userID = user._id
-//         const dbUser = await User.findOne({ _id: userID })
-
-//         let name = req.body.name
-//         if (!name) {
-//             name = user.name
-//         }
-
-//         let password = req.body.password
-//         if (!password) {
-//             password = user.password
-//         }
-//         let driveImg
-//         if (!req.file) {
-//             console.log('didnt detect image')
-//             driveImg = user.avatar
-//         } else {
-//             console.log(req.file)
-//             const imgPath = 'public/uploads/'
-//             const localImg = String(fs.readdirSync(imgPath))
-
-//             const result = await service.uploadFile(localImg, imgPath)
-//             driveImg = `https://drive.google.com/uc?id=${result.data.id}`
-
-//             fs.rmSync(imgPath + result.data.name)
-//         }
-
-//         dbUser.name = name
-//         dbUser.password = password
-//         dbUser.avatar = driveImg
-
-//         dbUser
-//             .save()
-//             .then((res) => {
-//                 console.log(res)
-//             })
-//             .catch((e) => {
-//                 console.log(e)
-//             })
-
-//         try {
-//             res.redirect('/dashboard')
-//         } catch (error) {
-//             console.log(error)
-//         }
-//     } catch (e) {
-//         console.log(e)
-//         res.redirect(400, '/')
-//     }
-// })
-
 router.post('/cancelJob', checkAuthenticated, async (req, res) => {
     try {
         const id = req.body.jobId
@@ -217,7 +163,7 @@ router.post('/job-label-update', checkAuthenticated, async (req, res) => {
     labellingData.markModified('labellersArr')
     await labellingData.save()
 
-    res.send('bruh')
+    res.redirect('/do-job/' + jobId)
 })
 
 router.get('/do-job/:id', async (req, res) => {
