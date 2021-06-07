@@ -49,11 +49,6 @@ router.get('/accepted-jobs', checkAuthenticated, async (req, res) => {
     })
 })
 
-// router.get('/do-job/:id', (req, res) => {
-
-//     // res.send(req.params.id)
-// })
-
 router.get('/secret-page', checkAuthenticated, (req, res) => {
     res.send('bruh')
 })
@@ -89,8 +84,7 @@ router.post('/user-profile', checkAuthenticated, localStorage.single('image'), a
             password = user.password
         }
 
-        if (req.file) {
-            console.log('printing file')
+        if (req.file || req.body.file) {
             const imgPath = 'public/uploads/'
             const localImg = String(fs.readdirSync(imgPath))
 
@@ -112,24 +106,8 @@ router.post('/user-profile', checkAuthenticated, localStorage.single('image'), a
 
         res.redirect('/dashboard')
     } catch (e) {
-        console.log(e)
         res.redirect('/')
     }
-
-    // dbUser.name = name
-    // dbUser.password = password
-    // // dbUser.avatar = driveImg
-
-    // dbUser
-    //     .save()
-    //     .then((res) => {
-    //         console.log(res)
-    //     })
-    //     .catch((e) => {
-    //         console.log(e)
-    //     })
-
-    // res.redirect('/dashboard')
 })
 
 // router.post('/user-profile', checkAuthenticated, localStorage.single('image'), async (req, res) => {

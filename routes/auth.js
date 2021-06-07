@@ -5,6 +5,7 @@ const User = require('../models/User')
 const Job = require('../models/Job')
 const fs = require('fs')
 const { checkAuthenticated } = require('../middleware/auth.mw')
+const setJobFragments = require('../setJobFragments.js')
 const localStorage = require('../middleware/storage.mw')
 const googleService = require('../googleServices')
 const LabellingFragment = require('../LabellingFragment')
@@ -46,31 +47,6 @@ router.post(
     passport.authenticate('local', { successRedirect: 'dashboard', failureRedirect: 'login', failureFlash: true })
 )
 
-async function setJobFragments(jobId, numLabellers, imgUrlArr) {
-    const fragmentArr = []
-    const imgUrls = imgUrlArr
-    const equalAmount = Math.floor(imgUrls.length / numLabellers)
-    var currentUrl = 0
-    for (let i = 0; i < numLabellers; i++) {
-        let imgFragment
-        if (i == numLabellers - 1) {
-            imgFragment = imgUrls.slice(currentUrl)
-        } else {
-            imgFragment = imgUrls.slice(currentUrl, currentUrl + equalAmount)
-            currentUrl += equalAmount
-        }
-
-        const fragment = new LabellingFragment(null, imgFragment)
-        fragmentArr.push(fragment.getFragment())
-    }
-    const labelling = new Labelling({
-        jobId: jobId,
-        labellersArr: fragmentArr
-    })
-
-    await labelling.save()
-}
-
 router.post('/create-job', checkAuthenticated, localStorage.array('image'), async (req, res) => {
     try {
         const title = req.body.title
@@ -108,8 +84,8 @@ router.post('/create-job', checkAuthenticated, localStorage.array('image'), asyn
         await Job.findOneAndUpdate({ _id: savedJob._id }, { $set: { images: driveImgArr } })
 
         res.redirect('/dashboard')
-        setJobFragments(savedJob._id, savedJob.maxNumLabellers, driveImgArr)
-    } catch {
+        await setJobFragments(savedJob._id, savedJob.maxNumLabellers, driveImgArr)
+    } catch (e) {
         res.redirect(400, '/')
     }
 })
@@ -133,7 +109,7 @@ router.post('/acceptJob', async (req, res) => {
                     }
                 }
             )
-            console.log('starting mongo query')
+
             await Labelling.updateOne(
                 {
                     jobId: jobId,
@@ -154,7 +130,6 @@ router.post('/acceptJob', async (req, res) => {
             })
 
             if (!notFilled) {
-                console.log('filled?')
                 job.filled = true
                 await job.save()
             }

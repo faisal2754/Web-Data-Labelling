@@ -4,6 +4,7 @@ const Job = require('../models/Job')
 router.get('/login', (req, res) => {
     res.render('login')
 })
+
 router.get('/loading-screen', (req, res) => {
     res.render('loading-screen')
 })
@@ -25,7 +26,6 @@ router.get('/', async (req, res) => {
 
 router.get('/available-jobs', async (req, res) => {
     const job = await Job.find({ filled: false })
-    console.log(job)
     const jobCreditsAsc = await Job.find({ filled: false }).sort({ credits: 1 })
     const jobCreditsDesc = await Job.find({ filled: false }).sort({ credits: -1 })
     const jobTitleAsc = await Job.find({ filled: false }).sort({ title: 1 })

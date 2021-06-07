@@ -3,6 +3,7 @@ const User = require('../../models/User')
 const Job = require('../../models/Job')
 const app = require('../testServer')
 const superagent = require('superagent')
+const { setJobFragments } = require('../../routes/auth')
 const { deleteMany } = require('../../models/User')
 const fs = require('fs')
 
@@ -173,12 +174,50 @@ describe('Invalid users should not be added to the database', () => {
     })
 })
 
-describe('Logged in user should be able to create jobs', () => {
+describe('Invalid jobs should not be created', () => {
     afterAll(async (done) => {
         await removeAllCollections()
         done()
     })
-    let agent = superagent.agent({ timeout: 3000 })
+    let agent = superagent.agent({ timeout: 10000 })
+    it('register', registerUser(agent))
+    it('login', loginUser(agent))
+
+    it('should not create a job', async (done) => {
+        agent
+            .post('http://localhost:3000/create-job')
+            .send({})
+            .end((err, res) => {
+                expect(res.status == 400).toBeTruthy()
+                expect(res.text == 'Bad Request. Redirecting to /').toBeTruthy()
+                done()
+            })
+    })
+
+    it('should not create a job', async (done) => {
+        agent
+            .post('http://localhost:3000/create-job')
+            .send({
+                title: 'test title',
+                description: 'test description',
+                credits: 100,
+                labels: ['one', 'two'],
+                emailOwner: 'Test@Test.com'
+            })
+            .end((err, res) => {
+                expect(res.status == 400).toBeTruthy()
+                done()
+            })
+    })
+})
+
+describe('Logged in user should be able to create jobs', () => {
+    jest.setTimeout(10000)
+    afterAll(async (done) => {
+        await removeAllCollections()
+        done()
+    })
+    let agent = superagent.agent({ timeout: 10000 })
     it('register', registerUser(agent))
     it('login', loginUser(agent))
 
@@ -199,27 +238,6 @@ describe('Logged in user should be able to create jobs', () => {
             })
             .end((err, res) => {
                 expect(res.status == 200).toBeTruthy()
-                done()
-            })
-    })
-})
-
-describe('Invalid jobs should not be created', () => {
-    afterAll(async (done) => {
-        await removeAllCollections()
-        done()
-    })
-    let agent = superagent.agent({ timeout: 10000 })
-    it('register', registerUser(agent))
-    it('login', loginUser(agent))
-
-    it('should not create a job', async (done) => {
-        agent
-            .post('http://localhost:3000/create-job')
-            .send({})
-            .end((err, res) => {
-                expect(res.status == 400).toBeTruthy()
-                expect(res.text == 'Bad Request. Redirecting to /').toBeTruthy()
                 done()
             })
     })
