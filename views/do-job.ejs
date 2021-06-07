@@ -82,23 +82,38 @@
 
                         "<% var startLabelIndex %>"
                         "<% var jobComplete = true %>"
+                        
                         "<% for( let j=0; j < labellingData.length; j++ ) { %>"
                             "<% if(labellingData[j].label == null) {%>" 
                                 "<% startLabelIndex = j%>"
-                                console.log("<%= startLabelIndex%>")
                                 "<% jobComplete = false %>"
                                 "<% break %>"
                             "<% } %>"
                         "<% } %>"
 
-                            var jobComplete = "<%= jobComplete%>"
-                            console.log(jobComplete)
 
+                        "<% var labels = [] %>"
+                        "<% for( let k=0; k < labellingData.length; k++ ) { %>"
+                            "<% if(labellingData[k].label == null) {%>" 
+                                "<% labels[k] = 'null'%>"
+                            "<% }else{ %>"
+                                "<% labels[k] = labellingData[k].label%>"
+                            "<% } %>"
+                        "<% } %>"
+
+                            
+                        
+                        
+                            var jobComplete = "<%= jobComplete%>"
                                 
+                            var labels =  "<%= labels%>"
+
                             
 
 
-                            var slideIndex = "<%= startLabelIndex + 1%>";
+
+
+                            var slideIndex = parseInt("<%= startLabelIndex + 1%>");
                             showSlides(slideIndex);
 
                             function plusSlides(n) {
@@ -128,12 +143,24 @@
                                 for (i = 0; i < slides.length; i++) {
                                     slides[i].style.display = "none ";
                                 }
-                                console.log(typeof(jobComplete))
+
                                 if(jobComplete == "false"){
                                     slides[slideIndex - 1].style.display = "block ";
+                                    
+                                    
+                                    // if(labels[slideIndex - 1 ]!=null){
+                                    //     var labelTags = document.getElementsByTagName("label");
+                                    //     var searchText = labels[slideIndex - 1 ];
+                                    //     for (var i = 0; i < labelTags.length; i++) {
+                                    //         if (labelTags[i].textContent == searchText) {
+                                    //             labelTags[i].focus()
+                                    //             break;
+                                    //         }
+                                    //         }
+                                    // }
+                                    
                                 }
                                 else{
-                                    console.log("BROOOOOO")
                                     document.getElementById("labelForm2").style.display = 'none'
                                     document.getElementById("jobCompleted").style.display = 'block'
                                 }
