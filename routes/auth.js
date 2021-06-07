@@ -146,7 +146,7 @@ router.post('/acceptJob', async (req, res) => {
                 }
             )
 
-            const notFilled = Labelling.findOne({
+            const notFilled = await Labelling.findOne({
                 jobId: jobId,
                 labellersArr: {
                     $elemMatch: { email: null }

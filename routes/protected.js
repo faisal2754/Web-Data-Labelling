@@ -213,7 +213,32 @@ router.get('/user-profile', checkAuthenticated, async (req, res) => {
     res.render('user-profile', { name: username, email: userEmail, avatar: userAvatar })
 })
 
-router.post('/job-label-update', async (req, res) => {
+router.post('/job-label-update', checkAuthenticated, async (req, res) => {
+    //init
+    const user = await req.user
+    const reqParams = JSON.parse(JSON.stringify(req.body))
+    const imgIndex = reqParams.imgIndex - 1
+    const label = reqParams.radio
+    var jobId = reqParams.currentUrl
+    jobId = jobId.substring(jobId.lastIndexOf('/') + 1)
+    const labellingData = await Labelling.findOne({
+        jobId: jobId
+    })
+    var imgUrl = ''
+    let x
+    for (let i = 0; i < labellingData.labellersArr.length; i++) {
+        if (labellingData.labellersArr[i].email === user.email) {
+            imgUrl = labellingData.labellersArr[i].labelMapping[imgIndex].imgUrl
+            labellingData.labellersArr[i].labelMapping[imgIndex].label = label
+            x = i
+            break
+        }
+    }
+
+    //db update
+    labellingData.markModified('labellersArr')
+    await labellingData.save()
+
     res.send('bruh')
 })
 

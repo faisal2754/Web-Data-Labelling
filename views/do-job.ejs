@@ -36,8 +36,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-								<% for( let index=0; index < labellingData.length; index++ ) { %>
+
                                 <div class="wrapper fadeInDown" style="width: auto; padding: 0;">
                                     <div id="formContent" style="padding: 20px; width: min-content; max-width: 800px;">
                                         <label style="font-size: inherit; font-weight: 100; color: black;">Select
@@ -47,11 +46,12 @@
 
                                             <div class="container align-middle "
                                                 style="max-width: min-content; padding: 20px; margin-top: 5%;">
-                                                <form action="/job-label-update" methods="POST">
+                                                <form id="labelForm" action="/job-label-update" method="POST">
                                                     <div class="radio-toolbar">
+                                                        <input type="hidden" id="currentUrl" value="" name="currentUrl" />
+                                                        <input type="hidden" id="imgIndex" value="" name="imgIndex" />
                                                         <% for( let i=0; i < labels.length; i++ ) { %>
-
-                                                            <input type="radio" id="<%=labels[i]%>" name="radio" onclick="sendLabel('<%=labels[i]%>')" value="<%=labels[i]%>">
+                                                            <input type="radio" id="<%=labels[i]%>" name="radio" onclick="sendLabel()" value="<%=labels[i]%>">
                                                             <label for="<%=labels[i]%>" style="width: 100;">
                                                                 <%= labels[i] %>
                                                             </label>
@@ -66,13 +66,13 @@
                                         </div>
                                     </div>
                                 </div>
-								<% } %>
                             </div>
                         </div>
 
 
 
                         <script>
+
                             var slideIndex = 1;
                             showSlides(slideIndex);
 
@@ -80,11 +80,11 @@
                                 showSlides(slideIndex += n);
                             }
 							
-                            function sendLabel(answer) {
-
-								var values = [{label: answer}, {imageIndex: slideIndex}]
-							
-
+                            function sendLabel() {
+                                console.log(window.location.href);
+                                document.getElementById("currentUrl").value = window.location.href
+                                document.getElementById("imgIndex").value = slideIndex
+                                document.getElementById("labelForm").submit()
                             }
 
                             function currentSlide(n) {
