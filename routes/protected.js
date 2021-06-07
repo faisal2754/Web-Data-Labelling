@@ -169,7 +169,7 @@ router.post('/job-label-update', checkAuthenticated, async (req, res) => {
 router.get('/do-job/:id', async (req, res) => {
     const user = await req.user
 
-    const labellingData = Labelling.findOne({
+    const labellingData = await Labelling.findOne({
         jobId: req.params.id
     })
 

@@ -8,7 +8,6 @@ const { checkAuthenticated } = require('../middleware/auth.mw')
 const setJobFragments = require('../setJobFragments.js')
 const localStorage = require('../middleware/storage.mw')
 const googleService = require('../googleServices')
-const LabellingFragment = require('../LabellingFragment')
 const Labelling = require('../models/Labelling')
 
 const service = new googleService()
@@ -84,7 +83,7 @@ router.post('/create-job', checkAuthenticated, localStorage.array('image'), asyn
         await Job.findOneAndUpdate({ _id: savedJob._id }, { $set: { images: driveImgArr } })
 
         res.redirect('/dashboard')
-        await setJobFragments(savedJob._id, savedJob.maxNumLabellers, driveImgArr)
+        setJobFragments(savedJob._id, savedJob.maxNumLabellers, driveImgArr)
     } catch (e) {
         res.redirect(400, '/')
     }

@@ -1,5 +1,5 @@
-const { set } = require('mongoose')
 const Labelling = require('./models/Labelling')
+const LabellingFragment = require('./LabellingFragment')
 
 module.exports = async function setJobFragments(jobId, numLabellers, imgUrlArr) {
     const fragmentArr = []
