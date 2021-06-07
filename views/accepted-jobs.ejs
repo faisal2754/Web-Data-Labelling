@@ -74,7 +74,7 @@
                 <tr>
                   <th>Thumbnail</th>
                   <th>Job Title</th>
-                  <th class="text-center">Category</th>
+              
                   <th class="text-center">Action</th>
                 </tr>
               </thead>
@@ -90,7 +90,6 @@
                         <span><strong style="width: 50%;">Credits: </strong><time><%= acceptedJobs[i].credits %></time> </span>
                         <span class="status active"><strong style="width: 50%;">Number of Labellers: </strong> <%= acceptedJobs[i].emailLabellers.length %></span>
                       </td>
-                      <td class="product-category"><span class="categories">Data Labelling</span></td>
                       <td class="action" data-title="Action">
                         <div class="">
                           <ul class="list-inline justify-content-center">
@@ -102,7 +101,7 @@
                             <li class="list-inline-item">
                               <form id="form<%= i %> "action="/cancelJob" method="POST">
                                 <input type="hidden" name="jobId" value="<%= acceptedJobs[i]._id %>" />
-                                <button class="btn btn-danger" title="Cancel Job" style=" width: 40px; height: 40px; border-radius: 40px; font-size: 14px; color: #ffffff; text-align: center; display: inline-block;" name="button"><i class="fa fa-minus-circle"></i></button>
+                                <button class="btn btn-danger-outline" title="Cancel Job" style=" width: 40px; height: 40px; border-radius: 40px; font-size: 14px; text-align: center; display: inline-block;" name="button"><i class="fa fa-minus-circle"></i></button>
                               </form>
                             </li>
                             <!-- <li class="list-inline-item">
@@ -195,5 +194,14 @@
     </div>
     <!-- Container End -->
   </section>
-
+<style>
+  .btn.btn-danger-outline{
+    background-color: #f7f7f7;
+    border-color: white;
+  }
+  .btn-danger-outline:hover{
+    background-color: #c82333;
+    border-color: #bd2130;
+  }
+</style>
 <%- include('footer') %> 
