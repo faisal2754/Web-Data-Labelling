@@ -1,46 +1,6 @@
 ### Meet with Tarshen Monday 24th May to review Sprint 3 get ready to begin Sprint 4
 
-### Meeting with Mr Jiahao 25 May 12:00pm:
-
-Aharon Cohen (Frontend):
-- Tasks completed yesterday: Polishing
-- Tasks for the day: Continue filtering jobs  
-- Impediments: Other projects for ML and CGV
-
-Langiwe Mwale (Frontend):
-- Tasks completed Yesterday: Started to set up filtering
-- Task for the Day: Continue to implement filtering
-- Impediments: Time constraints/projects
-
-Ioanni Balassis: (Frontend)
-- Tasks completed yesterday: Started filter jobs
-- Tasks for the day: Continue filter page
-- Impediments: Other projects for ML, CGV
-
-Jonathan Nunes (Frontend):
-- Tasks completed yesterday: Started filter page
-- Tasks for the day: Continue filter page
-- Impediments: Other university work
-
-Faisal Saleem (Backend):
-- Tasks completed yesterday: Worked on labelling and filtering.
-- Tasks for the day: Continue work on the labelling and filtering processes.
-- Impediments: Time
-
-Ghulame Mujtaba Arbi (Backend/Frontend):
-- Tasks completed yesterday: Working on the filtering process.
-- Tasks for the day: Still working on the filtering process and overall frontend polish.
-- Impediments: Time/quizzes/projects
-
-Tristan Bester (Backend):
-- Tasks completed yesterday: Worked on labelling and filtering.
-- Tasks for the day: Continue work on the labelling and filtering processes.
-- Impediments: Time.
-
-Sipho Sikakane.(Scrum master/Backend)
-- Tasks completed yesterday: Labellers can remove themselves from jobs
-- Tasks for the day: Look into how to structure database for job labelling
-- Impediments: Tests
+## Meeting with Mr Jiahao 25 May 12:00pm:
 
 For Sprint 4:
 
