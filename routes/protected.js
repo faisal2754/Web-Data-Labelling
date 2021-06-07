@@ -161,7 +161,7 @@ router.post('/job-label-update', checkAuthenticated, async (req, res) => {
 
     //db update
     labellingData.markModified('labellersArr')
-    await labellingData.save()
+    labellingData.save()
 
     res.redirect('/do-job/' + jobId)
 })

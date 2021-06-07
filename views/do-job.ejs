@@ -43,7 +43,7 @@
                                     </div>
                                 </div>    
                                 
-                                <div id="labelForm" class="wrapper fadeInDown" style="width: auto; padding: 0;">
+                                <div id="labelForm2" class="wrapper fadeInDown" style="width: auto; padding: 0;">
                                     <div id="formContent" style="padding: 20px; width: min-content; max-width: 800px;">
                                         <label style="font-size: inherit; font-weight: 100; color: black;">Select
                                             Label</label>
@@ -85,6 +85,7 @@
                         "<% for( let j=0; j < labellingData.length; j++ ) { %>"
                             "<% if(labellingData[j].label == null) {%>" 
                                 "<% startLabelIndex = j%>"
+                                console.log("<%= startLabelIndex%>")
                                 "<% jobComplete = false %>"
                                 "<% break %>"
                             "<% } %>"
@@ -127,12 +128,13 @@
                                 for (i = 0; i < slides.length; i++) {
                                     slides[i].style.display = "none ";
                                 }
-                                if(jobComplete == false){
+                                console.log(typeof(jobComplete))
+                                if(jobComplete == "false"){
                                     slides[slideIndex - 1].style.display = "block ";
                                 }
                                 else{
                                     console.log("BROOOOOO")
-                                    document.getElementById("labelForm").style.display = 'none'
+                                    document.getElementById("labelForm2").style.display = 'none'
                                     document.getElementById("jobCompleted").style.display = 'block'
                                 }
                                 //window.slide = slideIndex - 1
