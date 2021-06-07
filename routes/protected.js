@@ -150,6 +150,7 @@ router.post('/job-label-update', checkAuthenticated, async (req, res) => {
     })
     var imgUrl = ''
     let x
+
     for (let i = 0; i < labellingData.labellersArr.length; i++) {
         if (labellingData.labellersArr[i].email === user.email) {
             imgUrl = labellingData.labellersArr[i].labelMapping[imgIndex].imgUrl
