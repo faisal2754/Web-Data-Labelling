@@ -19,7 +19,8 @@
                                                 <div class="slideshow-container" style="width: 1000px; height: 500px;">
                                                     <div id="jobCompleted" style="display: none;">
                                                         <label style="position: absolute; top: 150; left: 75; text-align: center; font-size: xxx-large;">This Job Has Been Completed!</label>
-                                                        <a class="py-3 px-5 btn-grad text-white border-0 rounded font-weight-bold mt-3 popover-test" style="display: initial; position: absolute; bottom: 150; left: 275;" href="/dashboard">Dashboard</a>
+                                                        <a class="py-3 px-5 btn-grad text-white border-0 rounded font-weight-bold mt-3 popover-test" style="display: initial; position: absolute; bottom: 150; left: 90;" href="/dashboard">Submit Job</a>
+                                                        <a class="py-3 px-5 btn-grad text-white border-0 rounded font-weight-bold mt-3 popover-test" style="display: initial; position: absolute; bottom: 150; left: 375; cursor: pointer;" onclick="makeChange()">Make A Change</a>
                                                     </div>
                                                     
                                                     <% for( let index=0; index < labellingData.length; index++ ) { %>
@@ -112,7 +113,7 @@
                             console.log(labels)
 
                             
-
+                            var makeChanges = false
 
 
 
@@ -177,6 +178,15 @@
                                 }
                                 //window.slide = slideIndex - 1
 
+                            }
+
+
+                            function makeChange(){
+                                jobComplete = 'false'
+                                slideIndex = 1
+                                document.getElementById("jobCompleted").style.display = 'none'
+                                document.getElementById("labelForm2").style.display = 'block'
+                                showSlides(slideIndex);
                             }
                         </script>
 
