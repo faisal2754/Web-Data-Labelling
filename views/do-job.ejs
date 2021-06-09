@@ -106,7 +106,10 @@
                         
                             var jobComplete = "<%= jobComplete%>"
                                 
-                            var labels =  "<%= labels%>"
+                            var labels2 =  "<%= labels%>"
+
+                            var labels = labels2.split(',')
+                            console.log(labels)
 
                             
 
@@ -146,18 +149,26 @@
 
                                 if(jobComplete == "false"){
                                     slides[slideIndex - 1].style.display = "block ";
+
+                                    var labelTags = document.getElementsByTagName("label");
+
+                                    for(var p = 0; p < labelTags.length; p++){
+                                        labelTags[p].style.removeProperty('background-color') 
+                                        labelTags[p].style.removeProperty('color') 
+                                    }
                                     
                                     
-                                    // if(labels[slideIndex - 1 ]!=null){
-                                    //     var labelTags = document.getElementsByTagName("label");
-                                    //     var searchText = labels[slideIndex - 1 ];
-                                    //     for (var i = 0; i < labelTags.length; i++) {
-                                    //         if (labelTags[i].textContent == searchText) {
-                                    //             labelTags[i].focus()
-                                    //             break;
-                                    //         }
-                                    //         }
-                                    // }
+                                    if(labels[slideIndex - 1 ]!='null'){
+                                        var searchText = labels[slideIndex - 1 ];
+                                        for (var i = 0; i < labelTags.length; i++) {
+                                            if (labelTags[i].innerText == searchText) {
+                                                labelTags[i].style.backgroundColor = 'rgb(195, 0, 255)'
+                                                labelTags[i].style.color = 'white'
+                                                labelTags[i].cursor = 'pointer'
+                                                
+                                            }
+                                        }
+                                    }
                                     
                                 }
                                 else{
