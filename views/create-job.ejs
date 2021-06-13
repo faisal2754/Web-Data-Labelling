@@ -23,17 +23,20 @@
                   <div class="col-lg-6">
                     <h6 class="font-weight-bold pt-4 pb-1">Title Of Job:</h6>
                     <input type="text" class="type-1 border w-100 p-2 bg-white text-capitalize"
-                      placeholder="Write your job title" name="title" maxlength = "20" required>
+                      placeholder="Write your job title" name="title" maxlength="20" required>
                     <h6 class="font-weight-bold pt-4 pb-1">Description:</h6>
                     <textarea name="description" id="" class="type-1 border p-3 w-100" rows="7"
-                      placeholder="Write details about your job" maxlength = "280" required></textarea>
+                      placeholder="Write details about your job" maxlength="280" required></textarea>
                     <h6 class="font-weight-bold pt-4 pb-1">Add the labels you would like to be used:</h6>
 
                     <td>
                       <ul class="list-group" id="list"></ul>
                       <input type="text" id="candidate" />
                       <!-- <input type="text" name="labels" id="addLabel" /> -->
-                      <a type="button" class="py-3 px-5 btn-grad text-white border-0 rounded font-weight-bold mt-3 popover-test" style="display: initial;padding: 8px 10px!important; cursor: pointer;" value="" onclick="addLabel()">
+                      <a type="button"
+                        class="py-3 px-5 btn-grad text-white border-0 rounded font-weight-bold mt-3 popover-test"
+                        style="display: initial;padding: 8px 10px!important; cursor: pointer;" value=""
+                        onclick="addLabel()">
                         Add Label</a>
                     </td>
 
@@ -80,411 +83,217 @@
                           alert("You cannot have more than 5 labels on a batch of images")
                         }
                       }
-                // Creating a function to remove item from list
-                //function removeItem() {
-                  // Declaring a varible to get select element
-                  //var a = document.getElementById("list");
-                  //var candidate = document.getElementById("candidate");
-                  //var item = document.getElementsByName(candidate.value)[0];
-                  //a.removeChild(item);
-               // }
-
-
-                //var labelList = "";
-                //var i = 0;
-                // function addLabel() {
-                //   var labels = document.getElementById("addLabel").value;
-                //   if (labels != "") {
-                //     labelList += "<li class='list-item'><span name='labelItem' id='labelItem" + i + "'>" + labels + "</span> " +
-                //       "<button class='close' onclick='removeLabel()'>x</button></li>";
-                //     i++;
-                //     document.getElementById("label").innerHTML = labelList;
-                //     document.getElementById("addLabel").value = "";
-                //   }
-                // }
-
-                // function removeLabel() {
-                //   labelList = "";
-                //   var items = document.querySelectorAll("#label li"), index, tab = [];
-                //   for (var j = 0; j < items.length; j++) {
-                //     tab.push(items[j].innerHTML);
-                //   }
-                //   for (var j = 0; j < items.length; j++) {
-                //     items[j].onclick = function () {
-
-                //       index = tab.indexOf(this.innerHTML);
-                //       items[index].parentNode.removeChild(items[index]);
-                //       tab.pop(j, 1);
-                //     };
-                //   }
-
-
-                //}
                     </script>
 
                   </div>
                   <div class="col-lg-6" style="padding-right: 0px;">
-                    <!--<h6 class="font-weight-bold pt-4 pb-1">Select Data Labelling Category:</h6>
-              <select name="" id="inputGroupSelect" class="w-100">
-                <option value="1">Select Category</option>
-                <option value="2">Numerical</option>
-                <option value="3">Time Series</option>
-                <option value="4">Categorical</option>
-                <option value="5">Text</option> 
 
-              </select> -->
                     <div>
                       <h6 class="font-weight-bold pt-4 pb-1">Job Credits and Labellers:</h6>
-                      <div class="row px-3" style="align-items: center; padding-right: 0px!important; box-sizing: inherit!important; justify-content: center;">
-                        <div class="col-lg-4 mr-lg-4 rounded bg-white my-2 " style="flex: 0 0 1; display: contents;" onchange="calculateTotal()">
+                      <div class="row px-3"
+                        style="align-items: center; padding-right: 0px!important; box-sizing: inherit!important; justify-content: center;">
+                        <div class="col-lg-4 mr-lg-4 rounded bg-white my-2 " style="flex: 0 0 1; display: contents;"
+                          onchange="calculateTotal()">
                           <input type="number" pattern="[0-9]" min="1" max="10" name="labellers"
-                            class="type-1 border py-2" placeholder="No. of Labellers" id="labellers" required style="width: 140; margin-right: inherit;">
-                            <input type="number" pattern="[0-9]" min="1" max="5000" name="credits"
-                            class="type-1 border py-2" placeholder="Credits per labeller" id="credits" required style="width: 160;" onchange="calculateTotal()">
-                            
+                            class="type-1 border py-2" placeholder="No. of Labellers" id="labellers" required
+                            style="width: 140; margin-right: inherit;">
+                          <input type="number" pattern="[0-9]" min="1" max="5000" name="credits"
+                            class="type-1 border py-2" placeholder="Credits per labeller" id="credits" required
+                            style="width: 160;" onchange="calculateTotal()">
 
-                            <script>
 
-                              function calculateTotal(){
+                          <script>
+
+                            function calculateTotal() {
                               var maxCredits = document.getElementById("maxCredits");
                               var creditsPerLabeller = document.getElementById("credits").value;
                               var labellers = document.getElementById("labellers").value;
 
-                              maxCredits = creditsPerLabeller*labellers;
+                              maxCredits = creditsPerLabeller * labellers;
 
                               document.getElementById("maxCredits").innerText = "Maximum Assigned Credits: " + maxCredits;
 
-                              }
+                            }
 
-                            </script>
+                          </script>
                         </div>
-                        
+
 
                       </div>
-                      <label style="font-size: large; padding: 10px;" id="maxCredits">Maximum Assigned Credits: 0</label>
-                                  <!--- <h6 class="font-weight-bold pt-4 pb-1">Job Scope:</h6>
-                            <div class="row px-3">
-                              <div class="col-lg-4 mr-lg-4 my-2 rounded bg-white">
-                                <input type="radio" name="itemName" value="personal" id="personal">
-                                <label for="personal" class="py-2">Small</label>
-                              </div>
-                              <div class="col-lg-4 mr-lg-4 my-2 rounded bg-white ">
-                                <input type="radio" name="itemName" value="business" id="business">
-                                <label for="business" class="py-2">Medium</label>
-                              </div>
-                              <div class="col-lg-4 mr-lg-4 my-2 rounded bg-white ">
-                                <input type="radio" name="itemName" value="business" id="business">
-                                <label for="business" class="py-2">Large</label>
-                              </div>
-                            </div> -->
+                      <label style="font-size: large; padding: 10px;" id="maxCredits">Maximum Assigned Credits:
+                        0</label>
+
                     </div>
                     <h6 class="font-weight-bold pt-4 pb-1">Upload Images:</h6>
                     <div class="container-fluid choose-file text-center my-4 py-4 rounded">
                       <label for="file-upload">
                         <span class="d-block font-weight-bold text-dark">Drop files anywhere to upload</span>
                         <span class="d-block">or</span>
-                        <input type="file" class="form-control-file d-none" id="file-upload" name="image" multiple required>
+                        <input type="file" class="form-control-file d-none" id="file-upload" name="image" multiple
+                          required>
                         <div class="container">
-                          <a class="py-3 px-5 btn-grad text-white border-0 rounded font-weight-bold mt-3 popover-test" style="display: initial;" href="javascript:void(0)"
+                          <a class="py-3 px-5 btn-grad text-white border-0 rounded font-weight-bold mt-3 popover-test"
+                            style="display: initial;" href="javascript:void(0)"
                             onclick="$('#file-upload').click()">Upload Image</a>
                           <div class="d-flex rounded flex-wrap preview-images-zone" style="margin-top: 1.5rem;"> </div>
                         </div>
                       </label>
                     </div>
                   </div>
-                  </div>
-                  <div class=" text-center">
-
-                    <button type="submit" class="py-3 px-5 btn-grad text-white border-0 rounded font-weight-bold mt-3 popover-test" style="display: initial;">Post
-                      Your Job</button>
-                  </div>
                 </div>
-                
-          </div>
-          </fieldset>
-          <!-- Post Your ad end -->
+                <div class=" text-center">
 
-          <!-- seller-information start -->
-          <!--<fieldset class="border p-4 my-5 seller-information bg-gray">
-          <div class="row">
-            <div class="col-lg-12">
-              <h3>Seller Information</h3>
-            </div>
-            <div class="col-lg-6">
-              <h6 class="font-weight-bold pt-4 pb-1">Contact Name:</h6>
-              <input type="text" placeholder="Contact name" class="border w-100 p-2">
-              <h6 class="font-weight-bold pt-4 pb-1">Contact Number:</h6>
-              <input type="text" placeholder="Contact Number" class="border w-100 p-2">
-            </div>
-            <div class="col-lg-6">
-              <h6 class="font-weight-bold pt-4 pb-1">Contact Email:</h6>
-              <input type="email" placeholder="name@yourmail.com" class="border w-100 p-2">
-
-            </div>
-          </div>
-        </fieldset>
-         seller-information end
-        <fieldset class="border p-4 my-5 seller-information bg-gray">
-          <div class="row">
-            <div class="col-lg-12">
-              <h3>Preferred Candidate Rating</h3>
-            </div>
-            <div class="col-lg-6">
-              <h6 class="font-weight-bold pt-4 pb-1">Select Candidate Rating:</h6>
-              <select name="" id="inputGroupSelect" class="w-100">
-                <option value="1">Select Rating</option>
-                <option value="2">Any</option>
-                <option value="3">3-5</option>
-                <option value="4">4-5</option>
-                <option value="5">5</option>
-
-              </select>
-            </div>
-            <div class="col-lg-6">
-
-
-            </div>
-          </div>
-        </fieldset> -->
-
-          <!-- ad-feature start -->
-          <!--<fieldset class="border bg-white p-4 my-5 ad-feature bg-gray">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h3 class="pb-3">Make Your Ad Featured
-                            <span class="float-right"><a class="text-right font-weight-normal text-success" href="#">What
-                                    is featured ad ?</a></span>
-                        </h3>
-                    </div>
-                    <div class="col-lg-6 my-3">
-                        <span class="mb-3 d-block">Premium Ad Options:</span>
-                        <ul>
-                            <li>
-                                <input type="radio" id="regular-ad" name="adfeature">
-                                <label for="regular-ad" class="font-weight-bold text-dark py-1">Regular Ad</label>
-                                <span>$00.00</span>
-                            </li>
-                            <li>
-                                <input type="radio" id="Featured-Ads" name="adfeature">
-                                <label for="Featured-Ads" class="font-weight-bold text-dark py-1">Top Featured Ads</label>
-                                <span>$59.00</span>
-                            </li>
-                            <li>
-                                <input type="radio" id="urgent-Ads" name="adfeature">
-                                <label for="urgent-Ads" class="font-weight-bold text-dark py-1">Urgent Ads</label>
-                                <span>$79.00</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-6 my-3">
-                        <span class="mb-3 d-block">Please select the preferred payment method:</span>
-                        <ul>
-                            <li>
-                                <input type="radio" id="bank-transfer" name="adfeature">
-                                <label for="bank-transfer" class="font-weight-bold text-dark py-1">Direct Bank Transfer</label>
-                            </li>
-                            <li>
-                                <input type="radio" id="Cheque-Payment" name="adfeature">
-                                <label for="Cheque-Payment" class="font-weight-bold text-dark py-1">Cheque Payment</label>
-                            </li>
-                            <li>
-                                <input type="radio" id="Credit-Card" name="adfeature">
-                                <label for="Credit-Card" class="font-weight-bold text-dark py-1">Credit Card</label>
-                            </li>
-                        </ul>
-                    </div>
+                  <button type="submit"
+                    class="py-3 px-5 btn-grad text-white border-0 rounded font-weight-bold mt-3 popover-test"
+                    style="display: initial;">Post
+                    Your Job</button>
                 </div>
-            </fieldset>
-            ad-feature start -->
-
-          <!-- submit button -->
-          <!-- <div class="checkbox d-inline-flex">
-          <input type="checkbox" id="terms-&-condition" class="mt-1">
-          <label for="terms-&-condition" class="ml-2">By click you must agree with our
-            <span> <a class="text-success" href="/terms-conditions">Terms & Conditions</a></span>
-          </label> 
-        </div> -->
-
-          </form>
-
-          <!-- <script>
-        console.log('Inside')
-        const form = document.getElementById('form')
-        const file = document.getElementById('file-upload')
-
-        form.addEventListener("submit", (e) => {
-          e.preventDefault()
-
-          console.log(file.files)
-        })
-
-        
-      </script> -->
-
-
+          </div>
 
         </div>
-
-        <script>
-          $(document).ready(function () {
-            document.getElementById('file-upload').addEventListener('change', readImage, false);
-
-            // $(".preview-images-zone").sortable();
-
-            $(document).on('click', '.image-cancel', function () {
-              let no = $(this).data('no');
-              $(".preview-image.preview-show-" + no).remove();
-            });
-          });
-
-
-          var num = 0;
-          function readImage() {
-            if (window.File && window.FileList && window.FileReader) {
-              var files = event.target.files; //FileList object
-              var output = $(".preview-images-zone");
-
-              for (let i = 0; i < files.length; i++) {
-                var file = files[i];
-                if (!file.type.match('image')) continue;
-
-                var picReader = new FileReader();
-
-                picReader.addEventListener('load', function (event) {
-                  var picFile = event.target;
-                  var html = '<div class="preview-image preview-show-' + num + '">' +
-                    '<div class="image-cancel" data-no="' + num + '">x</div>' +
-                    '<div class="image-zone"><img id="pro-img-' + num + '" src="' + picFile.result + '"></div>' +
-                    '<div class="tools-edit-image"></div>' +
-                    '</div>';
-
-                  output.append(html);
-                  num = num + 1;
-                });
-
-                picReader.readAsDataURL(file);
-              }
-              $("#pro-image").val('');
-            } else {
-              console.log('Browser not support');
-            }
-          }
-
-
-
-
-
-
-
-
-
-
-
-
-          var i = 0;
-          function move() {
-            if (i == 0) {
-              i = 1;
-              var elem = document.getElementById("myBar");
-              var width = 10;
-              var id = setInterval(frame, 10);
-              function frame() {
-                if (width >= 100) {
-                  clearInterval(id);
-                  i = 0;
-                } else {
-                  width++;
-                  elem.style.width = width + "%";
-                  elem.innerHTML = width + "%";
-                }
-              }
-            }
-          }
-
-
-        </script>
-
-        <style>
-          .preview-images-zone {
-            width: 100%;
-            border: 1px solid #ddd;
-            min-height: 180px;
-            display: flex;
-            padding: 5px 5px 0px 5px;
-            position: relative;
-            overflow: auto;
-          }
-
-          /* .preview-images-zone>.preview-image:first-child {
-        height: 185px;
-        width: 185px;
-        position: relative;
-        margin-right: 5px;
-      } */
-
-          .preview-images-zone>.preview-image {
-            height: 90px;
-            width: 90px;
-            position: relative;
-            margin-right: 5px;
-            float: left;
-            margin-bottom: 5px;
-          }
-
-          .preview-images-zone>.preview-image>.image-zone {
-            width: 100%;
-            height: 100%;
-          }
-
-          .preview-images-zone>.preview-image>.image-zone>img {
-            width: 100%;
-            height: 100%;
-          }
-
-          .preview-images-zone>.preview-image>.tools-edit-image {
-            position: absolute;
-            z-index: 100;
-            color: #fff;
-            bottom: 0;
-            width: 100%;
-            text-align: center;
-            margin-bottom: 10px;
-            display: none;
-          }
-
-          .preview-images-zone>.preview-image>.image-cancel {
-            font-size: 18px;
-            position: absolute;
-            top: 0;
-            right: 0;
-            font-weight: bold;
-            margin-right: 10px;
-            cursor: pointer;
-            display: none;
-            z-index: 100;
-          }
-
-          .preview-image:hover>.image-zone {
-            /* cursor: pointer; */
-            opacity: .5;
-          }
-
-          .preview-image:hover>.tools-edit-image,
-          .preview-image:hover>.image-cancel {
-            display: block;
-            cursor: pointer;
-          }
-
-          .ui-sortable-helper {
-            width: 90px !important;
-            height: 90px !important;
-          }
-
-          /* .container {
-        padding-top: 50px;
-      } */
-        </style>
+        </fieldset>
+ 
+        </form>
       </div>
+
+      <script>
+        $(document).ready(function () {
+          document.getElementById('file-upload').addEventListener('change', readImage, false);
+
+          // $(".preview-images-zone").sortable();
+
+          $(document).on('click', '.image-cancel', function () {
+            let no = $(this).data('no');
+            $(".preview-image.preview-show-" + no).remove();
+          });
+        });
+
+
+        var num = 0;
+        function readImage() {
+          if (window.File && window.FileList && window.FileReader) {
+            var files = event.target.files; //FileList object
+            var output = $(".preview-images-zone");
+
+            for (let i = 0; i < files.length; i++) {
+              var file = files[i];
+              if (!file.type.match('image')) continue;
+
+              var picReader = new FileReader();
+
+              picReader.addEventListener('load', function (event) {
+                var picFile = event.target;
+                var html = '<div class="preview-image preview-show-' + num + '">' +
+                  '<div class="image-cancel" data-no="' + num + '">x</div>' +
+                  '<div class="image-zone"><img id="pro-img-' + num + '" src="' + picFile.result + '"></div>' +
+                  '<div class="tools-edit-image"></div>' +
+                  '</div>';
+
+                output.append(html);
+                num = num + 1;
+              });
+
+              picReader.readAsDataURL(file);
+            }
+            $("#pro-image").val('');
+          } else {
+            console.log('Browser not support');
+          }
+        }
+        var i = 0;
+        function move() {
+          if (i == 0) {
+            i = 1;
+            var elem = document.getElementById("myBar");
+            var width = 10;
+            var id = setInterval(frame, 10);
+            function frame() {
+              if (width >= 100) {
+                clearInterval(id);
+                i = 0;
+              } else {
+                width++;
+                elem.style.width = width + "%";
+                elem.innerHTML = width + "%";
+              }
+            }
+          }
+        }
+
+
+      </script>
+
+      <style>
+        .preview-images-zone {
+          width: 100%;
+          border: 1px solid #ddd;
+          min-height: 180px;
+          display: flex;
+          padding: 5px 5px 0px 5px;
+          position: relative;
+          overflow: auto;
+        }
+
+        .preview-images-zone>.preview-image {
+          height: 90px;
+          width: 90px;
+          position: relative;
+          margin-right: 5px;
+          float: left;
+          margin-bottom: 5px;
+        }
+
+        .preview-images-zone>.preview-image>.image-zone {
+          width: 100%;
+          height: 100%;
+        }
+
+        .preview-images-zone>.preview-image>.image-zone>img {
+          width: 100%;
+          height: 100%;
+        }
+
+        .preview-images-zone>.preview-image>.tools-edit-image {
+          position: absolute;
+          z-index: 100;
+          color: #fff;
+          bottom: 0;
+          width: 100%;
+          text-align: center;
+          margin-bottom: 10px;
+          display: none;
+        }
+
+        .preview-images-zone>.preview-image>.image-cancel {
+          font-size: 18px;
+          position: absolute;
+          top: 0;
+          right: 0;
+          font-weight: bold;
+          margin-right: 10px;
+          cursor: pointer;
+          display: none;
+          z-index: 100;
+        }
+
+        .preview-image:hover>.image-zone {
+          /* cursor: pointer; */
+          opacity: .5;
+        }
+
+        .preview-image:hover>.tools-edit-image,
+        .preview-image:hover>.image-cancel {
+          display: block;
+          cursor: pointer;
+        }
+
+        .ui-sortable-helper {
+          width: 90px !important;
+          height: 90px !important;
+        }
+
+      </style>
+    </div>
     </div>
     </div>
   </section>

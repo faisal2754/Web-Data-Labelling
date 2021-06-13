@@ -10,7 +10,6 @@
                         <h1 style="color: #ffffff; font-size: 36px;">Explore Label.ml’s Available Jobs</h1>
                         <p><span style="color: #ffffff; font-size: 18px;">All available jobs for you to start labelling
                                 now!</span></p>
-                        <!-- <p><span style="color: #ffffff;">All available jobs for you to start labelling!</span></p> -->
                     </div>
 
 
@@ -30,7 +29,6 @@
                                         <p style="padding-left: 20px;">
                                             Order Jobs By:
                                         </p>
-
                                         <select style="display: block;" name="Jobs" id="Sort" onchange="sort()">
                                             <option value="jobsRecent">Most Recent</option>
                                             <option value="jobsCreditsAsc">Credits Ascending</option>
@@ -38,17 +36,9 @@
                                             <option value="jobsTitleAsc">Job Title</option>
                                         </select>
                                     </div>
-
-
                                 </div>
-
                             </div>
-
-
                             <script>
-                                
-
-
                                 function sort(){
 
                                     var sort = document.getElementById('Sort').value
@@ -335,12 +325,7 @@
                                             <% } %>
                                     </div>
                                 </div>
-
-
-
                                 <!--JOBS CREDITS DESC-->
-
-
                                 <div id="jobsCreditsDesc" class="product-grid-list" style="display: none;">
                                     <div class="row mt-30">
                                         <% for( let i=0; i < allJobsCreditsDesc.length; i++ ) { %>
