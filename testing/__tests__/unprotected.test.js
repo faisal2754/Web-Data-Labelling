@@ -176,14 +176,14 @@ describe('Logged in user should be able to access terms and conditions  page', (
     it('should access terms and conditions page', accessRoute(agent, 'http://localhost:3000/terms-conditions'))
 })
 
-describe('Loading screen should be accessible', () => {
+/*describe('Loading screen should be accessible', () => {
     it('should access loading screen', (done) => {
         superagent.get('http://localhost:3000/loading-screen').end((err, res) => {
             expect(res.status == 200).toBeTruthy()
             done()
         })
     })
-})
+})*/
 
 describe('Logged in user should be able to access how it works page', () => {
     afterAll(async (done) => {
